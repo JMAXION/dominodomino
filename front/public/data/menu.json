@@ -1,0 +1,51 @@
+{
+"menu" : [
+    {"name":"메뉴", "link":"/menu"},
+    {"name":"E쿠폰", "link":"/ecoupon"}, 
+    {"name":"상품권선물", "link":"/gift"}, 
+    {"name":"이벤트·제휴", "link":"/event"}, 
+    {"name":"매장검색", "link":"/storesearch"}, 
+    {"name":"가맹점모집", "link":"/substore"}
+  
+],
+"subMenu" : [
+     [{"name":"도미노소개","link":"/aboutDomino"},
+      {"name":"매니아혜택", "link":"/mania"},
+      {"name":"도미노 모멘트", "link":"/moment"},
+      {"name":"퀵오더", "link":"/quickOrder"},
+      {"name":"단체주문", "link":"/groupOrder"}
+     ],
+     [{"name":"고객센터","link":"/customer"},
+     {"name":"자주하는 질문","link":"/faqlist"},
+     {"name":"문의내역/답변","link":"/qna"}
+    ],
+    [
+        {"name":"회사소개","link":"/company"},
+        {"name":"한국도미노피자","link":"/koreanDomino"},
+        {"name":"광고갤러리","link":"/tvcfList"},
+        {"name":"사회공헌활동","link":"/society"},
+        {"name":"가맹점모집","link":"/substore"},
+        {"name":"인재채용","link":"/joblist"}
+    ],
+    [
+        {"name":"공지사항","link":"/newList"},
+        {"name":"-도미노뉴스","link":"/dominoNews"},
+        {"name":"-보도자료 ","link":"/broadInfo"}
+    ]
+  ],
+  "eventmenu" : [
+    {"name":"이벤트", "link":"/event"},
+    {"name":"제휴할인", "link":"/event/discount"} 
+],
+"pizzamenu" : [
+    {"name":"피자", "link":"/event"},
+    {"name":"하프앤하프", "link":"/halfnhalf"},
+    {"name":"사이드디시", "link":"/event/discount"},
+    {"name":"인기세트메뉴", "link":"/event/discount"},
+    {"name":"마이키친", "link":"/event/discount"},
+    {"name":"음료&기타", "link":"/event/discount"}    
+]
+ 
+}
+
+

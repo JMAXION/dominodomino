@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./css/orderStyle.css";
+import HomeOrder from "./pages/HomeOrder.jsx";
+import PizzaMenu from "./pages/PizzaMenu.jsx";
+import Root from "./pages/Root.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Root />,
+      children: [
+        { path: "/", element: <HomeOrder /> },
+        { path: "/pizzas", element: <PizzaMenu /> },
+      ],
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -1,0 +1,7 @@
+p {
+  color: var(--gray-color);
+}
+
+.law-use-content {
+  list-style: none;
+}

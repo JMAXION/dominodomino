@@ -1,0 +1,10 @@
+.page-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+  /* border: 1px solid red; */
+}
+
+.page-buttons button {
+  width: 400px;
+}

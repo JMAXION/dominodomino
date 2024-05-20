@@ -1,0 +1,17 @@
+.tab-detail-outer {
+  border: 1px solid blue;
+}
+
+.tab-detail {
+  margin-bottom: 50px;
+  border: 1px solid red;
+}
+
+.service-inner-bluebox {
+  background-image: url("https://cdn.dominos.co.kr/renewal2018/w/img/img_special_bg.png");
+  color: white;
+}
+
+.service-inner-bluebox p {
+  color: white;
+}

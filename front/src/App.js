@@ -136,38 +136,14 @@ function App() {
             />
           ),
         },
-        {
-          path: "/",
-          element: <HomeSlider />,
-        },
-        {
-          path: "/law",
-          element: <LawUse />,
-        },
-        {
-          path: "/law/personal",
-          element: <LawPersonal />,
-        },
-        {
-          path: "/law/navi",
-          element: <LawNavi />,
-        },
-        {
-          path: "/law/teen",
-          element: <LawTeen />,
-        },
-        {
-          path: "/law/video",
-          element: <LawVideo />,
-        },
-        {
-          path: "/service",
-          element: <Service />,
-        },
-        {
-          path: "/service/:id",
-          element: <TabDetail />,
-        },
+        { path: "/", element: <HomeSlider /> },
+        { path: "/law", element: <LawUse /> },
+        { path: "/law/personal", element: <LawPersonal /> },
+        { path: "/law/navi", element: <LawNavi /> },
+        { path: "/law/teen", element: <LawTeen /> },
+        { path: "/law/video", element: <LawVideo /> },
+        { path: "/service", element: <Service /> },
+        { path: "/service/:id", element: <TabDetail /> },
         { path: "/", element: <HomeOrder /> },
         { path: "/pizzas", element: <PizzaMenu /> },
         { path: "/mypage", element: <MyPage /> },

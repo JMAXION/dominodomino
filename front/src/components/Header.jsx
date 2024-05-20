@@ -46,8 +46,12 @@ export default function Header(props) {
           </div>
           <div className="header-member">
             <ul className="header-member-list">
-              <li>로그인</li>
-              <li>회원가입</li>
+              <li>
+                <Link to="/login">로그인</Link>
+              </li>
+              <li>
+                <Link to="/signup">회원가입</Link>
+              </li>
               <li>
                 <select className="header-langauge">
                   <option>KOR</option>

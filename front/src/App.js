@@ -32,6 +32,12 @@ import TabDetail from "./pages/TabDetail.jsx";
 import "./css/orderStyle.css";
 import HomeOrder from "./pages/HomeOrder.jsx";
 import PizzaMenu from "./pages/PizzaMenu.jsx";
+import MyPage from "./pages/MyPage.jsx";
+import OrderList from "./components/OrderList.jsx";
+import Coupon from "./components/Coupon.jsx";
+import Certificate from "./components/Certificate.jsx";
+import Qna from "./components/Qna.jsx";
+import Information from "./components/Information.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -149,6 +155,13 @@ function App() {
         },
         { path: "/", element: <HomeOrder /> },
         { path: "/pizzas", element: <PizzaMenu /> },
+        { path: "/mypage", element: <MyPage /> },
+        { path: "/mania", element: <MyPage /> },
+        { path: "/order", element: <OrderList /> },
+        { path: "/coupon", element: <Coupon /> },
+        { path: "/certificate", element: <Certificate /> },
+        { path: "/qna", element: <Qna /> },
+        { path: "/information", element: <Information /> },
       ],
     },
   ]);

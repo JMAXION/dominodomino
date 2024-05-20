@@ -17,7 +17,9 @@
   border-bottom: 1px solid black;
   padding: 20px 0;
 }
-
+.login-form {
+  margin-top: 40px;
+}
 .login-lnlbutton {
   /* border: 1px solid green; */
   display: flex;
@@ -106,14 +108,9 @@
 
 /*!!회원가입  */
 .signup {
-  border: 1px solid green;
   text-align: center;
   padding-bottom: 140px;
   /* background-image: url(../../public/ditto.jpg); */
-}
-.signup h1 {
-  text-align: left;
-  border-bottom: 1px solid black;
 }
 .signup textarea {
   width: 700px;
@@ -170,4 +167,31 @@
 }
 .branch-info div:last-child {
   color: #999;
+}
+
+/* !!나의 정보!! */
+.mania-info {
+  display: flex;
+  justify-content: center;
+  border: 1px solid blue;
+  background-color: black;
+  color: white;
+  padding: 20px 0;
+}
+.mania-info-name,
+.mania-info-order,
+.mania-info-cash {
+  padding: 40px 40px;
+  margin: 0 auto;
+  border: 1px solid red;
+}
+.mania-info-name li:nth-child(3) {
+  background-color: blue;
+  width: 200px;
+  height: 1px;
+}
+.mania-info-order li:last-child,
+.mania-info-cash li:last-child {
+  text-align: center;
+  font-size: 2rem;
 }

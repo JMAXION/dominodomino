@@ -68,6 +68,11 @@ export default function PageTitle({ props }) {
               {props.nav5}
             </Link>
           </li>
+          <li>
+            <Link to={props.link6} className="pageTitle-link">
+              {props.nav6}
+            </Link>
+          </li>
         </ul>
       </div>
     </div>

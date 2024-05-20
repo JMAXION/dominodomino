@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
+import PageTitle2 from "../components/PageTitle2";
 
 const { kakao } = window;
 
 const MapContainer = () => {
+  const [props, setProps] = useState({
+    title: "매장검색",
+    nav1: "매장검색",
+    link1: "/branch",
+  });
   const [city, setCity] = useState("");
   const [district, setDistrict] = useState("");
   const [searchPlace, setSearchPlace] = useState("");
@@ -127,7 +133,7 @@ const MapContainer = () => {
 
   return (
     <div className="content">
-      <h2 className="branch-h2">매장검색</h2>
+      <PageTitle2 props={props} />
       <div className="branch">
         <div className="branch-result">
           <h3>지역검색</h3>

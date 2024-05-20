@@ -1,0 +1,38 @@
+
+.title-wrap{
+    margin-bottom: 2rem;
+}
+
+.title-wrap button{
+   border:none;
+   background-color: red;
+   color: white;
+   width: 50px;
+   height: 25px;
+
+}
+
+.title-wrap p{
+    display: inline;
+    margin-left: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.swiper-pagination{
+    position:absolute;
+}
+
+
+
+.swiper-slide{
+    z-index: -1;
+}
+
+.swiper-wrapper{
+    z-index:-1;
+}
+
+.swiper{
+    z-index: 0;
+}

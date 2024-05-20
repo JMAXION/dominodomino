@@ -1,0 +1,182 @@
+.hnh-container{
+   
+    width: 1200px;
+    overflow:hidden;
+    padding:50px 20px 0;
+    min-height: 700px;
+    margin:0 auto;
+}
+
+.img-wrap{
+    position: absolute;
+    top: 350px;
+    left:calc(5%);
+    z-index: 0;
+    background: #fff;
+    width: 580px;
+    -webkit-transition: top 0.3s ease-in-out;
+    transition: top 0.3s ease-in-out;
+   
+    margin-bottom: 5rem;
+}
+
+.view-box{
+    position: relative;
+    width: 580px;
+    height: 580px;
+    overflow: hidden;
+}
+
+.half-box{
+    width: 580px;
+    height: 580px;
+    background: url(https://cdn.dominos.co.kr/domino/pc/images/menu/pizza_pan.png) no-repeat 0 0;
+    background-size: 100% auto;
+    font-size: 0;
+}
+
+.pizza-box{
+    position: absolute;
+    top: 115px;
+    left: 41px;
+    width: 510px;
+    height: 346px;
+}
+
+.pizza-left-box{
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.sel-pizza{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    text-indent: -999px;
+}
+
+.pizza-right-box{
+    float: right;
+    width: 50%;
+    height: 100%;
+}
+
+
+.detail-wrap{
+    float: right;
+    width: calc(100% - 580px);
+    padding-left: 80px;
+}
+.hnh-title{
+    margin-bottom: 9px;
+    font-size: 29px;
+    font-weight: 700;
+    line-height: 44px;
+    color: #111;
+}
+
+/* 모달 */
+.modal-content{
+   
+    width:1100px;
+    overflow: auto;
+}
+
+.swiper-list li{
+    z-index: 0;
+}
+
+
+.fixed{
+    position:fixed;
+    top:calc(15%);
+}
+
+.btn-wrap2{
+    position: relative;
+    margin: 0 0 12px;
+}
+
+.btn-info{
+    border: 1px solid #ddd;
+    background: #ffffff;
+    color: #111111;
+    padding: 11px 23px 11px 13px;
+    vertical-align: middle;
+    font-size: 13px;
+    line-height: 13px;
+    height: inherit;
+    display: inline-block;
+    width: auto;
+}
+
+.info-title{
+    display: inline-block;
+    font-size: 22px;
+    color: #111;
+    font-weight: 600;
+    margin-left: 50%;
+    transform :translateX(-50%);
+}
+
+.info-list1, .info-list2{
+    list-style-type: none;
+    display: flex;
+}
+
+.info-list1, .info-list2 a{
+    text-decoration: none;
+}
+
+.info-list1 a button, .info-list2 a button{
+    border:0;
+    width:350.6px;
+    height: 60px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+
+table th{
+    font-size: 15px;
+    border-bottom: 1px solid #111;
+    height: 60px;
+    text-align: center;
+    padding: 0px;
+
+}
+
+.country{
+    background-color: orange;
+}
+
+.info-header{
+    font-size: 15px;
+    border-bottom: 1px solid #111;
+    height: 60px;
+    text-align: center;
+    padding: 0px;
+}
+
+.info-header:first-child{
+ width:35%;
+}
+
+
+.info-contents{
+    font-size: 15px;
+    line-height: 24px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.info-contents:first-child{
+    width:35%;
+}

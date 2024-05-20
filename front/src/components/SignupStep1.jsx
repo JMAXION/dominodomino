@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { validateCheckStep1, handleFocus } from "../apis/validate";
+import PageTitle2 from "./PageTitle2";
 
-export default function SignupStep1({ next, formData, handleCheck }) {
+export default function SignupStep1({ next, formData, handleCheck, props }) {
   const [] = useState();
   return (
     <div className="signup">
-      <h1>회원가입</h1>
+      <PageTitle2 props={props} />
       <div>
         <h3>약관동의</h3>
         <p>회원가입에 필요한 약관에 동의해주세요</p>

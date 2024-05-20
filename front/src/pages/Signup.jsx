@@ -4,6 +4,11 @@ import SignupStep2 from "../components/SignupStep2";
 import SignupStep3 from "../components/SignupStep3";
 
 export default function Signup() {
+  const [props, setProps] = useState({
+    title: "회원가입",
+    nav1: "회원가입",
+    link1: "/signup",
+  });
   const [step, setStep] = useState(1);
   const [formData, setFormData] = useState({
     service: false,
@@ -54,6 +59,7 @@ export default function Signup() {
           next={nextStep}
           formData={formData}
           handleCheck={handleCheck}
+          props={props}
         />
       )}
       {step === 2 && (

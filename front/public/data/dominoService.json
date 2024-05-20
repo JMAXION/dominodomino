@@ -1,0 +1,39 @@
+[
+  {
+    "root": "mania",
+    "name": "도미노매니아란?",
+    "image": "https://cdn.dominos.co.kr/renewal2018/w/img/visual_overview.jpg",
+    "title": "DOMINO’S PIZZA",
+    "sub-title": "세계 배달 피자 리더인 한국도미노피자",
+    "desc": "배달 피자 개념이 전무했던 1990년에 1호점 오금점 오픈을 시작으로 한국 시장에 진출한 이후\n 지금까지 피자 대중화를 선도하였습니다."
+  },
+  {
+    "root": "grade",
+    "name": "도미노 매니아 등급별 혜택",
+    "image": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_2-1.jpg"
+  },
+  {
+    "root": "innovation",
+    "name": "도미노 혁신 서비스",
+    "image": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_2-1.jpg",
+    "image2": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_3-2.jpg",
+    "image3": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_3-3.jpg"
+  },
+  {
+    "root": "culture",
+    "name": "도미노 매니아 컬쳐",
+    "image": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_4-2.jpg"
+  },
+  {
+    "root": "teen",
+    "name": "도미노 틴 매니아",
+    "image": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_5-1.jpg",
+    "image2": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_5-2.jpg"
+  },
+  {
+    "root": "dominosDay",
+    "name": "도미노스데이",
+    "image": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_6-1_pc.jpg",
+    "image2": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_6-2_pc.jpg"
+  }
+]

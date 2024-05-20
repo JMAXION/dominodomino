@@ -1,0 +1,29 @@
+/* 
+* Global */
+:root {
+  /* colors */
+  --gray-color: rgb(136, 136, 136);
+}
+
+/* 
+* Commons */
+
+.footer,
+.content {
+  width: 1200px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+ul,
+li,
+p,
+span {
+  margin: 0;
+  padding: 0;
+  letter-spacing: -1px;
+}
+
+* {
+  text-decoration: none;
+}

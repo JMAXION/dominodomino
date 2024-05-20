@@ -40,6 +40,21 @@ import Qna from "./components/Qna.jsx";
 import Information from "./components/Information.jsx";
 
 function App() {
+  /* 
+  브레드 크럼 사용법
+  1. 호출할 페이지에 name, depth1, depth2, depth3, headerName을 입력해 줍니다
+      name : 페이지 이동시 보이는 타이틀
+      depth1 : 첫번째 브레드 크럼
+      depth2 : 두번째 브레드 크럼
+      depth3 : 세번째 브레드 크럼
+      headerName : location 역할과 json에서 해당하는 배열을 호출하기 위해 사용합니다
+  2. 해당 페이지 jsx으로 이동해 파라미터를 똑같이 적어서 받아줍니다  예) export default function Event({name,depth1,depth2,depth3,headerName})
+  3. 해당 페이지 jsx에서  Menuheader를 통해 똑같이 전달해 줍니다  <Menuheader name={name} depth1={depth1}  depth2={depth2} depth3={depth3} headerName={headerName} />
+  
+  관련된 json data/menu.json
+      {name : 해당페이지의 서브메뉴 이름 link : 이동할 경로} 
+*/
+
   const router = createBrowserRouter([
     {
       path: "/",

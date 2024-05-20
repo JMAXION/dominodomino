@@ -9,11 +9,11 @@ import Menuheader from '../components/Menuheader'
 import Maindiscount from '../components/Maindiscount';
 import CardDiscount from '../components/TelecomDiscount';
 
-export default function Event({name,depth1,depth2,depth3, className,headerName}){
+export default function Event({name,depth1,depth2,depth3,headerName}){
 
 return(
 <div className="event-container">
-  <Menuheader name={name} depth1={depth1}  depth2={depth2} depth3={depth3} className={className} headerName={headerName} />
+  <Menuheader name={name} depth1={depth1}  depth2={depth2} depth3={depth3} headerName={headerName} />
    <EventList />
    </div>
 );

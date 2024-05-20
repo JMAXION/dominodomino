@@ -179,8 +179,6 @@ dist
 **/*.backup.*
 **/*.back.*
 
-package-lock.json
-package.json
 node_modules
 
 *.sublime*

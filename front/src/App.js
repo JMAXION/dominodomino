@@ -29,6 +29,9 @@ import LawNavi from "./pages/law/LawNavi.jsx";
 import LawTeen from "./pages/law/LawTeen.jsx";
 import LawVideo from "./pages/law/LawVideo.jsx";
 import TabDetail from "./pages/TabDetail.jsx";
+import "./css/orderStyle.css";
+import HomeOrder from "./pages/HomeOrder.jsx";
+import PizzaMenu from "./pages/PizzaMenu.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -144,6 +147,8 @@ function App() {
           path: "/service/:id",
           element: <TabDetail />,
         },
+        { path: "/", element: <HomeOrder /> },
+        { path: "/pizzas", element: <PizzaMenu /> },
       ],
     },
   ]);

@@ -1,0 +1,60 @@
+{
+  "new": {
+    "title": "New",
+    "list": [
+      {
+        "image": "https://cdn.dominos.co.kr/admin/upload/goods/20240326_Td6eyIV8.jpg",
+        "title": "맥콘 베이컨+클래식 리코타",
+        "lPrice": 16900,
+        "discount": -1000
+      },
+      {
+        "image": "https://cdn.dominos.co.kr/admin/upload/goods/20240326_Sby1plV9.jpg",
+        "title": "클래식 리코타+소시지 맥스",
+        "lPrice": 17400,
+        "discount": -1000
+      },
+      {
+        "image": "https://cdn.dominos.co.kr/admin/upload/goods/20240326_0j7mUmht.jpg",
+        "title": "맥콘 베이컨+마라 불고기",
+        "lPrice": 17400,
+        "discount": -1000
+      },
+      {
+        "image": "https://cdn.dominos.co.kr/admin/upload/goods/20240326_Td6eyIV8.jpg",
+        "title": "소시지 맥스+맵퍼로니",
+        "lPrice": 17900,
+        "discount": -1000
+      }
+    ]
+  },
+  "premium": {
+    "title": "프리미엄",
+    "list": [
+      {
+        "image": "https://cdn.dominos.co.kr/admin/upload/goods/20231215_965Hu68d.jpg",
+        "title": "브리스킷 바비Q",
+        "mPrice": 29000,
+        "lPrice": 34900
+      },
+      {
+        "image": "https://cdn.dominos.co.kr/admin/upload/goods/20230612_A5Qaqy05.jpg",
+        "title": "치즈 크레이프 샌드",
+        "mPrice": 29000,
+        "lPrice": 34900
+      },
+      {
+        "image": "https://cdn.dominos.co.kr/admin/upload/goods/20230619_hybtjkBv.jpg",
+        "title": "아보카도 새우",
+        "mPrice": 20500,
+        "lPrice": 27900
+      },
+      {
+        "image": "https://cdn.dominos.co.kr/admin/upload/goods/20220830_c3Lh4i3H.jpg",
+        "title": "와일드 와일드 웨스트 스테이크",
+        "mPrice": 28000,
+        "lPrice": 33900
+      }
+    ]
+  }
+}

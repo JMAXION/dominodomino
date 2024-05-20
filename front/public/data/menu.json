@@ -4,7 +4,7 @@
     { "name": "E쿠폰", "link": "/ecoupon" },
     { "name": "상품권선물", "link": "/gift" },
     { "name": "이벤트·제휴", "link": "/event" },
-    { "name": "매장검색", "link": "/storesearch" },
+    { "name": "매장검색", "link": "/branch" },
     { "name": "가맹점모집", "link": "/substore" }
   ],
   "subMenu": [

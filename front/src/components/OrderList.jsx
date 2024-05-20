@@ -2,6 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import PageTitle from "../components/PageTitle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHtml5 } from "@fortawesome/free-brands-svg-icons";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Mania() {
   const [props, setprops] = useState({
@@ -13,17 +19,35 @@ export default function Mania() {
     nav5: "1:1문의/칭찬",
     nav6: "정보수정",
     // breadcrumbLink: "/law",
-    link1: "/mania",
-    link2: "/order",
-    link3: "/coupon",
-    link4: "/certificate",
-    link5: "/qna",
-    link6: "/information",
+    link1: "/mypage/mania",
+    link2: "/mypage/order",
+    link3: "/mypage/coupon",
+    link4: "/mypage/certificate",
+    link5: "/mypage/qna",
+    link6: "/mypage/information",
   });
   return (
     <div className="content">
       <PageTitle props={props} />
-      <h1>OrderList</h1>
+      <ul className="order-info">
+        <ul className="order-information">
+          <li>
+            <span>장현수</span>님이 주문하신 내역입니다
+          </li>
+          <li></li>
+          <li>주문을 취소하시려면 해당 매장으로 전화하셔야 합니다.</li>
+          <li>
+            예약 주문 취소는 4판 이하 주문, 예약시간 기준
+            <span> 1시간 이상</span> 남았을 시 취소 가능합니다
+          </li>
+        </ul>
+        <ul className="order-useinfo">
+          <li>
+            이용안내
+            <FontAwesomeIcon icon={faChevronRight} />
+          </li>
+        </ul>
+      </ul>
     </div>
   );
 }

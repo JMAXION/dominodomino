@@ -195,3 +195,37 @@
   text-align: center;
   font-size: 2rem;
 }
+
+.order-info {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid blue;
+  background-color: black;
+  color: white;
+  padding: 40px 0;
+}
+.order-information {
+  border: 1px solid red;
+  margin-left: 40px;
+  padding: 20px 40px;
+}
+.order-information li:first-child {
+  font-size: 1.5rem;
+}
+.order-information li:first-child span {
+  font-weight: bold;
+}
+.order-information li:nth-child(2) {
+  background-color: blue;
+  width: 400px;
+  height: 1px;
+  margin-bottom: 20px;
+}
+.order-information li:last-child span {
+  color: red;
+}
+.order-useinfo {
+  margin-top: 40px;
+  margin-right: 40px;
+  padding: 20px 40px;
+}

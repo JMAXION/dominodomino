@@ -38,6 +38,7 @@ import Coupon from "./components/Coupon.jsx";
 import Certificate from "./components/Certificate.jsx";
 import Qna from "./components/Qna.jsx";
 import Information from "./components/Information.jsx";
+import Mania from "./components/Mania.jsx";
 
 function App() {
   /* 
@@ -146,13 +147,13 @@ function App() {
         { path: "/service/:id", element: <TabDetail /> },
         { path: "/", element: <HomeOrder /> },
         { path: "/pizzas", element: <PizzaMenu /> },
-        { path: "/mypage", element: <MyPage /> },
-        { path: "/mania", element: <MyPage /> },
-        { path: "/order", element: <OrderList /> },
-        { path: "/coupon", element: <Coupon /> },
-        { path: "/certificate", element: <Certificate /> },
-        { path: "/qna", element: <Qna /> },
-        { path: "/information", element: <Information /> },
+        { path: "/mypage", element: <Mania /> },
+        { path: "/mypage/mania", element: <Mania /> },
+        { path: "/mypage/order", element: <OrderList /> },
+        { path: "/mypage/coupon", element: <Coupon /> },
+        { path: "/mypage/certificate", element: <Certificate /> },
+        { path: "/mypage/qna", element: <Qna /> },
+        { path: "/mypage/information", element: <Information /> },
       ],
     },
   ]);

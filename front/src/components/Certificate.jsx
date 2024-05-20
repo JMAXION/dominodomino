@@ -13,17 +13,34 @@ export default function Certificate() {
     nav5: "1:1문의/칭찬",
     nav6: "정보수정",
     // breadcrumbLink: "/law",
-    link1: "/mania",
-    link2: "/order",
-    link3: "/coupon",
-    link4: "/certificate",
-    link5: "/qna",
-    link6: "/information",
+    link1: "/mypage/mania",
+    link2: "/mypage/order",
+    link3: "/mypage/coupon",
+    link4: "/mypage/certificate",
+    link5: "/mypage/qna",
+    link6: "/mypage/information",
   });
   return (
     <div className="content">
       <PageTitle props={props} />
-      <h1>Certificate</h1>
+      <ul className="mania-info">
+        <ul className="mania-info-name">
+          <li>장현수님</li>
+          <li>REGULAR</li>
+          <li></li>
+          <li>등급별 혜택 보기</li>
+        </ul>
+        <ul className="mania-info-order">
+          <li>주문</li>
+          <li>2024.02 ~ 2024.04</li>
+          <li>0</li>
+        </ul>
+        <ul className="mania-info-cash">
+          <li>주문금액</li>
+          <li>2024.01 ~ 2024.05</li>
+          <li>0</li>
+        </ul>
+      </ul>
     </div>
   );
 }

@@ -3,20 +3,20 @@ import Breadcrumb from './Breadcrumb';
 
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import { boldControl } from './boldControl';
 
 
-export default function Menuheader({name, depth1, depth2,depth3,className,headerName,location1}){
+export default function Menuheader({name, depth1, depth2,depth3,headerName}){
     const [menuList, setMenuList] = useState([])
 
     const [isAllVaild, setIsAllVaild] = useState(false);
     useEffect(()=> {
         axios.get('/data/menu.json')
         .then(res=> {
-            if(headerName === 'halfnhalf'){
+            if(headerName === 'menu'){
                 setMenuList(res.data.pizzamenu)
             }
-            else if(headerName === 'event'){
-
+            else if(headerName === 'event/discount'||'event'){
                 setMenuList(res.data.eventmenu)
             }
            
@@ -25,7 +25,7 @@ export default function Menuheader({name, depth1, depth2,depth3,className,header
         .catch(error=> console.log(error))
     })
      
-
+  
 
 const handleBtnClick = (e) => {
     console.log(e);
@@ -40,7 +40,7 @@ const handleBtnClick = (e) => {
             <h1>{name}</h1>
         </div>
         <div className="menu-header-bread-crumb">
-            <Breadcrumb depth1={depth1} depth2={depth2} depth3={depth3} location1={location1}/>
+            <Breadcrumb depth1={depth1} depth2={depth2} depth3={depth3}  headerName={headerName}/>
         </div>
       
     </div>
@@ -48,8 +48,8 @@ const handleBtnClick = (e) => {
         <ul className="menu-header-list">
             {menuList.map(obj => (
               
-                    <li className="menu-header-list-name">
-                        <Link to={obj.link}>{obj.name}</Link>
+                    <li className="menu-header-list-name sub-list-name">
+                        <Link to={obj.link} value={obj.name} className={depth3 === obj.name ? 'abc': 'bbc'}>{obj.name}</Link>
                     </li>
            
             ))}

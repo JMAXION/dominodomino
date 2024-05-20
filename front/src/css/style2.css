@@ -71,7 +71,7 @@ a{
 .header-promotion-input{
     border:none;
     width:320px;
-    height: 28px;
+    height: 30px;
     font-weight: bolder;
     
 }
@@ -473,3 +473,12 @@ pre{
   /* 모달끝 */
 
 
+.abc{
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.bbc{
+  font-weight: 400;
+  font-size : 14px;
+}

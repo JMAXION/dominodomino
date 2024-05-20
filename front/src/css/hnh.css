@@ -10,10 +10,10 @@
 .img-wrap{
     position: absolute;
     top: 350px;
-    left:calc(5%);
+    left:calc(18%);
     z-index: 0;
     background: #fff;
-    width: 580px;
+    width: 500px;
     -webkit-transition: top 0.3s ease-in-out;
     transition: top 0.3s ease-in-out;
    
@@ -22,14 +22,14 @@
 
 .view-box{
     position: relative;
-    width: 580px;
-    height: 580px;
+    width: 500px;
+    height: 500px;
     overflow: hidden;
 }
 
 .half-box{
-    width: 580px;
-    height: 580px;
+    width: 500px;
+    height: 500px;
     background: url(https://cdn.dominos.co.kr/domino/pc/images/menu/pizza_pan.png) no-repeat 0 0;
     background-size: 100% auto;
     font-size: 0;
@@ -136,6 +136,9 @@
     width:350.6px;
     height: 60px;
 }
+.info-list2{
+    margin-bottom: 1rem;
+}
 
 table{
     width: 100%;
@@ -154,19 +157,30 @@ table th{
 }
 
 .country{
-    background-color: orange;
+    background-color: white;
 }
 
 .info-header{
     font-size: 15px;
-    border-bottom: 1px solid #111;
+
     height: 60px;
     text-align: center;
     padding: 0px;
+    width: 70px;
+    background-color: #ddd;
 }
 
 .info-header:first-child{
  width:35%;
+}
+
+.info-contents3{
+width:32.5%;
+text-align: center;
+}
+
+.set-info-header:first-child{
+    width: 35%;
 }
 
 
@@ -175,8 +189,90 @@ table th{
     line-height: 24px;
     padding: 10px 0;
     text-align: center;
+    width:70px;
 }
 
 .info-contents:first-child{
     width:35%;
+}
+
+.line{
+    background-color:white;
+
+    z-index: 1;
+}
+
+
+
+.set-info-contents{
+    width: 9%;
+}
+
+.nutritional-pizza .info-contents:nth-child(1){
+    width:70px;
+}
+
+.set-info-contents{
+   width: 19%;
+}
+
+.info-contents22{
+    width:33px;
+}
+
+.info-contents3{
+    width: 70px;
+}
+
+.set-info-header:nth-child(2){
+    width:40px;
+}
+
+.nutritional-side{
+  width:100%;
+}
+
+.nutritional-side td:first-child{ 
+    width: 122px;
+}
+.nutritional-side td{ 
+    width: 123px;
+}
+
+.info-list2 a button {
+    background-color: white;
+    border-bottom: 1px solid black;
+}
+
+.info-list2 a .line{
+    border-bottom: 3px solid black;
+}
+
+.allergy-kitchen{
+    float:right;
+    width:337.75px;
+}
+
+.allergy-kitchen td:first-child{
+    width:337.75px;
+}
+
+.set-info-contents2{
+    text-align: center;
+}
+
+.pizza-left-box .sel-pizza img{
+    left:0;
+    position: absolute;
+    top: 0;
+    display: block;
+    width: auto;
+}
+
+.pizza-right-box .sel-pizza img{
+    right:0;
+    position: absolute;
+    top: 0;
+    display: block;
+    width: auto;
 }

@@ -40,7 +40,7 @@ export default function Swiper() {
 
   useEffect(() => {
     if (play) {
-      const timer = setTimeout(() => rightArrowClickHandler(), 10000);
+      const timer = setTimeout(() => rightArrowClickHandler(), 5000);
       setCurrentTimerId(timer);
     }
   }, [currentSlide, play]);

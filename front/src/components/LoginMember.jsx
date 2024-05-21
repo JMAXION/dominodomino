@@ -10,7 +10,6 @@ export default function LoginMember() {
   };
   return (
     <div className="content">
-      <h2 className="login-h2">로그인</h2>
       <form className="login-form">
         <ul>
           <li className="login-lnlbutton">

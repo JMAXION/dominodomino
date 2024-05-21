@@ -13,7 +13,7 @@
 }
 
 /* !!로그인 */
-.login-h2 {
+.login-title {
   border-bottom: 1px solid black;
   padding: 20px 0;
 }
@@ -27,7 +27,7 @@
 }
 
 .login-lnlbutton button {
-  padding: 10px 50px;
+  padding: 10px 100px;
   border: none;
 }
 .login-lnlbtn1 button {
@@ -62,7 +62,7 @@
 }
 .login-id input,
 .login-pass input {
-  width: 325px;
+  width: 425px;
   height: 30px;
 }
 .login-save-find {
@@ -104,6 +104,23 @@
   border: 1px solid gray;
   background-color: white;
   border-radius: none;
+}
+
+.login-nonmember-form {
+  border: 1px solid green;
+  margin: 40px auto;
+}
+.login-nonmember-term {
+  margin-top: 40px;
+}
+.login-nonmember-term * {
+  margin: 10px 0;
+}
+.login-nonmember-signup {
+  font-size: 1rem;
+}
+.login-nonmember-signup span {
+  font-weight: bold;
 }
 
 /*!!회원가입  */

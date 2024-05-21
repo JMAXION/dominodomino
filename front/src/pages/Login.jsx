@@ -16,7 +16,9 @@ export default function LoginMember() {
   };
   return (
     <div className="content">
-      <PageTitle2 props={props} />
+      <p className="login-title">
+        <PageTitle2 props={props} />
+      </p>
       <form className="login-form">
         <ul>
           <li className="login-lnlbutton">

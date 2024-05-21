@@ -9,9 +9,9 @@
   ],
   "subMenu": [
     [
-      { "name": "도미노소개", "link": "/aboutDomino" },
-      { "name": "매니아혜택", "link": "/mania" },
-      { "name": "도미노 모멘트", "link": "/moment" },
+      { "name": "도미노서비스", "link": "/aboutDomino" },
+      { "name": "매니아혜택", "link": "/service/mania" },
+      { "name": "도미노 모멘트", "link": "/service/moment" },
       { "name": "퀵오더", "link": "/quickOrder" },
       { "name": "단체주문", "link": "/groupOrder" }
     ],

@@ -38,6 +38,7 @@ import Coupon from "./components/Coupon.jsx";
 import Certificate from "./components/Certificate.jsx";
 import Qna from "./components/Qna.jsx";
 import Information from "./components/Information.jsx";
+import LoginNonmember from "./components/LoginNonmember.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -49,6 +50,7 @@ function App() {
         { path: "/", element: <Home /> },
         { path: "/signup", element: <Signup /> },
         { path: "/login", element: <Login /> },
+        { path: "/nonmember", element: <LoginNonmember /> },
         { path: "/branch", element: <MapContainer /> },
         { path: "/menu", element: <Home /> },
         {
@@ -121,47 +123,23 @@ function App() {
             />
           ),
         },
-        {
-          path: "/",
-          element: <HomeSlider />,
-        },
-        {
-          path: "/law",
-          element: <LawUse />,
-        },
-        {
-          path: "/law/personal",
-          element: <LawPersonal />,
-        },
-        {
-          path: "/law/navi",
-          element: <LawNavi />,
-        },
-        {
-          path: "/law/teen",
-          element: <LawTeen />,
-        },
-        {
-          path: "/law/video",
-          element: <LawVideo />,
-        },
-        {
-          path: "/service",
-          element: <Service />,
-        },
-        {
-          path: "/service/:id",
-          element: <TabDetail />,
-        },
+        { path: "/", element: <HomeSlider /> },
+        { path: "/law", element: <LawUse /> },
+        { path: "/law/personal", element: <LawPersonal /> },
+        { path: "/law/navi", element: <LawNavi /> },
+        { path: "/law/teen", element: <LawTeen /> },
+        { path: "/law/video", element: <LawVideo /> },
+        { path: "/service", element: <Service /> },
+        { path: "/service/:id", element: <TabDetail /> },
         { path: "/", element: <HomeOrder /> },
         { path: "/pizzas", element: <PizzaMenu /> },
         { path: "/mypage", element: <MyPage /> },
-        { path: "/mania", element: <MyPage /> },
-        { path: "/order", element: <OrderList /> },
-        { path: "/coupon", element: <Coupon /> },
-        { path: "/certificate", element: <Certificate /> },
-        { path: "/qna", element: <Qna /> },
-        { path: "/information", element: <Information /> },
+        { path: "/mypage/mania", element: <MyPage /> },
+        { path: "/mypage/order", element: <OrderList /> },
+        { path: "/mypage/coupon", element: <Coupon /> },
+        { path: "/mypage/certificate", element: <Certificate /> },
+        { path: "/mypage/qna", element: <Qna /> },
+        { path: "/mypage/information", element: <Information /> },
       ],
     },
   ]);

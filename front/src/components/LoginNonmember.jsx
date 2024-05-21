@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import PageTitle2 from "./PageTitle2";
 
 export default function LoginNonmember() {
   const clickChange = () => {
@@ -8,10 +9,17 @@ export default function LoginNonmember() {
   const clickAlert = () => {
     alert("도미노피자 회원가입 시 배달 20% 할인쿠폰 드립니다!");
   };
+  const [props, setProps] = useState({
+    title: "로그인",
+    nav1: "로그인",
+    link1: "/login",
+  });
   return (
     <div className="content">
-      <h2 className="login-h2">로그인</h2>
-      <form className="login-form">
+      <p className="login-title">
+        <PageTitle2 props={props} />
+      </p>
+      <form className="login-nonmember-form">
         <ul>
           <li className="login-lnlbutton">
             <Link to="/login" className="login-lnlbtn2">
@@ -26,7 +34,7 @@ export default function LoginNonmember() {
             </Link>
           </li>
           <li className="login-nonmember-term">
-            <p>
+            <p className="login-nonmember-signup">
               아직 도미노피자 회원이 아니세요?{" "}
               <span>
                 <Link to="/signup">회원가입</Link>

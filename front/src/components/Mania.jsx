@@ -12,12 +12,12 @@ export default function Mania() {
     nav5: "1:1문의/칭찬",
     nav6: "정보수정",
     // breadcrumbLink: "/law",
-    link1: "/mania",
-    link2: "/order",
-    link3: "/coupon",
-    link4: "/certificate",
-    link5: "/qna",
-    link6: "/information",
+    link1: "/mypage/mania",
+    link2: "/mypage/order",
+    link3: "/mypage/coupon",
+    link4: "/mypage/certificate",
+    link5: "/mypage/qna",
+    link6: "/mypage/information",
   });
   return (
     <div className="content">

@@ -3,7 +3,6 @@ import { validateCheckStep1, handleFocus } from "../apis/validate";
 import PageTitle2 from "./PageTitle2";
 
 export default function SignupStep1({ next, formData, handleCheck, props }) {
-  const [] = useState();
   return (
     <div className="signup">
       <PageTitle2 props={props} />

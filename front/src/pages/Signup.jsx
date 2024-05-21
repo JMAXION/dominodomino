@@ -69,6 +69,7 @@ export default function Signup() {
           formData={formData}
           handleChange={handleChange}
           handleAddress={handleAddress}
+          props={props}
         />
       )}
       {step === 3 && <SignupStep3 />}

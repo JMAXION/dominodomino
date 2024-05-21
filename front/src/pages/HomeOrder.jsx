@@ -7,7 +7,7 @@ import {
   faCircleArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function Home() {
+export default function HomeOrder() {
   return (
     <div className="content">
       <div className="icon-container">

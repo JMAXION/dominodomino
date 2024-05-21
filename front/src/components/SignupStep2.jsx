@@ -5,6 +5,7 @@ import {
   passCheck,
   changeEmailDomain,
 } from "../apis/validate";
+import PageTitle2 from "./PageTitle2";
 
 export default function SignupStep2({
   pre,
@@ -12,6 +13,7 @@ export default function SignupStep2({
   formData,
   handleChange,
   handleAddress,
+  props,
 }) {
   const refs = {
     userIdRef: useRef(null),
@@ -54,7 +56,7 @@ export default function SignupStep2({
 
   return (
     <div className="signup">
-      <h1>회원가입</h1>
+      <PageTitle2 props={props} />
       <ul className="signup1">
         <li>
           <p>

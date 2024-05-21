@@ -40,19 +40,21 @@ export default function LoginNonmember() {
                 <Link to="/signup">회원가입</Link>
               </span>
             </p>
-            <p>
+          </li>
+          <li className="login-nonmember-term-agree">
+            <p className="login-nonmember-checkbox1">
               <input type="checkbox" /> 비회원 약관 전체 동의
             </p>
-            <p>
+            <p className="login-nonmember-checkbox2">
               <input type="checkbox" /> 비회원 개인정보 수집 및 이용 동의 (필수)
             </p>
-            <p>
+            <p className="login-nonmember-checkbox3">
               <input type="checkbox" /> 이용약관 동의 (필수)
             </p>
-            <p>
+            <p className="login-nonmember-checkbox4">
               <input type="checkbox" /> 본인은 만 14세 이상입니다 (필수)
             </p>
-            <p>
+            <p className="login-nonmember-warning">
               개인정보 수집 및 이용약관에 대한 동의를 거부하실 수 있으나, <br />
               거부 시 주문 등 주요 서비스 등의 이용이 불가합니다.
             </p>
@@ -80,11 +82,11 @@ export default function LoginNonmember() {
             <p>비회원 주문 시 매니아 및 제휴할인 혜택을 받을 수 없습니다.</p>
             <p>
               도미노피자의 특별한 매니아 혜택을 누려보세요!{" "}
-              <span>매니아 혜택</span>
+              <Link to="/service/mania">매니아 혜택</Link>
             </p>
             <p>
               10대 고객에게만 드리는 특별한 혜택을 마음껏 누려보세요!{" "}
-              <span>틴 매니아</span>
+              <Link to="/service/teen">틴 매니아</Link>
             </p>
           </li>
         </ul>

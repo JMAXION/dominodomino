@@ -1,31 +1,13 @@
-/* 기본 설정 값 */
-.header,
-.footer,
-.content,
-div,
-nav,
-ul,
-li,
-p {
-  margin: 0;
-  padding: 0;
-}
-
-.header,
-.footer,
-.content {
-  width: 1200px;
-  margin: auto;
-}
-
-/* Home.jsx */
+/* HomeOrder.jsx */
 
 .icon {
   display: block;
+  height: 30px;
+  margin-bottom: 10px;
 }
 
 .icon-container {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   display: flex;
   width: 850px;
   margin: 0 auto;
@@ -33,14 +15,14 @@ p {
 }
 
 .icon-box {
-  border: 1px solid tomato;
+  /* border: 1px solid tomato; */
   margin: 0 auto;
   text-align: left;
   align-items: center;
 }
 
 .icon-box-content {
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   align-items: center;
   margin: 10px;
 }
@@ -60,7 +42,8 @@ p {
 .subtitle {
   font-size: 16px;
   display: block;
-  margin-top: 5px;
+  margin-top: 17px;
+  color: #888888;
 }
 
 .delivery {

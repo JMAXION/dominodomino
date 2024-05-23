@@ -1,6 +1,10 @@
-import "./css/orderStyle.css";
+import "./css/order.css";
+import "./css/pizzaMenu.css";
+import "./css/rootStyle.css";
+import "./css/pizzaModalButton.css";
+import "./css/pizzaModalContent.css";
 import HomeOrder from "./pages/HomeOrder.jsx";
-import PizzaMenu from "./pages/PizzaMenu.jsx";
+import PizzaMenu from "./pages/AllPizzaMenu.jsx";
 import Root from "./pages/Root.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 

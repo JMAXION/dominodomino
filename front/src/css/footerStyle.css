@@ -1,6 +1,6 @@
-/* .footer-outer {
-  border: 1px solid red;
-} */
+.footer-border {
+  border-bottom: 1px solid var(--divide-color);
+}
 
 /** contact */
 .footer-contact {

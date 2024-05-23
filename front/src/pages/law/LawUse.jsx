@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "../../css/law.css";
-import PageTitle from "../../component/PageTitle";
+import PageTitle from "../../components/PageTitle";
 
-export default function Shop() {
+export default function Shop({ depth2 }) {
   const [props, setprops] = useState({
     title: "이용약관",
     nav1: "이용약관",
@@ -10,7 +10,6 @@ export default function Shop() {
     nav3: "위치기반 서비스 이용약관",
     nav4: "청소년 보호방침",
     nav5: "영상정보처리기기 운영관리방침",
-    // breadcrumbLink: "/law",
     link1: "/law",
     link2: "/law/personal",
     link3: "/law/navi",
@@ -20,7 +19,7 @@ export default function Shop() {
   return (
     <div className="content">
       {/* 페이지 타이틀 */}
-      <PageTitle props={props} />
+      <PageTitle props={props} depth2={depth2} />
       {/* 본문 */}
       <p>도미노피자 서비스의 이용과 관련하여 필요한 사항을 규정합니다.</p>
       <ul className="law-use-content">

@@ -15,6 +15,7 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <div>
+      <div className="footer-border"></div>
       <div className="footer">
         <div className="footer-innerBox">
           <div className="footer-info">
@@ -26,25 +27,25 @@ export default function Footer() {
               <span>1577-3082</span>
             </div>
             <ul className="footer-nav">
-              <Link to="/law">
+              <a href="http://localhost:3000/law">
                 <li className="footer-nav-li">이용약관</li>
-              </Link>
-              <Link to="/law/personal">
+              </a>
+              <a href="http://localhost:3000/law/personal">
                 <li className="footer-nav-li footer-nav-li-accent">
                   개인정보 처리방침
                 </li>
-              </Link>
-              <Link to="/law/navi">
+              </a>
+              <a href="http://localhost:3000/law/navi">
                 <li className="footer-nav-li footer-nav-li-accent">
                   위치기반 서비스
                 </li>
-              </Link>
-              <Link to="/law/teen">
+              </a>
+              <a href="http://localhost:3000/law/teen">
                 <li className="footer-nav-li">청소년 보호방침</li>
-              </Link>
-              <Link to="/law/video">
+              </a>
+              <a href="http://localhost:3000/law/video">
                 <li className="footer-nav-li">영상정보처리기기 운영관리방침</li>
-              </Link>
+              </a>
               <Link to="/">
                 <li className="footer-nav-li">고객센터</li>
               </Link>

@@ -75,7 +75,6 @@ export default class SimpleSlider extends Component {
             </div>
           </Slider>
         </div>
-        <div className="sub-carousel-border"></div>
       </div>
     );
   }

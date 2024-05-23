@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import PageTitle from "../../components/PageTitle";
+// import PageButtons from "../../components/PageButtons";
+import TabDetail from "../TabDetail.jsx";
+import { Link } from "react-router-dom";
 
-export default function ServiceQuick({ depth2 }) {
+export default function ServiceMania() {
   const [props, setprops] = useState({
     title: "도미노 서비스",
-    breadcrumb: "퀵오더", //브레드크럼 경로가 3개 이상일때 사용
-    breadcrumbLink: "/service/mania", //브레드크럼 경로가 3개 이상일때 사용
+    // breadcrumb: "매니아 혜택",
+    breadcrumbLink: "/service/mania",
     nav1: "매니아 혜택",
     nav2: "도미노 모멘트",
     nav3: "퀵오더",
@@ -15,9 +18,15 @@ export default function ServiceQuick({ depth2 }) {
     link3: "/service/quickOrder",
     link4: "/service/groupOrder",
   });
+
   return (
-    <div>
-      <PageTitle props={props} depth2={depth2} />
+    <div className="content">
+      {/* ----- 페이지 타이틀 ----- */}
+      <PageTitle props={props} />
+      {/* ----- 본문 ----- */}
+      <div>
+        <TabDetail />
+      </div>
     </div>
   );
 }

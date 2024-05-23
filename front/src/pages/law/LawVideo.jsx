@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import PageTitle from "../../component/PageTitle";
+import PageTitle from "../../components/PageTitle";
 
-export default function LawVideo() {
+export default function LawVideo({ depth2 }) {
   const [props, setprops] = useState({
     title: "영상정보처리기기 운영관리방침",
     nav1: "이용약관",
@@ -9,7 +9,6 @@ export default function LawVideo() {
     nav3: "위치기반 서비스 이용약관",
     nav4: "청소년 보호방침",
     nav5: "영상정보처리기기 운영관리방침",
-    // breadcrumbLink: "/law/personal",
     link1: "/law",
     link2: "/law/personal",
     link3: "/law/navi",
@@ -19,7 +18,7 @@ export default function LawVideo() {
   return (
     <div className="content">
       {/* ----- 페이지 타이틀 ----- */}
-      <PageTitle props={props} />
+      <PageTitle props={props} depth2={depth2} />
       {/* ----- 본문 ----- */}
       <p>
         청오디피케이(이하 회사)는 고객의 개인정보를 안전하게 관리하기 위해

@@ -1,17 +1,206 @@
+/*
+* TabDetail 
+*/
+
 .tab-detail-outer {
-  border: 1px solid blue;
+  text-align: center;
+  /* border: 1px solid blue; */
 }
 
 .tab-detail {
-  margin-bottom: 50px;
-  border: 1px solid red;
+  padding-top: 10px;
+  margin-bottom: 110px;
+  /* border: 1px solid red; */
+}
+
+.tab-detail span {
+  letter-spacing: 20px;
+  font-weight: 400;
+  font-size: 25px;
+  margin: 0;
+  color: #e51937;
+}
+
+.tab-detail h1 {
+  font-size: 28px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.tab-detail p {
+  font-weight: 600;
+}
+
+.tab-detail-desc {
+  margin-bottom: 20px;
+}
+
+.tab-detail-1 {
+  margin-bottom: 80px;
+}
+
+.tab-detail-desc2 {
+  margin-top: 10px;
 }
 
 .service-inner-bluebox {
-  background-image: url("https://cdn.dominos.co.kr/renewal2018/w/img/img_special_bg.png");
+  background: url("https://cdn.dominos.co.kr/renewal2018/w/img/img_special_bg.png")
+    no-repeat;
+  margin: 0 auto;
+  width: 1000px;
+  height: 550px;
+  text-align: left;
+  padding: 70px;
   color: white;
 }
 
+.bluebox-p {
+  padding-top: 13px;
+  padding-bottom: 40px;
+}
+
 .service-inner-bluebox p {
+  margin: 3px 0;
+  font-size: 15px;
+  font-weight: 500;
   color: white;
+}
+
+.tab-detail-3 {
+  padding: 30px 0;
+}
+
+.tab-detail-3 p {
+  font-weight: 600;
+}
+
+/* 
+*  tab - grade 
+*/
+.grade-btn {
+  padding: 22px 45px;
+  font-size: 17px;
+  color: rgb(235, 235, 235);
+  background-color: black;
+}
+
+/* 
+* ServiceMoment
+*/
+
+.div-line {
+  border-bottom: 1px solid var(--divide-color);
+}
+
+.service-moment {
+  text-align: center;
+  margin-top: 50px;
+}
+
+.service-moment h1 {
+  font-size: 32px;
+  font-weight: 600;
+  color: #ff143c;
+  margin-bottom: 15px;
+}
+
+.moment-desc {
+  margin-bottom: 70px;
+}
+
+.moment-desc p {
+  margin: 5px 0;
+  color: var(--black-color);
+}
+
+.moment-forms {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 70px;
+}
+
+.moment-forms form {
+  display: flex;
+  align-items: center;
+  /* gap: 10px; */
+  margin: 0 auto;
+}
+
+.moment-forms label {
+  color: #009ae0;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.moment-forms input {
+  width: 330px;
+  height: 42px;
+  border: 1px solid var(--divide-color);
+  margin-right: 10px;
+}
+
+.moment-forms input::placeholder {
+  padding: 5px 15px;
+  font-size: 13px;
+  color: rgb(202, 202, 202);
+}
+
+.moment-forms select {
+  width: 160px;
+  height: 42px;
+  font-size: 13px;
+  border: 1px solid var(--divide-color);
+  padding: 5px 15px;
+  margin-right: 10px;
+  color: rgb(185, 185, 185);
+}
+
+.moment-forms button {
+  width: 100px;
+  height: 42px;
+  font-size: 15px;
+  padding: 5px 15px;
+  cursor: pointer;
+  color: rgb(235, 235, 235);
+  background-color: var(--black-color);
+}
+
+.moment-bottom {
+  display: flex;
+  align-items: center;
+  padding: 40px;
+}
+
+.moment-bottom p:first-child {
+  font-size: 20px;
+  font-weight: 600;
+  flex-basis: 300px;
+  color: var(--black-color);
+}
+
+.moment-bottom div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.moment-bottom div strong {
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.moment-bottom div ul li {
+  margin-top: 5px;
+  font-size: 14px;
+  color: rgb(161, 161, 161);
+}
+
+.moment-bottom div ul li::before {
+  content: "- ";
+}
+
+.moment-bottom p:last-child {
+  margin: 50px 0;
+  font-size: 14px;
 }

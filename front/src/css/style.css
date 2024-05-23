@@ -137,6 +137,7 @@
 }
 .login-nonmember-name input {
   width: 95%;
+
   height: 45px;
   border: 1px solid rgb(0, 0, 0, 0.2);
 }
@@ -150,11 +151,13 @@
 .login-nonmember-phone button {
   width: 33%;
   height: 45px;
+
   color: white;
   background-color: black;
 }
 .login-nonmember-accesscode input {
   width: 95%;
+
   height: 45px;
   margin-bottom: 10px;
   border: 1px solid rgb(0, 0, 0, 0.2);
@@ -173,6 +176,7 @@
   font-size: 1.3rem;
   margin: 20px 0;
 }
+
 /*!!회원가입  */
 .signup-title {
   border-bottom: 1px solid black;
@@ -432,7 +436,6 @@
   position: absolute;
   border: 1px solid red;
 }
-
 /* !!e-쿠폰 주문!! */
 .ecoupon-button {
   display: flex;

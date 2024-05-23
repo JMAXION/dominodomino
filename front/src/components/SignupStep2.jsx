@@ -5,7 +5,10 @@ import {
   passCheck,
   changeEmailDomain,
 } from "../apis/validate";
+
 import DaumPostcode from "react-daum-postcode";
+
+import PageTitle2 from "./PageTitle2";
 
 export default function SignupStep2({
   pre,
@@ -13,6 +16,7 @@ export default function SignupStep2({
   formData,
   handleChange,
   handleAddress,
+  props,
 }) {
   const refs = {
     userIdRef: useRef(null),

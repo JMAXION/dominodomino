@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { validateCheckStep1, handleFocus } from "../apis/validate";
 
 export default function SignupStep1({ next, formData, handleCheck, props }) {
-  const [] = useState();
   return (
     <div className="signup">
       <div>

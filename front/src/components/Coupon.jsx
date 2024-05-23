@@ -23,7 +23,9 @@ export default function Coupon() {
   return (
     <div className="content">
       <PageTitle props={props} />
-      <h1>Coupon</h1>
+      <ul>
+        <li>장현수 님의 쿠폰 현황입니다</li>
+      </ul>
     </div>
   );
 }

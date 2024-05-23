@@ -39,6 +39,7 @@ import Certificate from "./components/Certificate.jsx";
 import Qna from "./components/Qna.jsx";
 import Information from "./components/Information.jsx";
 import LoginNonmember from "./components/LoginNonmember.jsx";
+import Ecoupon from "./pages/Ecoupon.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -53,6 +54,7 @@ function App() {
         { path: "/nonmember", element: <LoginNonmember /> },
         { path: "/branch", element: <MapContainer /> },
         { path: "/menu", element: <Home /> },
+        { path: "/ecoupon", element: <Ecoupon /> },
         {
           path: "/event",
           element: (

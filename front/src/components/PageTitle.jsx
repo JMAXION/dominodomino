@@ -43,36 +43,48 @@ export default function PageTitle({ props }) {
       <div>
         {/* ------- 메뉴 네비게이션 ------- */}
         <ul className="pageTitle-nav">
-          <li>
-            <Link to={props.link1} className="pageTitle-link">
-              {props.nav1}
-            </Link>
-          </li>
-          <li>
-            <Link to={props.link2} className="pageTitle-link">
-              {props.nav2}
-            </Link>
-          </li>
-          <li>
-            <Link to={props.link3} className="pageTitle-link">
-              {props.nav3}
-            </Link>
-          </li>
-          <li>
-            <Link to={props.link4} className="pageTitle-link">
-              {props.nav4}
-            </Link>
-          </li>
-          <li>
-            <Link to={props.link5} className="pageTitle-link">
-              {props.nav5}
-            </Link>
-          </li>
-          <li>
-            <Link to={props.link6} className="pageTitle-link">
-              {props.nav6}
-            </Link>
-          </li>
+          {props.nav1 && (
+            <li>
+              <Link to={props.link1} className="pageTitle-link">
+                {props.nav1}
+              </Link>
+            </li>
+          )}
+          {props.nav2 && (
+            <li>
+              <Link to={props.link2} className="pageTitle-link">
+                {props.nav2}
+              </Link>
+            </li>
+          )}
+          {props.nav3 && (
+            <li>
+              <Link to={props.link3} className="pageTitle-link">
+                {props.nav3}
+              </Link>
+            </li>
+          )}
+          {props.nav4 && (
+            <li>
+              <Link to={props.link4} className="pageTitle-link">
+                {props.nav4}
+              </Link>
+            </li>
+          )}
+          {props.nav5 && (
+            <li>
+              <Link to={props.link5} className="pageTitle-link">
+                {props.nav5}
+              </Link>
+            </li>
+          )}
+          {props.nav6 && (
+            <li>
+              <Link to={props.link6} className="pageTitle-link">
+                {props.nav6}
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </div>

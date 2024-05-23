@@ -2,6 +2,12 @@ import React, { useState } from "react";
 import SignupStep1 from "../components/SignupStep1";
 import SignupStep2 from "../components/SignupStep2";
 import SignupStep3 from "../components/SignupStep3";
+import PageTitle2 from "../components/PageTitle2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Signup() {
   const [props, setProps] = useState({
@@ -54,6 +60,23 @@ export default function Signup() {
   };
   return (
     <div className="content">
+      <p className="signup-title">
+        <PageTitle2 props={props} />
+      </p>
+      <ul className="signup-mainprocess">
+        <p className="signup-process">
+          <li>01본인인증</li>
+          <li>
+            <FontAwesomeIcon icon={faChevronRight} />
+          </li>
+          <li>02개인정보입력</li>
+          <li>
+            <FontAwesomeIcon icon={faChevronRight} />
+          </li>
+          <li>03가입완료</li>
+        </p>
+        <li className="signup-process-bar"></li>
+      </ul>
       {step === 1 && (
         <SignupStep1
           next={nextStep}
@@ -69,6 +92,7 @@ export default function Signup() {
           formData={formData}
           handleChange={handleChange}
           handleAddress={handleAddress}
+          props={props}
         />
       )}
       {step === 3 && <SignupStep3 />}

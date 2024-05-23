@@ -39,6 +39,32 @@ export default function Mania() {
           <li>0</li>
         </ul>
       </ul>
+      <p className="mania-level">
+        <ul className="mania-level-upgrade">
+          <li>PREMIUM 등급으로 업그레이드 하려면?</li>
+          <li>
+            최근 3개월간 완료한 주문에 대해서 주문건 수를 기준으로 매월 1일
+            매니아 등급에 반영됩니다.
+          </li>
+        </ul>
+        <ul className="mania-level-goal">
+          <li>주문건수</li>
+          <li>목표등급</li>
+        </ul>
+        <ul className="mania-level-bar">
+          <li></li>
+          <li>PREMIUM</li>
+        </ul>
+      </p>
+      <ul className="mania-benefit">
+        <li>나의 매니아 혜택</li>
+      </ul>
+      <ul className="mania-coupon">
+        <li>배달주문 20% 할인쿠폰 1매</li>
+      </ul>
+      <ul className="mania-coupon-button">
+        <button>쿠폰 받기</button>
+      </ul>
     </div>
   );
 }

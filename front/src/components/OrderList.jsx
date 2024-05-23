@@ -23,7 +23,20 @@ export default function Mania() {
   return (
     <div className="content">
       <PageTitle props={props} />
-      <h1>OrderList</h1>
+      <p className="orderlist">
+        <ul className="orderlist-info">
+          <li>장현수님이 주문하신 내역입니다.</li>
+          <li></li>
+          <li>주문을 취소하시려면 해당 매장으로 전화하셔야 합니다.</li>
+          <li>
+            예약 주문 취소는 4만원 이하 주문 ,예약시간 기준 1시간 이상 남았을 시
+            취소 가능합니다.
+          </li>
+        </ul>
+        <ul>
+          <li>이용안내</li>
+        </ul>
+      </p>
     </div>
   );
 }

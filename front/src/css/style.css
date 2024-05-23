@@ -29,6 +29,7 @@
 .login-lnlbutton button {
   padding: 10px 100px;
   border: none;
+  height: 50px;
 }
 .login-lnlbtn1 button {
   background-color: white;
@@ -62,14 +63,14 @@
 }
 .login-id input,
 .login-pass input {
-  width: 425px;
-  height: 30px;
+  width: 525px;
+  height: 40px;
 }
 .login-save-find {
   /* border: 1px solid skyblue; */
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 300px;
   margin: 10px 0;
 }
 .login-find button {
@@ -79,6 +80,7 @@
 .login-find button:first-child {
   border-right: 1px solid #777;
   margin-right: 3px;
+  padding-right: 6px;
 }
 .login-find button:last-child {
   margin-left: 3px;
@@ -91,7 +93,7 @@
 }
 .login-button button,
 .signin-button button {
-  width: 325px;
+  width: 525px;
   height: 50px;
 }
 .login-button button {
@@ -107,7 +109,8 @@
 }
 
 .login-nonmember-form {
-  border: 1px solid green;
+  display: flex;
+  justify-content: center;
   margin: 40px auto;
 }
 .login-nonmember-term {
@@ -122,8 +125,59 @@
 .login-nonmember-signup span {
   font-weight: bold;
 }
-
+.login-member-term-agree p input {
+  margin: 50px auto;
+}
+.login-nonmember-checkbox1,
+.login-nonmember-checkbox2,
+.login-nonmember-checkbox3,
+.login-nonmember-checkbox4,
+.login-nonmember-warning {
+  padding: 10px 0;
+}
+.login-nonmember-name input {
+  width: 95%;
+  height: 45px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+}
+.login-nonmember-phone select,
+.login-nonmember-phone input {
+  margin: 20px 2px;
+  width: 20%;
+  height: 45px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+}
+.login-nonmember-phone button {
+  width: 33%;
+  height: 45px;
+  color: white;
+  background-color: black;
+}
+.login-nonmember-accesscode input {
+  width: 95%;
+  height: 45px;
+  margin-bottom: 10px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+}
+.login-nonmember-orderbutton button {
+  width: 95%;
+  height: 45px;
+  border: none;
+  background-color: #999;
+}
+.login-nonmember-event {
+  margin-top: 40px;
+}
+.login-nonmember-event p:first-child {
+  width: 100%;
+  font-size: 1.3rem;
+  margin: 20px 0;
+}
 /*!!회원가입  */
+.signup-title {
+  border-bottom: 1px solid black;
+  margin-bottom: 40px;
+}
 .signup {
   text-align: center;
   padding-bottom: 140px;
@@ -138,7 +192,26 @@
   width: 70px;
   height: 25px;
 }
-
+.signup-mainprocess {
+  margin-bottom: 70px;
+}
+.signup-process {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.signup-process-item {
+  border-bottom: 1px solid black;
+}
+.signup-process-bar {
+  width: 300px;
+  height: 1px;
+  border: 1px solid black;
+  text-align: center;
+  align-items: center;
+  margin: 0 auto;
+}
 /* !!지도!!! */
 .branch-marker {
   border: 1px solid tomato;
@@ -200,15 +273,177 @@
 .mania-info-cash {
   padding: 40px 40px;
   margin: 0 auto;
-  border: 1px solid red;
+}
+.mania-info-name {
+  width: 30%;
+}
+.mania-info-name li:nth-child(2) {
+  font-size: 2rem;
+  font-weight: bold;
 }
 .mania-info-name li:nth-child(3) {
   background-color: blue;
-  width: 200px;
-  height: 1px;
+  width: 300px;
+  height: 3px;
 }
 .mania-info-order li:last-child,
 .mania-info-cash li:last-child {
   text-align: center;
+  font-size: 3rem;
+}
+.mania-info-order,
+.mania-info-cash {
+  border-left: 1px solid #999;
+}
+.mania-level {
+  border-bottom: 1px solid black;
+  padding-bottom: 30px;
+}
+.mania-level-upgrade {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding: 10px 0;
+}
+.mania-level-goal {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 150px;
+  padding: 10px 0;
+}
+.mania-level-bar {
+  display: flex;
+  justify-content: center;
+}
+.mania-level-bar li:first-child {
+  width: 75%;
+  margin-left: 60px;
+  background-color: rgb(0, 0, 0, 0.2);
+}
+.mania-level-bar li:last-child {
+  font-weight: bold;
+  color: blue;
+}
+.mania-benefit {
+  border-bottom: 1px solid black;
+  padding-top: 80px;
+}
+.mania-coupon {
+  padding: 50px 0;
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+}
+.mania-coupon-button {
+  text-align: center;
+}
+.mania-coupon-button button {
+  color: white;
+  background-color: black;
+  width: 200px;
+  height: 40px;
+}
+.orderlist {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 85px 60px;
+}
+.orderlist-info li:first-child {
   font-size: 2rem;
+}
+
+/* !!홈화면 쿠폰!! */
+.homecoupon {
+  display: flex;
+  justify-content: center;
+  padding: 70px;
+  margin: 70px 0;
+  background-color: rgb(0, 0, 0, 0.2);
+}
+.homecoupon-nowlevel {
+  align-items: center;
+  margin: auto 0;
+  padding-right: 50px;
+}
+.homecoupon-nowlevel li:nth-child(1) {
+  font-size: 14px;
+}
+.homecoupon-nowlevel li:nth-child(2) {
+  font-size: 45px;
+  font-weight: 700;
+}
+.homecoupon-nowlevel-button {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+}
+.homecoupon-nowlevel-button button {
+  color: white;
+  background-color: black;
+  width: 103px;
+  height: 43px;
+  border-radius: 20px;
+}
+.homecoupon-button {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-left: 20px;
+}
+.homecoupon-button ul {
+  width: 210px;
+  height: 210px;
+  text-align: center;
+  align-items: center;
+}
+.homecoupon-button ul:nth-child(2) {
+  position: relative;
+}
+.homecoupon-button li:nth-child(2) li {
+  position: absolute;
+  text-align: center;
+}
+.homecoupon-coupon {
+  position: relative;
+  text-align: center;
+}
+.homecoupon-couponihave {
+  position: absolute;
+  text-align: center;
+  align-items: center;
+  padding: 75px 75px;
+}
+.homecoupon-couponihave p {
+  color: white;
+}
+.homecoupon-couponihave p:last-child {
+  font-size: 2rem;
+}
+.homecoupon-coupon-mylelvel {
+  position: relative;
+  padding: 75px 75px;
+  border: 1px solid green;
+}
+.homecoupon-coupon-mylelvel li {
+  position: absolute;
+  border: 1px solid red;
+}
+
+/* !!e-쿠폰 주문!! */
+.ecoupon-button {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.ecoupon-button-menu img {
+  width: 250px;
+  height: 280px;
+}
+.ecoupon-button-coupon img {
+  width: 250px;
+  height: 280px;
 }

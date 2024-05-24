@@ -37,8 +37,8 @@
 
 .pizza-box {
   position: absolute;
-  top: 115px;
-  left: 41px;
+  top: 65px;
+  /* left: 41px; */
   width: 510px;
   height: 346px;
 }

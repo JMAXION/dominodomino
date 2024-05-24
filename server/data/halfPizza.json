@@ -1,0 +1,19 @@
+[
+  {
+    "id": "1",
+    "img": "https://cdn.dominos.co.kr/admin/upload/hnh/RPZ223.png",
+    "title": "뉴욕불고기",
+    "price": "14450"
+  },
+  {
+    "img": "https://cdn.dominos.co.kr/admin/upload/hnh/RPZ003.png",
+    "id": "2",
+    "title": "한우불고기",
+    "price": "14450"
+  },
+
+  {
+    "img": "https://cdn.dominos.co.kr/admin/upload/event/20240429_7AY39saW.jpg",
+    "id": "3"
+  }
+]

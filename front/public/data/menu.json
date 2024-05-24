@@ -1,6 +1,6 @@
 {
   "menu": [
-    { "name": "메뉴", "link": "/menu" },
+    { "name": "메뉴", "link": "/pizzas" },
     { "name": "E쿠폰", "link": "/ecoupon" },
     { "name": "상품권선물", "link": "/gift" },
     { "name": "이벤트·제휴", "link": "/event" },

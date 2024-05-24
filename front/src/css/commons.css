@@ -3,6 +3,8 @@
 :root {
   /* colors */
   --gray-color: rgb(136, 136, 136);
+  --black-color: #111;
+  --divide-color: #d5d5d5;
 }
 
 /* 
@@ -12,18 +14,23 @@
 .content {
   width: 1200px;
   margin: auto;
-  box-sizing: border-box;
 }
 
 ul,
 li,
+a,
 p,
-span {
+span,
+h1,
+h2,
+h3 {
   margin: 0;
   padding: 0;
   letter-spacing: -1px;
+  list-style: none;
 }
 
 * {
   text-decoration: none;
+  box-sizing: border-box;
 }

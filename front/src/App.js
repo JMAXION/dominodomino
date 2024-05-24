@@ -1,5 +1,10 @@
 import { useState } from "react";
 import "./css/style.css";
+import "./css/order.css";
+import "./css/pizzaMenu.css";
+import "./css/rootStyle.css";
+import "./css/pizzaModalButton.css";
+import "./css/pizzaModalContent.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./pages/Root";
 import Home from "./pages/Home";
@@ -22,16 +27,18 @@ import Hnh from "./pages/Hnh.jsx";
 import "./css/footerStyle.css";
 import "./css/commons.css";
 import LawUse from "./pages/law/LawUse.jsx";
-import Service from "./pages/Service.jsx";
+// import Service from "./pages/Service.jsx";
+import ServiceMoment from "./pages/service/ServiceMoment.jsx";
+import ServiceQuick from "./pages/service/ServiceQuick.jsx";
+import ServiceGroup from "./pages/service/ServiceGroup.jsx";
 import HomeSlider from "./pages/HomeSlider.jsx";
 import LawPersonal from "./pages/law/LawPersonal.jsx";
 import LawNavi from "./pages/law/LawNavi.jsx";
 import LawTeen from "./pages/law/LawTeen.jsx";
 import LawVideo from "./pages/law/LawVideo.jsx";
 import TabDetail from "./pages/TabDetail.jsx";
-import "./css/orderStyle.css";
 import HomeOrder from "./pages/HomeOrder.jsx";
-import PizzaMenu from "./pages/PizzaMenu.jsx";
+import PizzaMenu from "./pages/AllPizzaMenu.jsx";
 import MyPage from "./pages/MyPage.jsx";
 import OrderList from "./components/OrderList.jsx";
 import Coupon from "./components/Coupon.jsx";
@@ -39,6 +46,9 @@ import Certificate from "./components/Certificate.jsx";
 import Qna from "./components/Qna.jsx";
 import Information from "./components/Information.jsx";
 import Mania from "./components/Mania.jsx";
+import LoginNonmember from "./components/LoginNonmember.jsx";
+import Ecoupon from "./pages/Ecoupon.jsx";
+import Service from "./pages/Service.jsx";
 
 function App() {
   /* 
@@ -65,8 +75,11 @@ function App() {
         { path: "/", element: <Home /> },
         { path: "/signup", element: <Signup /> },
         { path: "/login", element: <Login /> },
+        { path: "/nonmember", element: <LoginNonmember /> },
         { path: "/branch", element: <MapContainer /> },
         { path: "/menu", element: <Home /> },
+
+        { path: "/ecoupon", element: <Ecoupon /> },
         {
           path: "/event",
           element: (
@@ -81,6 +94,30 @@ function App() {
           ),
         },
         {
+          path: "/menu/halfnhalf",
+          element: (
+            <Hnh
+              name="메뉴"
+              depth1="홈"
+              depth2="메뉴"
+              depth3="하프앤하프"
+              headerName="menu"
+            />
+          ),
+        },
+        {
+          path: "/event",
+          element: (
+            <Event
+              name="이벤트·제휴"
+              depth1="홈"
+              depth2="이벤트·제휴"
+              depth3="이벤트"
+              headerName="event"
+            />
+          ),
+        },
+        {
           path: "/event/detail/:id",
           element: (
             <Eventdetail
@@ -88,6 +125,7 @@ function App() {
               depth1="홈"
               depth2="이벤트·제휴"
               depth3="이벤트"
+              headerName="event"
             />
           ),
         },
@@ -99,7 +137,7 @@ function App() {
               depth1="홈"
               depth2="이벤트·제휴"
               depth3="제휴할인"
-              className="active"
+              headerName="event/discount"
             />
           ),
         },
@@ -111,16 +149,35 @@ function App() {
               depth1="홈"
               depth2="이벤트·제휴"
               depth3="제휴할인"
+              headerName="event/discount"
             />
           ),
         },
         {
           path: "/event/discount/telecom/detail/:id",
+          element: <TelecomDiscount />,
+        },
+        { path: "/event/discount/card/detail/:id", element: <CardDiscount /> },
+        {
+          path: "/event/discount/telecom/detail/:id",
           element: <TelecomDiscount id="1" />,
         },
+        { path: "/", element: <HomeSlider /> },
+        { path: "/law", element: <LawUse depth2={"이용약관"} /> },
+        {
+          path: "/law/personal",
+          element: <LawPersonal depth2={"개인정보 처리방침"} />,
+        },
+        {
+          path: "/law/navi",
+          element: <LawNavi depth2={"위치기반 서비스 이용약관"} />,
+        },
+        { path: "/law/teen", element: <LawTeen depth2={"청소년 보호방침"} /> },
         {
           path: "/event/discount/card/detail/:id",
           element: <CardDiscount id="1" />,
+          path: "/law/video",
+          element: <LawVideo depth2={"영상정보처리기기 운영관리방침"} />,
         },
         { path: "/test", element: <Test /> },
         { path: "/test/:id", element: <Test /> },
@@ -136,7 +193,100 @@ function App() {
               location1="menu"
             />
           ),
+          path: "/service/moment",
+          element: <ServiceMoment depth2={"도미노 모멘트"} />,
         },
+        {
+          path: "/service/quickOrder",
+          element: <ServiceQuick depth2={"퀵오더"} />,
+        },
+        {
+          path: "/service/groupOrder",
+          element: <ServiceGroup depth2={"단체주문 서비스"} />,
+        },
+        {
+          path: "/service/:id",
+          element: <TabDetail depth2={"매니아 혜택"} />,
+        },
+
+        {
+          path: "/event",
+          element: (
+            <Event
+              name="이벤트·제휴"
+              depth1="홈"
+              depth2="이벤트·제휴"
+              depth3="이벤트"
+              className="active"
+              headerName="event"
+            />
+          ),
+        },
+        {
+          path: "/menu/halfnhalf",
+          element: (
+            <Hnh
+              name="메뉴"
+              depth1="홈"
+              depth2="메뉴"
+              depth3="하프앤하프"
+              headerName="menu"
+            />
+          ),
+        },
+        {
+          path: "/event",
+          element: (
+            <Event
+              name="이벤트·제휴"
+              depth1="홈"
+              depth2="이벤트·제휴"
+              depth3="이벤트"
+              headerName="event"
+            />
+          ),
+        },
+        {
+          path: "/event/detail/:id",
+          element: (
+            <Eventdetail
+              name="이벤트,제휴"
+              depth1="홈"
+              depth2="이벤트·제휴"
+              depth3="이벤트"
+              headerName="event"
+            />
+          ),
+        },
+        {
+          path: "/event/discount",
+          element: (
+            <Discount
+              name="이벤트,제휴"
+              depth1="홈"
+              depth2="이벤트·제휴"
+              depth3="제휴할인"
+              headerName="event/discount"
+            />
+          ),
+        },
+        {
+          path: "/event/discount/detail/:id",
+          element: (
+            <Discountdetail
+              name="이벤트,제휴"
+              depth1="홈"
+              depth2="이벤트·제휴"
+              depth3="제휴할인"
+              headerName="event/discount"
+            />
+          ),
+        },
+        {
+          path: "/event/discount/telecom/detail/:id",
+          element: <TelecomDiscount />,
+        },
+        { path: "/event/discount/card/detail/:id", element: <CardDiscount /> },
         { path: "/", element: <HomeSlider /> },
         { path: "/law", element: <LawUse /> },
         { path: "/law/personal", element: <LawPersonal /> },
@@ -147,8 +297,8 @@ function App() {
         { path: "/service/:id", element: <TabDetail /> },
         { path: "/", element: <HomeOrder /> },
         { path: "/pizzas", element: <PizzaMenu /> },
-        { path: "/mypage", element: <Mania /> },
-        { path: "/mypage/mania", element: <Mania /> },
+        { path: "/mypage", element: <MyPage /> },
+        { path: "/mypage/mania", element: <MyPage /> },
         { path: "/mypage/order", element: <OrderList /> },
         { path: "/mypage/coupon", element: <Coupon /> },
         { path: "/mypage/certificate", element: <Certificate /> },

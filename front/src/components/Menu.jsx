@@ -3,7 +3,7 @@ export default function Menu({name,link}){
    
     return(
         <>
-        <Link to= {link}>
+        <Link to= {link} >
             <li claasName="fromCenter">{name}</li>
             </Link>
         </>

@@ -81,7 +81,10 @@ const list5 = ["공지사항","-도미노뉴스","-보도자료"] */
         <hr></hr>
 
         <Dropdown visibility={dropdownVisibility}>
-          <div className="header-slide-menu">
+          <div
+            className="header-slide-menu"
+            onClick={(e) => setDropdownVisibility(!dropdownVisibility)}
+          >
             {subMenuList.map((subArray) => (
               <div className="header-slide-menu-sub">
                 <ul className="header-slide-menu-sub-list">

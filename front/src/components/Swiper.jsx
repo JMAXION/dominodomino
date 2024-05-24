@@ -1,13 +1,12 @@
+import { useState, useEffect } from "react";
 
-import { useState, useEffect } from 'react';
+import { swiperContents } from "./swiperContents";
+import SwipeItem from "./SwipeItem";
+import SwipePaginationIndex from "./SwipePaginationIndex";
+import SwipePaginationButtons from "./SwipePaginationButtons";
 
-import { swiperContents } from './swiperContents';
-import SwipeItem from './SwipeItem';
-import SwipePaginationIndex from './SwipePaginationIndex';
-import SwipePaginationButtons from './SwipePaginationButtons';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 export default function Swiper() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -24,12 +23,12 @@ export default function Swiper() {
   const maxSlide = swiperContents.length - 1;
 
   const rightArrowClickHandler = () => {
-    setCurrentSlide(prevState => (prevState < maxSlide ? prevState + 1 : 0));
+    setCurrentSlide((prevState) => (prevState < maxSlide ? prevState + 1 : 0));
     clearTimeout(currentTimerId);
   };
 
   const leftArrowClickHandler = () => {
-    setCurrentSlide(prevState => (prevState > 0 ? prevState - 1 : maxSlide));
+    setCurrentSlide((prevState) => (prevState > 0 ? prevState - 1 : maxSlide));
     clearTimeout(currentTimerId);
   };
 
@@ -40,7 +39,7 @@ export default function Swiper() {
 
   useEffect(() => {
     if (play) {
-      const timer = setTimeout(() => rightArrowClickHandler(), 5000);
+      const timer = setTimeout(() => rightArrowClickHandler(), 10000);
       setCurrentTimerId(timer);
     }
   }, [currentSlide, play]);
@@ -58,20 +57,21 @@ export default function Swiper() {
 
   if (isLoading) {
     content = (
-      <div style={{ width: '100vw' }}>
+      <div style={{ width: "100vw" }}>
         <p
           style={{
-            maxWidth: '75rem',
-            width: '100%',
-            height: '20rem',
-            fontSize: '1.5rem',
-            fontWeight: '700',
-            color: 'gray',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            margin: '0 auto',
-          }}>
+            maxWidth: "75rem",
+            width: "100%",
+            height: "20rem",
+            fontSize: "1.5rem",
+            fontWeight: "700",
+            color: "gray",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "0 auto",
+          }}
+        >
           로드 중...
         </p>
       </div>
@@ -100,21 +100,17 @@ export default function Swiper() {
       <h2 className="sr-only">진행 중인 이벤트</h2>
       <ul className="swipe-items">{content}</ul>
 
-        <div className="swipe-pagination-grid-wrapper">
-          <SwipePaginationIndex
-            length={swiperContents.length}
-            play={play}
-            currentSlide={currentSlide}
-            rightArrowClickHandler={rightArrowClickHandler}
-            leftArrowClickHandler={leftArrowClickHandler}
-            swipePlayHandler={swipePlayHandler}
-          />
-          <ul className="swipe-pagination-button-container">
-        
-          </ul>
-          
-        </div>
-     
+      <div className="swipe-pagination-grid-wrapper">
+        <SwipePaginationIndex
+          length={swiperContents.length}
+          play={play}
+          currentSlide={currentSlide}
+          rightArrowClickHandler={rightArrowClickHandler}
+          leftArrowClickHandler={leftArrowClickHandler}
+          swipePlayHandler={swipePlayHandler}
+        />
+        <ul className="swipe-pagination-button-container"></ul>
+      </div>
     </section>
   );
 }

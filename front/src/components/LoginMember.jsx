@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import PageTitle2 from "../components/PageTitle2";
 
 export default function LoginMember() {
+  const [props, setProps] = useState({
+    title: "로그인",
+    nav1: "로그인",
+    link1: "/login",
+  });
   const clickChange = () => {
     alert("비회원 로그인시 퀵오더, 특가제품 및 일부할인의 이용은 불가합니다.");
   };
@@ -10,7 +16,9 @@ export default function LoginMember() {
   };
   return (
     <div className="content">
-      <h2 className="login-h2">로그인</h2>
+      <p className="login-title">
+        <PageTitle2 props={props} />
+      </p>
       <form className="login-form">
         <ul>
           <li className="login-lnlbutton">

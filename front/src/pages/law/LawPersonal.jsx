@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import PageTitle from "../../components/PageTitle";
 import "../../css/law.css";
 
-export default function LawPersonal() {
+export default function LawPersonal({ depth2 }) {
   const [props, setprops] = useState({
     title: "개인정보 처리방침",
     nav1: "이용약관",
@@ -20,7 +20,7 @@ export default function LawPersonal() {
   return (
     <div className="content">
       {/* ----- 페이지 타이틀 ----- */}
-      <PageTitle props={props} />
+      <PageTitle props={props} depth2={depth2} />
       {/* ----- 본문 ----- */}
       <p>도미노피자는 고객들의 개인정보를 소중히 다루고 있습니다.</p>
       <div>

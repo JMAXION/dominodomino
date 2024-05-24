@@ -346,11 +346,12 @@ table th {
   margin: 0 auto;
 }
 
-.btn-wrapper {
-  float: left;
+.btn-wrapper2 {
+  /* float: left; */
   display: block;
   clear: both;
   width: 230px;
+  margin: 1rem;
 }
 
 select {

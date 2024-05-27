@@ -42,7 +42,7 @@ export default function PizzaMenuProduct() {
 
   const renderRows = (rows) => {
     return rows.map((row, index) => (
-      <div key={index} className="pizzabox">
+      <div key={index} className="pizza-box">
         {row.map((pizza, idx) => (
           <div key={idx} className="pizza-box-in">
             <Link to={`/pizza/${pizza.id}`}>
@@ -52,7 +52,7 @@ export default function PizzaMenuProduct() {
                 alt={pizza.title}
               />
             </Link>
-            <button className="modalopenbtn" onClick={() => openModal(pizza)}>
+            <button className="modal-open-btn" onClick={() => openModal(pizza)}>
               <FontAwesomeIcon icon={faExpand} />
             </button>
             {selectedPizza && (

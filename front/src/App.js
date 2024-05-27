@@ -13,6 +13,8 @@ import LawNavi from "./pages/law/LawNavi.jsx";
 import LawTeen from "./pages/law/LawTeen.jsx";
 import LawVideo from "./pages/law/LawVideo.jsx";
 import TabDetail from "./pages/TabDetail.jsx";
+import CsCenter from "./pages/CsCenter.jsx";
+import ServiceMania from "./pages/service/ServiceMania.jsx";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -20,7 +22,6 @@ export default function App() {
       path: "/",
       element: <Root />,
       children: [
-        { path: "/", element: <HomeSlider /> },
         { path: "/law", element: <LawUse depth2={"이용약관"} /> },
         {
           path: "/law/personal",
@@ -49,7 +50,11 @@ export default function App() {
         },
         {
           path: "/service/:id",
-          element: <TabDetail depth2={"매니아 혜택"} />,
+          element: <ServiceMania depth2={"매니아 혜택"} />,
+        },
+        {
+          path: "/cs/:id",
+          element: <CsCenter depth2={"자주하는 질문"} />,
         },
       ],
     },

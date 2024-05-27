@@ -103,11 +103,12 @@ h1 {
 .page-buttons {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   width: 1200px;
   margin: 50px 0;
 }
 
-.page-buttons button {
+.ServiceMania button {
   position: relative;
   width: 400px;
   height: 50px;
@@ -120,9 +121,28 @@ h1 {
   transition: all 0.5s;
 }
 
-.page-buttons span {
+.CsCenter button {
+  position: relative;
+  width: 300px;
+  height: 50px;
+  font-size: 15.5px;
+  letter-spacing: -1px;
+  border: 1px solid white;
+  cursor: pointer;
+  color: rgb(168, 169, 168);
+  background-color: rgb(245, 245, 245);
+  transition: all 0.5s;
+}
+
+.ServiceMania span {
   position: absolute;
   left: 370px;
+  top: 15px;
+  font-size: 14px;
+}
+.CsCenter span {
+  position: absolute;
+  left: 270px;
   top: 15px;
   font-size: 14px;
 }

@@ -16,6 +16,14 @@ export default function ServiceMoment({ depth2 }) {
     link4: "/service/groupOrder",
   });
 
+  const [savedMonth, setSavedMonth] = useState(0);
+  const [savedDay, setSavedDay] = useState(0);
+  const [isSaved, setIsSaved] = useState({
+    form1: true,
+    form2: true,
+    form3: true,
+  });
+
   const monthList = [];
   for (let i = 1; i < 13; i++) {
     monthList.push({ month: i });
@@ -45,15 +53,37 @@ export default function ServiceMoment({ depth2 }) {
   const [selectedMonth, setSelectedMonth] = useState(1);
   const [dateList, setDateList] = useState(dayList[0].month1);
 
-  const handleChange = (e) => {
-    const month = parseInt(e.target.value);
-    console.log(month);
+  /* 월 선택 */
+  const monthChange = (e) => {
+    e.preventDefault();
+    const month = e.target.value;
     setSelectedMonth(month);
 
     if (month === 2) {
       setDateList(dayList[1].month2);
     } else {
       setDateList(dayList[0].month1);
+    }
+
+    setSavedMonth(month);
+  };
+
+  /* 일 선택 */
+  const dayChange = (e) => {
+    e.preventDefault();
+    setSavedDay(e.target.value);
+  };
+
+  /* 저장 버튼 */
+  const saveButton = (formNum) => (e) => {
+    e.preventDefault();
+    if (!savedMonth) {
+      alert("월을 선택해주세요.");
+    } else if (!savedDay) {
+      alert("일을 선택해주세요");
+    } else {
+      alert(`기념일이 ${savedMonth}월 ${savedDay}일로 저장 되었습니다.`);
+      setIsSaved({ ...isSaved, [formNum]: false });
     }
   };
 
@@ -71,57 +101,89 @@ export default function ServiceMoment({ depth2 }) {
             할인 쿠폰을 전달해 드립니다.
           </p>
         </div>
+        {/* 버튼 폼 1 */}
         <div className="moment-forms">
-          <form>
+          <form onSubmit={saveButton("form1")}>
             <label>완벽한 피자가 필요한 첫 번째 순간</label>
             <input type="text" placeholder="예) 결혼기념일이에요" />
-            <select name="monthList" onChange={handleChange}>
+            <select name="monthList" onChange={monthChange}>
               <option value="month">월</option>
               {monthList.map((item) => (
                 <option value={item.month}>{item.month}</option>
               ))}
             </select>
-            <select name="dayList">
+            <select name="dayList" onChange={dayChange}>
               <option value="day">일</option>
               {dateList.map((obj) => (
                 <option value={obj.day}>{obj.day}</option>
               ))}
             </select>
-            <button type="button">저장</button>
+            <div className="btn-group">
+              {isSaved.form1 ? (
+                <button type="submit">저장</button>
+              ) : (
+                <>
+                  <button type="button">수정</button>
+                  <button type="button" className="btn-group-red">
+                    발급
+                  </button>
+                </>
+              )}
+            </div>
           </form>
-          <form>
+          {/* 버튼 폼 2 */}
+          <form onSubmit={saveButton("form2")}>
             <label>완벽한 피자가 필요한 두 번째 순간</label>
             <input type="text" placeholder="예) 아이 태어난지 200일" />
-            <select name="monthList" onChange={handleChange}>
+            <select name="monthList" onChange={monthChange}>
               <option value="month">월</option>
               {monthList.map((item) => (
                 <option value={item.month}>{item.month}</option>
               ))}
             </select>
-            <select name="dayList">
+            <select name="dayList" onChange={dayChange}>
               <option value="day">일</option>
               {dateList.map((obj) => (
                 <option value={obj.day}>{obj.day}</option>
               ))}
             </select>
-            <button type="button">저장</button>
+            {isSaved.form2 ? (
+              <button type="submit">저장</button>
+            ) : (
+              <>
+                <button type="button">수정</button>
+                <button type="button" className="btn-group-red">
+                  발급
+                </button>
+              </>
+            )}
           </form>
-          <form>
+          {/* 버튼 폼 3 */}
+          <form onSubmit={saveButton("form3")}>
             <label>완벽한 피자가 필요한 세 번째 순간</label>
             <input type="text" placeholder="예) 수능 끝나는 날!" />
-            <select name="monthList" onChange={handleChange}>
+            <select name="monthList" onChange={monthChange}>
               <option value="month">월</option>
               {monthList.map((item) => (
                 <option value={item.month}>{item.month}</option>
               ))}
             </select>
-            <select name="dayList">
+            <select name="dayList" onChange={dayChange}>
               <option value="day">일</option>
               {dateList.map((obj) => (
                 <option value={obj.day}>{obj.day}</option>
               ))}
             </select>
-            <button type="button">저장</button>
+            {isSaved.form3 ? (
+              <button type="submit">저장</button>
+            ) : (
+              <>
+                <button type="button">수정</button>
+                <button type="button" className="btn-group-red">
+                  발급
+                </button>
+              </>
+            )}
           </form>
         </div>
         <div className="div-line"></div>

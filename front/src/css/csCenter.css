@@ -1,0 +1,88 @@
+.cs-topBox {
+  display: flex;
+  margin: 40px 0 25px 0;
+  justify-content: space-between;
+}
+.cs-topBox-desc p:first-child {
+  font-size: 16px;
+  margin-bottom: 13px;
+  color: var(--black-color);
+}
+.cs-topBox-desc p:last-child {
+  font-size: 14px;
+  color: var(--red-color);
+}
+
+.cs-topBox-search {
+  display: flex;
+}
+
+.cs-topBox-search select {
+  height: 42px;
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  color: #999;
+}
+
+.cs-topBox-search input {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  margin: 0 5px;
+  width: 340px;
+  height: 42px;
+  font-size: 15px;
+  color: var(--black-color);
+  transition: all 1s;
+}
+
+.cs-topBox-search input:hover {
+  border: 1px solid var(--black-color);
+}
+
+.cs-topBox-search button {
+  width: 42px;
+  height: 42px;
+  font-size: 25px;
+  cursor: pointer;
+  color: white;
+  background-color: var(--black-color);
+}
+
+/******************
+** 출력 (TabDetail)
+*******************/
+
+.cs-qnaBox {
+  text-align: left;
+  border-top: 1px solid var(--black-color);
+  /* border: 1px solid blue; */
+}
+
+.cs-qna button {
+  border: none;
+  font-size: 15px;
+  background: none;
+}
+
+.cs-qna-toggle {
+  padding: 30px 30px;
+  cursor: pointer;
+}
+
+.cs-qna-text {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cs-qna span:first-child {
+  font-size: 18px;
+  font-weight: 500;
+  /* margin-right: 15px; */
+  color: var(--blue-color);
+}
+.cs-qna span:last-child {
+  font-size: 13px;
+  font-weight: 500;
+  /* margin-left: 15px; */
+}

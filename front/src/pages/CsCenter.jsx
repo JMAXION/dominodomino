@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import TabDetail from "./TabDetail";
 import { useParams } from "react-router-dom";
+import "../css/csCenter.css";
 
 export default function CsCenter({ depth2 }) {
   const [props, setprops] = useState({
@@ -53,25 +54,26 @@ export default function CsCenter({ depth2 }) {
       <PageTitle props={props} depth2={depth2} />
       {/* ----- 본문 ----- */}
       <div>
-        <div>
-          <div>
+        <div className="cs-topBox">
+          <div className="cs-topBox-desc">
             <p>도미노피자에 대한 궁금증을 바로 확인하실 수 있습니다.</p>
             <p>도미노피자 고객만족센터 080-860-3082</p>
           </div>
-          <div>
+          <div className="cs-topBox-search">
             <select>
               <option value="title">제목</option>
               <option value="content">내용</option>
               <option value="tandc">제목+내용</option>
             </select>
             <input type="text" />
-            <button type="button">
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </button>
+            <div className="cs-search-btn">
+              <button type="button">
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+              </button>
+            </div>
           </div>
         </div>
         <div className="div-line"></div>
-        {/* TabDetail */}
         <TabDetail
           buttonList={buttonList}
           tabList={tabList}

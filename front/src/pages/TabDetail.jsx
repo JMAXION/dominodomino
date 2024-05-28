@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 // import PageTitle from "../components/PageTitle";
 import PageButtons from "../components/PageButtons";
 import "../css/service.css";
+import "../css/csCenter.css";
 
 export default function TabDetail({
   buttonList,
@@ -97,17 +98,29 @@ export default function TabDetail({
           </div>
         )}
 
-        {showQnA &&
-          QnA.map((item, index) => (
-            <div key={index}>
-              <button onClick={() => toggleIsChecked(index)}>
-                <span>Q</span>
-                {item.question}
-                <span>{isChecked[index] ? "ᐱ" : "ᐯ"}</span>
-              </button>
-              {isChecked[index] && <div>{item.answer}</div>}
-            </div>
-          ))}
+        {showQnA && (
+          <div className="cs-qnaBox">
+            {QnA.map((item, index) => (
+              <div key={index} className="cs-qna">
+                <div
+                  className="cs-qna-toggle"
+                  onClick={() => toggleIsChecked(index)}
+                >
+                  <button>
+                    <div className="cs-qna-text">
+                      <div>
+                        <span>Q</span>
+                        <span>{item.question}</span>
+                      </div>
+                      <span>{isChecked[index] ? "ᐱ" : "ᐯ"}</span>
+                    </div>
+                  </button>
+                </div>
+                {isChecked[index] && <div>{item.answer}</div>}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -46,47 +46,55 @@ export default function PageTitle({ props, depth2 }) {
       <div>
         {/* ------- 메뉴 네비게이션 ------- */}
         <ul className="pageTitle-nav">
-          <li>
-            <Link
-              to={props.link1}
-              className={`pageTitle-link ${
-                props.nav1 === depth2 ? "bold" : ""
-              }`}
-            >
-              {props.nav1}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={props.link2}
-              className={`pageTitle-link ${
-                props.nav2 === depth2 ? "bold" : ""
-              }`}
-            >
-              {props.nav2}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={props.link3}
-              className={`pageTitle-link ${
-                props.nav3 === depth2 ? "bold" : ""
-              }`}
-            >
-              {props.nav3}
-            </Link>
-          </li>
-          <li>
-            <Link
-              to={props.link4}
-              className={`pageTitle-link ${
-                props.nav4 === depth2 ? "bold" : ""
-              }`}
-            >
-              {props.nav4}
-            </Link>
-          </li>
-          {props.link5 && (
+          {props.nav1 && (
+            <li>
+              <Link
+                to={props.link1}
+                className={`pageTitle-link ${
+                  props.nav1 === depth2 ? "bold" : ""
+                }`}
+              >
+                {props.nav1}
+              </Link>
+            </li>
+          )}
+          {props.nav2 && (
+            <li>
+              <Link
+                to={props.link2}
+                className={`pageTitle-link ${
+                  props.nav2 === depth2 ? "bold" : ""
+                }`}
+              >
+                {props.nav2}
+              </Link>
+            </li>
+          )}
+          {props.nav3 && (
+            <li>
+              <Link
+                to={props.link3}
+                className={`pageTitle-link ${
+                  props.nav3 === depth2 ? "bold" : ""
+                }`}
+              >
+                {props.nav3}
+              </Link>
+            </li>
+          )}
+          {props.nav4 && (
+            <li>
+              <Link
+                to={props.link4}
+                className={`pageTitle-link ${
+                  props.nav4 === depth2 ? "bold" : ""
+                }`}
+              >
+                {props.nav4}
+              </Link>
+            </li>
+          )}
+          {props.nav5 && (
             <li>
               <Link
                 to={props.link5}
@@ -95,13 +103,6 @@ export default function PageTitle({ props, depth2 }) {
                 }`}
               >
                 {props.nav5}
-              </Link>
-            </li>
-          )}
-          {props.nav6 && (
-            <li>
-              <Link to={props.link6} className="pageTitle-link">
-                {props.nav6}
               </Link>
             </li>
           )}

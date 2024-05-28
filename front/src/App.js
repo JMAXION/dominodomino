@@ -37,41 +37,17 @@ import LawNavi from "./pages/law/LawNavi.jsx";
 import LawTeen from "./pages/law/LawTeen.jsx";
 import LawVideo from "./pages/law/LawVideo.jsx";
 import TabDetail from "./pages/TabDetail.jsx";
-import HomeOrder from "./pages/HomeOrder.jsx";
-import PizzaMenu from "./pages/AllPizzaMenu.jsx";
-import MyPage from "./pages/MyPage.jsx";
-import OrderList from "./components/OrderList.jsx";
-import Coupon from "./components/Coupon.jsx";
-import Certificate from "./components/Certificate.jsx";
-import Qna from "./components/Qna.jsx";
-import Information from "./components/Information.jsx";
-import Mania from "./components/Mania.jsx";
-import LoginNonmember from "./components/LoginNonmember.jsx";
-import Ecoupon from "./pages/Ecoupon.jsx";
-import Service from "./pages/Service.jsx";
+import CsCenter from "./pages/CsCenter.jsx";
+import ServiceMania from "./pages/service/ServiceMania.jsx";
 
-function App() {
-  /* 
-  브레드 크럼 사용법
-  1. 호출할 페이지에 name, depth1, depth2, depth3, headerName을 입력해 줍니다
-      name : 페이지 이동시 보이는 타이틀
-      depth1 : 첫번째 브레드 크럼
-      depth2 : 두번째 브레드 크럼
-      depth3 : 세번째 브레드 크럼
-      headerName : location 역할과 json에서 해당하는 배열을 호출하기 위해 사용합니다
-  2. 해당 페이지 jsx으로 이동해 파라미터를 똑같이 적어서 받아줍니다  예) export default function Event({name,depth1,depth2,depth3,headerName})
-  3. 해당 페이지 jsx에서  Menuheader를 통해 똑같이 전달해 줍니다  <Menuheader name={name} depth1={depth1}  depth2={depth2} depth3={depth3} headerName={headerName} />
-  
-  관련된 json data/menu.json
-      {name : 해당페이지의 서브메뉴 이름 link : 이동할 경로} 
-*/
-
+export default function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Root /> /** layout 정의 */,
       // loader: rootLoader,
       children: [
+        { path: "/law", element: <LawUse depth2={"이용약관"} /> },
         { path: "/", element: <Home /> },
         { path: "/signup", element: <Signup /> },
         { path: "/login", element: <Login /> },
@@ -206,7 +182,11 @@ function App() {
         },
         {
           path: "/service/:id",
-          element: <TabDetail depth2={"매니아 혜택"} />,
+          element: <ServiceMania depth2={"매니아 혜택"} />,
+        },
+        {
+          path: "/cs/:id",
+          element: <CsCenter depth2={"자주하는 질문"} />,
         },
 
         {

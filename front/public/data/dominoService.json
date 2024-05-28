@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
   {
     "root": "mania",
@@ -56,3 +57,63 @@
     "image2": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_6-2_pc.jpg"
   }
 ]
+=======
+[
+  {
+    "root": "mania",
+    "name": "도미노매니아란?",
+    "image": "https://cdn.dominos.co.kr/renewal2018/w/img/visual_overview.jpg",
+    "title": "DOMINO’S PIZZA",
+    "sub_title": "세계 배달 피자 리더인 한국도미노피자",
+    "desc1": "배달 피자 개념이 전무했던 1990년에 1호점 오금점 오픈을 시작으로 한국 시장에 진출한 이후",
+    "desc1_1": "지금까지 피자 대중화를 선도하였습니다.",
+    "desc2": "지금까지 많은 사랑을 받아왔고 앞으로도 더 많은 사랑을 받을 브랜드이기에 그 성원을 고객들에게 보답하고자",
+    "desc2_1": "온라인 전용 멤버십 제도인 도미노 매니아 프로그램을 도입하여 성공적으로 운영해 오고 있습니다.",
+    "title2": "SPECIAL",
+    "sub_title2": "도미노 매니아 멤버십의 특별함",
+    "special1": "첫째, 할인 혜택입니다.",
+    "special1_desc": "매달 매니아 고객에게만 전달되는 등급별 20%, 30%, 35%, 최대 40%의 할인 혜택과",
+    "special1_1_desc": "매니아 ROYAL, VIP 고객의 생일을 위한 50% 할인 쿠폰까지 푸짐한 할인 혜택이 주어집니다.",
+    "special2": "두 번째, 고객을 위한 편리한 서비스입니다.",
+    "special2_desc": "주문한 피자가 어디쯤 오고 있는지 알 수 있는 GPS TRACKER, 주문한 피자를 배달하기 전",
+    "special2_1_desc": "알려주는 알림벨 서비스, 피자 먹고 싶은 날을 지정해 혜택을 얻을 수 있는 도미노 모멘트",
+    "special2_2_desc": "그리고 매장 방문하여 포장 후 이동하는 과정에서 고객 과실로 인해 훼손된 피자를 교환해주는 피자 보증제도까지",
+    "special2_3_desc": "안전하고 편리한 서비스를 제공합니다.",
+    "special3": "셋째, 문화 혜택입니다.",
+    "special3_desc": "보고 싶었던 핫 이슈 공연, 놓칠 수 없는 영화와 인기 스포츠 관람까지 다양한 문화 혜택도 도미노 매니아만을 위해 제공되고 있습니다.",
+    "desc3": "도미노피자는 고객님들의 아껴 주신 마음에 항상 감사하며 앞으로도 도미노 매니아는",
+    "desc3_1": "더 좋은 혜택, 더 편리한 서비스, 더 다양한 혜택을 고객들에게 전달하고자 노력할 것 입니다."
+  },
+  {
+    "root": "grade",
+    "name": "도미노 매니아 등급별 혜택",
+    "image": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_2-1.jpg",
+    "grade_btn": "쿠폰 선물하러가기"
+  },
+  {
+    "root": "innovation",
+    "name": "도미노 혁신 서비스",
+    "image": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_3-1.jpg",
+    "image2": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_3-2.jpg",
+    "image3": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_3-3.jpg"
+  },
+  {
+    "root": "culture",
+    "name": "도미노 매니아 컬쳐",
+    "image": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_4-1.jpg",
+    "image2": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_4-2.jpg"
+  },
+  {
+    "root": "teen",
+    "name": "도미노 틴 매니아",
+    "image": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_5-1.jpg",
+    "image2": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_5-2.jpg"
+  },
+  {
+    "root": "dominosDay",
+    "name": "도미노스데이",
+    "image": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_6-1_pc.jpg",
+    "image2": "https://cdn.dominos.co.kr/renewal2018/w/img/mania/img_6-2_pc.jpg"
+  }
+]
+>>>>>>> ryu

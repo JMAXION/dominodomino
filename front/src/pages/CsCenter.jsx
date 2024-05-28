@@ -77,6 +77,7 @@ export default function CsCenter({ depth2 }) {
           tabList={tabList}
           basePath="/cs"
           className="CsCenter"
+          showQnA={true}
         />
       </div>
     </div>

@@ -39,12 +39,13 @@ export default function ServiceMania({ depth2 }) {
     fetch("/data/dominoService.json")
       .then((res) => res.json())
       .then((result) => {
-        console.log("tab list->", result);
+        // console.log("tab list->", result);
         const foundTab = result.find((item) => {
           return item.root === id;
         });
-        console.log("id->", id);
-        console.log("foundTab ->", foundTab);
+        // console.log("id->", id);
+        // console.log("foundTab ->", foundTab);
+        console.log("foundTab -->", foundTab);
         setTabList(foundTab);
       })
       .catch((error) => console.log(error));
@@ -61,6 +62,7 @@ export default function ServiceMania({ depth2 }) {
           tabList={tabList}
           basePath="/service"
           className="ServiceMania"
+          showQnA={false}
         />
       </div>
     </div>

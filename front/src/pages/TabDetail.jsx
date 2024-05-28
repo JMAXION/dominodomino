@@ -9,7 +9,10 @@ export default function TabDetail({
   tabList,
   basePath,
   className,
+  showQnA,
 }) {
+  console.log("tabList -> ", tabList);
+
   const [isChecked, setIsChecked] = useState([false, false, false]);
 
   const toggleIsChecked = (index) => {
@@ -20,17 +23,10 @@ export default function TabDetail({
     });
   };
 
-  if (!tabList) {
-    return <div>Loading...</div>; // 또는 다른 로딩 상태 표시
-  }
-
-  const QaA = [
-    { question: tabList.q1_1, answer: tabList.a1_1 },
-    { question: tabList.q2_1, answer: tabList.a1_1 },
-    { question: tabList.q3_1, answer: tabList.a1_1 },
-    { question: tabList.q1_2, answer: tabList.a1_2 },
-    { question: tabList.q2_2, answer: tabList.a1_1 },
-    { question: tabList.q3_2, answer: tabList.a1_1 },
+  const QnA = [
+    { question: tabList.q1, answer: tabList.a1 },
+    { question: tabList.q2, answer: tabList.a1 },
+    { question: tabList.q3, answer: tabList.a1 },
   ];
 
   return (
@@ -101,16 +97,17 @@ export default function TabDetail({
           </div>
         )}
 
-        {QaA.map((item, index) => (
-          <div key={index}>
-            <button onClick={() => toggleIsChecked(index)}>
-              <span>Q</span>
-              {item.question}
-              <span>{isChecked[index] ? "ᐱ" : "ᐯ"}</span>
-            </button>
-            {isChecked[index] && <div>{item.answer}</div>}
-          </div>
-        ))}
+        {showQnA &&
+          QnA.map((item, index) => (
+            <div key={index}>
+              <button onClick={() => toggleIsChecked(index)}>
+                <span>Q</span>
+                {item.question}
+                <span>{isChecked[index] ? "ᐱ" : "ᐯ"}</span>
+              </button>
+              {isChecked[index] && <div>{item.answer}</div>}
+            </div>
+          ))}
       </div>
     </div>
   );

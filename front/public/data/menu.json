@@ -12,11 +12,11 @@
       { "name": "도미노서비스", "link": "/service/mania" },
       { "name": "매니아혜택", "link": "/service/mania" },
       { "name": "도미노 모멘트", "link": "/service/moment" },
-      { "name": "퀵오더", "link": "/quickOrder" },
-      { "name": "단체주문", "link": "/groupOrder" }
+      { "name": "퀵오더", "link": "/service/quickOrder" },
+      { "name": "단체주문", "link": "/service/groupOrder" }
     ],
     [
-      { "name": "고객센터", "link": "/customer" },
+      { "name": "고객센터", "link": "/cs/order" },
       { "name": "자주하는 질문", "link": "/faqlist" },
       { "name": "문의내역/답변", "link": "/qna" }
     ],

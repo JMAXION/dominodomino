@@ -39,6 +39,17 @@ import LawVideo from "./pages/law/LawVideo.jsx";
 import TabDetail from "./pages/TabDetail.jsx";
 import CsCenter from "./pages/CsCenter.jsx";
 import ServiceMania from "./pages/service/ServiceMania.jsx";
+import LoginNonmember from "./components/LoginNonmember.jsx";
+import Ecoupon from "./pages/Ecoupon.jsx";
+import Service from "./pages/Service.jsx";
+import HomeOrder from "./pages/HomeOrder.jsx";
+import PizzaMenu from "./pages/PizzaMenu.jsx";
+import MyPage from "./pages/MyPage.jsx";
+import OrderList from "./components/OrderList.jsx";
+import Coupon from "./components/Coupon.jsx";
+import Certificate from "./components/Certificate.jsx";
+import Qna from "./components/Qna.jsx";
+import Information from "./components/Information.jsx";
 
 export default function App() {
   const router = createBrowserRouter([

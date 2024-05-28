@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import PizzaMenuInfoToggle from "./PizzaMenuInfoToggle";
+import PizzaPoint from "./PizzaPoint";
 
 export default function PizzaMenuInfo({ pizza }) {
   return (
@@ -25,9 +26,6 @@ export default function PizzaMenuInfo({ pizza }) {
               <button className="modal-content-list-button-allergy">
                 원산지•영양성분•알레르기 유발성분
               </button>
-              <button className="modal-content-list-button-story">
-                피자스토리
-              </button>
             </li>
           </ul>
         </div>
@@ -36,7 +34,13 @@ export default function PizzaMenuInfo({ pizza }) {
         <PizzaMenuInfoToggle title="제품 상세보기" content={pizza.tag1} />
         <PizzaMenuInfoToggle title="메인 토핑" content={pizza.main} />
         <PizzaMenuInfoToggle title="원산지" content={pizza.home} />
-        <PizzaMenuInfoToggle title="도미노피자의 특징" content={pizza.tag1} />
+        <PizzaMenuInfoToggle
+          title="도미노피자의 특징"
+          content={<PizzaPoint />}
+        />
+      </div>
+      <div className="modal-content-order">
+        <button className="modal-content-order-button">주문하러 가기</button>
       </div>
     </div>
   );

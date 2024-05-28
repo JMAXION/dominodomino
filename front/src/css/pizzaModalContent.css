@@ -20,17 +20,16 @@
   width: 950px;
   height: 500px;
   overflow: scroll;
-  will-change: transform;
+  /* will-change: transform; */
 }
 
 .modal-image {
   width: 427px;
   margin: 30px 30px 0 30px;
-  will-change: transform;
 }
 
 .modal-image-text {
-  font-size: 12px;
+  font-size: 15px;
   margin: 10px 0 60px 30px;
 }
 
@@ -57,27 +56,20 @@
   margin-top: 90px;
 }
 
-.modal-content-list-button-allergy:hover,
-.modal-content-list-button-story:hover {
+.modal-content-list-button-allergy:hover {
   cursor: pointer;
 }
 
-.modal-content-list-button-allergy,
-.modal-content-list-button-story {
+.modal-content-list-button-allergy {
   border: 1px solid gray;
   background-color: white;
   color: #888888;
-  padding: 20px;
-  font-size: 15px;
+  padding: 25px 75px 25px 75px;
+  font-size: 18px;
 }
 
 .modal-content-list-toggle-box {
   display: flex;
-}
-
-.modal-content-list-button-story {
-  margin-left: 10px;
-  padding: 20px 40px;
 }
 
 .modal-content-list-toggle {
@@ -87,7 +79,7 @@
 .modal-content-list-toggle-box-title {
   font-size: 20px;
   font-weight: bold;
-  border-top: 1px solid black;
+  border-top: 2px solid black;
   width: 850px;
   margin-bottom: 30px;
   padding-top: 15px;
@@ -103,7 +95,19 @@
   border-left: none;
   border-right: none;
   border-bottom: none;
-  border-top: 1px solid black;
+  border-top: 2px solid black;
+}
+
+.modal-content-list-toggle-box-text {
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  max-height: 0;
+  opacity: 0;
+}
+
+.modal-content-list-toggle-box-text.expanded {
+  max-height: 1000px; /* 충분히 큰 값 */
+  opacity: 1;
 }
 
 .modal-content-list-toggle-box-text-in {
@@ -113,4 +117,40 @@
   padding: 30px 0 30px 0;
   font-size: 18px;
   color: #888888;
+  max-height: 500px;
+}
+
+.modal-content-order {
+  margin-left: 370px;
+}
+
+.modal-content-order-button {
+  background-color: #ff143c;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  padding: 20px 55px 20px 55px;
+  margin: 20px 0 60px 0;
+  text-align: center;
+}
+
+.pizza-point-box {
+  margin: 10px 50px 0 10px;
+}
+
+.pizza-point-box-in {
+  margin: 10px;
+}
+
+.pizza-point-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: black;
+  margin: 10px 0 10px 0;
+}
+
+.pizza-point-text {
+  font-size: 16px;
+  padding-bottom: 20px;
 }

@@ -26,10 +26,12 @@ export default function PizzaMenuInfoToggle({ title, content }) {
           </button>
         </ul>
       </div>
-      <div className="modal-content-list-toggle-box-text">
-        {isCheck && (
-          <p className="modal-content-list-toggle-box-text-in">{content}</p>
-        )}
+      <div
+        className={`modal-content-list-toggle-box-text ${
+          isCheck ? "expanded" : ""
+        }`}
+      >
+        <p className="modal-content-list-toggle-box-text-in">{content}</p>
       </div>
     </>
   );

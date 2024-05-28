@@ -45,14 +45,14 @@ export default function PizzaMenuProduct() {
       <div key={index} className="pizza-box">
         {row.map((pizza, idx) => (
           <div key={idx} className="pizza-box-in">
-            <Link to={`/pizza/${pizza.id}`}>
+            <Link to={`/pizzas/${pizza.id}`}>
               <img
                 className="pizza-box-in-image"
                 src={pizza.image}
                 alt={pizza.title}
               />
             </Link>
-            <button className="modal-open-btn" onClick={() => openModal(pizza)}>
+            <button className="modalopenbtn" onClick={() => openModal(pizza)}>
               <FontAwesomeIcon icon={faExpand} />
             </button>
             {selectedPizza && (

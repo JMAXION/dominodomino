@@ -16,7 +16,9 @@ export const geteventdetail = async(req,res) =>{
   }
 
   export const  getDiscountDetail = async(req,res) =>{
-    const event = await repository.getDiscountDetail(req.params.id);
+    const id = req.params.id
+    console.log("id:",id);
+    const event = await repository.getDiscountDetail(id);
     
     
     res.json(event);

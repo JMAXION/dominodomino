@@ -32,7 +32,11 @@ export default function Modal({ id }) {
         />
       </div>
       <p>{menuList.company}</p>
-      <p>{menuList.discount}</p>
+      <p>
+        {menuList.discount1}
+        {menuList.discount2}
+        {menuList.discount3}
+      </p>
       {modalOpen && (
         <div
           className={"modal-container"}
@@ -66,7 +70,7 @@ export default function Modal({ id }) {
               <h4>
                 {menuList.grade1}
 
-                <pre className="modal-content-discribe">{menuList.desc}</pre>
+                <pre className="modal-content-discribe">{menuList.desc1}</pre>
                 {menuList.discribeTitle2}
                 {menuList.grade2}
                 <pre className="modal-content-discribe">{menuList.desc2}</pre>

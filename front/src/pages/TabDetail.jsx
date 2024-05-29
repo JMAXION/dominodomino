@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // import { Link, useParams } from "react-router-dom";
 // import PageTitle from "../components/PageTitle";
 import PageButtons from "../components/PageButtons";
@@ -12,23 +12,32 @@ export default function TabDetail({
   className,
   showQnA,
 }) {
-  console.log("tabList -> ", tabList);
+  const [activeIndex, setActiveIndex] = useState(-1); // 인덱스에서 -1 === 존재하지않음
 
-  const [isChecked, setIsChecked] = useState([false, false, false]);
-
-  const toggleIsChecked = (index) => {
-    setIsChecked((prevState) => {
-      const newState = [...prevState]; // [false, false, false]
-      newState[index] = !newState[index]; //해당 index번지만 반대값으로 바꾸기
-      return newState;
-    });
-  };
+  const answerRefs = useRef([]);
 
   const QnA = [
     { question: tabList.q1, answer: tabList.a1 },
-    { question: tabList.q2, answer: tabList.a1 },
-    { question: tabList.q3, answer: tabList.a1 },
+    { question: tabList.q2, answer: tabList.a2 },
+    { question: tabList.q3, answer: tabList.a3 },
+    { question: tabList.q4, answer: tabList.a4 },
+    { question: tabList.q5, answer: tabList.a5 },
   ];
+
+  /* 아코디언 열고 닫기 */
+  const toggleIsActive = (index) => {
+    setActiveIndex((prevIndex) => (index !== prevIndex ? index : -1));
+  };
+
+  /* 답변 크기 자동으로 받아오기 */
+  useEffect(() => {
+    answerRefs.current.forEach((ref, index) => {
+      if (ref) {
+        ref.style.maxHeight =
+          activeIndex === index ? `${ref.scrollHeight}px` : "0px";
+      }
+    });
+  }, [activeIndex]);
 
   return (
     <div className="content">
@@ -100,23 +109,42 @@ export default function TabDetail({
 
         {showQnA && (
           <div className="cs-qnaBox">
-            {QnA.map((item, index) => (
+            {QnA.filter((item) => item.question).map((item, index) => (
               <div key={index} className="cs-qna">
                 <div
                   className="cs-qna-toggle"
-                  onClick={() => toggleIsChecked(index)}
+                  onClick={() => toggleIsActive(index)}
                 >
                   <button>
                     <div className="cs-qna-text">
-                      <div>
-                        <span>Q</span>
-                        <span>{item.question}</span>
-                      </div>
-                      <span>{isChecked[index] ? "ᐱ" : "ᐯ"}</span>
+                      <span>Q</span>
+                      <span>{item.question}</span>
+                      <span className="cs-qna-text-v">
+                        {activeIndex === index ? "ᐱ" : "ᐯ"}
+                      </span>
                     </div>
                   </button>
                 </div>
-                {isChecked[index] && <div>{item.answer}</div>}
+                {item.answer && (
+                  <div
+                    className={`cs-qna-answerBox ${
+                      activeIndex === index ? "active" : ""
+                    }`}
+                    ref={(el) => (answerRefs.current[index] = el)}
+                  >
+                    <div>
+                      <span>A</span>
+                      <div className="cs-answer-line">
+                        {item.answer.split("\n").map((text) => (
+                          <div>
+                            {text}
+                            <br />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>

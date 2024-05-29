@@ -56,7 +56,7 @@
 .cs-qnaBox {
   text-align: left;
   border-top: 1px solid var(--black-color);
-  /* border: 1px solid blue; */
+  margin-bottom: 100px;
 }
 
 .cs-qna button {
@@ -66,23 +66,56 @@
 }
 
 .cs-qna-toggle {
+  position: relative;
   padding: 30px 30px;
   cursor: pointer;
+  border-bottom: 1px solid var(--divide-color);
 }
 
 .cs-qna-text {
-  display: flex;
-  justify-content: space-between;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cs-qna-text-v {
+  position: absolute;
+  right: 2.5rem;
 }
 
 .cs-qna span:first-child {
   font-size: 18px;
   font-weight: 500;
-  /* margin-right: 15px; */
+  margin-right: 15px;
   color: var(--blue-color);
 }
 .cs-qna span:last-child {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
-  /* margin-left: 15px; */
+}
+
+.cs-qna-answerBox {
+  background-color: #f9f9f9;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease-in-out;
+}
+
+.cs-qna-answerBox.active {
+  max-height: 0;
+}
+
+.cs-qna-answerBox > div {
+  display: flex;
+  padding: 30px 30px;
+}
+
+.cs-qna-answerBox span:first-child {
+  color: var(--red-color);
+}
+
+.cs-qna-answerBox div {
+  font-size: 14px;
+  letter-spacing: -1;
+  color: #555;
 }

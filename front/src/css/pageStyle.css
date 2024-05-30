@@ -108,6 +108,7 @@ h1 {
   margin: 50px 0;
 }
 
+/* 호출하는 jsx별 PageButton CSS */
 .ServiceMania button {
   position: relative;
   width: 400px;
@@ -121,7 +122,8 @@ h1 {
   transition: all 0.5s;
 }
 
-.CsCenter button {
+.CsCenter button,
+.Company button {
   position: relative;
   width: 300px;
   height: 50px;
@@ -140,7 +142,9 @@ h1 {
   top: 12px;
   font-size: 14px;
 }
-.CsCenter span {
+
+.CsCenter span,
+.Company span {
   position: absolute;
   left: 270px;
   top: 15px;

@@ -26,8 +26,8 @@ import HalfNhalf from "./pages/HalfNhalf.jsx";
 import Hnh from "./pages/Hnh.jsx";
 import "./css/footerStyle.css";
 import "./css/commons.css";
-import LawUse from "./pages/law/LawUse.jsx";
 // import Service from "./pages/Service.jsx";
+import ServiceMania from "./pages/service/ServiceMania.jsx";
 import ServiceMoment from "./pages/service/ServiceMoment.jsx";
 import ServiceQuick from "./pages/service/ServiceQuick.jsx";
 import ServiceGroup from "./pages/service/ServiceGroup.jsx";
@@ -35,10 +35,14 @@ import HomeSlider from "./pages/HomeSlider.jsx";
 import LawPersonal from "./pages/law/LawPersonal.jsx";
 import LawNavi from "./pages/law/LawNavi.jsx";
 import LawTeen from "./pages/law/LawTeen.jsx";
+import LawUse from "./pages/law/LawUse.jsx";
 import LawVideo from "./pages/law/LawVideo.jsx";
 import TabDetail from "./pages/TabDetail.jsx";
 import CsCenter from "./pages/CsCenter.jsx";
-import ServiceMania from "./pages/service/ServiceMania.jsx";
+import Company from "./pages/company/Company.jsx";
+import Franchisee from "./pages/company/Franchisee.jsx";
+import Recruit from "./pages/company/Recruit.jsx";
+
 import LoginNonmember from "./components/LoginNonmember.jsx";
 import Ecoupon from "./pages/Ecoupon.jsx";
 import Service from "./pages/Service.jsx";
@@ -198,6 +202,18 @@ export default function App() {
         {
           path: "/cs/:id",
           element: <CsCenter depth2={"자주하는 질문"} />,
+        },
+        {
+          path: "/company/:id",
+          element: <Company depth2={"한국도미노피자"} />,
+        },
+        {
+          path: "/company/franchisee/:id",
+          element: <Franchisee depth2={"한국도미노피자"} />,
+        },
+        {
+          path: "/company/recruit/:id",
+          element: <Recruit depth2={"한국도미노피자"} />,
         },
 
         {

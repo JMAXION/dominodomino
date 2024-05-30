@@ -12,7 +12,7 @@ export default function TabDetail({
   className,
   showQnA,
 }) {
-  const [activeIndex, setActiveIndex] = useState(-1); // 인덱스에서 -1 === 존재하지않음
+  const [activeIndex, setActiveIndex] = useState(-1); // 배열의 인덱스에서 -1 === 존재하지않음을 의미
 
   const answerRefs = useRef([]);
 
@@ -24,12 +24,16 @@ export default function TabDetail({
     { question: tabList.q5, answer: tabList.a5 },
   ];
 
-  /* 아코디언 열고 닫기 */
+  /*
+   *  CsCenter
+   */
+  // 아코디언 열고 닫기
   const toggleIsActive = (index) => {
-    setActiveIndex((prevIndex) => (index !== prevIndex ? index : -1));
+    console.log("index -->", index);
+    setActiveIndex((prevIndex) => (index !== prevIndex ? index : -1)); //activeIndex의 이전의 값과 같지 않으면 누른 div의 index값 넣음
   };
 
-  /* 답변 크기 자동으로 받아오기 */
+  // 답변 크기 자동으로 받아오기
   useEffect(() => {
     answerRefs.current.forEach((ref, index) => {
       if (ref) {
@@ -39,16 +43,20 @@ export default function TabDetail({
     });
   }, [activeIndex]);
 
+  // 탭 누를때마다 아코디언 전체 초기화
+  const onPageBtnClick = (index) => {
+    //index값과 상관없이 activeIndex 초기화(-1)
+    setActiveIndex(-1);
+  };
+
   return (
     <div className="content">
-      {/* ----- 페이지 타이틀 ----- */}
-      {/* <PageTitle props={props} depth1={depth1} depth2={depth2} /> */}
-      {/* ----- 본문 ----- */}
       <div className="tab-detail-outer">
         <PageButtons
           buttonList={buttonList}
           basePath={basePath}
           className={className}
+          onPageBtnClick={onPageBtnClick}
         />
         {tabList.image && (
           <div className="tab-detail">
@@ -128,7 +136,7 @@ export default function TabDetail({
                 {item.answer && (
                   <div
                     className={`cs-qna-answerBox ${
-                      activeIndex === index ? "active" : ""
+                      activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
                     }`}
                     ref={(el) => (answerRefs.current[index] = el)}
                   >

@@ -1,5 +1,7 @@
 .side-box {
   display: flex;
+  justify-content: flex-start;
+  /* border: 1px solid red; */
 }
 
 .side-box-in {
@@ -9,8 +11,63 @@
   padding: 3px;
   margin-left: 13.5px;
   position: relative;
+  /* border: 1px solid red; */
 }
 
 .side-box-in-image {
-  width: 267px;
+  width: 276px;
+}
+
+.side-product {
+  margin-top: 10px;
+  align-items: center;
+}
+
+.side-title-box {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.side-title {
+  font-size: 20px;
+}
+
+.side-title-icon {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  background-color: red;
+  color: white;
+  padding: 0px 5px;
+}
+
+.side-price-org {
+  color: #888888;
+  margin-right: 10px;
+  text-decoration: line-through;
+}
+
+.side-price {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 20px 0 18px;
+}
+
+.side-order-box {
+  display: inline;
+}
+
+.side-order-button {
+  position: absolute;
+  right: 4px;
+  top: 325px;
+  background: white;
+  border: 1px solid #ff143c;
+  color: #ff143c;
+  padding: 8px 25px;
+  font-size: 16px;
+  /* margin: 10px 0 0 65px; */
+  cursor: pointer;
 }

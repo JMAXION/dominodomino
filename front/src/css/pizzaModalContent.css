@@ -14,6 +14,7 @@
   padding: 20px 0 20px 0;
   border-bottom: 1px solid lightgray;
   margin-bottom: 20px;
+  font-weight: bold;
 }
 
 .modal-info {
@@ -131,8 +132,9 @@
   font-weight: bold;
   border: none;
   padding: 20px 55px 20px 55px;
-  margin: 20px 0 60px 0;
+  margin: 10px 0 130px 0;
   text-align: center;
+  cursor: pointer;
 }
 
 .pizza-point-box {

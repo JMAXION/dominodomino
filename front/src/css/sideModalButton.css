@@ -1,22 +1,4 @@
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 3;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-.modal {
+.side-modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -29,22 +11,18 @@
   animation: fadeIn 0.3s forwards;
 }
 
-.modal.hide {
-  animation: fadeOut 0.3s forwards;
-}
-
-.modalcontainer {
+.side-modal-container {
   overflow: hidden;
 }
 
-.modalcontent {
+.side-modal-content {
   background-color: white;
   position: relative;
   z-index: 10;
   height: 780px;
 }
 
-.modalopenbtn {
+.side-modal-open-btn {
   position: absolute;
   top: 243px;
   left: 243px;
@@ -57,7 +35,7 @@
   cursor: pointer;
 }
 
-.modalclosebtn {
+.side-modal-close-btn {
   position: absolute;
   top: 23px;
   right: 10px;

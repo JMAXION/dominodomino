@@ -13,9 +13,9 @@ export default function PizzaModal({ pizza, onClose }) {
   };
 
   const handleClose = () => {
-    const modalElemnet = document.querySelector(".modal");
-    modalElemnet.classList.add("hide");
-    setTimeout(onClose, 300);
+    const modalElement = document.querySelector(".modal");
+    modalElement.classList.add("hide");
+    setTimeout(onClose, 300); // 애니메이션 시간에 맞추어 콜백 호출
   };
 
   return (

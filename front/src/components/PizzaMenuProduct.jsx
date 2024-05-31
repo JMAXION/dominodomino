@@ -42,7 +42,7 @@ export default function PizzaMenuProduct() {
 
   const renderRows = (rows) => {
     return rows.map((row, index) => (
-      <div key={index} className="pizza-box">
+      <div key={index} className="pizzabox">
         {row.map((pizza, idx) => (
           <div key={idx} className="pizza-box-in">
             <Link to={`/pizzas/${pizza.id}`}>

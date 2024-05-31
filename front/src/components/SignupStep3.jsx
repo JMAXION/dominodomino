@@ -8,8 +8,8 @@ export default function SignupStep3() {
 
   return (
     <div className="signup">
-      <h2>HOPENEARUS SIGNUP</h2>
-      <img src="https://d2v80xjmx68n4w.cloudfront.net/gigs/EOYa41702649874.jpg" />
+      <h2>CONGRATULATION!</h2>
+      <img src="https://www.joseilbo.com/gisa_img_origin/16872229291687222929_joseedu_origin.jpg" />
       <p>회원가입에 성공하셨습니다.</p>
 
       <button type="button" onClick={handleLogin}>

@@ -2,6 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import PageTitle from "./PageTitle";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHtml5 } from "@fortawesome/free-brands-svg-icons";
+import {
+  faChevronLeft,
+  faChevronRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function Certificate() {
   const [props, setprops] = useState({
@@ -23,23 +29,22 @@ export default function Certificate() {
   return (
     <div className="content">
       <PageTitle props={props} />
-      <ul className="mania-info">
-        <ul className="mania-info-name">
-          <li>장현수님</li>
-          <li>REGULAR</li>
+      <ul className="certificate">
+        <li className="certificate-info">
+          <li>
+            <span>장현수</span>님께서 보유하고 있는 금액상품권 내역입니다.
+          </li>
           <li></li>
-          <li>등급별 혜택 보기</li>
-        </ul>
-        <ul className="mania-info-order">
-          <li>주문</li>
-          <li>2024.02 ~ 2024.04</li>
-          <li>0</li>
-        </ul>
-        <ul className="mania-info-cash">
-          <li>주문금액</li>
-          <li>2024.01 ~ 2024.05</li>
-          <li>0</li>
-        </ul>
+          <li>선물받은 금액상품권을 등록하고 피자 주문 시 사용하세요!</li>
+        </li>
+        <li className="certificate-access">
+          금액상품권 등록
+          <FontAwesomeIcon icon={faChevronRight} />
+        </li>
+      </ul>
+      <ul className="certificate-own">
+        <li>금액상품권 보유내역</li>
+        <li>금액상품권 전체 사용 내역</li>
       </ul>
     </div>
   );

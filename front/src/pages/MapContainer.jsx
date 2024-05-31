@@ -84,6 +84,8 @@ const MapContainer = () => {
       "강화군",
       "옹진군",
     ],
+    광주: ["동구", "서구", "남구", "북구", "광산구"],
+    울산: ["중구", "남구", "동구", "북구", "울주군"],
   };
 
   useEffect(() => {
@@ -96,7 +98,7 @@ const MapContainer = () => {
     let infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
     const container = document.getElementById("myMap");
     const options = {
-      center: new kakao.maps.LatLng(33.450701, 126.570667),
+      center: new kakao.maps.LatLng(37.498426, 127.038867),
       level: 3,
     };
     const map = new kakao.maps.Map(container, options);
@@ -166,7 +168,7 @@ const MapContainer = () => {
       <PageTitle2 props={props} />
       <div className="branch">
         <div className="branch-result">
-          <h3>지역검색</h3>
+          <h3>지역 검색</h3>
           <select
             className="branch-select"
             onChange={handleCityChange}
@@ -178,6 +180,8 @@ const MapContainer = () => {
             <option value="대구">대구</option>
             <option value="부산">부산</option>
             <option value="인천">인천</option>
+            <option value="광주">광주</option>
+            <option value="울산">울산</option>
             {/* 여기에 더 많은 시 옵션을 추가할 수 있습니다. */}
           </select>
           <select

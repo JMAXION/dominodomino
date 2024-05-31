@@ -47,7 +47,7 @@ export default function Eventdetail({
             {eventList.start} ~ {eventList.end}
           </p>
         </div>
-        <img className="event-detail-img" src={eventList.img}></img>
+        <img className="event-detail-img" src={eventList.detail_image}></img>
       </div>
     </div>
   );

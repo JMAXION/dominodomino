@@ -1,121 +1,69 @@
-import { useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+/* css */
 import "./css/style.css";
+import "./css/style2.css";
 import "./css/order.css";
+import "./css/commons.css";
 import "./css/pizzaMenu.css";
 import "./css/rootStyle.css";
+import "./css/footerStyle.css";
 import "./css/pizzaModalButton.css";
 import "./css/pizzaModalContent.css";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+/* root and home */
 import Root from "./pages/Root";
 import Home from "./pages/Home";
-import Signup from "./pages/Signup";
-import MapContainer from "./pages/MapContainer";
-import Login from "./pages/Login";
-import logo from "./logo.svg";
-import "./css/style2.css";
-import Event from "./pages/Event.jsx";
-import Menuheader from "./components/Menuheader.jsx";
-import Eventdetail from "./pages/Eventdetail.jsx";
+/* cscenter */
+import CsCenter from "./pages/CsCenter.jsx";
+/* discount */
 import Discount from "./pages/Discount.jsx";
-import Discountdetail from "./pages/Discountdetail.jsx";
-import Modal from "./components/Modal.jsx";
-import TelecomDiscount from "./components/TelecomDiscount.jsx";
-import Test from "./pages/Test.jsx";
 import CardDiscount from "./components/CardDiscount.jsx";
-import HalfNhalf from "./pages/HalfNhalf.jsx";
-import Hnh from "./pages/Hnh.jsx";
-import "./css/footerStyle.css";
-import "./css/commons.css";
+import Discountdetail from "./pages/Discountdetail.jsx";
+import TelecomDiscount from "./components/TelecomDiscount.jsx";
+/* event */
+import Event from "./pages/Event.jsx";
+import Eventdetail from "./pages/Eventdetail.jsx";
+/* ecoupon */
+import Ecoupon from "./pages/Ecoupon.jsx";
+import EcouponIndex from "./components/EcouponIndex.jsx";
+import EcouponUsage from "./components/EcouponUsage.jsx";
+/* law */
 import LawUse from "./pages/law/LawUse.jsx";
-// import Service from "./pages/Service.jsx";
-import ServiceMoment from "./pages/service/ServiceMoment.jsx";
-import ServiceQuick from "./pages/service/ServiceQuick.jsx";
-import ServiceGroup from "./pages/service/ServiceGroup.jsx";
-import HomeSlider from "./pages/HomeSlider.jsx";
-import LawPersonal from "./pages/law/LawPersonal.jsx";
 import LawNavi from "./pages/law/LawNavi.jsx";
+import LawPersonal from "./pages/law/LawPersonal.jsx";
 import LawTeen from "./pages/law/LawTeen.jsx";
 import LawVideo from "./pages/law/LawVideo.jsx";
-import TabDetail from "./pages/TabDetail.jsx";
-import CsCenter from "./pages/CsCenter.jsx";
-import ServiceMania from "./pages/service/ServiceMania.jsx";
+/* login and signup */
+import Login from "./pages/Login";
 import LoginNonmember from "./components/LoginNonmember.jsx";
-import Ecoupon from "./pages/Ecoupon.jsx";
-import Service from "./pages/Service.jsx";
-import HomeOrder from "./pages/HomeOrder.jsx";
-import PizzaMenu from "./pages/PizzaMenu.jsx";
+import Signup from "./pages/Signup";
+/* map */
+import MapContainer from "./pages/MapContainer";
+/* menu */
+import AllPizzaMenu from "./pages/AllPizzaMenu.jsx";
+import DetailPizzaMenu from "./pages/DetailPizzaMenu.jsx";
+import SideDishMenu from "./pages/SideDishMenu.jsx";
+import Hnh from "./pages/Hnh.jsx";
+/* mypage */
 import MyPage from "./pages/MyPage.jsx";
 import OrderList from "./components/OrderList.jsx";
 import Coupon from "./components/Coupon.jsx";
 import Certificate from "./components/Certificate.jsx";
 import Qna from "./components/Qna.jsx";
 import Information from "./components/Information.jsx";
+/* service */
+import Service from "./pages/Service.jsx";
+import ServiceGroup from "./pages/service/ServiceGroup.jsx";
+import ServiceMania from "./pages/service/ServiceMania.jsx";
+import ServiceMoment from "./pages/service/ServiceMoment.jsx";
+import ServiceQuick from "./pages/service/ServiceQuick.jsx";
 
 export default function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root /> /** layout 정의 */,
-      // loader: rootLoader,
+      element: <Root />,
       children: [
-        { path: "/law", element: <LawUse depth2={"이용약관"} /> },
         { path: "/", element: <Home /> },
-        { path: "/signup", element: <Signup /> },
-        { path: "/login", element: <Login /> },
-        { path: "/nonmember", element: <LoginNonmember /> },
-        { path: "/branch", element: <MapContainer /> },
-        { path: "/menu", element: <Home /> },
-
-        { path: "/ecoupon", element: <Ecoupon /> },
-        {
-          path: "/event",
-          element: (
-            <Event
-              name="이벤트·제휴"
-              depth1="홈"
-              depth2="이벤트·제휴"
-              depth3="이벤트"
-              className="active"
-              headerName="event"
-            />
-          ),
-        },
-        {
-          path: "/menu/halfnhalf",
-          element: (
-            <Hnh
-              name="메뉴"
-              depth1="홈"
-              depth2="메뉴"
-              depth3="하프앤하프"
-              headerName="menu"
-            />
-          ),
-        },
-        {
-          path: "/event",
-          element: (
-            <Event
-              name="이벤트·제휴"
-              depth1="홈"
-              depth2="이벤트·제휴"
-              depth3="이벤트"
-              headerName="event"
-            />
-          ),
-        },
-        {
-          path: "/event/detail/:id",
-          element: (
-            <Eventdetail
-              name="이벤트,제휴"
-              depth1="홈"
-              depth2="이벤트·제휴"
-              depth3="이벤트"
-              headerName="event"
-            />
-          ),
-        },
         {
           path: "/event/discount",
           element: (
@@ -128,6 +76,7 @@ export default function App() {
             />
           ),
         },
+        { path: "/event/discount/card/detail/:id", element: <CardDiscount /> },
         {
           path: "/event/discount/detail/:id",
           element: (
@@ -144,12 +93,38 @@ export default function App() {
           path: "/event/discount/telecom/detail/:id",
           element: <TelecomDiscount />,
         },
-        { path: "/event/discount/card/detail/:id", element: <CardDiscount /> },
         {
           path: "/event/discount/telecom/detail/:id",
           element: <TelecomDiscount id="1" />,
         },
-        { path: "/", element: <HomeSlider /> },
+        {
+          path: "/event",
+          element: (
+            <Event
+              name="이벤트·제휴"
+              depth1="홈"
+              depth2="이벤트·제휴"
+              depth3="이벤트"
+              className="active"
+              headerName="event"
+            />
+          ),
+        },
+        {
+          path: "/event/detail/:id",
+          element: (
+            <Eventdetail
+              name="이벤트,제휴"
+              depth1="홈"
+              depth2="이벤트·제휴"
+              depth3="이벤트"
+              headerName="event"
+            />
+          ),
+        },
+        { path: "/ecoupon", element: <Ecoupon /> },
+        { path: "/ecoupon/index", element: <EcouponIndex /> },
+        { path: "/ecouponusage", element: <EcouponUsage /> },
         { path: "/law", element: <LawUse depth2={"이용약관"} /> },
         {
           path: "/law/personal",
@@ -160,26 +135,32 @@ export default function App() {
           element: <LawNavi depth2={"위치기반 서비스 이용약관"} />,
         },
         { path: "/law/teen", element: <LawTeen depth2={"청소년 보호방침"} /> },
+        { path: "/law/video", element: <LawVideo /> },
+
+        { path: "/login", element: <Login /> },
+        { path: "/nonmember", element: <LoginNonmember /> },
+        { path: "/signup", element: <Signup /> },
+
+        { path: "/branch", element: <MapContainer /> },
+
+        { path: "/pizzas", element: <AllPizzaMenu depth2="피자" /> },
+        { path: "/pizzas/:id", element: <DetailPizzaMenu /> },
+        { path: "/sides", element: <SideDishMenu depth2="사이드디시" /> },
         {
-          path: "/event/discount/card/detail/:id",
-          element: <CardDiscount id="1" />,
-          path: "/law/video",
-          element: <LawVideo depth2={"영상정보처리기기 운영관리방침"} />,
+          path: "/menu/halfnhalf",
+          element: <Hnh depth2="하프앤하프" />,
         },
-        { path: "/test", element: <Test /> },
-        { path: "/test/:id", element: <Test /> },
+
+        { path: "/mypage", element: <MyPage /> },
+        { path: "/mypage/mania", element: <MyPage /> },
+        { path: "/mypage/order", element: <OrderList /> },
+        { path: "/mypage/coupon", element: <Coupon /> },
+        { path: "/mypage/certificate", element: <Certificate /> },
+        { path: "/mypage/qna", element: <Qna /> },
+        { path: "/mypage/information", element: <Information /> },
+
+        { path: "/service", element: <Service /> },
         {
-          path: "/halfnhalf",
-          element: (
-            <Hnh
-              name="메뉴"
-              depth1="홈"
-              depth2="메뉴"
-              depth3="하프앤하프"
-              headerName="halfnhalf"
-              location1="menu"
-            />
-          ),
           path: "/service/moment",
           element: <ServiceMoment depth2={"도미노 모멘트"} />,
         },
@@ -195,106 +176,11 @@ export default function App() {
           path: "/service/:id",
           element: <ServiceMania depth2={"매니아 혜택"} />,
         },
+
         {
           path: "/cs/:id",
           element: <CsCenter depth2={"자주하는 질문"} />,
         },
-
-        {
-          path: "/event",
-          element: (
-            <Event
-              name="이벤트·제휴"
-              depth1="홈"
-              depth2="이벤트·제휴"
-              depth3="이벤트"
-              className="active"
-              headerName="event"
-            />
-          ),
-        },
-        {
-          path: "/menu/halfnhalf",
-          element: (
-            <Hnh
-              name="메뉴"
-              depth1="홈"
-              depth2="메뉴"
-              depth3="하프앤하프"
-              headerName="menu"
-            />
-          ),
-        },
-        {
-          path: "/event",
-          element: (
-            <Event
-              name="이벤트·제휴"
-              depth1="홈"
-              depth2="이벤트·제휴"
-              depth3="이벤트"
-              headerName="event"
-            />
-          ),
-        },
-        {
-          path: "/event/detail/:id",
-          element: (
-            <Eventdetail
-              name="이벤트,제휴"
-              depth1="홈"
-              depth2="이벤트·제휴"
-              depth3="이벤트"
-              headerName="event"
-            />
-          ),
-        },
-        {
-          path: "/event/discount",
-          element: (
-            <Discount
-              name="이벤트,제휴"
-              depth1="홈"
-              depth2="이벤트·제휴"
-              depth3="제휴할인"
-              headerName="event/discount"
-            />
-          ),
-        },
-        {
-          path: "/event/discount/detail/:id",
-          element: (
-            <Discountdetail
-              name="이벤트,제휴"
-              depth1="홈"
-              depth2="이벤트·제휴"
-              depth3="제휴할인"
-              headerName="event/discount"
-            />
-          ),
-        },
-        {
-          path: "/event/discount/telecom/detail/:id",
-          element: <TelecomDiscount />,
-        },
-        { path: "/event/discount/card/detail/:id", element: <CardDiscount /> },
-        { path: "/", element: <HomeSlider /> },
-        { path: "/law", element: <LawUse /> },
-        { path: "/law/personal", element: <LawPersonal /> },
-        { path: "/law/navi", element: <LawNavi /> },
-        { path: "/law/teen", element: <LawTeen /> },
-        { path: "/law/video", element: <LawVideo /> },
-        { path: "/service", element: <Service /> },
-        { path: "/service/:id", element: <TabDetail /> },
-        { path: "/", element: <HomeOrder /> },
-        { path: "/pizzas", element: <PizzaMenu /> },
-        { path: "/mypage", element: <MyPage /> },
-        { path: "/mypage/mania", element: <MyPage /> },
-        { path: "/mypage/order", element: <OrderList /> },
-        { path: "/mypage/coupon", element: <Coupon /> },
-        { path: "/mypage/certificate", element: <Certificate /> },
-        { path: "/mypage/qna", element: <Qna /> },
-        { path: "/mypage/information", element: <Information /> },
       ],
     },
   ]);

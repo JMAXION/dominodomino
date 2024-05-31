@@ -4,8 +4,9 @@ import "../css/pizzaMenu.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faExpand } from "@fortawesome/free-solid-svg-icons";
 import PizzaModal from "./PizzaModal.jsx";
+import PageTitle from "./PageTitle.jsx";
 
-export default function PizzaMenuProduct() {
+export default function PizzaMenuProduct({ depth2 }) {
   const [pizzaList, setPizzaList] = useState({
     pizza: {
       new: [],
@@ -42,17 +43,17 @@ export default function PizzaMenuProduct() {
 
   const renderRows = (rows) => {
     return rows.map((row, index) => (
-      <div key={index} className="pizza-box">
+      <div key={index} className="pizzabox">
         {row.map((pizza, idx) => (
           <div key={idx} className="pizza-box-in">
-            <Link to={`/pizza/${pizza.id}`}>
+            <Link to={`/pizzas/${pizza.id}`}>
               <img
                 className="pizza-box-in-image"
                 src={pizza.image}
                 alt={pizza.title}
               />
             </Link>
-            <button className="modal-open-btn" onClick={() => openModal(pizza)}>
+            <button className="modalopenbtn" onClick={() => openModal(pizza)}>
               <FontAwesomeIcon icon={faExpand} />
             </button>
             {selectedPizza && (
@@ -87,9 +88,23 @@ export default function PizzaMenuProduct() {
       </div>
     ));
   };
+  const [props, setprops] = useState({
+    title: "메뉴",
+    breadcrumb: "피자",
+    breadcrumbLink: "/pizzas",
+    nav1: "피자",
+    nav2: "하프앤하프",
+    nav3: "사이드디시",
+    nav4: "인기세트메뉴",
+    link1: "/pizzas",
+    link2: "/menu/halfnhalf",
+    link3: "/sides",
+    link4: "/",
+  });
 
   return (
     <div className="content">
+      <PageTitle props={props} depth2={depth2} />
       <div>
         <ul>
           <div className="category">NEW</div>

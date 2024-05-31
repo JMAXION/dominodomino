@@ -23,10 +23,12 @@ export default function Ecoupon() {
           </Link>
         </ul>
         <ul className="ecoupon-button-coupon">
-          <img
-            src="https://cdn.dominos.co.kr/domino/pc/images/coupon/e-coupon-number.png"
-            alt=""
-          />
+          <Link to="/ecoupon/index">
+            <img
+              src="https://cdn.dominos.co.kr/domino/pc/images/coupon/e-coupon-number.png"
+              alt=""
+            />
+          </Link>
         </ul>
       </p>
     </div>

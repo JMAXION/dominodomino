@@ -280,7 +280,11 @@ export default function SignupStep1({ next, formData, handleCheck, props }) {
           <span>동의합니다.</span>
         </div>
       </div>
-      <button type="button" onClick={() => validateCheckStep1(next, formData)}>
+      <button
+        type="button"
+        onClick={() => validateCheckStep1(next, formData)}
+        className="signupstep1-button"
+      >
         다음
       </button>
     </div>

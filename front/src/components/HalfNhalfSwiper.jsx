@@ -1,19 +1,10 @@
-
-
-import { SwiperComp } from './SwiperComp';
-import Menuheader from '../components/Menuheader'
+import { SwiperComp } from "./SwiperComp";
+import Menuheader from "../components/Menuheader";
 
 export default function HalfNhalfSwiper() {
-    
-
-
-return(
+  return (
     <>
-        
-        <SwiperComp />
+      <SwiperComp />
     </>
-)   
-
-
-  
+  );
 }

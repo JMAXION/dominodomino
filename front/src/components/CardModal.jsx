@@ -9,7 +9,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 export default function Modal({ id }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [menuList, setMenuList] = useState([]);
-//0529
+
   const url = `http://127.0.0.1:8080/event/discount/card/detail/${id}`;
   useEffect(() => {
     axios({
@@ -32,9 +32,11 @@ export default function Modal({ id }) {
         />
       </div>
       <p>{menuList.company}</p>
-      <pre>
-      <p>{menuList.discount1}{menuList.discount2}{menuList.discount3}</p>
-      </pre>
+      <p>
+        {menuList.discount1}
+        {menuList.discount2}
+        {menuList.discount3}
+      </p>
       {modalOpen && (
         <div
           className={"modal-container"}

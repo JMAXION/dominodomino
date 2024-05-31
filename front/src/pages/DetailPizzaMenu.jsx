@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import ProductAvata from "./ProductAvata";
+import ProductAvata from "../components/ProductAvata";
 import { Link } from "react-router-dom";
 
 export default function Product() {

@@ -48,6 +48,25 @@ export default function Mania() {
           </li>
         </ul>
       </ul>
+      <ul className="order-pizza-or-certificate">
+        <li>피자 주문</li>
+        <li>상품권 주문 </li>
+      </ul>
+      <ul className="order-info-personal">
+        <li>주문내역이 없습니다.</li>
+      </ul>
+      <ul className="order-buttons">
+        <button>
+          <Link to="/pizzas">
+            <span className="order-button-text">신제품 보러가기</span>
+          </Link>
+        </button>
+        <button>
+          <Link to="/pizzas">
+            <span className="order-button-text">다른제품 보러가기</span>
+          </Link>
+        </button>
+      </ul>
     </div>
   );
 }

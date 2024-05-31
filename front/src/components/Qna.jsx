@@ -23,23 +23,30 @@ export default function Qna() {
   return (
     <div className="content">
       <PageTitle props={props} />
-      <ul className="mania-info">
-        <ul className="mania-info-name">
-          <li>장현수님</li>
-          <li>REGULAR</li>
-          <li></li>
-          <li>등급별 혜택 보기</li>
-        </ul>
-        <ul className="mania-info-order">
-          <li>주문</li>
-          <li>2024.02 ~ 2024.04</li>
-          <li>0</li>
-        </ul>
-        <ul className="mania-info-cash">
-          <li>주문금액</li>
-          <li>2024.01 ~ 2024.05</li>
-          <li>0</li>
-        </ul>
+      <ul className="qna">
+        <li>
+          <span>장현수</span>님께서 문의하신 내용입니다
+        </li>
+        <li></li>
+        <li>장현수님께서 문의하신 내용은 총 0건입니다.</li>
+      </ul>
+      <table className="qna-table">
+        {/* <colgroup>
+          <col width="50%" />
+          <col width="50%" />
+        </colgroup> */}
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>등록일</th>
+            <th>처리상태</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <ul className="qna-button">
+        <button>문의/칭찬하기</button>
       </ul>
     </div>
   );

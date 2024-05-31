@@ -124,7 +124,7 @@ export default function SignupStep2({
         <p>회원가입에 필요한 정보를 입력합니다.</p>
       </div>
       <ul className="signup-info">
-        <li>
+        <li className="signup-info-id">
           <p>
             아이디<span>*</span>
           </p>
@@ -139,7 +139,7 @@ export default function SignupStep2({
             중복확인
           </button>
         </li>
-        <li>
+        <li className="signup-info-pass">
           <p>
             비밀번호<span>*</span>
           </p>

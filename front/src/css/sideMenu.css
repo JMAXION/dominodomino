@@ -1,0 +1,16 @@
+.side-box {
+  display: flex;
+}
+
+.side-box-in {
+  width: 276px;
+  height: 467px;
+  text-align: left;
+  padding: 3px;
+  margin-left: 13.5px;
+  position: relative;
+}
+
+.side-box-in-image {
+  width: 267px;
+}

@@ -6,14 +6,9 @@ import "../css/hnh.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import HnhCautionModal from "../components/hnhCautionModal";
-export default function Hnh({
-  name,
-  depth1,
-  depth2,
-  depth3,
-  headerName,
-  location1,
-}) {
+import PageTitle from "../components/PageTitle";
+
+export default function Hnh({ depth2 }) {
   const [navActive, setNavActive] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [scrollActive, setScrollActive] = useState(false);
@@ -121,17 +116,22 @@ export default function Hnh({
       setSelected({ large: false, mideum: true, size: "M" });
     }
   }
+  const [props, setprops] = useState({
+    title: "메뉴",
+    breadcrumb: "하프앤하프",
+    breadcrumbLink: "/pizzas",
+    nav1: "피자",
+    nav2: "하프앤하프",
+    nav3: "사이드디시",
+    nav4: "인기세트메뉴",
+    link1: "/pizzas",
+    link2: "/menu/halfnhalf",
+    link3: "/sides",
+    link4: "/",
+  });
   return (
     <>
-      <Menuheader
-        name={name}
-        depth1={depth1}
-        depth2={depth2}
-        depth3={depth3}
-        headerName={headerName}
-        location1={location1}
-      />
-
+      <PageTitle props={props} depth2={depth2} />
       <div className="hnh-container">
         <div className={`img-wrap ${scrollActive ? "fixed" : "img-wrap"}`}>
           {scrollActive && (

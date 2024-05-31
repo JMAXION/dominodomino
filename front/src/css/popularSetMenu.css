@@ -1,0 +1,36 @@
+.popular-set-menu {
+  padding-top: 60px;
+  position: relative;
+}
+
+.popular-set-menu-image {
+  position: relative;
+}
+
+.popular-set-menu-box {
+  margin: 10px;
+}
+.popular-set-menu-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #111111;
+}
+
+.popular-set-menu-title-date {
+  margin-top: 15px;
+  font-size: 15px;
+  color: #888888;
+}
+
+.popular-modal-button {
+  position: absolute;
+  top: 260px;
+  left: 550px;
+  font-size: 20px;
+  width: 35px;
+  height: 35px;
+  color: white;
+  background-color: #333333;
+  border: none;
+  cursor: pointer;
+}

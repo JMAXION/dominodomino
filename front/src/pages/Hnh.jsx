@@ -127,7 +127,7 @@ export default function Hnh({ depth2 }) {
     link1: "/pizzas",
     link2: "/menu/halfnhalf",
     link3: "/sides",
-    link4: "/",
+    link4: "/popular",
   });
   return (
     <>

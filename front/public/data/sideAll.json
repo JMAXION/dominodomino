@@ -6,28 +6,32 @@
         "image": "https://cdn.dominos.co.kr/admin/upload/goods/20240502_5UR8wsMs.jpg",
         "title": "가필드 콤보",
         "lable": "기간한정",
-        "price": 12100
+        "price_org": 12100,
+        "price": 10900
       },
       {
         "id": "2",
         "image": "https://cdn.dominos.co.kr/admin/upload/goods/20240411_0Rb789w1.jpg",
         "title": "마라 로제 파스타 콤보",
         "lable": "특가",
-        "price": 12100
+        "price_org": 12100,
+        "price": 9800
       },
       {
         "id": "3",
         "image": "https://cdn.dominos.co.kr/admin/upload/goods/20230901_BobKiGYD.jpg",
         "title": "파스타 콤보",
         "lable": "특가",
-        "price": 12100
+        "price_org": 12100,
+        "price": 9800
       },
       {
         "id": "4",
         "image": "https://cdn.dominos.co.kr/admin/upload/goods/20230901_MFKm8uY6.jpg",
         "title": "핫 윙 콤보",
         "lable": "특가",
-        "price": 12100
+        "price_org": 12100,
+        "price": 9800
       }
     ],
     "single": [
@@ -36,58 +40,75 @@
         "image": "https://cdn.dominos.co.kr/admin/upload/goods/20240502_m83lGAc1.jpg",
         "title": "가필드 맥앤치즈 파스타",
         "lable": "기간한정",
-        "price": 9800
+        "price": 9800,
+        "home": "베이컨칩[베이컨류(돼지고기): 외국산, 돼지고기: 미국산]",
+        "detail": "[ 도미노 X 가필드 ] 세계에서 가장 유명한 고양이 가필드 콜라보! 치즈냥이 가필드를 닮은 맥앤치즈 볼로네즈 소스가 듬뿍! 짭잘고소한 파스타"
       },
       {
         "id": "6",
         "image": "https://cdn.dominos.co.kr/admin/upload/goods/20240411_FUoVNT9z.jpg",
         "title": "마라 로제 파스타",
         "lable": "NEW",
-        "price": 29000
+        "price": 29000,
+        "home": "마라 포크 크럼블(돼지고기): 국내산",
+        "detail": "얼얼한 풍미의 마라 불고기와 부드러운 로제 소스가 조화를 이루는 파스타"
       },
       {
         "id": "7",
         "image": "https://cdn.dominos.co.kr/admin/upload/goods/20240411_WUb7FhFZ.jpg",
         "title": "하프&하프 스파게티 (NEW 치즈 & 베이컨 까르보나라)",
         "lable": "NEW",
-        "price": 10800
+        "price": 10800,
+        "home": "베이컨칩[베이컨류(돼지고기): 외국산, 돼지고기: 미국산] / 베이컨(돼지고기): 외국산",
+        "detail": "New 치즈 볼로네즈 스파게티와 베이컨 까르보나라 스파게티를 통시에!"
       },
       {
         "id": "8",
         "image": "https://cdn.dominos.co.kr/admin/upload/goods/20240411_204X0EOd.jpg",
         "title": "베이컨 까르보나라 스파게티",
         "lable": "NEW",
-        "price": 9800
+        "price": 9800,
+        "home": "베이컨칩[베이컨류(돼지고기): 외국산, 돼지고기: 미국산] / 베이컨(돼지고기): 외국산"
       },
       {
         "id": "9",
         "image": "https://cdn.dominos.co.kr/admin/upload/goods/20200309_nwnlf8dv.jpg",
         "title": "NEW 치즈 볼로네즈 스파게티",
-        "price": 9800
+        "price": 9800,
+        "home": "-",
+        "detail": "신선한 토마토만을 골라 만든 신선한 소스에 다진 쇠고기와 버섯까지 듬뿍! 자연의 깊은 맛과 치즈의 풍부한 맛이 어우러지는 정통 이탈리안 파스타!"
       },
       {
         "id": "10",
         "image": "https://cdn.dominos.co.kr/admin/upload/goods/20220304_CN2qUKo1.jpg",
         "title": "웨스턴 핫 윙(8조각)",
-        "price": 9800
+        "price": 9800,
+        "home": "웨스턴 핫 윙(태국산)",
+        "detail": "웨스턴 스타일로 매콤하게 오븐에 구워낸 웨스턴 핫 윙"
       },
       {
         "id": "11",
         "image": "https://cdn.dominos.co.kr/admin/upload/goods/20210601_Q8dpaikh.jpg",
         "title": "하프&하프 스파게티 (NEW 치즈 & 베이컨 까르보나라 페투치니)",
-        "price": 10800
+        "price": 10800,
+        "home": "베이컨칩[베이컨류(돼지고기): 외국산, 돼지고기: 미국산] / 베이컨(돼지고기): 외국산",
+        "detail": ""
       },
       {
         "id": "12",
         "image": "https://cdn.dominos.co.kr/admin/upload/goods/20210601_0TMFSE78.jpg",
         "title": "베이컨 까르보나라 페투치니",
-        "price": 9800
+        "price": 9800,
+        "main": "까르보나라 소스, 베이컨칩, 베이컨, 모차렐라, 파슬리 드라이",
+        "home": "베이컨칩[베이컨류(돼지고기): 외국산, 돼지고기: 미국산] / 베이컨(돼지고기): 외국산"
       },
       {
         "id": "13",
         "image": "https://cdn.dominos.co.kr/admin/upload/goods/20200309_Z7RyBpr3.jpg",
         "title": "도미노 코울슬로",
-        "price": 2400
+        "price": 2400,
+        "home": "-",
+        "detail": "아삭아삭 양배추와 각종 야채를 소스에 버무려 새콤달콤한 맛이 가득! ※ 해당 제품은 신선도를 위해 플라스틱 용기에 제공됩니다."
       }
     ]
   }

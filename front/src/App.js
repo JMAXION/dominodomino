@@ -9,6 +9,10 @@ import "./css/rootStyle.css";
 import "./css/footerStyle.css";
 import "./css/pizzaModalButton.css";
 import "./css/pizzaModalContent.css";
+import "./css/sideMenu.css";
+import "./css/sideModalButton.css";
+import "./css/popularSetMenu.css";
+import "./css/popularSetMenuModal.css";
 /* root and home */
 import Root from "./pages/Root";
 import Home from "./pages/Home";
@@ -43,6 +47,10 @@ import AllPizzaMenu from "./pages/AllPizzaMenu.jsx";
 import DetailPizzaMenu from "./pages/DetailPizzaMenu.jsx";
 import SideDishMenu from "./pages/SideDishMenu.jsx";
 import Hnh from "./pages/Hnh.jsx";
+import HomeOrder from "./pages/HomeOrder.jsx";
+import PopularSetMenu from "./pages/PopularSetMenu.jsx";
+import OrderWay from "./components/OrderWay.jsx";
+
 /* mypage */
 import MyPage from "./pages/MyPage.jsx";
 import OrderList from "./components/OrderList.jsx";
@@ -150,6 +158,8 @@ export default function App() {
           path: "/menu/halfnhalf",
           element: <Hnh depth2="하프앤하프" />,
         },
+        { path: "/popular", element: <PopularSetMenu depth2="인기세트메뉴" /> },
+        { path: "/orderway", element: <OrderWay /> },
 
         { path: "/mypage", element: <MyPage /> },
         { path: "/mypage/mania", element: <MyPage /> },

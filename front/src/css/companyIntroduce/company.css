@@ -36,7 +36,7 @@
 
 .overview-titleBox {
   position: relative;
-  z-index: 0;
+  z-index: 1;
 }
 
 .overview-titleBox::after {
@@ -55,7 +55,8 @@
 .overview-titleBox h1,
 .overview-titleBox p,
 .overview-redLine {
-  z-index: 1;
+  position: relative;
+  z-index: 2;
 }
 
 .overview-titleBox p {
@@ -76,4 +77,51 @@
 
 .overview-blueBox {
   background-image: url("https://cdn.dominos.co.kr/renewal2018/w/img/img_vision_main.png");
+  padding: 4rem;
+}
+
+.overview-blueBox-title {
+  text-align: left;
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+  font-size: 24px;
+  color: white;
+}
+
+.overview-blueBox-best {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.overview-blueBox-lists {
+  width: 430px;
+  text-align: left;
+}
+
+.overview-blueBox-lists p {
+  color: white;
+  font-size: 14px;
+}
+
+.overview-blueBox-lists > p:first-child {
+  font-size: 24px;
+  margin-bottom: 5px;
+  font-weight: 400;
+  color: var(--black-color);
+}
+
+.overview-blueBox-list {
+  display: flex;
+  gap: 1rem;
+}
+
+.overview-blueBox-list img {
+  height: 78px;
+}
+
+.overview-blueBox-list div p:first-child {
+  font-size: 18px;
+}
+.overview-blueBox-list div p:last-child {
+  margin-bottom: 10px;
 }

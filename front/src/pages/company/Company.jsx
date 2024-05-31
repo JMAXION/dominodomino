@@ -40,13 +40,13 @@ export default function Company({ depth2 }) {
   const overViewList = [
     {
       title: "BEST SAFETY",
-      img: "https://cdn.dominos.co.kr/renewal2018/w/img/lst_vision.png",
+      img: "https://cdn.dominos.co.kr/renewal2018/w/img/lst_vision4.png",
       subTitle: "안전하게!",
       desc: "도미노피자는 전 직원과 고객의 건강과 안전을 최우선으로 하며\n이를 위해 안전한 식자재 위생관리, 안전 운전 교육 등\n오토바이 배달 사고 예방을 위해 노력하고 있습니다.\n또한 사업장 위험요인 개선에 예산과 인력을 우선 배정,\n위험에 선제적으로 대처하여 전 임직원과 고객에게 신뢰받는\n도미노피자가 되기 위해 항상 최선을 다하고 있습니다.",
     },
     {
       title: "BEST PRODUCT",
-      img: "https://cdn.dominos.co.kr/renewal2018/w/img/lst_vision4.png",
+      img: "https://cdn.dominos.co.kr/renewal2018/w/img/lst_vision.png",
       subTitle: "맛있게!",
       desc: "쫄깃하고 고소한 저온숙성도우, 손으로 직접 만드는 HAND\nTOSSED 방식, 재료 본연의 맛을 살린 스크린 방식,\n신선한 토핑, 풍부하고 깊은 맛의 고급프리미엄 치즈.\n도미노피자만의 특별한 노하우! 도우와 토핑의 차이가\n맛의 차이를 만듭니다.",
     },
@@ -230,37 +230,48 @@ export default function Company({ depth2 }) {
             <div className="overview-redLine"></div>
           </div>
           <div className="overview-blueBox">
-            <div>
-              <p>
-                ‘한 번 한다면 꼭 이루어낸다’라는 사명감과
-                <br /> 책임감을 가진 BEST PEOPLE이 만드는
-                <br /> 고객에게 사랑 받는 세계 배달 피자 리더 도미노피자
-              </p>
+            <p className="overview-blueBox-title">
+              ‘한 번 한다면 꼭 이루어낸다’라는 사명감과
+              <br /> 책임감을 가진 BEST PEOPLE이 만드는
+              <br /> 고객에게 사랑 받는 세계 배달 피자 리더 도미노피자
+            </p>
+            <div className="overview-blueBox-best">
               {overViewList.map((item) => (
-                <div>
+                <div className="overview-blueBox-lists">
                   <p>{item.title}</p>
-                  <img src={item.img} />
-                  <p>{item.subTitle}</p>
-                  <p>{item.desc}</p>
+                  <div className="overview-blueBox-list">
+                    <img src={item.img} />
+                    <div>
+                      <p>{item.subTitle}</p>
+                      <p>
+                        {item.desc.split("\n").map((text) => (
+                          <div>
+                            {text}
+                            <br />
+                          </div>
+                        ))}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
-            <select onChange={(value) => handleSelect(value)}>
-              <option value="2024">2024~2025</option>
-              <option value="2022">2022~2023</option>
-              <option value="2020">2020~2021</option>
-            </select>
-            <div>
-              {yearSelectList[yearSelect] &&
-                yearSelectList[yearSelect].map((obj) => (
-                  <ul>
-                    <li>
-                      <span>{obj.date}</span>
-                      <span>{obj.content}</span>
-                    </li>
-                  </ul>
-                ))}
-            </div>
+          </div>
+          <select onChange={(value) => handleSelect(value)}>
+            <option value="2024">2024~2025</option>
+            <option value="2022">2022~2023</option>
+            <option value="2020">2020~2021</option>
+          </select>
+          <div>
+            {yearSelectList[yearSelect] &&
+              yearSelectList[yearSelect].map((obj) => (
+                <ul>
+                  <li>
+                    <span>{obj.date}</span>
+                    <span>{obj.content}</span>
+                  </li>
+                </ul>
+              ))}
           </div>
         </div>
       )}

@@ -21,6 +21,7 @@ import CsCenter from "./pages/CsCenter.jsx";
 /* discount */
 import Discount from "./pages/Discount.jsx";
 import CardDiscount from "./components/CardDiscount.jsx";
+
 import Discountdetail from "./pages/Discountdetail.jsx";
 import TelecomDiscount from "./components/TelecomDiscount.jsx";
 /* event */
@@ -31,14 +32,18 @@ import Ecoupon from "./pages/Ecoupon.jsx";
 import EcouponIndex from "./components/EcouponIndex.jsx";
 import EcouponUsage from "./components/EcouponUsage.jsx";
 /* law */
-import LawUse from "./pages/law/LawUse.jsx";
 import LawNavi from "./pages/law/LawNavi.jsx";
 import LawPersonal from "./pages/law/LawPersonal.jsx";
 import LawTeen from "./pages/law/LawTeen.jsx";
+import LawUse from "./pages/law/LawUse.jsx";
 import LawVideo from "./pages/law/LawVideo.jsx";
 /* login and signup */
 import Login from "./pages/Login";
 import LoginNonmember from "./components/LoginNonmember.jsx";
+import TabDetail from "./pages/TabDetail.jsx";
+import Company from "./pages/company/Company.jsx";
+import Franchisee from "./pages/company/Franchisee.jsx";
+import Recruit from "./pages/company/Recruit.jsx";
 import Signup from "./pages/Signup";
 /* map */
 import MapContainer from "./pages/MapContainer";
@@ -190,6 +195,18 @@ export default function App() {
         {
           path: "/cs/:id",
           element: <CsCenter depth2={"자주하는 질문"} />,
+        },
+        {
+          path: "/company/:id",
+          element: <Company depth2={"한국도미노피자"} />,
+        },
+        {
+          path: "/company/franchisee/:id",
+          element: <Franchisee depth2={"한국도미노피자"} />,
+        },
+        {
+          path: "/company/recruit/:id",
+          element: <Recruit depth2={"한국도미노피자"} />,
         },
       ],
     },

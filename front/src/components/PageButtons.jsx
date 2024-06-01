@@ -2,7 +2,12 @@ import React, { useEffect, useState } from "react";
 import "../css/pageStyle.css";
 import { Link, useLocation } from "react-router-dom";
 
-export default function PageButtons({ basePath, buttonList, className }) {
+export default function PageButtons({
+  basePath,
+  buttonList,
+  className,
+  onPageBtnClick,
+}) {
   const [clicked, setClicked] = useState(null);
   const location = useLocation();
   useEffect(() => {
@@ -24,8 +29,9 @@ export default function PageButtons({ basePath, buttonList, className }) {
         {buttonList.map((obj) => (
           <Link to={`${basePath}/${obj.root}`}>
             <button
-              onClick={() => {
+              onClick={(index) => {
                 setClicked(obj.root);
+                onPageBtnClick(index);
               }}
               className={clicked === obj.root ? "active" : ""}
             >

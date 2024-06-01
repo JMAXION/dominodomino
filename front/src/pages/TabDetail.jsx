@@ -1,48 +1,62 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // import { Link, useParams } from "react-router-dom";
 // import PageTitle from "../components/PageTitle";
 import PageButtons from "../components/PageButtons";
 import "../css/service.css";
+import "../css/csCenter.css";
 
 export default function TabDetail({
   buttonList,
   tabList,
   basePath,
   className,
+  showQnA,
 }) {
-  const [isChecked, setIsChecked] = useState([false, false, false]);
+  const [activeIndex, setActiveIndex] = useState(-1); // 배열의 인덱스에서 -1 === 존재하지않음을 의미
 
-  const toggleIsChecked = (index) => {
-    setIsChecked((prevState) => {
-      const newState = [...prevState]; // [false, false, false]
-      newState[index] = !newState[index]; //해당 index번지만 반대값으로 바꾸기
-      return newState;
-    });
+  const answerRefs = useRef([]);
+
+  const QnA = [
+    { question: tabList.q1, answer: tabList.a1 },
+    { question: tabList.q2, answer: tabList.a2 },
+    { question: tabList.q3, answer: tabList.a3 },
+    { question: tabList.q4, answer: tabList.a4 },
+    { question: tabList.q5, answer: tabList.a5 },
+  ];
+
+  /*
+   *  CsCenter
+   */
+  // 아코디언 열고 닫기
+  const toggleIsActive = (index) => {
+    console.log("index -->", index);
+    setActiveIndex((prevIndex) => (index !== prevIndex ? index : -1)); //activeIndex의 이전의 값과 같지 않으면 누른 div의 index값 넣음
   };
 
-  if (!tabList) {
-    return <div>Loading...</div>; // 또는 다른 로딩 상태 표시
-  }
+  // 답변 크기 자동으로 받아오기
+  useEffect(() => {
+    answerRefs.current.forEach((ref, index) => {
+      if (ref) {
+        ref.style.maxHeight =
+          activeIndex === index ? `${ref.scrollHeight}px` : "0px";
+      }
+    });
+  }, [activeIndex]);
 
-  const QaA = [
-    { question: tabList.q1_1, answer: tabList.a1_1 },
-    { question: tabList.q2_1, answer: tabList.a1_1 },
-    { question: tabList.q3_1, answer: tabList.a1_1 },
-    { question: tabList.q1_2, answer: tabList.a1_2 },
-    { question: tabList.q2_2, answer: tabList.a1_1 },
-    { question: tabList.q3_2, answer: tabList.a1_1 },
-  ];
+  // 탭 누를때마다 아코디언 전체 초기화
+  const onPageBtnClick = (index) => {
+    //index값과 상관없이 activeIndex 초기화(-1)
+    setActiveIndex(-1);
+  };
 
   return (
     <div className="content">
-      {/* ----- 페이지 타이틀 ----- */}
-      {/* <PageTitle props={props} depth1={depth1} depth2={depth2} /> */}
-      {/* ----- 본문 ----- */}
       <div className="tab-detail-outer">
         <PageButtons
           buttonList={buttonList}
           basePath={basePath}
           className={className}
+          onPageBtnClick={onPageBtnClick}
         />
         {tabList.image && (
           <div className="tab-detail">
@@ -101,16 +115,48 @@ export default function TabDetail({
           </div>
         )}
 
-        {QaA.map((item, index) => (
-          <div key={index}>
-            <button onClick={() => toggleIsChecked(index)}>
-              <span>Q</span>
-              {item.question}
-              <span>{isChecked[index] ? "ᐱ" : "ᐯ"}</span>
-            </button>
-            {isChecked[index] && <div>{item.answer}</div>}
+        {showQnA && (
+          <div className="cs-qnaBox">
+            {QnA.filter((item) => item.question).map((item, index) => (
+              <div key={index} className="cs-qna">
+                <div
+                  className="cs-qna-toggle"
+                  onClick={() => toggleIsActive(index)}
+                >
+                  <button>
+                    <div className="cs-qna-text">
+                      <span>Q</span>
+                      <span>{item.question}</span>
+                      <span className="cs-qna-text-v">
+                        {activeIndex === index ? "ᐱ" : "ᐯ"}
+                      </span>
+                    </div>
+                  </button>
+                </div>
+                {item.answer && (
+                  <div
+                    className={`cs-qna-answerBox ${
+                      activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
+                    }`}
+                    ref={(el) => (answerRefs.current[index] = el)}
+                  >
+                    <div>
+                      <span>A</span>
+                      <div className="cs-answer-line">
+                        {item.answer.split("\n").map((text) => (
+                          <div>
+                            {text}
+                            <br />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
-        ))}
+        )}
       </div>
     </div>
   );

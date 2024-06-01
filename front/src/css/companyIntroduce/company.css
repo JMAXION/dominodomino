@@ -1,0 +1,125 @@
+.company {
+  text-align: center;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.overview-img {
+  width: 1000px;
+}
+
+.overview-desc {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.overview-desc p {
+  display: inline;
+  width: 490px;
+  font-size: 14px;
+  color: var(--black-color);
+}
+
+.overview h1 {
+  letter-spacing: 20px;
+  font-weight: 400;
+  font-size: 25px;
+  margin: 0;
+  margin-top: 4rem;
+  color: var(--darkRed-color);
+}
+
+.overview-titleBox {
+  position: relative;
+  z-index: 0;
+}
+
+.overview-titleBox::after {
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 380px;
+  height: 265px;
+  background-image: url("https://cdn.dominos.co.kr/renewal2018/w/img/bg/bg_dot_repeat.png");
+  /* border: 1px solid red; */
+  z-index: 0;
+}
+
+.overview-titleBox h1,
+.overview-titleBox p,
+.overview-redLine {
+  z-index: 1;
+}
+
+.overview-titleBox p {
+  font-size: 50px;
+  padding: 35px;
+  width: 1000px;
+  line-height: 120%;
+  color: #444;
+}
+
+.overview-redLine {
+  display: inline-block;
+  width: 130px;
+  height: 7px;
+  margin-bottom: 2rem;
+  background-color: var(--darkRed-color);
+}
+
+.overview-blueBox {
+  background-image: url("https://cdn.dominos.co.kr/renewal2018/w/img/img_vision_main.png");
+}
+
+.overview-blueBox-title {
+  text-align: left;
+  padding: 2rem 0;
+  margin-bottom: 1rem;
+  font-size: 24px;
+  color: white;
+}
+
+.overview-blueBox-best {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.overview-blueBox-lists {
+  width: 430px;
+  text-align: left;
+}
+
+.overview-blueBox-lists p {
+  color: white;
+  font-size: 14px;
+}
+
+.overview-blueBox-lists > p:first-child {
+  font-size: 24px;
+  margin-bottom: 5px;
+  font-weight: 400;
+  color: var(--black-color);
+}
+
+.overview-blueBox-list {
+  display: flex;
+  gap: 1rem;
+}
+
+.overview-blueBox-list img {
+  height: 78px;
+}
+
+.overview-blueBox-list div p:first-child {
+  font-size: 18px;
+}
+.overview-blueBox-list div p:last-child {
+  margin-bottom: 10px;
+}

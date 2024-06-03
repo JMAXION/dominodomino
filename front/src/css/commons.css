@@ -39,3 +39,10 @@ h3 {
   text-decoration: none;
   box-sizing: border-box;
 }
+
+/* 회사소개 */
+.company {
+  text-align: center;
+  width: 1000px;
+  margin: 0 auto;
+}

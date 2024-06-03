@@ -1,8 +1,6 @@
-.company {
-  text-align: center;
-  width: 1000px;
-  margin: 0 auto;
-}
+/*****************
+** tab1 - Overview 
+******************/
 
 .overview-img {
   width: 1000px;
@@ -124,4 +122,232 @@
 }
 .overview-blueBox-list div p:last-child {
   margin-bottom: 10px;
+}
+
+.overview-yearList {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 70px;
+}
+
+.overview-yearList::before {
+  background: url("https://cdn.dominos.co.kr/renewal2018/w/img/bg/bg_dot_repeat.png");
+  position: absolute;
+  content: "";
+  width: 50px;
+  height: 160px;
+  left: 0;
+  top: 0;
+}
+
+.overview-yearList select {
+  width: 150px;
+  height: 42px;
+  padding: 0 0 0 20px;
+  color: var(--gray-color);
+  border: 1px solid var(--divide-color);
+}
+
+.overview-yearList div ul li {
+  display: flex;
+  gap: 3rem;
+  font-size: 14px;
+}
+
+/**************
+** tab2 - CEO 
+***************/
+
+.ceo {
+  text-align: left;
+  margin-bottom: 100px;
+}
+
+.ceo > h1 {
+  font-size: 38px;
+  font-weight: 400;
+  color: #333;
+}
+
+.ceo-redLine {
+  width: 100px;
+  height: 7px;
+  margin: 4rem 0;
+  background-color: var(--darkRed-color);
+}
+
+.ceo p {
+  font-size: 15px;
+  margin-bottom: 22px;
+  color: var(--black-color);
+}
+
+.ceo > img {
+  margin-left: 80%;
+}
+
+/**********************
+** tab3 - international
+***********************/
+
+.interna-title-box {
+  position: relative;
+  z-index: 1;
+}
+
+.interna-title-box::after {
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  width: 380px;
+  height: 265px;
+  background-image: url("https://cdn.dominos.co.kr/renewal2018/w/img/bg/bg_dot_repeat.png");
+  /* border: 1px solid red; */
+  z-index: 0;
+}
+
+.interna-title-box h1,
+.interna-title-box p,
+.interna-title-box a {
+  position: relative;
+  z-index: 2;
+}
+
+.interna-title-box h1 {
+  font-size: 60px;
+  font-weight: 400;
+  color: #555;
+}
+
+.interna-title-box p {
+  font-size: 14px;
+  color: var(--black-color);
+}
+
+.interna a {
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 1.5rem 0 4rem 0;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid #0078ae;
+  color: #0078ae;
+  background-color: white;
+}
+
+.interna-redLine {
+  margin: 0 auto;
+  width: 135px;
+  height: 6px;
+  margin-bottom: 2rem;
+  background-color: var(--darkRed-color);
+}
+
+/* list */
+.interna-list-box {
+  text-align: left;
+}
+
+.interna-list-box ul li h1 {
+  font-size: 24px;
+  font-weight: 400;
+  margin-bottom: 22px;
+}
+.interna-list-box ul li p {
+  font-size: 14px;
+  color: var(--black-color);
+}
+
+.interna-list-box li {
+  height: 264px;
+}
+
+.interna-list-1 {
+  background-image: url("https://cdn.dominos.co.kr/renewal2018/w/img/lst_international.png");
+}
+.interna-list-1 *,
+.interna-list-5 * {
+  margin-left: 10rem;
+}
+
+.interna-list-2 {
+  background-image: url("https://cdn.dominos.co.kr/renewal2018/w/img/lst_international2.png");
+}
+.interna-list-2 *,
+.interna-list-4 * {
+  margin-left: 24rem;
+}
+
+.interna-list-3 {
+  background-image: url("https://cdn.dominos.co.kr/renewal2018/w/img/lst_international3.png");
+}
+.interna-list-3 * {
+  margin-left: 31.3rem;
+}
+
+.interna-list-4 {
+  background-image: url("https://cdn.dominos.co.kr/renewal2018/w/img/lst_international4.png");
+}
+
+.interna-list-5 {
+  background-image: url("https://cdn.dominos.co.kr/renewal2018/w/img/lst_international5.png");
+}
+
+/* history */
+.interna-history-box {
+  background-image: url("https://cdn.dominos.co.kr/renewal2018/w/img/img_international_main.png");
+  text-align: left;
+  padding: 2rem 5rem;
+  margin-bottom: 4rem;
+  color: white;
+}
+
+.interna-history-box p {
+  font-size: 28px;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.interna-history-box li {
+  margin-bottom: 0.7rem;
+  font-size: 14.5px;
+}
+
+.interna-history-box li span:first-child {
+  margin-right: 3rem;
+}
+
+/**************** 
+* tab4 - Location
+*****************/
+
+.location {
+  text-align: left;
+  margin-bottom: 6rem;
+}
+
+.location h1 {
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.location-content {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.location-content ul {
+  padding: 2.5rem 0;
+}
+
+.location-content ul li {
+  margin-bottom: 2rem;
+  font-size: 14px;
+}
+
+.location-content ul li p {
+  color: var(--black-color);
 }

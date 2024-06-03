@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PageTitle from "../../components/PageTitle";
 // import PageButtons from "../../components/PageButtons";
 import TabDetail from "../TabDetail.jsx";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 export default function ServiceMania({ depth2 }) {
   const [props, setprops] = useState({

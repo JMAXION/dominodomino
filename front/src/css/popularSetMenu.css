@@ -1,5 +1,11 @@
+.popular-content {
+  width: 1200px;
+  margin: auto;
+}
+
 .popular-set-menu {
   padding-top: 60px;
+  position: relative;
 }
 
 .popular-set-menu-image {
@@ -26,8 +32,8 @@
   top: 260px;
   left: 550px;
   font-size: 20px;
-  width: 36px;
-  height: 36px;
+  width: 35px;
+  height: 35px;
   color: white;
   background-color: #333333;
   border: none;

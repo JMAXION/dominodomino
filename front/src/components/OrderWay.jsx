@@ -7,30 +7,33 @@ import {
   faPlus,
   faCar,
 } from "@fortawesome/free-solid-svg-icons";
-import { OrderWayModal } from "./OrderWayModals";
+import OrderWayModal from "./OrderWayModal";
 
 export default function OrderWay() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState("");
   const [animationClass, setAnimationClass] = useState("");
 
   useEffect(() => {
+    let timer;
     if (isModalOpen) {
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         setAnimationClass("show-modal-animation");
       }, 10);
-
-      return () => setTimeout(timer);
     } else {
       setAnimationClass("");
     }
+    return () => clearTimeout(timer);
   }, [isModalOpen]);
 
-  const openModal = () => {
+  const openModal = (type) => {
+    setModalType(type);
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setModalType("");
   };
 
   const [orderType, setOrderType] = useState(null);
@@ -44,7 +47,12 @@ export default function OrderWay() {
               <FontAwesomeIcon icon={faPizzaSlice} /> 밖에서 도미노피자 먹고
               싶을 땐?
             </div>
-            <div className="topbar-right">
+            <div
+              className="topbar-right"
+              onClick={() => {
+                openModal("spot");
+              }}
+            >
               DOMINO SPOT 배달 <FontAwesomeIcon icon={faChevronRight} />
             </div>
           </div>
@@ -55,13 +63,20 @@ export default function OrderWay() {
                 <FontAwesomeIcon icon={faTriangleExclamation} /> 배달주소를
                 등록해주세요.
               </div>
-              <button className="order-content-button">
+              <button
+                className="order-content-button"
+                onClick={() => {
+                  openModal("address");
+                }}
+              >
                 <FontAwesomeIcon icon={faPlus} /> 배달주소 등록
               </button>
             </div>
           </div>
           <div className="order-content-tip">
-            *배달주소는 최대 10개까지만 등록 가능합니다.
+            <span className="order-content-tip-text">
+              *배달주소는 최대 10개까지만 등록 가능합니다.
+            </span>
           </div>
         </>
       );
@@ -73,10 +88,14 @@ export default function OrderWay() {
               <FontAwesomeIcon icon={faCar} /> 모바일로 주문하고 차에서
               바로받자!
             </div>
-            <div className="topbar-right" onClick={openModal}>
+            <div
+              className="topbar-right"
+              onClick={() => {
+                openModal("pickupService");
+              }}
+            >
               도미노 드라이빙 픽업 서비스{" "}
               <FontAwesomeIcon icon={faChevronRight} />
-              <OrderWayModal onClose={closeModal} />
             </div>
           </div>
 
@@ -86,13 +105,20 @@ export default function OrderWay() {
                 <FontAwesomeIcon icon={faTriangleExclamation} /> 포장매장을
                 등록해주세요.
               </div>
-              <button className="order-content-button">
+              <button
+                className="order-content-button"
+                onClick={() => {
+                  openModal("store");
+                }}
+              >
                 <FontAwesomeIcon icon={faPlus} /> 포장매장 등록
               </button>
             </div>
           </div>
           <div className="order-content-tip">
-            *포장매장은 최대 5개까지만 등록 가능합니다.
+            <span className="order-content-tip-text">
+              *포장매장은 최대 5개까지만 등록 가능합니다.
+            </span>
           </div>
         </>
       );
@@ -102,14 +128,25 @@ export default function OrderWay() {
   return (
     <div className="content">
       <ul>
-        <li className="order-button" onClick={() => setOrderType("delivery")}>
+        <li
+          className={`order-button ${
+            orderType === "delivery" ? "selected" : "unselected"
+          }`}
+          onClick={() => setOrderType("delivery")}
+        >
           배달 주문
         </li>
-        <li className="order-button" onClick={() => setOrderType("pickup")}>
+        <li
+          className={`order-button ${
+            orderType === "pickup" ? "selected" : "unselected"
+          }`}
+          onClick={() => setOrderType("pickup")}
+        >
           포장 주문
         </li>
       </ul>
       <div>{renderContent()}</div>
+      {isModalOpen && <OrderWayModal type={modalType} onClose={closeModal} />}
     </div>
   );
 }

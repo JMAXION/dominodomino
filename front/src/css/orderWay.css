@@ -1,13 +1,22 @@
 .order-button {
   display: inline-block;
-  background-color: black;
-  color: white;
   padding: 20px 0 16px 0;
-  /* padding: 10px 50px 10px 50px; */
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 15px 15px 0px 0px;
   font-size: 18px;
   width: 240px;
   text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.order-button.selected {
+  background-color: black;
+  color: white;
+}
+
+.order-button.unselected {
+  background-color: #eeeeee;
+  color: black;
 }
 
 .delivery-box,
@@ -77,7 +86,7 @@
   text-align: center;
   max-width: 130px;
   font-weight: bold;
-  right: 850px;
+  right: 120px;
   top: 120px;
   transform: translateX(-50%);
   background-color: #ff143c;
@@ -106,7 +115,13 @@
   color: #ff752d;
   font-size: 13px;
   text-align: right;
-  margin-right: 75px;
+  /* margin-right: 75px; */
   margin-top: 20px;
   font-weight: bold;
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 110px;
+}
+
+.order-content-tip-text {
+  margin-right: 75px;
 }

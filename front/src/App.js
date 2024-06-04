@@ -8,6 +8,7 @@ import "./css/sideModalButton.css";
 import "./css/popularSetMenu.css";
 import "./css/popularSetMenuModal.css";
 import "./css/orderWay.css";
+import "./css/orderWayModal.css";
 import HomeOrder from "./pages/HomeOrder.jsx";
 import AllPizzaMenu from "./pages/AllPizzaMenu.jsx";
 import DetailPizzaMenu from "./pages/DetailPizzaMenu.jsx";

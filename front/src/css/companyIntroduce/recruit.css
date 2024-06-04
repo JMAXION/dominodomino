@@ -1,0 +1,432 @@
+.recruit {
+  text-align: left;
+}
+
+.recruit h3 {
+  margin: 2rem 0 1rem 0;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.recruit-info {
+  position: relative;
+  padding: 1.5rem;
+  margin-bottom: 4rem;
+  background-color: var(--box-color);
+}
+
+.recruit-info-map {
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.recruit-info-map p {
+  color: var(--black-color);
+}
+
+.recruit-info ul li:not(:first-child) {
+  font-size: 14px;
+  color: var(--orange-color);
+}
+
+.recruit-info button {
+  position: absolute;
+  right: 1rem;
+  top: 2rem;
+  padding: 0.3rem 0.2rem;
+  cursor: pointer;
+  color: whitesmoke;
+  background-color: var(--black-color);
+}
+
+.recruit-search {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.recruit-search select,
+.recruit-search input {
+  border: 1px solid var(--divide-color);
+  padding: 0.5rem 1rem;
+  font-size: 15px;
+  margin-right: 0.5rem;
+  color: var(--gray-color);
+  transition: all 0.5s;
+}
+
+.recruit-search input:hover {
+  border: 1px solid var(--black-color);
+}
+
+.recruit-search button {
+  width: 150px;
+  height: 42px;
+  font-size: 15px;
+  cursor: pointer;
+  color: whitesmoke;
+  background-color: var(--black-color);
+}
+
+.recruit-search span {
+  display: block;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 1rem 0;
+  text-align: right;
+  color: var(--orange-color);
+}
+
+.recruit-search table {
+  position: relative;
+  margin-bottom: 4rem;
+}
+
+.recruit-th1 {
+  width: 100px;
+}
+.recruit-th2 {
+  width: 600px;
+}
+
+.recruit-tr {
+  height: 100px;
+  border-bottom: 1px solid var(--divide-color);
+}
+
+.recruit-search table td {
+  position: absolute;
+  display: block;
+  top: 4rem;
+  right: 45%;
+  padding: 2rem 0;
+  color: gray;
+}
+
+.recruit-wantPerson {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.recruit-wantPerson div {
+  width: 270px;
+  margin-right: 3rem;
+}
+
+.recruit-wantPerson div p {
+  color: var(--black-color);
+}
+.recruit-wantPerson div p:last-child {
+  font-size: 14px;
+  margin-top: 0.3rem;
+}
+
+.recruit-rankSystem {
+  display: flex;
+  align-items: center;
+  gap: 7rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.6px 1.95px 1.95px 0;
+  background-color: var(--box-color);
+}
+
+.recruit-rankSystem div {
+  position: relative;
+  width: 200px;
+  padding: 1.5rem 2rem;
+}
+
+.recruit-rankSystem div::after {
+  position: absolute;
+  content: "";
+  top: 1.5rem;
+  left: 16rem;
+  height: 65px;
+  width: 1px;
+  background-color: lightgray;
+}
+
+.recruit-rankSystem div p {
+  width: 200px;
+  color: var(--black-color);
+}
+
+.recruit-rankSystem-engName {
+  font-size: 24px;
+  line-height: 90%;
+}
+
+.recruit-rankSystem-korName {
+  margin-top: 0.2rem;
+  color: gray !important;
+}
+
+.recruit-rankSystem > p {
+  padding: 1.5rem 3rem;
+  font-size: 14px;
+  color: var(--black-color);
+}
+
+.recruit-workCondition-box {
+  display: flex;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.recruit-workCondition-box img {
+  height: 50px;
+}
+
+.recruit-workCondition-box div p {
+  color: var(--black-color);
+  width: 150px;
+}
+
+.engTitle {
+  font-size: 30px;
+}
+.korTitle {
+  font-size: 18px;
+}
+
+.recruit-workCondition-box ul li {
+  font-size: 14px;
+}
+
+.recruit-workCondition-box ul li::before {
+  content: "·";
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+.recruit-dotLine:not(:last-child) {
+  margin-top: 40px;
+  padding-top: 46px;
+  background: url("https://cdn.dominos.co.kr/renewal2018/w/img/bg/bg_dot_line.png")
+    repeat-x;
+}
+
+.recruit-workCondition {
+  margin-bottom: 5rem;
+}
+
+.recruit-process {
+  margin-bottom: 8rem;
+}
+
+.recruit-process-box:not(:last-child) {
+  display: inline-block;
+  vertical-align: top;
+  width: 205px;
+  height: 350px;
+  padding: 1rem 2.5rem 1rem 1.5rem;
+  margin-right: 0.5rem;
+  text-align: center;
+}
+.recruit-process-box:last-child {
+  display: inline-block;
+  vertical-align: top;
+  width: 205px;
+  height: 350px;
+  padding: 1rem 1.5rem;
+  margin-right: 0.5rem;
+  text-align: center;
+}
+
+.recruit-process-box:not(:last-child) {
+  background: url("https://cdn.dominos.co.kr/renewal2018/w/img/lst_jop_step_bg.png")
+    no-repeat;
+}
+
+.recruit-process-box:last-child {
+  width: 190px;
+  background: url("https://cdn.dominos.co.kr/renewal2018/w/img/lst_jop_step_bg2.png")
+    no-repeat;
+}
+
+.recruit-process-box p:first-child {
+  color: var(--black-color);
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.process-title,
+.process-desc {
+  color: var(--black-color);
+  margin-bottom: 0.5rem;
+}
+
+.process-title {
+  font-size: 18px;
+}
+
+.process-desc {
+  font-size: 14px;
+  margin-bottom: 1rem;
+  line-height: 22px;
+}
+
+/*************************
+** tab2 - 아르바이트직
+**************************/
+.recruit-partTime-img {
+  margin-bottom: 2.5rem;
+}
+
+.recruit-parttime {
+  margin-bottom: 7rem;
+}
+
+.recruit-parttime h3 {
+  margin-bottom: 0;
+}
+
+.recruit-parttime p {
+  font-size: 18px;
+  margin-bottom: 1rem;
+  color: var(--black-color);
+}
+
+.recruit-parttime ol li {
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.recruit-parttime ol li::before {
+  content: "· ";
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.parttime-box {
+  padding: 3rem 1.5rem;
+  background-color: var(--box-color);
+}
+
+.parttime-box ul div {
+  margin-bottom: 1.5rem;
+}
+
+.parttime-box ul div li {
+  font-size: 14px;
+}
+
+.parttime-box ul:last-child li {
+  color: var(--orange-color);
+}
+
+.parttime-box ul:last-child li:not(:first-child) {
+  font-size: 14px;
+}
+
+.recruit-parttime ol:last-child {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.recruit-parttime a {
+  position: absolute;
+  right: 31rem;
+  top: 1.7rem;
+  border: 1px solid var(--divide-color);
+  font-size: 14px;
+  padding: 0.5rem 0.5rem 0.5rem 1rem;
+}
+
+.recruit-parttime > button {
+  position: absolute;
+  right: 13rem;
+  top: 4rem;
+  border: 1px solid var(--divide-color);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background-color: white;
+}
+
+/* 모달 */
+.recruit-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.recruit-modal-open-btn {
+  position: absolute;
+  right: 13rem;
+  top: 4rem;
+  border: 1px solid var(--divide-color);
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.recruit-modal-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.recruit-modal-content {
+  position: relative;
+  background-color: #ffffff;
+  max-height: 703px;
+}
+
+.recruit-modal-content > p {
+  width: 580px;
+  font-size: 22px;
+  font-weight: 500;
+  text-align: center;
+  padding: 1rem 0;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--divide-color);
+}
+
+.recruit-modal-content > div {
+  padding: 1rem 2.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--divide-color);
+}
+
+.recruit-modal-content > div p {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.recruit-modal-content > div textarea {
+  width: 100%;
+  background-color: #f3f3f3;
+  padding: 1rem;
+}
+
+.recruit-modal-close-btn {
+  position: absolute;
+  right: 3rem;
+  top: 1rem;
+  font-size: 22px;
+  background: none;
+  border: none;
+}
+
+.recruit-modal-region {
+  display: flex;
+  gap: 3rem;
+}
+
+.recruit-modal-form {
+  padding: 1rem 2.5rem;
+}

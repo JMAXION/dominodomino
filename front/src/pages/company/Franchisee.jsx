@@ -264,8 +264,96 @@ export default function Franchisee({ depth2 }) {
           </table>
         </div>
       )}
-      {activeTab === "tab4" && <div>모집지역</div>}
-      {activeTab === "tab5" && <div>개설문의</div>}
+      {activeTab === "tab4" && (
+        <div className="company region">
+          <table border="1px">
+            <tr>
+              <td className="region-th rth1">구분</td>
+              <td className="region-th rth2">신규</td>
+              <td className="region-th rth3">양수도</td>
+            </tr>
+            <tr>
+              <td>서울</td>
+              <td>-</td>
+              <td>은평구, 노원구, 성동구, 성북구, 강서구, 광진구, 동대문구</td>
+            </tr>
+            <tr>
+              <td>경기</td>
+              <td>
+                가평, 남양주청학, 양주백석, 연천전곡, 양평용문, 고양향동,
+                아산탕정
+              </td>
+              <td>고양시, 구리시, 시흥시, 광주시</td>
+            </tr>
+            <tr>
+              <td>부산</td>
+              <td>-</td>
+              <td>연제구</td>
+            </tr>
+            <tr>
+              <td>인천</td>
+              <td>강화</td>
+              <td>연수구</td>
+            </tr>
+            <tr>
+              <td>인천</td>
+              <td>강화</td>
+              <td>연수구</td>
+            </tr>
+            <tr>
+              <td>강원</td>
+              <td>주문진,양양,철원동송</td>
+              <td>점포개발팀 문의</td>
+            </tr>
+            <tr>
+              <td>충청</td>
+              <td>천안직산, 천안성환, 충북옥천, 충북영동, 충남금산</td>
+              <td>점포개발팀 문의</td>
+            </tr>
+            <tr>
+              <td>전라</td>
+              <td>
+                전북부안, 전주반월, 전남완도, 전남영암삼호, 전남강진, 전남장흥,
+                전남진도, 전남담양
+              </td>
+              <td>점포개발팀 문의</td>
+            </tr>
+            <tr>
+              <td>경상</td>
+              <td>경남삼천포, 경북울진, 경남함안가야</td>
+              <td>점포개발팀 문의</td>
+            </tr>
+          </table>
+          <p>* 자세한 내용은 해당부서에 문의 바랍니다.</p>
+        </div>
+      )}
+      {activeTab === "tab5" && (
+        <div className="company inquiry">
+          <div className="inquiry-boxs">
+            <div className="inquiry-box">
+              <p>구경회 (점포개발팀)</p>
+              <p className="inquiry-box-email">
+                <span className="inquiry-box-list">이메일 : </span>
+                <span>khgoo@dominos.co.kr</span>
+                <button>이메일 문의</button>
+              </p>
+              <span className="inquiry-box-list">전화 :</span>
+              <span> 02-6954-3059</span>
+            </div>
+            <div className="inquiry-box">
+              <p>유성용 (점포개발팀)</p>
+              <p className="inquiry-box-email">
+                <span className="inquiry-box-list">이메일 : </span>
+                <span>syyoo@dominos.co.kr</span>
+                <button>이메일 문의</button>
+              </p>
+              <span className="inquiry-box-list">전화 :</span>
+              <span> 02-6954-3020</span>
+            </div>
+          </div>
+          <p>* 평일 오전 9시 ~ 오후 6시 상담 가능 (공휴일 상담 불가)</p>
+        </div>
+      )}
     </div>
   );
 }

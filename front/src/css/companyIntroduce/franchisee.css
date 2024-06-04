@@ -60,7 +60,7 @@
 
 .info-condition-box ul {
   padding: 3rem;
-  background-color: rgb(247, 247, 247);
+  background-color: var(--box-color);
 }
 
 .info-condition-box ul li {
@@ -176,20 +176,25 @@
 .price table {
   text-align: left;
   border: 1px solid var(--divide-color);
+  margin-bottom: 6rem;
 }
 
-.price-th {
+.price-th,
+.region-th {
   text-align: center;
 }
 
-.price table tr td {
+.price table tr td,
+.region table tr td {
   padding: 1rem 0;
 }
 
-.price table tr:first-child {
+.price table tr:first-child,
+.region table tr:first-child {
   background-color: #f8f8f8;
 }
-.price table tr:not(:first-child) td {
+.price table tr:not(:first-child) td,
+.region table tr:not(:first-child) td {
   padding: 1.5rem 2rem;
   font-size: 15px;
 }
@@ -200,4 +205,84 @@
 
 .th2 {
   width: 600px;
+}
+
+/*************************
+** tab4 - 모집 지역
+**************************/
+.region table {
+  text-align: left;
+  border: 1px solid var(--divide-color);
+}
+
+.rth1 {
+  width: 170px;
+}
+
+.rth2 {
+  width: 414px;
+}
+
+.region p {
+  text-align: left;
+  margin: 0.5rem 0 7rem 0;
+  color: var(--red-color);
+}
+
+/*************************
+** tab5 - 개설 문의
+**************************/
+
+.inquiry {
+  text-align: left;
+}
+
+.inquiry-boxs {
+  display: flex;
+  gap: 1rem;
+}
+
+.inquiry-box {
+  padding: 2rem 1rem;
+  width: 420px;
+  background-color: var(--box-color);
+}
+
+.inquiry-box span {
+  font-size: 14px;
+}
+
+.inquiry-box p:first-child {
+  padding-bottom: 3rem;
+  font-size: 18px;
+  color: var(--black-color);
+  border-bottom: 1px dashed var(--divide-color);
+}
+
+.inquiry-box-email {
+  padding-top: 3rem;
+  color: var(--black-color);
+}
+
+.inquiry-box-email button {
+  margin-left: 1rem;
+  border: none;
+  padding: 0.4rem 1rem;
+  font-size: 12px;
+  background-color: var(--black-color);
+  color: whitesmoke;
+}
+
+.inquiry-box-list {
+  color: var(--gray-color);
+}
+
+.inquiry-box-list::before {
+  content: "· ";
+}
+
+.inquiry > p:last-child {
+  font-size: 14px;
+  margin: 2rem 0 7rem 0;
+  color: var(--red-color);
 }

@@ -1,0 +1,127 @@
+.order-button {
+  display: inline-block;
+  padding: 20px 0 16px 0;
+  border-radius: 15px 15px 0px 0px;
+  font-size: 18px;
+  width: 240px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.order-button.selected {
+  background-color: black;
+  color: white;
+}
+
+.order-button.unselected {
+  background-color: #eeeeee;
+  color: black;
+}
+
+.delivery-box,
+.pickup-box {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  color: #238ece;
+  border-top: 1px solid black;
+  padding: 28px 75px 26px 105px;
+}
+
+.topbar-right {
+  cursor: pointer;
+}
+
+.order-box {
+  display: flex;
+  justify-content: center;
+  padding: 35px 75px 35px 110px;
+  border-bottom: 1px solid #cccccc;
+  position: relative;
+}
+
+.order-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-content-text {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.order-content-button {
+  color: #888888;
+  font-size: 15px;
+  background-color: white;
+  border: 1px solid #cccccc;
+  width: 150px;
+  height: 54px;
+  cursor: pointer;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.tip-box.show {
+  opacity: 1;
+  animation: fade-out 0.5s ease-in-out;
+}
+
+.tip-box {
+  position: absolute;
+  background: #ff143c;
+  color: white;
+  border-radius: 3em;
+  padding: 10px;
+  text-align: center;
+  max-width: 170px;
+  font-weight: bold;
+  right: 100px;
+  top: 280px;
+  transform: translateX(-50%);
+  background-color: #ff143c;
+  color: white;
+  opacity: 0;
+  transition: opacity 3s ease-in-out;
+  z-index: 1;
+}
+
+.tip-box:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 42.5%;
+  width: 0;
+  height: 0;
+  border: 15px solid;
+  border-bottom-color: #ff143c;
+  border-top: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  margin-top: -10px;
+}
+
+.order-content-tip {
+  color: #ff752d;
+  font-size: 13px;
+  text-align: right;
+  /* margin-right: 75px; */
+  margin-top: 20px;
+  font-weight: bold;
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 110px;
+}
+
+.order-content-tip-text {
+  margin-right: 75px;
+}

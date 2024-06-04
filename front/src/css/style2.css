@@ -63,6 +63,17 @@ a {
   border-radius: 15px;
   color: #777;
   border: 1px solid #777;
+  text-align: center;
+  text-indent: 5px;
+}
+
+.header-login p {
+  align-items: center;
+  text-align: center;
+  padding-top: 4px;
+}
+.header-signup p {
+  padding-top: 4px;
 }
 
 .header-promotion-input {
@@ -125,6 +136,16 @@ a {
   width: 100%;
   top: 9.1rem;
   padding: 0 0 2.5rem 12rem;
+}
+.header-show-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header-show-more-icon {
+  margin-left: 6px;
+  margin-bottom: 2px;
+  font-size: 15px;
 }
 
 .components-dropdown {

@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationArrow } from "@fortawesome/free-solid-svg-icons/faLocationArrow";
+import {
+  faChevronUp,
+  faChevronDown,
+  faCartShopping,
+} from "@fortawesome/free-solid-svg-icons";
 import Dropdown from "./Dropdown";
 import axios from "axios";
 import Menu from "./Menu";
@@ -68,17 +73,26 @@ const list5 = ["공지사항","-도미노뉴스","-보도자료"] */
                       로그아웃
                     </button>
                   </li>
-                  <li>
-                    <Link to="/mypage">나의정보</Link>
+                  <li className="header-signup">
+                    <p>
+                      <Link to="/mypage">나의정보</Link>
+                    </p>
+                  </li>
+                  <li className="header-icon">
+                    <FontAwesomeIcon icon={faCartShopping} />
                   </li>
                 </>
               ) : (
                 <>
-                  <li>
-                    <Link to="/login">로그인</Link>
+                  <li className="header-login">
+                    <p>
+                      <Link to="/login">로그인</Link>
+                    </p>
                   </li>
-                  <li>
-                    <Link to="/signup">회원가입</Link>
+                  <li className="header-signup">
+                    <p>
+                      <Link to="/signup">회원가입</Link>
+                    </p>
                   </li>
                 </>
               )}
@@ -101,7 +115,20 @@ const list5 = ["공지사항","-도미노뉴스","-보도자료"] */
             className="fromCenter header-show-more"
             onClick={(e) => setDropdownVisibility(!dropdownVisibility)}
           >
-            더보기{dropdownVisibility ? "⬆️" : "⬇️"}
+            더보기
+            <span>
+              {dropdownVisibility ? (
+                <FontAwesomeIcon
+                  icon={faChevronUp}
+                  className="header-show-more-icon"
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faChevronDown}
+                  className="header-show-more-icon"
+                />
+              )}
+            </span>
           </li>
         </ul>
         <hr></hr>

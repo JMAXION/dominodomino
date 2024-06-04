@@ -13,6 +13,8 @@ import "./css/sideMenu.css";
 import "./css/sideModalButton.css";
 import "./css/popularSetMenu.css";
 import "./css/popularSetMenuModal.css";
+import "./css/orderWay.css";
+import "./css/orderWayModal.css";
 /* root and home */
 import Root from "./pages/Root";
 import Home from "./pages/Home";
@@ -46,7 +48,7 @@ import Franchisee from "./pages/company/Franchisee.jsx";
 import Recruit from "./pages/company/Recruit.jsx";
 import Signup from "./pages/Signup";
 /* map */
-import MapContainer from "./pages/MapContainer";
+import Branch from "./pages/Branch.jsx";
 /* menu */
 import AllPizzaMenu from "./pages/AllPizzaMenu.jsx";
 import DetailPizzaMenu from "./pages/DetailPizzaMenu.jsx";
@@ -160,7 +162,7 @@ export default function App() {
         { path: "/nonmember", element: <LoginNonmember /> },
         { path: "/signup", element: <Signup /> },
 
-        { path: "/branch", element: <MapContainer /> },
+        { path: "/branch", element: <Branch /> },
 
         { path: "/pizzas", element: <AllPizzaMenu depth2={"피자"} /> },
         { path: "/pizzas/:id", element: <DetailPizzaMenu /> },

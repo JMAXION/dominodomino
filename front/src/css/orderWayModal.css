@@ -1,0 +1,135 @@
+/* 애니메이션 정의 */
+@keyframes fadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+@keyframes fadeOutAnimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.order-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(65, 65, 65, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s forwards;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+.order-modal.fade-out {
+  animation: fadeOut 0.5s forwards;
+  opacity: 0;
+}
+
+.order-modal-container {
+  overflow: hidden;
+}
+
+.order-modal-content {
+  background-color: white;
+  position: relative;
+  z-index: 10;
+  height: 780px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.order-modal-header {
+  position: relative;
+  z-index: 30;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.order-modal-content-title {
+  text-align: center;
+  position: inherit;
+  font-size: 22px;
+  padding: 20px 0 20px 0;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 20;
+}
+
+.order-modal-close-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 30;
+}
+
+.order-modal-body {
+  flex: 1;
+  overflow: auto;
+}
+
+.order-modal-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.order-modal-info-image {
+  width: 100%;
+}
+
+.order-modal-info-box {
+  display: flex;
+}
+
+.order-modal-info-title {
+  padding: 60px 120px;
+  align-items: center;
+  color: #555555;
+}
+
+.order-modal-info-text-box {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+}
+
+.order-modal-info-text {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #555555;
+}

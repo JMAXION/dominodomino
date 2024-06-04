@@ -14,6 +14,10 @@
 .header-member-list-button {
   border: none;
   background-color: transparent;
+  margin-top: 4px;
+}
+.header-icon {
+  margin-top: 4px;
 }
 
 /* !!로그인 */
@@ -270,7 +274,6 @@
   display: flex;
   justify-content: center;
   padding: 100px 0;
-  border-top: 1px solid black;
 }
 .branch-result {
   border: 1px solid #999;

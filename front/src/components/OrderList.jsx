@@ -8,8 +8,10 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
+import { getUser, removeUser } from "../util/localStorage";
 
 export default function Mania() {
+  const userInfo = getUser();
   const [props, setprops] = useState({
     title: "나의 정보",
     nav1: "매니아 등급",
@@ -32,7 +34,7 @@ export default function Mania() {
       <ul className="order-info">
         <ul className="order-information">
           <li>
-            <span>장현수</span>님이 주문하신 내역입니다
+            <span>{userInfo.userId}</span>님이 주문하신 내역입니다
           </li>
           <li></li>
           <li>주문을 취소하시려면 해당 매장으로 전화하셔야 합니다.</li>

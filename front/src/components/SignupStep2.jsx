@@ -4,19 +4,18 @@ import {
   validateCheckStep2,
   passCheck,
   changeEmailDomain,
-} from "../apis/validate";
-
+} from "../apis/validate.js";
 import DaumPostcode from "react-daum-postcode";
 
-import PageTitle2 from "./PageTitle2";
-
+/**
+ * step2 : 정보입력
+ */
 export default function SignupStep2({
   pre,
   next,
   formData,
   handleChange,
   handleAddress,
-  props,
 }) {
   const refs = {
     userIdRef: useRef(null),
@@ -25,50 +24,33 @@ export default function SignupStep2({
     userNameRef: useRef(null),
     emailIdRef: useRef(null),
     emailDomainRef: useRef(null),
+    phoneNumber1Ref: useRef(null),
     phoneNumber2Ref: useRef(null),
     zipcodeRef: useRef(null),
     addressRef: useRef(null),
     detailAddressRef: useRef(null),
   };
 
-  /* 주소 검색 버튼 toggle */
+  /** 주소검색 버튼Toggle */
   const [isOpen, setIsOpen] = useState(false);
 
-  /* 주소 검색 버튼 */
+  /** 주소 검색 버튼 */
   const handleToggle = () => {
     setIsOpen(!isOpen);
   };
-  const themeObj = {
-    bgColor: "#ffffff",
-    pageBgColor: "#ffffff",
-    postcodeTextColor: "#C05850",
-    emphTextColor: "#222222",
-  };
-  const postCodeStyle = {
-    width: "360px",
-    height: "480px",
-  };
-  const completeHandler = (data) => {
-    const { address, zonecode } = data;
-    handleAddress({ zipcode: zonecode, address: address });
-  };
-  const closeHandler = (state) => {
-    if (state === "FORCE_CLOSE") {
-      setIsOpen(false);
-    } else if (state === "COMPLETE_CLOSE") {
-      setIsOpen(false);
-      refs.detailAddressRef.current.value = "";
-      refs.detailAddressRef.current.focus();
-    }
-  };
 
-  /* submit  */
+  /**
+   * submit : 서버전송
+   */
   const handleSubmit = () => {
     if (validateCheckStep2(refs)) {
       if (passCheck(refs)) {
-        /* 서버 전송:formdata ==> 서버(nodeJS/JAVA/C#) =>DB(MySQL) 저장 */
-        /* 성공 --->next() */
-        /* 실패 --->에러 페이지 */
+        //서버전송 : formData ==> 서버(NodeJS/Java/C#) ==> DB(MySQL) 저장
+        //성공 ---> next()
+        //실패 ---> 에러 페이지
+        console.log("submit->> ", formData);
+        alert("회원가입을 축하드립니다!");
+
         const url = "http://127.0.0.1:8080/member/signup";
         axios({
           method: "post",
@@ -76,26 +58,29 @@ export default function SignupStep2({
           data: formData,
         })
           .then((res) => {
-            console.log(res.data);
             if (res.data.cnt === 1) {
-              alert("회원가입 성공");
+              // alert("회원가입 성공");
               next();
             } else {
               alert("회원가입 실패");
             }
           })
           .catch();
-        next();
+
+        // next();
       }
     }
   };
-  /* 아이디 중복 체크 */
+
+  /**
+   * 아이디 중복체크
+   */
   const handleIdCheck = () => {
-    if (refs.userIdRef.current.value == "") {
-      alert("아이디를 입력해주세요.");
+    if (refs.userIdRef.current.value === "") {
+      alert("아이디를 입력해주세요");
       refs.userIdRef.current.focus();
     } else {
-      //서버연동
+      //서버연동 - 사용중 : {cnt: 1}, 사용가능 : {cnt: 0}
       const url = "http://127.0.0.1:8080/member/idCheck";
       const userId = refs.userIdRef.current.value;
       axios({
@@ -106,16 +91,46 @@ export default function SignupStep2({
         .then((res) => {
           console.log(res.data);
           if (res.data.cnt === 1) {
-            alert("이미 사용중인 아이디입니다.");
+            alert("이미 사용중인 아이디 입니다. 다시 입력해주세요");
+            // refs.userIdRef.current.value = "";
             refs.userIdRef.current.focus();
           } else {
-            alert("사용가능한 아이디입니다.");
+            alert("사용 가능한 아이디입니다.");
             refs.userPassRef.current.focus();
           }
         })
         .catch((error) => console.log(error));
     }
   };
+
+  //---- DaumPostcode 관련 디자인 및 이벤트 시작 ----//
+  const themeObj = {
+    bgColor: "#FFFFFF",
+    pageBgColor: "#FFFFFF",
+    postcodeTextColor: "#C05850",
+    emphTextColor: "#222222",
+  };
+
+  const postCodeStyle = {
+    width: "360px",
+    height: "480px",
+  };
+
+  const completeHandler = (data) => {
+    const { address, zonecode } = data;
+    handleAddress({ zipcode: zonecode, address: address });
+  };
+
+  const closeHandler = (state) => {
+    if (state === "FORCE_CLOSE") {
+      setIsOpen(false);
+    } else if (state === "COMPLETE_CLOSE") {
+      setIsOpen(false);
+      refs.detailAddressRef.current.value = "";
+      refs.detailAddressRef.current.focus();
+    }
+  };
+  //---- DaumPostcode 관련 디자인 및 이벤트 종료 ----//
 
   return (
     <div className="signup">
@@ -152,7 +167,7 @@ export default function SignupStep2({
             placeholder="8~12자 의 영문(대소문자,숫자,특수문자)를 조합해서 만들어주세요"
           />
         </li>
-        <li>
+        <li className="signup-info-passcheck">
           <p>
             비밀번호 확인<span>*</span>
           </p>
@@ -165,7 +180,7 @@ export default function SignupStep2({
             placeholder="확인을 위하여 위와 동일하게 입력해주세요"
           />
         </li>
-        <li>
+        <li className="signup-info-name">
           <p>
             이름<span>*</span>
           </p>
@@ -178,7 +193,7 @@ export default function SignupStep2({
             placeholder="한글/영문으로 입력해주세요"
           />
         </li>
-        <li>
+        <li className="signup-info-email">
           <p>
             이메일<span>*</span>
           </p>
@@ -207,7 +222,7 @@ export default function SignupStep2({
             <option value="hotmail.com">MS</option>
           </select>
         </li>
-        <li>
+        <li className="signup-info-phone">
           <p>
             휴대폰 번호<span>*</span>
           </p>
@@ -226,16 +241,10 @@ export default function SignupStep2({
             placeholder="-없이 입력해주세요"
           />
         </li>
-        <li>
+        <li className="signup-info-address">
           <p>주소</p>
           <div>
-            <input
-              type="text"
-              name="zipcode"
-              value={formData.zipcode}
-              ref={refs.zipcodeRef}
-              onChange={handleChange}
-            />
+            <input type="text" name="zipcode" value={formData.zipcode} />
             <button type="button" onClick={handleToggle}>
               주소검색
             </button>
@@ -244,7 +253,7 @@ export default function SignupStep2({
             type="text"
             name="address"
             value={formData.address}
-            ref={refs.addressRef}
+            className="signup-info-address-detail"
           />
           <input
             type="text"
@@ -253,7 +262,9 @@ export default function SignupStep2({
             onChange={handleChange}
             ref={refs.detailAddressRef}
             placeholder="상세주소를 입력해주세요"
+            className="signup-info-address-detail"
           />
+
           {isOpen && (
             <div>
               <DaumPostcode
@@ -267,10 +278,14 @@ export default function SignupStep2({
           )}
         </li>
       </ul>
-      <button type="button" onClick={pre}>
+      <button type="button" onClick={pre} className="signup-pre-button">
         뒤로
       </button>
-      <button type="button" onClick={handleSubmit}>
+      <button
+        type="button"
+        onClick={handleSubmit}
+        className="signup-next-button"
+      >
         가입완료
       </button>
     </div>

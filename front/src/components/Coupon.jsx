@@ -2,9 +2,11 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import PageTitle from "../components/PageTitle";
+import { getUser, removeUser } from "../util/localStorage";
 
 export default function Coupon() {
   const navigate = useNavigate();
+  const userInfo = getUser();
   const [props, setprops] = useState({
     title: "나의 정보",
     nav1: "매니아 등급",
@@ -26,7 +28,7 @@ export default function Coupon() {
       <PageTitle props={props} />
       <ul className="coupon-now">
         <li>
-          <span>장현수</span>님께서 보유하고 있는 할인쿠폰 내역입니다
+          <span>{userInfo.userId}</span>님께서 보유하고 있는 할인쿠폰 내역입니다
         </li>
         <li></li>
         <li>쿠폰을 사용하여 피자를 주문해보세요!</li>

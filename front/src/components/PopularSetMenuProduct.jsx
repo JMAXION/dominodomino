@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import PopularSetMenuModal from "./PopularSetMenuModal";
+import PageTitle from "./PageTitle";
 
-export default function PopularSetMenuProduct() {
+export default function PopularSetMenuProduct({ depth2 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [animationClass, setAnimationClass] = useState("");
 
@@ -29,8 +30,23 @@ export default function PopularSetMenuProduct() {
     setIsModalOpen(false);
   };
 
+  const [props, setprops] = useState({
+    title: "메뉴",
+    breadcrumb: "사이드디시",
+    breadcrumbLink: "/pizzas",
+    nav1: "피자",
+    nav2: "하프앤하프",
+    nav3: "사이드디시",
+    nav4: "인기세트메뉴",
+    link1: "/pizzas",
+    link2: "/menu/halfnhalf",
+    link3: "/sides",
+    link4: "/popular",
+  });
+
   return (
     <div className="content">
+      <PageTitle props={props} depth2={depth2} />
       <div className="popular-set-menu">
         <div className="popular-set-menu-image">
           <img

@@ -7,7 +7,7 @@ export default function Ecoupon() {
     title: "e-쿠폰",
     nav1: "e-쿠폰 주문",
     nav2: "e-쿠폰 사용 안내",
-    link1: "/ecoupon",
+    link1: "/ecoupon/index",
     link2: "/ecouponusage",
   });
   return (

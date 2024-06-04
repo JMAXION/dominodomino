@@ -8,8 +8,10 @@ import {
   faChevronLeft,
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
+import { getUser, removeUser } from "../util/localStorage";
 
 export default function Certificate() {
+  const userInfo = getUser();
   const [props, setprops] = useState({
     title: "나의 정보",
     nav1: "매니아 등급",
@@ -32,7 +34,8 @@ export default function Certificate() {
       <ul className="certificate">
         <li className="certificate-info">
           <li>
-            <span>장현수</span>님께서 보유하고 있는 금액상품권 내역입니다.
+            <span>{userInfo.userId}</span>님께서 보유하고 있는 금액상품권
+            내역입니다.
           </li>
           <li></li>
           <li>선물받은 금액상품권을 등록하고 피자 주문 시 사용하세요!</li>

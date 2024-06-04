@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PageTitle2 from "../components/PageTitle2";
+import PageTitle from "../components/PageTitle2";
 
 const { kakao } = window;
 
@@ -165,7 +165,7 @@ const MapContainer = () => {
 
   return (
     <div className="content">
-      <PageTitle2 props={props} />
+      <PageTitle props={props} />
       <div className="branch">
         <div className="branch-result">
           <h3>지역 검색</h3>

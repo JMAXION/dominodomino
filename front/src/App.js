@@ -136,8 +136,14 @@ export default function App() {
           ),
         },
         { path: "/ecoupon", element: <Ecoupon /> },
-        { path: "/ecoupon/index", element: <EcouponIndex /> },
-        { path: "/ecouponusage", element: <EcouponUsage /> },
+        {
+          path: "/ecoupon/index",
+          element: <EcouponIndex depth2={"e-쿠폰 주문"} />,
+        },
+        {
+          path: "/ecouponusage",
+          element: <EcouponUsage depth2={"e-쿠폰 사용 안내"} />,
+        },
         { path: "/law", element: <LawUse depth2={"이용약관"} /> },
         {
           path: "/law/personal",
@@ -156,9 +162,9 @@ export default function App() {
 
         { path: "/branch", element: <MapContainer /> },
 
-        { path: "/pizzas", element: <AllPizzaMenu depth2="피자" /> },
+        { path: "/pizzas", element: <AllPizzaMenu depth2={"피자"} /> },
         { path: "/pizzas/:id", element: <DetailPizzaMenu /> },
-        { path: "/sides", element: <SideDishMenu depth2="사이드디시" /> },
+        { path: "/sides", element: <SideDishMenu depth2={"사이드디시"} /> },
         {
           path: "/menu/halfnhalf",
           element: <Hnh depth2="하프앤하프" />,

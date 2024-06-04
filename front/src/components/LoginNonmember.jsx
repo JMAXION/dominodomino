@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import PageTitle2 from "./PageTitle2";
+import PageTitle from "./PageTitle2";
+import { handleFocus } from "../apis/validate";
 
 export default function LoginNonmember() {
   const clickChange = () => {
@@ -14,10 +15,27 @@ export default function LoginNonmember() {
     nav1: "로그인",
     link1: "/login",
   });
+  const [formData, setFormData] = useState({
+    service: false,
+    personal: false,
+    age: false,
+  });
+  const handleCheck = (type, isChecked) => {
+    if (type === "all") {
+      setFormData({
+        ...formData,
+        service: isChecked,
+        personal: isChecked,
+        age: isChecked,
+      });
+    } else {
+      setFormData({ ...formData, [type]: !formData[type] });
+    }
+  };
   return (
     <div className="content">
       <p className="login-title">
-        <PageTitle2 props={props} />
+        <PageTitle props={props} />
       </p>
       <form className="login-nonmember-form">
         <ul>
@@ -43,16 +61,44 @@ export default function LoginNonmember() {
           </li>
           <li className="login-nonmember-term-agree">
             <p className="login-nonmember-checkbox1">
-              <input type="checkbox" /> 비회원 약관 전체 동의
+              <input
+                type="checkbox"
+                onChange={(e) => handleCheck("all", e.target.checked)}
+              />{" "}
+              비회원 약관 전체 동의
             </p>
             <p className="login-nonmember-checkbox2">
-              <input type="checkbox" /> 비회원 개인정보 수집 및 이용 동의 (필수)
+              <input
+                type="checkbox"
+                name="personal"
+                id="personal"
+                checked={formData.personal}
+                onChange={() => handleCheck("personal")}
+                onFocus={() => handleFocus("personal")}
+              />{" "}
+              비회원 개인정보 수집 및 이용 동의 (필수)
             </p>
             <p className="login-nonmember-checkbox3">
-              <input type="checkbox" /> 이용약관 동의 (필수)
+              <input
+                type="checkbox"
+                name="service"
+                id="service"
+                checked={formData.service}
+                onChange={() => handleCheck("personal")}
+                onFocus={() => handleFocus("personal")}
+              />{" "}
+              이용약관 동의 (필수)
             </p>
             <p className="login-nonmember-checkbox4">
-              <input type="checkbox" /> 본인은 만 14세 이상입니다 (필수)
+              <input
+                type="checkbox"
+                name="age"
+                id="age"
+                checked={formData.age}
+                onChange={() => handleCheck("age")}
+                onFocus={() => handleFocus("age")}
+              />{" "}
+              본인은 만 14세 이상입니다 (필수)
             </p>
             <p className="login-nonmember-warning">
               개인정보 수집 및 이용약관에 대한 동의를 거부하실 수 있으나, <br />

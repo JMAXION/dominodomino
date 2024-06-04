@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import PageTitle from "./PageTitle";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function EcouponIndex() {
+export default function EcouponIndex({ depth2 }) {
   const navigate = useNavigate();
   const [props, setProps] = useState({
     title: "e-쿠폰",
     nav1: "e-쿠폰 주문",
     nav2: "e-쿠폰 사용 안내",
-    link1: "/ecoupon",
+    link1: "/ecoupon/index",
     link2: "/ecouponusage",
   });
   return (
     <div className="content">
-      <PageTitle props={props} />
+      <PageTitle props={props} depth2={depth2} />
       <ul className="ecouponindex-insert">
         <p>쿠폰번호 조회하고 바로 주문하세요.</p>
         <li className="ecouponindex-input">

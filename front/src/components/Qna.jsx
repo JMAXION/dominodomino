@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import PageTitle from "../components/PageTitle";
+import { getUser, removeUser } from "../util/localStorage";
 
 export default function Qna() {
+  const userInfo = getUser();
   const [props, setprops] = useState({
     title: "나의 정보",
     nav1: "매니아 등급",
@@ -25,10 +27,10 @@ export default function Qna() {
       <PageTitle props={props} />
       <ul className="qna">
         <li>
-          <span>장현수</span>님께서 문의하신 내용입니다
+          <span>{userInfo.userId}</span>님께서 문의하신 내용입니다
         </li>
         <li></li>
-        <li>장현수님께서 문의하신 내용은 총 0건입니다.</li>
+        <li>{userInfo.userId}님께서 문의하신 내용은 총 0건입니다.</li>
       </ul>
       <table className="qna-table">
         {/* <colgroup>

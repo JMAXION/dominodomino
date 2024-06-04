@@ -2,7 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import PageTitle from "../components/PageTitle";
+import { getUser, removeUser } from "../util/localStorage";
+
 export default function Mania() {
+  const userInfo = getUser();
   const [props, setprops] = useState({
     title: "나의 정보",
     nav1: "매니아 등급",
@@ -23,7 +26,7 @@ export default function Mania() {
     <div className="content">
       <ul className="mania-info">
         <ul className="mania-info-name">
-          <li>장현수님</li>
+          <li>{userInfo.userId}님</li>
           <li>REGULAR</li>
           <li></li>
           <li>등급별 혜택 보기</li>

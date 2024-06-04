@@ -1,13 +1,66 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import PageTitle2 from "../components/PageTitle2";
+import React, { useState, useRef } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
+import * as cookie from "../util/cookies.js";
+import PageTitle from "../components/PageTitle2";
 
 export default function LoginMember() {
+  const navigate = useNavigate();
+  const userIdRef = useRef(null);
+  const userPassRef = useRef(null);
+  const [formData, setFormData] = useState({ userId: "", userPass: "" });
   const [props, setProps] = useState({
     title: "로그인",
     nav1: "로그인",
     link1: "/login",
   });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validationCheck()) {
+      console.log(formData);
+      const url = "http://127.0.0.1:8080/member/login";
+      axios({
+        method: "post",
+        url: url,
+        data: formData,
+      })
+        .then((res) => {
+          if (res.data.cnt === 1) {
+            console.log("token -->", res.data.token);
+            cookie.setCookie("x-auth-jwt", res.data.token);
+            const userInfo = jwtDecode(res.data.token);
+            alert(JSON.stringify(userInfo));
+            localStorage.setItem("userInfo", JSON.stringify(userInfo));
+            alert("로그인 성공!");
+            navigate("/");
+          } else {
+            alert("로그인 실패!");
+            setFormData({ userId: "", userPass: "" });
+            userIdRef.current.focus();
+          }
+        })
+        .catch((error) => console.log(error));
+    }
+  };
+  const validationCheck = () => {
+    let checkFlag = true;
+    if (!formData.userId.trim()) {
+      alert("아이디를 입력해 주세요");
+      userIdRef.current.focus();
+      checkFlag = false;
+    } else if (!formData.userPass.trim()) {
+      alert("패스워드를 입력해주세요");
+      userPassRef.current.focus();
+      checkFlag = false;
+    }
+    return checkFlag;
+  };
+
   const clickChange = () => {
     alert("비회원 로그인시 퀵오더, 특가제품 및 일부할인의 이용은 불가합니다.");
   };
@@ -17,9 +70,9 @@ export default function LoginMember() {
   return (
     <div className="content">
       <p className="login-title">
-        <PageTitle2 props={props} />
+        <PageTitle props={props} />
       </p>
-      <form className="login-form">
+      <form className="login-form" onSubmit={handleSubmit}>
         <ul>
           <li className="login-lnlbutton">
             <Link to="/login" className="login-lnlbtn1">
@@ -34,27 +87,32 @@ export default function LoginMember() {
             </Link>
           </li>
           <li className="login-id">
-            <input type="text" placeholder="아이디" />
+            <input
+              type="text"
+              placeholder="아이디"
+              name="userId"
+              ref={userIdRef}
+              value={formData.userId}
+              onChange={handleChange}
+            />
           </li>
           <li className="login-pass">
-            <input type="text" placeholder="비밀번호" />
+            <input
+              type="text"
+              placeholder="비밀번호"
+              name="userPass"
+              ref={userPassRef}
+              value={formData.userPass}
+              onChange={handleChange}
+            />
           </li>
-          <li className="login-save-find">
-            <li className="login-save-id">
-              <input type="checkbox" />
-              아이디저장
-            </li>
-            <li className="login-find">
-              <button>아이디 찾기</button>
-              <button>비밀번호 찾기</button>
-            </li>
-          </li>
+
           <li className="login-button">
-            <button>로그인</button>
+            <button type="submit">로그인</button>
           </li>
           <li className="signin-button">
             <Link to="/signup" onClick={clickAlert}>
-              <button>회원가입</button>
+              <button type="button">회원가입</button>
             </Link>
           </li>
         </ul>

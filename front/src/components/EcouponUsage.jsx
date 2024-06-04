@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import PageTitle from "./PageTitle";
 import { Link } from "react-router-dom";
 
-export default function EcouponUsage() {
+export default function EcouponUsage({ depth2 }) {
   const [activeIndex, setActiveIndex] = useState(null);
   const [couponData, setCouponData] = useState([]); // 원본 데이터를 저장할 상태
   const [filteredCoupon, setFilteredCoupon] = useState([]); // 필터링된 데이터를 저장할 상태
@@ -16,7 +16,7 @@ export default function EcouponUsage() {
     title: "e-쿠폰",
     nav1: "e-쿠폰 주문",
     nav2: "e-쿠폰 사용 안내",
-    link1: "/ecoupon",
+    link1: "/ecoupon/index",
     link2: "/ecouponusage",
   });
 
@@ -45,7 +45,7 @@ export default function EcouponUsage() {
 
   return (
     <div className="content">
-      <PageTitle props={props} />
+      <PageTitle props={props} depth2={depth2} />
       <ul>
         <li className="ecoupon-usage-button">
           {[

@@ -4,9 +4,16 @@ import { faLocationArrow } from "@fortawesome/free-solid-svg-icons/faLocationArr
 import Dropdown from "./Dropdown";
 import axios from "axios";
 import Menu from "./Menu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getUser, removeUser } from "../util/localStorage";
 
 export default function Header(props) {
+  const navigate = useNavigate();
+  const userInfo = getUser();
+  const handleLogout = () => {
+    removeUser();
+    navigate("/");
+  };
   const [dropdownVisibility, setDropdownVisibility] = React.useState(false);
 
   const [menuList, setMenuList] = useState([]);
@@ -50,12 +57,31 @@ const list5 = ["공지사항","-도미노뉴스","-보도자료"] */
           </div>
           <div className="header-member">
             <ul className="header-member-list">
-              <li>
-                <Link to="/login">로그인</Link>
-              </li>
-              <li>
-                <Link to="/signup">회원가입</Link>
-              </li>
+              {userInfo ? (
+                <>
+                  <li>
+                    <button
+                      type="button"
+                      onClick={handleLogout}
+                      className="header-member-list-button"
+                    >
+                      로그아웃
+                    </button>
+                  </li>
+                  <li>
+                    <Link to="/mypage">나의정보</Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/login">로그인</Link>
+                  </li>
+                  <li>
+                    <Link to="/signup">회원가입</Link>
+                  </li>
+                </>
+              )}
               <li>
                 <select className="header-langauge">
                   <option>KOR</option>

@@ -174,7 +174,7 @@ export default function App() {
         },
         { path: "/popular", element: <PopularSetMenu depth2="인기세트메뉴" /> },
         { path: "/orderway", element: <OrderWay /> },
-        { path: "/cart", element: <Cart /> },
+        { path: "/cart", element: <Cart depth2="장바구니" /> },
 
         { path: "/mypage", element: <MyPage /> },
         { path: "/mypage/mania", element: <MyPage /> },

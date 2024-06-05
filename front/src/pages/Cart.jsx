@@ -1,10 +1,10 @@
 import React from "react";
 import CartMenu from "../components/CartMenu";
 
-export default function Cart() {
+export default function Cart({ depth2 }) {
   return (
     <div>
-      <CartMenu />
+      <CartMenu depth2={depth2} />
     </div>
   );
 }

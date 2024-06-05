@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping, faPlus } from "@fortawesome/free-solid-svg-icons";
+import PageTitle from "./PageTitle";
 
-export default function CartMenu() {
+export default function CartMenu({ depth2 }) {
+  const [props, setProps] = useState({
+    title: "장바구니",
+  });
   return (
     <div className="content">
+      <PageTitle props={props} depth2={depth2} />
       <div className="cart-box">
         <div className="cart-box-empty">
           <FontAwesomeIcon icon={faCartShopping} />

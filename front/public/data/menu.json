@@ -27,9 +27,9 @@
       { "name": "인재채용", "link": "/company/recruit/fullTime" }
     ],
     [
-      { "name": "공지사항", "link": "/newList" },
-      { "name": "-도미노뉴스", "link": "/dominoNews" },
-      { "name": "-보도자료 ", "link": "/broadInfo" }
+      { "name": "공지사항", "link": "/news" },
+      { "name": "-도미노뉴스", "link": "/news" },
+      { "name": "-보도자료 ", "link": "/announce" }
     ]
   ],
   "eventmenu": [

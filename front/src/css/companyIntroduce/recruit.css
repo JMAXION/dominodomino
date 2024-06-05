@@ -380,37 +380,118 @@
   background: rgba(0, 0, 0, 0.2);
 }
 
+/* ------- 모달 내용 --------- */
+
 .recruit-modal-content {
   position: relative;
   background-color: #ffffff;
-  max-height: 703px;
+  width: 580px;
 }
 
-.recruit-modal-content > p {
+.recruit-modal-content input[type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+}
+
+.recruit-modal-content input[type="radio"]:checked {
+  border: 3px solid white;
+  box-shadow: 0 0 0 1.6px var(--red-color);
+  background-color: var(--red-color);
+}
+
+.recruit-modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
   width: 580px;
+  text-align: center;
+  /* margin-bottom: 1.5rem; */
+  border-bottom: 1px solid var(--divide-color);
+  background-color: white;
+}
+
+.recruit-modal-header span {
   font-size: 22px;
   font-weight: 500;
-  text-align: center;
-  padding: 1rem 0;
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid var(--divide-color);
 }
 
-.recruit-modal-content > div {
+.recruit-modal-body {
+  z-index: 1;
+  overflow: auto;
+  max-height: 650px;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.recruit-modal-body::-webkit-scrollbar {
+  width: 8px;
+}
+.recruit-modal-body::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+.recruit-modal-body::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #bababa;
+}
+
+.recruit-modal-header,
+.recruit-modal-body {
   padding: 1rem 2.5rem;
-  margin-bottom: 1rem;
   border-bottom: 1px solid var(--divide-color);
 }
 
-.recruit-modal-content > div p {
+.recruit-modal-body div > p {
   font-size: 16px;
   font-weight: 500;
 }
 
-.recruit-modal-content > div textarea {
-  width: 100%;
+.recruit-modal-law-box {
+  border-bottom: 1px solid var(--divide-color);
+  margin-bottom: 2rem;
+}
+
+.recruit-modal-law-content {
+  width: 492.5px;
+  padding: 20px 9px 20px 24px;
+  max-height: 144px;
+  font-size: 13px;
+  overflow: scroll;
+  overflow-x: hidden;
   background-color: #f3f3f3;
-  padding: 1rem;
+  color: rgb(182, 182, 182);
+}
+
+.recruit-modal-law-content::-webkit-scrollbar {
+  width: 8px;
+}
+.recruit-modal-law-content::-webkit-scrollbar-track {
+  /* background-color: #f1f1f1; */
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.recruit-modal-law-content::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #bababa;
+}
+
+.modal-law-radios {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
+  margin: 1.3rem 0;
+}
+
+.modal-law-radios div {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
 }
 
 .recruit-modal-close-btn {
@@ -422,11 +503,234 @@
   border: none;
 }
 
-.recruit-modal-region {
-  display: flex;
-  gap: 3rem;
+.recruit-modal-form > div {
+  margin-bottom: 1.5rem;
 }
 
-.recruit-modal-form {
-  padding: 1rem 2.5rem;
+.recruit-modal-form label {
+  display: inline-block;
+  width: 120px;
+  flex-shrink: 0;
 }
+
+.recruit-modal-form label,
+.recruit-modal-selects div span {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.recruit-modal-selects div span {
+  margin-right: 0.4rem;
+}
+
+.recruit-modal-select-1 {
+  margin-bottom: 0.6rem;
+}
+
+.recruit-modal-selects div select {
+  margin-right: 0.3rem;
+  width: 160px;
+  height: 42px;
+  font-size: 16px;
+  padding-left: 0.5rem;
+  border: 1px solid lightgray;
+  color: gray;
+}
+
+.recruit-modal-region {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+
+.recruit-modal-part {
+  display: flex;
+}
+
+.recruit-modal-part input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+}
+
+.recruit-modal-part input:checked {
+  border: 3px solid white;
+  box-shadow: 0 0 0 1.6px var(--red-color);
+  background-color: var(--red-color);
+}
+
+.recruit-modal-part-radios {
+  display: flex;
+  gap: 2rem;
+}
+
+.recruit-modal-part-radios div {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* 
+* 공통 적용 사항 
+*/
+.recruit-modal-startDate,
+.recruit-modal-canPeriod,
+.recruit-modal-name,
+.recruit-modal-address,
+.recruit-modal-phone,
+.recruit-modal-etc {
+  display: flex;
+  align-items: center;
+}
+
+.recruit-modal-body input[type="text"],
+.recruit-modal-body textarea,
+.recruit-modal-startDate input {
+  border: 1px solid lightgray;
+  height: 42px;
+  transition: all 0.5s;
+}
+.recruit-modal-body input[type="text"]:hover,
+.recruit-modal-body textarea:hover,
+.recruit-modal-startDate input:hover {
+  border: 1px solid var(--black-color);
+}
+
+.recruit-modal-startDate input {
+  position: relative;
+  width: 153px;
+  height: 42px;
+  border: 1px solid lightgray;
+  cursor: text;
+}
+
+.recruit-modal-startDate input::-webkit-datetime-edit-text,
+.recruit-modal-startDate input::-webkit-datetime-edit-month-field,
+.recruit-modal-startDate input::-webkit-datetime-edit-day-field,
+.recruit-modal-startDate input::-webkit-datetime-edit-year-field {
+  -webkit-appearance: none;
+  color: gray;
+  /* display: none; */
+}
+
+.recruit-modal-startDate input::-webkit-calendar-picker-indicator {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color: transparent;
+  cursor: text;
+}
+
+.recruit-modal-canPeriod div select {
+  width: 153px;
+  height: 42px;
+  border: 1px solid lightgray;
+  color: gray;
+  padding: 0 1rem;
+}
+
+.recruit-modal-canPeriod-accent {
+  font-size: 14px;
+  color: var(--red-color);
+  margin-left: 5px;
+  white-space: normal;
+}
+
+.recruit-modal-address-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.recruit-modal-address-box > div {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.recruit-modal-address-box button {
+  height: 42px;
+  padding: 0.3rem 1rem;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: var(--black-color);
+  color: whitesmoke;
+}
+
+.recruit-modal-address-box > input {
+  width: 372.5px;
+}
+
+.recruit-modal-phone div {
+  display: flex;
+  align-items: center;
+}
+
+.recruit-modal-phone select {
+  width: 114px;
+  height: 42px;
+  padding: 0 1rem;
+  font-size: 15px;
+  margin-right: 0.3rem;
+  color: gray;
+  border: 1px solid lightgray;
+}
+.recruit-modal-phone input {
+  width: 114px;
+  margin: 0 0.3rem;
+}
+
+.recruit-modal-etc textarea {
+  width: 100%;
+  height: 160px;
+  max-height: 160px;
+  overflow-y: scroll;
+}
+
+.recruit-modal-etc textarea::-webkit-scrollbar {
+  width: 8px;
+}
+.recruit-modal-etc textarea::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+.recruit-modal-etc textarea::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #bababa;
+}
+
+.recruit-modal-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.recruit-modal-btn button {
+  width: 239px;
+  padding: 1rem;
+  font-size: 19px;
+  border: none;
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+.recruit-modal-btn button:first-child {
+  background-color: var(--black-color);
+}
+.recruit-modal-btn button:last-child {
+  background-color: var(--red-color);
+}
+
+/* .recruit-postmodal {
+  background: rgba(0, 0, 0, 0.25);
+  position: fixed;
+  left: 55%;
+  top: 30%;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #777;
+} */

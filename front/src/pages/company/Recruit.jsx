@@ -5,6 +5,7 @@ import RecruitSlider from "./RecruitSlider";
 import "../../css/companyIntroduce/recruit.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
 
 export default function Recruit({ depth2 }) {
   const [props, setprops] = useState({
@@ -22,6 +23,9 @@ export default function Recruit({ depth2 }) {
   const [activeTab, setActiveTab] = useState("tab1");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalRegion, setModalRegion] = useState("지역");
+  const [modalRegion2, setModalRegion2] = useState("지역");
+  const [selectedStartDate, setSelectedStartDate] = useState("");
+  const refs = useRef();
   const modalBackground = useRef();
 
   /* TabButton에 넘길 배열 */
@@ -33,6 +37,7 @@ export default function Recruit({ depth2 }) {
     setActiveTab(tabNum);
   };
 
+  /* 출력용 리스트 */
   const recruitInfo = [
     {
       num: "1. 개인정보의 수집 및 이용목적",
@@ -236,7 +241,6 @@ export default function Recruit({ depth2 }) {
                   비용은 회사 부담.
                 </li>
               </ul>
-              <button>입사지원서 다운받기</button>
             </div>
             <div className="recruit-search">
               <select>
@@ -424,72 +428,218 @@ export default function Recruit({ depth2 }) {
                   }}
                   className="recruit-modal-container"
                 >
+                  {/* ----- 모달 헤더 ----- */}
                   <div className="recruit-modal-content">
-                    <p>아르바이트 상시지원</p>
-                    <button
-                      type="button"
-                      onClick={() => setModalOpen(false)}
-                      className="recruit-modal-close-btn"
-                    >
-                      <FontAwesomeIcon icon={faX} />
-                    </button>
-                    <div>
-                      <p>개인정보 수집 및 이용동의</p>
-                      <textarea name="약관" readOnly>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing
-                        elit. Perspiciatis officia illo cum fuga, iste magnam
-                        consequuntur nemo impedit necessitatibus natus ducimus
-                        ex iusto dicta nostrum voluptatum ab laudantium minus
-                        facilis!
-                      </textarea>
-                      <input type="radio" value="agree" />
-                      동의함
-                      <input type="radio" value="disagree" />
-                      동의하지 않음
+                    <div className="recruit-modal-header">
+                      <span>아르바이트 상시지원</span>
+                      <button
+                        type="button"
+                        onClick={() => setModalOpen(false)}
+                        className="recruit-modal-close-btn"
+                      >
+                        <FontAwesomeIcon icon={faX} />
+                      </button>
                     </div>
-                    <form className="recruit-modal-form">
-                      <div className="recruit-modal-region">
-                        <label>희망지점</label>
-                        <div className="recruit-modal-selects">
+                    {/* ---- 모달 바디 ----- */}
+                    <div className="recruit-modal-body">
+                      <div className="recruit-modal-law-box">
+                        <p>개인정보 수집 및 이용동의</p>
+                        <div className="recruit-modal-law-content">
+                          청오디피케이㈜는 아르바이트 지원자가 채용을 위해
+                          제공한 개인정보가 보호 받을 수 있도록 개인정보보호법,
+                          정보통신망 이용촉진 및 정보보호 등에 관한 법률 등
+                          정보통신서비스 제공자가 준수해야 할 관련 법규상의
+                          개인정보보호규정 및 개인정보 보호위원회가 제정한 표준
+                          개인정보 보호지침을 준수합니다. <br />
+                          <br />
+                          1. 수집하는 개인정보의 항목
+                          <br /> * 필수입력사항 : 이름, 주소, 휴대전화
+                          <br />
+                          <br /> 2. 개인정보의 수집 및 이용목적
+                          <br /> * 아르바이트 입사지원에 대한 정보를 위해
+                          개인정보를 수집하고 있습니다.
+                          <br />
+                          <br /> 3. 개인정보의 보유 및 이용기간
+                          <br /> * 원칙적으로 개인정보의 수집 및 이용목적이
+                          달성된 후에는 해당 정보를 지체없이 파기합니다. 다만,
+                          입사지원에 대한 원활한 서비스 제공을 위하여 6개월간
+                          보관합니다.
+                          <br />
+                          <br /> 4. 귀하는 위와 같은 개인정보 수집이용에
+                          동의하지 않을 수 있습니다.
+                          <br /> 단, 동의 거부시에는 해당 서비스 참여가
+                          제한됩니다.
+                        </div>
+                        <div className="modal-law-radios">
                           <div>
-                            <span>1지망</span>
-                            <select
-                              onChange={(e) => setModalRegion(e.target.value)}
-                            >
-                              <option value="지역">지역</option>
-                              <option value="서울">서울</option>
-                              <option value="인천">인천</option>
-                              <option value="경기">경기</option>
-                            </select>
-                            <select name="" id="">
-                              <option value="매장명">매장명</option>
-                              {modalRegion &&
-                                regionList[modalRegion]?.map((obj) => (
-                                  <option value={obj.store}>{obj.store}</option>
-                                ))}
-                            </select>
+                            <input
+                              type="radio"
+                              value="agree"
+                              name="modal-law"
+                            />
+                            <span>동의함</span>
                           </div>
                           <div>
-                            <span>2지망</span>
-                            <select
-                              onChange={(e) => setModalRegion(e.target.value)}
-                            >
-                              <option value="지역">지역</option>
-                              <option value="서울">서울</option>
-                              <option value="인천">인천</option>
-                              <option value="경기">경기</option>
-                            </select>
-                            <select name="" id="">
-                              <option value="매장명">매장명</option>
-                              {modalRegion &&
-                                regionList[modalRegion]?.map((obj) => (
-                                  <option value={obj.store}>{obj.store}</option>
-                                ))}
-                            </select>
+                            <input
+                              type="radio"
+                              value="disagree"
+                              name="modal-law"
+                            />
+                            <span>동의하지 않음</span>
                           </div>
                         </div>
                       </div>
-                    </form>
+                      <form className="recruit-modal-form">
+                        <div className="recruit-modal-region">
+                          <label>희망지점</label>
+                          <div className="recruit-modal-selects">
+                            <div className="recruit-modal-select-1">
+                              <span>1지망</span>
+                              <select
+                                onChange={(e) => setModalRegion(e.target.value)}
+                              >
+                                <option value="지역">지역</option>
+                                <option value="서울">서울</option>
+                                <option value="인천">인천</option>
+                                <option value="경기">경기</option>
+                              </select>
+                              <select name="" id="">
+                                <option value="매장명">매장명</option>
+                                {modalRegion &&
+                                  regionList[modalRegion]?.map((obj) => (
+                                    <option value={obj.store}>
+                                      {obj.store}
+                                    </option>
+                                  ))}
+                              </select>
+                            </div>
+                            <div>
+                              <span>2지망</span>
+                              <select
+                                onChange={(e) =>
+                                  setModalRegion2(e.target.value)
+                                }
+                              >
+                                <option value="지역">지역</option>
+                                <option value="서울">서울</option>
+                                <option value="인천">인천</option>
+                                <option value="경기">경기</option>
+                              </select>
+                              <select name="" id="">
+                                <option value="매장명">매장명</option>
+                                {modalRegion2 &&
+                                  regionList[modalRegion2]?.map((obj) => (
+                                    <option value={obj.store}>
+                                      {obj.store}
+                                    </option>
+                                  ))}
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="recruit-modal-part">
+                          <label>희망직종</label>
+                          <div className="recruit-modal-part-radios">
+                            <div>
+                              <input type="radio" name="modal-part" />
+                              <span>배달</span>
+                            </div>
+                            <div>
+                              <input type="radio" name="modal-part" />
+                              <span>SCR(매장직)</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="recruit-modal-startDate">
+                          <label>시작가능일</label>
+                          <input
+                            type="date"
+                            value={selectedStartDate}
+                            onChange={(e) => {
+                              console.log("value->", e.target.value);
+                              setSelectedStartDate(e.target.value);
+                            }}
+                            placeholder="날짜를 선택하세요"
+                          />
+                        </div>
+                        <div className="recruit-modal-canPeriod">
+                          <label>가능기간</label>
+                          <div>
+                            <select>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                              <option value="7">7</option>
+                              <option value="8">8</option>
+                              <option value="9">9</option>
+                              <option value="10">10</option>
+                              <option value="11">11</option>
+                              <option value="12">12</option>
+                            </select>
+                            <span>개월</span>
+                            <span className="recruit-modal-canPeriod-accent">
+                              (시급 및 근무시간은 협의를 통해 조정가능)
+                            </span>
+                          </div>
+                        </div>
+                        <div className="recruit-modal-name">
+                          <label>이름</label>
+                          <input type="text" />
+                        </div>
+                        <div className="recruit-modal-address">
+                          <label>주소</label>
+                          <div className="recruit-modal-address-box">
+                            <div>
+                              <input type="text" />
+                              <button type="button">우편번호 찾기</button>
+                              {/* {isOpen && (
+                                <div>
+                                  <DaumPostcode
+                                    className="recruit-postmodal"
+                                    theme={themeObj}
+                                    style={postCodeStyle}
+                                    onComplete={completeHandler}
+                                    onClose={closeHandler}
+                                  />
+                                </div>
+                              )} */}
+                            </div>
+                            <input type="text" />
+                            <input type="text" />
+                          </div>
+                        </div>
+                        <div className="recruit-modal-phone">
+                          <label>휴대전화</label>
+                          <div>
+                            <select>
+                              <option value="010">010</option>
+                              <option value="010">011</option>
+                              <option value="010">016</option>
+                            </select>
+                            <span>-</span>
+                            <input type="text" />
+                            <span>-</span>
+                            <input type="text" />
+                          </div>
+                        </div>
+                        <div className="recruit-modal-etc">
+                          <label>기타(선택항목)</label>
+                          <textarea></textarea>
+                        </div>
+                        <div className="recruit-modal-btn">
+                          <button
+                            type="button"
+                            onClick={() => setModalOpen(false)}
+                          >
+                            취소
+                          </button>
+                          <button type="submit">지원하기</button>
+                        </div>
+                      </form>
+                    </div>
                   </div>
                 </div>
               )}

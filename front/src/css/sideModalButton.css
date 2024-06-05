@@ -1,3 +1,32 @@
+/* 애니메이션 정의 */
+@keyframes fadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+@keyframes fadeOutAnimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
 .side-modal {
   position: fixed;
   top: 0;
@@ -8,11 +37,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: fadeIn 0.3s forwards;
+  animation: fadeIn 0.5s forwards;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+.side-modal.fade-out {
+  animation: fadeOut 0.5s forwards;
+  opacity: 0;
 }
 
 .side-modal-container {
   overflow: hidden;
+  width: 988px;
+  height: 780px;
 }
 
 .side-modal-content {
@@ -20,6 +58,9 @@
   position: relative;
   z-index: 10;
   height: 780px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .side-modal-open-btn {
@@ -38,7 +79,7 @@
 .side-modal-close-btn {
   position: absolute;
   top: 23px;
-  right: 10px;
+  right: 25px;
   background: none;
   border: none;
   font-size: 20px;

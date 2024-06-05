@@ -1,10 +1,12 @@
 .modal-content-container-1 {
   display: flex;
+  margin-left: 15px;
 }
 
 .modal-content-container-2 {
   display: flex;
   flex-direction: column;
+  margin-left: 15px;
 }
 
 .modal-title {
@@ -43,6 +45,7 @@
   font-size: 20px;
   border-bottom: 1px solid black;
   padding-bottom: 15px;
+  width: 430px;
   font-weight: bold;
 }
 
@@ -50,11 +53,12 @@
   color: #888888;
   font-size: 19px;
   margin-top: 15px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
+  width: 430px;
 }
 
 .modal-content-list-button-box {
-  margin-top: 90px;
+  margin-top: 40px;
 }
 
 .modal-content-list-button-allergy:hover {
@@ -67,6 +71,8 @@
   color: #888888;
   padding: 25px 75px 25px 75px;
   font-size: 18px;
+  width: 420px;
+  height: 70px;
 }
 
 .modal-content-list-toggle-box {
@@ -81,7 +87,7 @@
   font-size: 20px;
   font-weight: bold;
   border-top: 2px solid black;
-  width: 850px;
+  width: 875px;
   margin-bottom: 30px;
   padding-top: 15px;
 }
@@ -131,8 +137,10 @@
   font-size: 18px;
   font-weight: bold;
   border: none;
+  width: 220px;
+  height: 62;
   padding: 20px 55px 20px 55px;
-  margin: 10px 0 130px 0;
+  margin: 10px 0 50px 0;
   text-align: center;
   cursor: pointer;
 }

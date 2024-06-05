@@ -3,13 +3,13 @@ import PageTitle from "./PageTitle";
 import { Link } from "react-router-dom";
 
 export default function EcouponUsage({ depth2 }) {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [couponData, setCouponData] = useState([]); // 원본 데이터를 저장할 상태
   const [filteredCoupon, setFilteredCoupon] = useState([]); // 필터링된 데이터를 저장할 상태
 
   const handleClick = (index) => {
     setActiveIndex(index); // 클릭된 <p> 태그의 인덱스를 상태에 저장
-    filterCouponData(index); // 클릭된 인덱스에 따라 데이터를 필터링
+    // filterCouponData(index); // 클릭된 인덱스에 따라 데이터를 필터링
   };
 
   const [props, setProps] = useState({

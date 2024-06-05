@@ -17,6 +17,8 @@ export default function PizzaMenuProduct({ depth2 }) {
     },
   });
   const [selectedPizza, setSelectedPizza] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [animationClass, setAnimationClass] = useState("");
 
   useEffect(() => {
     fetch("data/pizzaAll.json")
@@ -25,11 +27,25 @@ export default function PizzaMenuProduct({ depth2 }) {
       .catch((error) => console.log(error));
   }, []);
 
+  useEffect(() => {
+    let timer;
+    if (isModalOpen) {
+      timer = setTimeout(() => {
+        setAnimationClass("show-modal-animation");
+      }, 10);
+    } else {
+      setAnimationClass("");
+    }
+    return () => clearTimeout(timer);
+  }, [isModalOpen]);
+
   const openModal = (pizza) => {
     setSelectedPizza(pizza);
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
+    setIsModalOpen(false);
     setSelectedPizza(null);
   };
 
@@ -56,9 +72,6 @@ export default function PizzaMenuProduct({ depth2 }) {
             <button className="modalopenbtn" onClick={() => openModal(pizza)}>
               <FontAwesomeIcon icon={faExpand} />
             </button>
-            {selectedPizza && (
-              <PizzaModal pizza={selectedPizza} onClose={closeModal} />
-            )}
             <div className="pizza-product">
               <div className="pizza-title-box">
                 <span className="pizza-title">{pizza.title}</span>
@@ -159,6 +172,9 @@ export default function PizzaMenuProduct({ depth2 }) {
           </div>
         </div>
       </div>
+      {selectedPizza && isModalOpen && (
+        <PizzaModal pizza={selectedPizza} onClose={closeModal} />
+      )}
     </div>
   );
 }

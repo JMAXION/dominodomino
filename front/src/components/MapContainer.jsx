@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import MapContainerModal from "./MapContainerModal";
 
 const { kakao } = window;
 
@@ -157,6 +160,42 @@ const MapContainer = () => {
     setDistrict(e.target.value);
   };
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalType, setModalType] = useState("");
+  const [animationClass, setAnimationClass] = useState("");
+
+  useEffect(() => {
+    let timer;
+    if (isModalOpen) {
+      timer = setTimeout(() => {
+        setAnimationClass("show-modal-animation");
+      }, 10);
+    } else {
+      setAnimationClass("");
+    }
+    return () => clearTimeout(timer);
+  }, [isModalOpen]);
+
+  const openModal = (type) => {
+    setModalType(type);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalType("");
+  };
+
+  const [orderType, setOrderType] = useState(null);
+
+  const renderContent = () => {
+    if (orderType === "delivery") {
+      return <></>;
+    } else if (orderType === "pickup") {
+      return <></>;
+    }
+  };
+
   return (
     <div className="content">
       <div className="branch">
@@ -190,13 +229,57 @@ const MapContainer = () => {
                 </option>
               ))}
           </select>
+          <ul className="branch-select-warning">
+            <li>*자사 및 매장별 프로모션은 중복할인이 불가합니다.</li>
+          </ul>
           <div className="branch-infos">
             {places.map((place, index) => (
               <div className="branch-info">
-                <div key={index}>
-                  {place.name}({place.phone || "정보없음"})
-                </div>
-                <div>{place.address}</div>
+                <p>
+                  <div key={index}>
+                    {place.name}({place.phone || "정보없음"})
+                  </div>
+                  <div>
+                    <FontAwesomeIcon icon={faLocationDot} />
+                    {place.address}
+                  </div>
+                  <li className="branch-info-detail">
+                    <p
+                      onClick={() => {
+                        openModal("address");
+                      }}
+                    >
+                      상세보기
+                    </p>
+                    <p
+                      onClick={() => {
+                        openModal("store");
+                      }}
+                    >
+                      방문포장
+                    </p>
+                  </li>
+                </p>
+                <p className="branch-info-sale">
+                  <li>
+                    <p>
+                      온라인
+                      <br />
+                      방문포장
+                      <br />
+                      30%
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      오프라인
+                      <br />
+                      방문포장
+                      <br />
+                      30%
+                    </p>
+                  </li>
+                </p>
               </div>
             ))}
           </div>
@@ -207,9 +290,14 @@ const MapContainer = () => {
           style={{
             width: "696px",
             height: "696px",
+            zIndex: "0",
           }}
         ></div>
       </div>
+      <div>{renderContent()}</div>
+      {isModalOpen && (
+        <MapContainerModal type={modalType} onClose={closeModal} />
+      )}
     </div>
   );
 };

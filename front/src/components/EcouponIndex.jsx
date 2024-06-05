@@ -17,7 +17,7 @@ export default function EcouponIndex({ depth2 }) {
       <ul className="ecouponindex-insert">
         <p>쿠폰번호 조회하고 바로 주문하세요.</p>
         <li className="ecouponindex-input">
-          <input type="text" placeholder="쿠폰번호를 입력해주세요." />
+          <input type="text" placeholder="   쿠폰번호를 입력해주세요." />
           <button>조회</button>
         </li>
       </ul>
@@ -54,7 +54,9 @@ export default function EcouponIndex({ depth2 }) {
             &nbsp;&nbsp;사이드디시 또는 음료를 담지 않을 경우 포함되어 주문 되지
             않습니다.
           </p>
-          <p>e-쿠폰으로 주문 시, 1주문 당 최대 4장까지 사용 가능합니다.</p>
+          <p style={{ color: "red" }}>
+            e-쿠폰으로 주문 시, 1주문 당 최대 4장까지 사용 가능합니다.
+          </p>
           <p>
             e-쿠폰으로 주문 시, 포장 할인 및 여타 제휴 할인과 중복하여 사용할 수
             없습니다.

@@ -12,6 +12,8 @@ export default function SideMenuProduct() {
   });
 
   const [selectedSide, setSelectedSide] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [animationClass, setAnimationClass] = useState("");
 
   useEffect(() => {
     fetch("/data/sideAll.json")
@@ -20,11 +22,25 @@ export default function SideMenuProduct() {
       .catch((error) => console.log(error));
   }, []);
 
+  useEffect(() => {
+    let timer;
+    if (isModalOpen) {
+      timer = setTimeout(() => {
+        setAnimationClass("show-modal-animation");
+      }, 10);
+    } else {
+      setAnimationClass("");
+    }
+    return () => clearTimeout(timer);
+  }, [isModalOpen]);
+
   const openModal = (side) => {
     setSelectedSide(side);
+    setIsModalOpen(true);
   };
 
   const closeModal = () => {
+    setIsModalOpen(false);
     setSelectedSide(null);
   };
 
@@ -73,24 +89,6 @@ export default function SideMenuProduct() {
       </div>
     );
 
-    // const content = (
-    //   <div key={side.id} className="side-box-in">
-    //     <img className="side-box-in-image" src={side.image} alt={side.title} />
-
-    //     {showButton && (
-    //       <button onClick={() => openModal(side)}>
-    //         <FontAwesomeIcon icon={faExpand} />
-    //       </button>
-    //     )}
-    //     <div>
-    //       <div>{side.title}</div>
-    //       <span>{side.lable}</span>
-    //     </div>
-    //     <div>{side.price}원</div>
-    //     <button>주문</button>
-    //   </div>
-    // );
-
     const linkStyle = selectedSide ? { pointerEvents: "none" } : {};
 
     return (
@@ -103,7 +101,6 @@ export default function SideMenuProduct() {
           clickableContent
         )}
         {textContent}
-        {selectedSide && <SideModal side={selectedSide} onClose={closeModal} />}
       </div>
     );
   };
@@ -116,17 +113,6 @@ export default function SideMenuProduct() {
         )}
       </div>
     ));
-  };
-
-  const renderModal = () => {
-    if (!selectedSide) return null;
-    return (
-      <div>
-        <div>
-          <SideModal side={selectedSide} onClose={closeModal} />
-        </div>
-      </div>
-    );
   };
 
   return (
@@ -144,6 +130,9 @@ export default function SideMenuProduct() {
         </ul>
       </div>
       <div className="grid"></div>
+      {selectedSide && isModalOpen && (
+        <SideModal side={selectedSide} onClose={closeModal} />
+      )}
       <div className="note">
         <ul className="note-list">
           <div className="note-list-title">※ 유의사항</div>

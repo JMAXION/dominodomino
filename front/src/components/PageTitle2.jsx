@@ -1,5 +1,4 @@
 import React from "react";
-import "../css/pageTitle.css";
 import { Link } from "react-router-dom";
 
 export default function PageTitle2({ props }) {

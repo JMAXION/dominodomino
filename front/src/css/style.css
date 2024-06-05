@@ -296,6 +296,22 @@
   max-height: 540px;
   overflow: scroll;
   overflow-x: hidden;
+  /* border: 1px solid green; */
+  text-align: left;
+}
+.branch-infos::-webkit-scrollbar {
+  width: 10px;
+}
+.branch-infos::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+.branch-infos::-webkit-scrollbar-track {
+  background-color: #999;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
 }
 .branch-info {
   border: 1px solid #999;
@@ -303,6 +319,7 @@
   border-right: none;
   padding-top: 20px;
   padding-bottom: 20px;
+  padding-left: 20px;
 }
 .branch-info div:first-child {
   font-weight: bold;

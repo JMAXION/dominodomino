@@ -84,7 +84,7 @@ const MapContainer = () => {
 
   useEffect(() => {
     if (city && district) {
-      setSearchPlace(city + " " + district + "도미노피자");
+      setSearchPlace("도미노피자" + city + " " + district);
     }
   }, [city, district]);
 
@@ -139,7 +139,7 @@ const MapContainer = () => {
 
       kakao.maps.event.addListener(marker, "click", function () {
         infowindow.setContent(
-          '<div style="margin:0 auto 0 auto;font-size:12px;text-align:center; background-color:red;">' +
+          '<div style="margin:0 auto 0 auto;font-size:12px;text-align:center;">' +
             place.place_name +
             "</div>"
         );

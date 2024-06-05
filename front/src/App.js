@@ -57,6 +57,7 @@ import Hnh from "./pages/Hnh.jsx";
 import HomeOrder from "./pages/HomeOrder.jsx";
 import PopularSetMenu from "./pages/PopularSetMenu.jsx";
 import OrderWay from "./components/OrderWay.jsx";
+import Cart from "./pages/Cart.jsx";
 
 /* mypage */
 import MyPage from "./pages/MyPage.jsx";
@@ -173,6 +174,7 @@ export default function App() {
         },
         { path: "/popular", element: <PopularSetMenu depth2="인기세트메뉴" /> },
         { path: "/orderway", element: <OrderWay /> },
+        { path: "/cart", element: <Cart /> },
 
         { path: "/mypage", element: <MyPage /> },
         { path: "/mypage/mania", element: <MyPage /> },

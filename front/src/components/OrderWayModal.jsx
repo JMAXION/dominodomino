@@ -30,7 +30,7 @@ export default function OrderWayModal({ type, onClose }) {
   const renderModalContent = () => {
     switch (type) {
       case "address":
-        return <MapContainer />;
+        return <p></p>;
       case "store":
         return <MapContainer />;
       case "pickupService":

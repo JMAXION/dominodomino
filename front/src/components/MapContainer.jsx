@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import PageTitle from "./PageTitle";
 
 const { kakao } = window;
 
@@ -206,8 +205,8 @@ const MapContainer = () => {
         <div
           id="myMap"
           style={{
-            width: "600px",
-            height: "600px",
+            width: "696px",
+            height: "696px",
           }}
         ></div>
       </div>

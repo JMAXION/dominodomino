@@ -262,9 +262,7 @@
   background-color: red;
 }
 /* !!지도!!! */
-.branch-marker {
-  border: 1px solid tomato;
-}
+
 .branch-h2 {
   border-bottom: 1px solid black;
   font-weight: lighter;
@@ -273,19 +271,20 @@
 .branch {
   display: flex;
   justify-content: center;
-  padding: 100px 0;
+  /* border: 1px solid red; */
+  /* padding: 100px 0; */
 }
 .branch-result {
-  border: 1px solid #999;
-  width: 400px;
-  height: 600px;
+  border-top: 1px solid #999;
+  width: 500px;
+  height: 696px;
   text-align: center;
 }
 .branch-result h3 {
   margin: 10px 0;
 }
 .branch-select {
-  width: 190px;
+  width: 240px;
   height: 50px;
   border-bottom: 1px solid #777;
   margin-bottom: 50px;
@@ -293,8 +292,8 @@
   margin-left: 5px;
 }
 .branch-infos {
-  max-width: 400px;
-  max-height: 440px;
+  max-width: 500px;
+  max-height: 540px;
   overflow: scroll;
   overflow-x: hidden;
 }

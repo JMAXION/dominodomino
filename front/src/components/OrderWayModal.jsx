@@ -32,7 +32,7 @@ export default function OrderWayModal({ type, onClose }) {
       case "address":
         return <MapContainer />;
       case "store":
-        return <div>내용</div>;
+        return <MapContainer />;
       case "pickupService":
         return (
           <div className="order-modal-info">

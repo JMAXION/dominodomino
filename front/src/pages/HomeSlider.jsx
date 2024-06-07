@@ -50,28 +50,36 @@ export default class SimpleSlider extends Component {
         <div className="content">
           <Slider {...settings}>
             <div className="inner-slide">
-              <img
-                src="https://cdn.dominos.co.kr/admin/upload/banner/20240216_EcPgdM2T.jpg"
-                className="sub-carousel-img"
-              />
+              <a href="http://localhost:3000/event/detail/1">
+                <img
+                  src="https://cdn.dominos.co.kr/admin/upload/banner/20240216_EcPgdM2T.jpg"
+                  className="sub-carousel-img"
+                />
+              </a>
             </div>
             <div className="inner-slide">
-              <img
-                src="https://cdn.dominos.co.kr/admin/upload/banner/20231024_nILoMUXO.jpg"
-                className="sub-carousel-img"
-              />
+              <a href="http://localhost:3000/event/detail/4">
+                <img
+                  src="https://cdn.dominos.co.kr/admin/upload/banner/20231024_nILoMUXO.jpg"
+                  className="sub-carousel-img"
+                />
+              </a>
             </div>
             <div className="inner-slide">
-              <img
-                src="https://cdn.dominos.co.kr/admin/upload/banner/20220621_Ummq9X16.jpg"
-                className="sub-carousel-img"
-              />
+              <a href="http://localhost:3000/company/franchisee/info">
+                <img
+                  src="https://cdn.dominos.co.kr/admin/upload/banner/20220621_Ummq9X16.jpg"
+                  className="sub-carousel-img"
+                />
+              </a>
             </div>
             <div className="inner-slide">
-              <img
-                src="https://cdn.dominos.co.kr/admin/upload/banner/20220114_MZKmWb0r.jpg"
-                className="sub-carousel-img"
-              />
+              <a href="http://localhost:3000/service/groupOrder">
+                <img
+                  src="https://cdn.dominos.co.kr/admin/upload/banner/20220114_MZKmWb0r.jpg"
+                  className="sub-carousel-img"
+                />
+              </a>
             </div>
           </Slider>
         </div>

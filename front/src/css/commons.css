@@ -38,7 +38,7 @@ h3 {
 }
 
 * {
-  text-decoration: none;
+  text-decoration: none !important;
   box-sizing: border-box;
 }
 

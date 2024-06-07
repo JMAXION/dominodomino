@@ -3,6 +3,7 @@ import cors from "cors";
 import eventRouter from "./router/eventRouter.js";
 import menuRouter from "./router/menuRouter.js";
 import memberRouter from "./router/memberRouter.js";
+import newsRouter from "./router/newsRouter.js";
 const server = express();
 const port = 8080;
 
@@ -14,6 +15,7 @@ server.use("/", eventRouter);
 server.use("/event", eventRouter);
 server.use("/menu", menuRouter);
 server.use("/member", memberRouter);
+server.use("/news", newsRouter);
 
 console.log("서버");
 server.listen(port, () => {

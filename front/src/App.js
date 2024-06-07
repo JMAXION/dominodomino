@@ -76,6 +76,7 @@ import ServiceQuick from "./pages/service/ServiceQuick.jsx";
 import News from "./pages/news/News.jsx";
 import Announce from "./pages/news/Announce.jsx";
 import NewsContent from "./pages/news/NewsContent.jsx";
+import NewsWrite from "./pages/news/NewsWrite.jsx";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -225,6 +226,10 @@ export default function App() {
         {
           path: "/news",
           element: <News depth2={"도미노뉴스"} />,
+        },
+        {
+          path: "/news/write",
+          element: <NewsWrite depth2={"도미노뉴스"} />,
         },
         {
           path: "/news/:bid/:rno",

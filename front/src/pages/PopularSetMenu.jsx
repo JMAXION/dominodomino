@@ -1,10 +1,10 @@
 import React from "react";
 import PopularSetMenuProduct from "../components/PopularSetMenuProduct";
 
-export default function PopularSetMenu() {
+export default function PopularSetMenu({ depth2 }) {
   return (
     <div>
-      <PopularSetMenuProduct />
+      <PopularSetMenuProduct depth2={depth2} />
     </div>
   );
 }

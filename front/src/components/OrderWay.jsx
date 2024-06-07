@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
@@ -8,8 +9,16 @@ import {
   faCar,
 } from "@fortawesome/free-solid-svg-icons";
 import OrderWayModal from "./OrderWayModal";
+import PageTitle from "./PageTitle";
 
-export default function OrderWay() {
+export default function OrderWay({ depth2 }) {
+  const location = useLocation();
+  const [orderType, setOrderType] = useState(location.state?.orderType || null);
+
+  const [props, setprops] = useState({
+    title: "주문방법 선택",
+    // breadcrumbLink: "/law"
+  });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("");
   const [animationClass, setAnimationClass] = useState("");
@@ -36,7 +45,7 @@ export default function OrderWay() {
     setModalType("");
   };
 
-  const [orderType, setOrderType] = useState(null);
+  /*   const [orderType, setOrderType] = useState(null); */
 
   const renderContent = () => {
     if (orderType === "delivery") {
@@ -126,27 +135,30 @@ export default function OrderWay() {
   };
 
   return (
-    <div className="content">
-      <ul>
-        <li
-          className={`order-button ${
-            orderType === "delivery" ? "selected" : "unselected"
-          }`}
-          onClick={() => setOrderType("delivery")}
-        >
-          배달 주문
-        </li>
-        <li
-          className={`order-button ${
-            orderType === "pickup" ? "selected" : "unselected"
-          }`}
-          onClick={() => setOrderType("pickup")}
-        >
-          포장 주문
-        </li>
-      </ul>
-      <div>{renderContent()}</div>
-      {isModalOpen && <OrderWayModal type={modalType} onClose={closeModal} />}
-    </div>
+    <>
+      <PageTitle props={props} depth2={depth2} />
+      <div className="content">
+        <ul>
+          <li
+            className={`order-button ${
+              orderType === "delivery" ? "selected" : "unselected"
+            }`}
+            onClick={() => setOrderType("delivery")}
+          >
+            배달 주문
+          </li>
+          <li
+            className={`order-button ${
+              orderType === "pickup" ? "selected" : "unselected"
+            }`}
+            onClick={() => setOrderType("pickup")}
+          >
+            포장 주문
+          </li>
+        </ul>
+        <div>{renderContent()}</div>
+        {isModalOpen && <OrderWayModal type={modalType} onClose={closeModal} />}
+      </div>
+    </>
   );
 }

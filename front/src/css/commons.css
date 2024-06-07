@@ -1,0 +1,50 @@
+/* 
+* Global */
+:root {
+  /* colors */
+  --gray-color: rgb(136, 136, 136);
+  --black-color: #111;
+  --red-color: #ff143c;
+  --darkRed-color: #e51937;
+  --blue-color: #009ae0;
+  --orange-color: rgb(255, 115, 0);
+  --divide-color: #d5d5d5;
+  --btnText-color: rgb(235, 235, 235);
+  --liText--color: rgb(161, 161, 161);
+  --box-color: #faf8f7;
+}
+
+/* 
+* Commons */
+
+.footer,
+.content {
+  width: 1200px;
+  margin: auto;
+}
+
+ul,
+li,
+a,
+p,
+span,
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+  letter-spacing: -1px;
+  list-style: none;
+}
+
+* {
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+/* 회사소개 */
+.company {
+  text-align: center;
+  width: 1000px;
+  margin: 0 auto;
+}

@@ -1,0 +1,1046 @@
+* {
+  list-style-type: none;
+}
+.header,
+.footer,
+.content {
+  width: 1200px;
+  margin: auto;
+  padding: 0;
+}
+.header {
+  border: 1px solid tomato;
+}
+.header-member-list-button {
+  border: none;
+  background-color: transparent;
+  margin-top: 4px;
+}
+.header-icon {
+  margin-top: 4px;
+}
+
+/* !!로그인 */
+.login-title {
+  border-bottom: 1px solid black;
+  padding: 20px 0;
+  color: black;
+}
+.login-form {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.login-lnlbutton {
+  /* border: 1px solid green; */
+  display: flex;
+  justify-content: center;
+}
+
+.login-lnlbutton button {
+  padding: 10px 100px;
+  border: none;
+  height: 50px;
+}
+.login-lnlbtn1 button {
+  background-color: white;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+}
+.login-lnlbtn2 button {
+  border-bottom: 1px solid black;
+}
+.login-lnlbutton1 button {
+  border-bottom: 1px solid black;
+}
+.login-lnlbutton2 button {
+  background-color: white;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-top: 1px solid black;
+}
+.login-id,
+.login-pass {
+  /* border: 1px solid green; */
+  padding: 10px 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.login-id {
+  margin-top: 40px;
+}
+.login-id input,
+.login-pass input {
+  width: 525px;
+  height: 40px;
+}
+.login-save-find {
+  /* border: 1px solid skyblue; */
+  display: flex;
+  justify-content: center;
+  gap: 300px;
+  margin: 10px 0;
+}
+.login-find button {
+  border: none;
+  background-color: white;
+}
+.login-find button:first-child {
+  border-right: 1px solid #777;
+  margin-right: 3px;
+  padding-right: 6px;
+}
+.login-find button:last-child {
+  margin-left: 3px;
+}
+
+.login-button,
+.signin-button {
+  display: flex;
+  justify-content: center;
+}
+.login-button button,
+.signin-button button {
+  width: 525px;
+  height: 50px;
+}
+.login-button button {
+  border: none;
+  background-color: red;
+  color: white;
+  margin-bottom: 10px;
+}
+.signin-button button {
+  border: 1px solid gray;
+  background-color: white;
+  border-radius: none;
+}
+
+.login-nonmember-form {
+  display: flex;
+  justify-content: center;
+  margin: 40px auto;
+}
+.login-nonmember-term {
+  margin-top: 40px;
+}
+.login-nonmember-term * {
+  margin: 10px 0;
+}
+.login-nonmember-signup {
+  font-size: 1rem;
+}
+.login-nonmember-signup span {
+  font-weight: bold;
+}
+.login-member-term-agree p input {
+  margin: 50px auto;
+}
+.login-nonmember-checkbox1,
+.login-nonmember-checkbox2,
+.login-nonmember-checkbox3,
+.login-nonmember-checkbox4,
+.login-nonmember-warning {
+  padding: 10px 0;
+}
+.login-nonmember-name input {
+  width: 95%;
+
+  height: 45px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+}
+.login-nonmember-phone select,
+.login-nonmember-phone input {
+  margin: 20px 2px;
+  width: 20%;
+  height: 45px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+}
+.login-nonmember-phone button {
+  width: 33%;
+  height: 45px;
+
+  color: white;
+  background-color: black;
+}
+.login-nonmember-accesscode input {
+  width: 95%;
+
+  height: 45px;
+  margin-bottom: 10px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+}
+.login-nonmember-orderbutton button {
+  width: 95%;
+  height: 45px;
+  border: none;
+  background-color: #999;
+}
+.login-nonmember-event {
+  margin-top: 40px;
+}
+.login-nonmember-event p:first-child {
+  width: 100%;
+  font-size: 1.3rem;
+  margin: 20px 0;
+}
+
+/*!!회원가입  */
+.signup-title {
+  border-bottom: 1px solid black;
+  margin-bottom: 40px;
+}
+.signup {
+  text-align: center;
+  padding-bottom: 140px;
+  /* background-image: url(../../public/ditto.jpg); */
+}
+.signup textarea {
+  width: 700px;
+  height: 400px;
+}
+.signup-info {
+  /* border: 1px solid green; */
+  align-items: center;
+}
+.signup-info-id,
+.signup-info-pass,
+.signup-info-passcheck,
+.signup-info-name,
+.signup-info-email,
+.signup-info-phone,
+.signup-info-address {
+  /* border: 1px solid brown; */
+  margin: 1rem auto;
+  width: 40%;
+}
+.signup-info-id input {
+  width: 80%;
+}
+.signup-info-id button {
+  width: 18%;
+  margin-left: 1%;
+}
+.signup-info-pass input {
+  width: 99%;
+}
+.signup-info-passcheck input {
+  width: 99%;
+}
+.signup-info-name input {
+  width: 99%;
+}
+.signup-info-email select,
+.signup-info-email input {
+  margin: 0 1px;
+}
+.signup-info-phone input {
+  width: 88%;
+  margin-left: 1%;
+}
+.signup-info-address div input {
+  width: 87%;
+  margin-right: 1%;
+}
+.signup-info-address-detail {
+  width: 49%;
+}
+.signup-pre-button,
+.signup-next-button {
+  width: 200px;
+  height: 50px;
+  margin: 1rem 2rem;
+  color: white;
+  border: none;
+}
+.signup-pre-button {
+  background-color: black;
+}
+.signup-next-button {
+  background-color: red;
+}
+/* !!지도!!! */
+
+.branch-h2 {
+  border-bottom: 1px solid black;
+  font-weight: lighter;
+  padding-bottom: 20px;
+}
+.branch {
+  display: flex;
+  justify-content: center;
+  /* border: 1px solid red; */
+  /* padding: 100px 0; */
+}
+.branch-result {
+  border-top: 1px solid #999;
+  width: 500px;
+  height: 696px;
+  text-align: center;
+}
+.branch-result h3 {
+  margin: 10px 0;
+}
+.branch-select {
+  width: 240px;
+  height: 50px;
+  border-bottom: 1px solid #777;
+  margin-bottom: 50px;
+  font-size: 1rem;
+  margin-left: 5px;
+}
+.branch-select-warning {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  border-bottom: 1px solid #999;
+}
+.branch-infos {
+  max-width: 500px;
+  max-height: 540px;
+  overflow: scroll;
+  overflow-x: hidden;
+  /* border: 1px solid green; */
+  text-align: left;
+}
+.branch-infos::-webkit-scrollbar {
+  width: 10px;
+}
+.branch-infos::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+.branch-infos::-webkit-scrollbar-track {
+  background-color: #999;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
+}
+.branch-info {
+  border-bottom: 1px solid #999;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.branch-info div:first-child {
+  font-weight: bold;
+}
+.branch-info div:last-child {
+  color: #999;
+}
+.branch-info-sale {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+}
+.branch-info-sale li {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  font-size: 13px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  margin: auto 0;
+}
+.branch-info-sale li p {
+  text-align: center;
+  align-items: center;
+  margin: auto 0;
+}
+.branch-info-sale li:first-child {
+  background-color: rgba(253, 15, 63, 0.1);
+}
+.branch-info-sale li:first-child p {
+  color: rgb(253, 15, 63);
+}
+.branch-info-sale li:last-child {
+  background-color: rgba(3, 52, 133, 0.1);
+}
+.branch-info-sale li:last-child p {
+  color: #033485;
+}
+.branch-info-detail {
+  display: flex;
+  justify-content: left;
+  gap: 4px;
+  margin-top: 8px;
+}
+.branch-info-detail p {
+  width: 80px;
+  height: 32px;
+  font-size: 14px;
+  line-height: 32px;
+  text-align: center;
+  color: white;
+  /* background-color: black; */
+}
+.branch-info-detail p:first-child {
+  background-color: gray;
+}
+.branch-info-detail p:last-child {
+  background-color: black;
+}
+
+/* !!나의 정보!! */
+.mania-info {
+  display: flex;
+  justify-content: center;
+  border: 1px solid blue;
+  background-color: black;
+  color: white;
+  padding: 20px 0;
+}
+.mania-info-name,
+.mania-info-order,
+.mania-info-cash {
+  padding: 40px 40px;
+  margin: 0 auto;
+}
+.mania-info-name {
+  width: 30%;
+}
+.mania-info-name li:nth-child(2) {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.mania-info-name li:nth-child(3) {
+  background-color: blue;
+  width: 300px;
+  height: 3px;
+}
+.mania-info-order li:last-child,
+.mania-info-cash li:last-child {
+  text-align: center;
+  font-size: 3rem;
+}
+.mania-info-order,
+.mania-info-cash {
+  border-left: 1px solid #999;
+}
+.mania-level {
+  border-bottom: 1px solid black;
+  padding-bottom: 30px;
+}
+.mania-level-upgrade {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding: 10px 0;
+}
+.mania-level-goal {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 150px;
+  padding: 10px 0;
+}
+.mania-level-bar {
+  display: flex;
+  justify-content: center;
+}
+.mania-level-bar li:first-child {
+  width: 75%;
+  margin-left: 60px;
+  background-color: rgb(0, 0, 0, 0.2);
+}
+.mania-level-bar li:last-child {
+  font-weight: bold;
+  color: blue;
+}
+.mania-benefit {
+  border-bottom: 1px solid black;
+  padding-top: 80px;
+}
+.mania-coupon {
+  padding: 50px 0;
+  text-align: center;
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+}
+.mania-coupon-button {
+  text-align: center;
+}
+.mania-coupon-button button {
+  color: white;
+  background-color: black;
+  width: 200px;
+  height: 40px;
+}
+/* .orderlist {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 85px 60px;
+}
+.orderlist-info li:first-child {
+  font-size: 2rem;
+} */
+.order-info {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 60px;
+}
+.order-information {
+  margin-left: 50px;
+}
+.order-information li:first-child {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.order-information li:first-child span {
+  font-weight: bold;
+}
+.order-information li:nth-child(2) {
+  width: 600px;
+  height: 2px;
+  background-color: blue;
+}
+.order-information li:nth-child(3) {
+  margin: 10px 0;
+}
+.order-information li:nth-child(3),
+.order-information li:nth-child(4) {
+  color: #888;
+}
+.order-information li:nth-child(4) span {
+  color: red;
+}
+.order-useinfo {
+  display: flex;
+  align-items: center;
+}
+.order-pizza-or-certificate {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+  text-align: center;
+  align-items: center;
+}
+.order-pizza-or-certificate li {
+  width: 50%;
+  border-bottom: 1px solid black;
+  padding-bottom: 2rem;
+  font-size: 1.5rem;
+}
+.order-info-personal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid black;
+}
+.order-info-personal li {
+  font-size: 1.2rem;
+  padding: 2rem 0;
+  align-items: center;
+}
+.order-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 4rem 0;
+}
+.order-buttons button {
+  width: 300px;
+  height: 70px;
+  color: white;
+  font-size: 1.5rem;
+}
+.order-buttons button:first-child {
+  background-color: red;
+}
+.order-buttons button:last-child {
+  background-color: black;
+}
+.order-button-text {
+  color: white;
+}
+.coupon-now {
+  background-color: black;
+  color: white;
+  padding: 80px;
+}
+.coupon-now li:first-child {
+  font-size: 2rem;
+}
+.coupon-now li:first-child span {
+  font-weight: bold;
+}
+.coupon-now li:nth-child(2) {
+  background-color: blue;
+  width: 650px;
+  height: 3px;
+  margin-bottom: 1.5rem;
+}
+.certificate {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+}
+.certificate-info {
+  padding: 4rem;
+}
+.certificate-info li:first-child {
+  font-size: 2rem;
+}
+.certificate-info li:first-child span {
+  font-weight: bold;
+}
+.certificate-info li:nth-child(2) {
+  background-color: blue;
+  width: 700px;
+  height: 3px;
+}
+.certificate-access {
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+  color: white;
+}
+.certificate-own {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0;
+  border-bottom: 1px solid black;
+}
+.certificate-own li {
+  margin: 1rem auto;
+  font-size: 1.5rem;
+  color: gray;
+}
+.qna {
+  background-color: black;
+  color: white;
+  padding: 80px;
+}
+.qna li:first-child {
+  font-size: 2rem;
+}
+.qna li:first-child span {
+  font-weight: bold;
+}
+.qna li:nth-child(2) {
+  background-color: blue;
+  width: 650px;
+  height: 3px;
+  margin-bottom: 1.5rem;
+}
+.qna-button {
+  display: flex;
+  justify-content: center;
+}
+.qna-button button {
+  width: 200px;
+  height: 50px;
+  color: white;
+  background-color: black;
+}
+.qna-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  table-layout: fixed;
+  margin: 2rem 0;
+}
+.qna-table thead {
+  display: table-header-group;
+}
+.qna-table tbody {
+  display: table-row-group;
+}
+.qna-table tbody tr {
+  display: table-row;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+
+/* !!홈화면 쿠폰!! */
+.homecoupon {
+  display: flex;
+  justify-content: center;
+  padding: 70px;
+  margin: 70px 0;
+  background-color: rgb(0, 0, 0, 0.2);
+}
+.homecoupon-nowlevel {
+  align-items: center;
+  margin: auto 0;
+  padding-right: 20px;
+}
+.homecoupon-nowlevel-text {
+  font-size: 2rem;
+}
+.homecoupon-nowlevel-text span {
+  color: rgb(82, 91, 255);
+}
+.homecoupon-nowlevel-text-button button {
+  width: 200px;
+  height: 50px;
+  border-radius: 8px;
+  color: white;
+  background-color: black;
+}
+.hcnltb-link {
+  color: white;
+  font-size: 1.3rem;
+}
+.homecoupon-button {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-left: 20px;
+}
+.homecoupon-button ul {
+  width: 210px;
+  height: 210px;
+  text-align: center;
+  align-items: center;
+}
+.homecoupon-button ul:nth-child(2) {
+  position: relative;
+}
+.homecoupon-button li:nth-child(2) li {
+  position: absolute;
+  text-align: center;
+}
+.homecoupon-coupon {
+  /* position: relative; */
+  text-align: center;
+}
+
+/* !!e-쿠폰 주문!! */
+.ecoupon-button {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.ecoupon-button-menu img {
+  width: 250px;
+  height: 280px;
+}
+.ecoupon-button-coupon img {
+  width: 250px;
+  height: 280px;
+}
+.ecouponindex-insert {
+  text-align: center;
+  padding: 3rem 0;
+  border-bottom: 1px solid #dddddd;
+}
+.ecouponindex-insert p {
+  font-size: 2.5rem;
+  font-weight: 100;
+  color: black;
+  margin-bottom: 2rem;
+}
+.ecouponindex-input {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  height: 60px;
+  margin: 2rem auto;
+}
+.ecouponindex-input input {
+  width: 700px;
+  border: 1px solid #dddddd;
+}
+.ecouponindex-input input::placeholder {
+  color: #dddddd;
+  font-size: 1rem;
+}
+.ecouponindex-input button {
+  width: 125px;
+  background-color: #dddddd;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+}
+.ecouponindex-warning {
+  text-align: center;
+  padding: 2rem 0;
+  color: #dddddd;
+  border-bottom: 1px solid #dddddd;
+}
+.ecouponindex-button {
+  text-align: center;
+  padding-top: 4rem;
+  padding-bottom: 6rem;
+  border-bottom: 1px solid #dddddd;
+}
+.ecouponindex-button button {
+  width: 220px;
+  height: 60px;
+  color: white;
+  background-color: #dddddd;
+  border: none;
+  font-size: 1rem;
+  font-weight: 700;
+}
+.ecouponindex-warningtext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10rem;
+  margin: 4rem 0;
+}
+.ecouponindex-warningtexts p::before {
+  content: "- "; /* 디스크 스타일의 아이콘 추가 */
+  color: black; /* 원하는 색상으로 변경 가능 */
+}
+
+.ecoupon-usage-button {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+}
+.ecoupon-usage-button p {
+  width: 33.3%;
+  height: 48px;
+  background-color: rgb(0, 0, 0, 0.05);
+}
+.ecoupon-usage-button button {
+  border: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: 500;
+  color: #999;
+  line-height: 1;
+}
+.active {
+  /* 원하는 스타일을 추가하세요 */
+  background-color: black;
+}
+
+.coupon-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  table-layout: fixed;
+}
+.coupon-table thead {
+  display: table-header-group;
+}
+.coupon-table tbody {
+  display: table-row-group;
+}
+.coupon-table tbody tr {
+  display: table-row;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+.coupon-button {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  /* border: 1px solid green; */
+  color: white;
+  margin: 2rem auto;
+}
+.coupon-button button {
+  width: 300px;
+  height: 50px;
+  color: white;
+  font-size: 1rem;
+}
+.coupon-button button:first-child {
+  background-color: red;
+}
+.coupon-button button:last-child {
+  background-color: black;
+}
+
+/* !!모달창!! */
+/* 애니메이션 정의 */
+@keyframes fadeIn {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+@keyframes fadeOutAnimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.map-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(65, 65, 65, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.5s forwards;
+  transition: opacity 0.5s ease;
+  opacity: 1;
+}
+
+.map-modal.fade-out {
+  animation: fadeOut 0.5s forwards;
+  opacity: 0;
+}
+
+.map-modal-container {
+  overflow: hidden;
+  width: 1000px;
+  height: 600px;
+}
+
+.map-modal-content {
+  background-color: white;
+  position: relative;
+  z-index: 1001;
+  height: 780px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.map-modal-header {
+  position: relative;
+  z-index: 1002;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+}
+
+.map-modal-content-title {
+  text-align: center;
+  position: inherit;
+  font-size: 22px;
+  padding: 20px 0 20px 0;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1003;
+}
+
+.map-modal-close-btn {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1004; /* 닫기 버튼이 항상 보이도록 설정 */
+}
+
+.map-modal-body {
+  flex: 1;
+  overflow: auto;
+}
+
+.map-modal-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.map-modal-info-image {
+  width: 100%;
+}
+
+.map-modal-info-box {
+  display: flex;
+}
+
+.map-modal-info-title {
+  padding: 60px 120px;
+  align-items: center;
+  color: #555555;
+}
+
+.map-modal-info-text-box {
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+}
+
+.map-modal-info-text {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #555555;
+}
+
+/* !!모달 안 모달 */
+
+.mapmodalinfo {
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+  margin: 3rem 0;
+}
+.mapmodalinfo-name {
+  font-size: 2.5rem;
+  color: black;
+}
+.mapmodalinfo-sale {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1rem;
+}
+.mapmodalinfo-sale li {
+  font-size: 14px;
+}
+.mapmodalinfo-sale li:first-child {
+  color: #ff143c;
+  background-color: rgba(255, 20, 60, 0.1);
+}
+.mapmodalinfo-sale li:last-child {
+  color: #043088;
+  background-color: rgba(4, 48, 136, 0.1);
+}
+.mapmodalinfo-sale-button {
+  margin: 30px 0;
+  width: 240px;
+  height: 62px;
+  background: #ff143c;
+  border: 1px solid #ff143c;
+  color: #fff;
+  font-size: 18px;
+  line-height: 62px;
+  font-weight: 500;
+}

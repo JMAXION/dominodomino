@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExpand, faX } from "@fortawesome/free-solid-svg-icons";
+import MapContainer from "./MapContainer";
 
 export default function OrderWayModal({ type, onClose }) {
   const modalRef = useRef();
@@ -29,9 +30,9 @@ export default function OrderWayModal({ type, onClose }) {
   const renderModalContent = () => {
     switch (type) {
       case "address":
-        return <div>내용</div>;
+        return <p></p>;
       case "store":
-        return <div>내용</div>;
+        return <MapContainer />;
       case "pickupService":
         return (
           <div className="order-modal-info">

@@ -4,8 +4,9 @@ import { faExpand, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import SideModal from "./SideModal";
 import { Link } from "react-router-dom";
 import "../css/sideMenu.css";
+import PageTitle from "./PageTitle";
 
-export default function SideMenuProduct() {
+export default function SideMenuProduct({ depth2 }) {
   const [sideList, setSideList] = useState({
     combo: [],
     single: [],
@@ -115,8 +116,35 @@ export default function SideMenuProduct() {
     ));
   };
 
+  const renderModal = () => {
+    if (!selectedSide) return null;
+    return (
+      <div>
+        <div>
+          <SideModal side={selectedSide} onClose={closeModal} />
+        </div>
+      </div>
+    );
+  };
+  const [props, setprops] = useState({
+    title: "메뉴",
+    breadcrumb: "사이드디시",
+    breadcrumbLink: "/pizzas",
+    nav1: "피자",
+    nav2: "하프앤하프",
+    nav3: "사이드디시",
+    nav4: "인기세트메뉴",
+    nav5: "음료&기타",
+    link1: "/pizzas",
+    link2: "/menu/halfnhalf",
+    link3: "/sides",
+    link4: "/popular",
+    link5: "/beverage",
+  });
+
   return (
     <div className="content">
+      <PageTitle props={props} depth2={depth2} />
       <div>
         <ul>
           <div className="category">콤보</div>

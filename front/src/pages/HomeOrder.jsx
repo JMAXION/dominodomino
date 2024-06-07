@@ -6,27 +6,35 @@ import {
   faBoltLightning,
   faCircleArrowRight,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
-export default function Home() {
+export default function HomeOrder() {
   return (
     <div className="content">
       <div className="icon-container">
         <div className="icon-box">
           <div className="icon-box-content">
             <FontAwesomeIcon icon={faBicycle} className="icon delivery" />
-            <span className="icon-box-content-title delivery">배달 주문</span>
-            <FontAwesomeIcon
-              icon={faCircleArrowRight}
-              className="arrow delivery"
-            />
+            <Link to="/orderway" state={{ orderType: "delivery" }}>
+              <span className="icon-box-content-title delivery">배달 주문</span>
+              <FontAwesomeIcon
+                icon={faCircleArrowRight}
+                className="arrow delivery"
+              />
+            </Link>
             <p className="subtitle">등급별 최대 30%</p>
           </div>
         </div>
         <div className="icon-box">
           <div className="icon-box-content">
             <FontAwesomeIcon icon={faShop} className="icon pack" />
-            <span className="icon-box-content-title pack">포장 주문</span>
-            <FontAwesomeIcon icon={faCircleArrowRight} className="arrow pack" />
+            <Link to="/orderway" state={{ orderType: "pickup" }}>
+              <span className="icon-box-content-title pack">포장 주문</span>
+              <FontAwesomeIcon
+                icon={faCircleArrowRight}
+                className="arrow pack"
+              />
+            </Link>
             <p className="subtitle">등급별 최대 40%</p>
           </div>
         </div>

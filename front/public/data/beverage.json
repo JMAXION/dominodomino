@@ -1,0 +1,68 @@
+[
+  {
+    "id": "1",
+    "title": "코카콜라 1.25L",
+    "price": 2300,
+    "image": "https://cdn.dominos.co.kr/admin/upload/goods/20200309_J6k5xlTF.jpg"
+  },
+  {
+    "id": "2",
+    "title": "코카콜라 500ml",
+    "price": 1700,
+    "image": "https://cdn.dominos.co.kr/admin/upload/goods/20200309_I66431RB.jpg"
+  },
+  {
+    "id": "3",
+    "title": "코카콜라 제로 1.25L",
+    "price": 2300,
+    "image": "https://cdn.dominos.co.kr/admin/upload/goods/20220114_k0Aiv1oB.jpg"
+  },
+  {
+    "id": "4",
+    "title": "코카콜라 제로 500ml",
+    "price": 1700,
+    "image": "https://cdn.dominos.co.kr/admin/upload/goods/20200309_X06fBD28.jpg"
+  },
+  {
+    "id": "5",
+    "title": "스프라이트 1.25L",
+    "price": 2400,
+    "image": "https://cdn.dominos.co.kr/admin/upload/goods/20200309_e8O16s77.jpg"
+  },
+  {
+    "id": "6",
+    "title": "스프라이트 500ml",
+    "price": 2300,
+    "image": "https://cdn.dominos.co.kr/admin/upload/goods/20200309_2668REKI.jpg"
+  },
+  {
+    "id": "7",
+    "title": "우리 피클 L",
+    "price": 800,
+    "image": "https://cdn.dominos.co.kr/admin/upload/goods/20200309_MXEjFuAB.jpg"
+  },
+  {
+    "id": "8",
+    "title": "우리 피클 M",
+    "price": 500,
+    "image": "https://cdn.dominos.co.kr/admin/upload/goods/20200309_77sWF5Y1.jpg"
+  },
+  {
+    "id": "9",
+    "title": "갈릭 디핑 소스 L 30g",
+    "price": 400,
+    "image": "https://cdn.dominos.co.kr/admin/upload/goods/20240308_B39TEq9W.jpg"
+  },
+  {
+    "id": "10",
+    "title": "갈릭 디핑 소스 M 15g",
+    "price": 200,
+    "image": "https://cdn.dominos.co.kr/admin/upload/goods/20200309_At51TPit.jpg"
+  },
+  {
+    "id": "11",
+    "title": "핫소스",
+    "price": 100,
+    "image": "https://cdn.dominos.co.kr/admin/upload/goods/20200309_nzPC41sE.jpg"
+  }
+]

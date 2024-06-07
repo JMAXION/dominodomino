@@ -1,0 +1,197 @@
+/* 
+* Global */
+:root {
+  /* colors */
+  --gray-color: rgb(136, 136, 136);
+}
+
+/* 
+* Commons */
+
+.footer {
+  width: 1200px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+ul,
+li,
+p,
+span {
+  margin: 0;
+  padding: 0;
+  letter-spacing: -1px;
+}
+
+* {
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: 300;
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+}
+
+.pageTitle {
+  width: 1200px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+.pageTitle-innerbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin: 1rem 0;
+  /* border: 1px solid green; */
+}
+
+.breadCrumb {
+  display: flex;
+  list-style: none;
+  /* border: 1px solid red; */
+}
+
+.breadCrumb li:not(:last-child)::after {
+  content: ">";
+  margin: 0 8px;
+}
+
+.breadCrumb li,
+.breadCrumb a {
+  font-size: 13px;
+  color: var(--gray-color);
+}
+
+.breadCrumb li:last-child {
+  font-weight: 600; /* 안되어보이지만 적용 된거임 */
+  /* border: 1px solid red; */
+}
+
+.pageTitle-nav {
+  display: flex;
+  list-style: none;
+  margin: 1rem 0;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid black;
+}
+
+.pageTitle-nav li a {
+  color: var(--gray-color);
+  font-size: 16px;
+}
+
+.pageTitle-nav li:not(:last-child)::after {
+  content: "｜";
+  margin: 0 1rem;
+  color: #d3d3d3;
+}
+
+.bold {
+  font-weight: bold;
+  color: var(--black-color) !important;
+}
+
+/******** 
+  PageButtons
+*********/
+
+.page-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 1200px;
+  margin: 50px 0;
+}
+
+/* 호출하는 jsx별 PageButton CSS */
+.ServiceMania button {
+  position: relative;
+  width: 400px;
+  height: 50px;
+  font-size: 15.5px;
+  letter-spacing: -1px;
+  border: 1px solid white;
+  cursor: pointer;
+  color: rgb(168, 169, 168);
+  background-color: rgb(245, 245, 245);
+  transition: all 0.5s;
+}
+
+.CsCenter button,
+.Company button {
+  position: relative;
+  width: 300px;
+  height: 50px;
+  font-size: 15.5px;
+  letter-spacing: -1px;
+  border: 1px solid white;
+  cursor: pointer;
+  color: rgb(168, 169, 168);
+  background-color: rgb(245, 245, 245);
+  transition: all 0.5s;
+}
+
+.Franchisee button {
+  position: relative;
+  width: 240px;
+  height: 50px;
+  font-size: 15.5px;
+  letter-spacing: -1px;
+  border: 1px solid white;
+  cursor: pointer;
+  color: rgb(168, 169, 168);
+  background-color: rgb(245, 245, 245);
+  transition: all 0.5s;
+}
+
+.Recruit button {
+  position: relative;
+  width: 600px;
+  height: 50px;
+  font-size: 15.5px;
+  letter-spacing: -1px;
+  border: 1px solid white;
+  cursor: pointer;
+  color: rgb(168, 169, 168);
+  background-color: rgb(245, 245, 245);
+  transition: all 0.5s;
+}
+
+.ServiceMania span {
+  position: absolute;
+  left: 370px;
+  top: 12px;
+  font-size: 14px;
+}
+
+.CsCenter span,
+.Company span {
+  position: absolute;
+  left: 270px;
+  top: 14px;
+  font-size: 14px;
+}
+
+.Franchisee span {
+  position: absolute;
+  left: 210px;
+  top: 14px;
+  font-size: 14px;
+}
+
+.Recruit span {
+  position: absolute;
+  left: 570px;
+  top: 14px;
+  font-size: 14px;
+}
+
+button.active {
+  color: white;
+  background-color: rgb(34, 34, 34);
+}

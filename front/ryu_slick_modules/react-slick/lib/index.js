@@ -1,0 +1,20 @@
+<<<<<<< HEAD
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _slider = _interopRequireDefault(require("./slider"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+=======
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = void 0;
+var _slider = _interopRequireDefault(require("./slider"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+>>>>>>> ryu
+var _default = exports["default"] = _slider["default"];

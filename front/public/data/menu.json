@@ -1,0 +1,47 @@
+{
+  "menu": [
+    { "name": "메뉴", "link": "/pizzas" },
+    { "name": "E쿠폰", "link": "/ecoupon" },
+    { "name": "상품권선물", "link": "/gift" },
+    { "name": "이벤트·제휴", "link": "/event" },
+    { "name": "매장검색", "link": "/branch" },
+    { "name": "가맹점모집", "link": "/substore" }
+  ],
+  "subMenu": [
+    [
+      { "name": "도미노서비스", "link": "/service/mania" },
+      { "name": "매니아혜택", "link": "/service/mania" },
+      { "name": "도미노 모멘트", "link": "/service/moment" },
+      { "name": "퀵오더", "link": "/service/quickOrder" },
+      { "name": "단체주문", "link": "/service/groupOrder" }
+    ],
+    [
+      { "name": "고객센터", "link": "/cs/order" },
+      { "name": "자주하는 질문", "link": "/cs/order" },
+      { "name": "1:1문의", "link": "/qna" }
+    ],
+    [
+      { "name": "회사소개", "link": "/company/overView" },
+      { "name": "한국도미노피자", "link": "/company/overView" },
+      { "name": "가맹점모집", "link": "/company/franchisee/info" },
+      { "name": "인재채용", "link": "/company/recruit/fullTime" }
+    ],
+    [
+      { "name": "공지사항", "link": "/news" },
+      { "name": "-도미노뉴스", "link": "/news" },
+      { "name": "-보도자료 ", "link": "/announce" }
+    ]
+  ],
+  "eventmenu": [
+    { "name": "이벤트", "link": "/event" },
+    { "name": "제휴할인", "link": "/event/discount" }
+  ],
+  "pizzamenu": [
+    { "name": "피자", "link": "/event" },
+    { "name": "하프앤하프", "link": "/halfnhalf" },
+    { "name": "사이드디시", "link": "/event/discount" },
+    { "name": "인기세트메뉴", "link": "/event/discount" },
+    { "name": "마이키친", "link": "/event/discount" },
+    { "name": "음료&기타", "link": "/event/discount" }
+  ]
+}

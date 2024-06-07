@@ -4,8 +4,9 @@ import "../css/pizzaMenu.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faExpand } from "@fortawesome/free-solid-svg-icons";
 import PizzaModal from "./PizzaModal.jsx";
+import PageTitle from "./PageTitle.jsx";
 
-export default function PizzaMenuProduct() {
+export default function PizzaMenuProduct({ depth2 }) {
   const [pizzaList, setPizzaList] = useState({
     pizza: {
       new: [],
@@ -100,12 +101,28 @@ export default function PizzaMenuProduct() {
       </div>
     ));
   };
+  const [props, setprops] = useState({
+    title: "메뉴",
+    breadcrumb: "피자",
+    breadcrumbLink: "/pizzas",
+    nav1: "피자",
+    nav2: "하프앤하프",
+    nav3: "사이드디시",
+    nav4: "인기세트메뉴",
+    nav5: "음료&기타",
+    link1: "/pizzas",
+    link2: "/menu/halfnhalf",
+    link3: "/sides",
+    link4: "/popular",
+    link5: "/beverage",
+  });
 
   return (
     <div className="content">
+      <PageTitle props={props} depth2={depth2} />
       <div>
         <ul>
-          <div className="category">NEW</div>
+          <div className="category">New</div>
           <li>{renderRows(createRows(pizzaList.pizza.new))}</li>
         </ul>
         <ul>

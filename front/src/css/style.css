@@ -263,6 +263,18 @@
 }
 /* !!지도!!! */
 
+.infowindow {
+  width: 150px;
+  height: 100px;
+  text-align: center;
+  align-items: center;
+}
+/* .infowindow-title {
+  font-size: 15px;
+}
+.infowindow-content {
+  font-size: 8px;
+} */
 .branch-h2 {
   border-bottom: 1px solid black;
   font-weight: lighter;
@@ -918,7 +930,7 @@
 .map-modal-container {
   overflow: hidden;
   width: 1000px;
-  height: 600px;
+  height: 800px;
 }
 
 .map-modal-content {
@@ -966,8 +978,25 @@
 }
 
 .map-modal-body {
+  width: 1000px;
+  height: 800px;
   flex: 1;
-  overflow: auto;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.map-modal-body::-webkit-scrollbar {
+  width: 10px;
+}
+.map-modal-body::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+.map-modal-body::-webkit-scrollbar-track {
+  background-color: #999;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
 }
 
 .map-modal-info {
@@ -1009,8 +1038,9 @@
 .mapmodalinfo {
   display: flex;
   justify-content: center;
-  gap: 6rem;
+  gap: 8rem;
   margin: 3rem 0;
+  padding: 2rem 0;
 }
 .mapmodalinfo-name {
   font-size: 2.5rem;
@@ -1043,4 +1073,11 @@
   font-size: 18px;
   line-height: 62px;
   font-weight: 500;
+}
+.mapmodalinfo-image img {
+  width: 100%;
+  object-fit: contain;
+}
+.mapmodalinfo-map {
+  margin: 2rem auto;
 }

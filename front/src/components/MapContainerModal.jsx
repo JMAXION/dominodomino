@@ -3,9 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExpand, faX } from "@fortawesome/free-solid-svg-icons";
 import MapModalInfo from "./MapModalInfo";
 
-export default function MapContainerModal({ type, onClose }) {
+export default function MapContainerModal({ type, onClose, places }) {
   const modalRef = useRef();
   const [fadeOut, setFadeOut] = useState(false); //애니메이션
+  console.log("placesfrommapcontainermodal", places);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -30,7 +31,7 @@ export default function MapContainerModal({ type, onClose }) {
   const renderModalContent = () => {
     switch (type) {
       case "address":
-        return <MapModalInfo />;
+        return <MapModalInfo places={places} />;
       case "store":
         return <p>hello hi</p>;
       default:

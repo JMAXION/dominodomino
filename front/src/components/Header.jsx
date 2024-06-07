@@ -79,7 +79,10 @@ const list5 = ["공지사항","-도미노뉴스","-보도자료"] */
                     </p>
                   </li>
                   <li className="header-icon">
-                    <FontAwesomeIcon icon={faCartShopping} />
+                    <FontAwesomeIcon
+                      icon={faCartShopping}
+                      onClick={() => navigate("/cart")}
+                    />
                   </li>
                 </>
               ) : (

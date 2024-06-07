@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExpand, faX } from "@fortawesome/free-solid-svg-icons";
-import MapContainer from "./MapContainer";
+import MapModalInfo from "./MapModalInfo";
 
 export default function MapContainerModal({ type, onClose }) {
   const modalRef = useRef();
@@ -30,7 +30,7 @@ export default function MapContainerModal({ type, onClose }) {
   const renderModalContent = () => {
     switch (type) {
       case "address":
-        return <p>hi hello</p>;
+        return <MapModalInfo />;
       case "store":
         return <p>hello hi</p>;
       default:

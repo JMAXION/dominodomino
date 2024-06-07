@@ -221,7 +221,7 @@ const MapContainer = () => {
             onChange={handleDistrictChange}
             value={district}
           >
-            <option value="">구 선택</option>
+            <option value="">구/군 선택</option>
             {city &&
               districtsByCity[city].map((dist) => (
                 <option key={dist} value={dist}>

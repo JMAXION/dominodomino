@@ -212,11 +212,11 @@ export default function App() {
         },
         {
           path: "/company/franchisee/:id",
-          element: <Franchisee depth2={"한국도미노피자"} />,
+          element: <Franchisee depth2={"가맹점모집"} />,
         },
         {
           path: "/company/recruit/:id",
-          element: <Recruit depth2={"한국도미노피자"} />,
+          element: <Recruit depth2={"인재채용"} />,
         },
       ],
     },

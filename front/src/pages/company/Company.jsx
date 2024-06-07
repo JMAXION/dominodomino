@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PageTitle from "../../components/PageTitle";
-import { useParams } from "react-router-dom";
 import PageButtons2 from "../../components/PageButtons2";
 import "../../css/companyIntroduce/company.css";
 
@@ -176,7 +175,6 @@ export default function Company({ depth2 }) {
       {/* ----- 본문 ----- */}
       <PageButtons2
         rootList={rootList}
-        basePath="/company"
         className="Company"
         handleTabClick={handleTabClick}
       />
@@ -185,6 +183,7 @@ export default function Company({ depth2 }) {
         <div className="company overview">
           <img
             src="https://cdn.dominos.co.kr/renewal2018/w/img/visual_overview.jpg"
+            alt="DominoPizza"
             className="overview-img"
           />
           <div className="overview-desc">
@@ -240,7 +239,7 @@ export default function Company({ depth2 }) {
                 <div className="overview-blueBox-lists">
                   <p>{item.title}</p>
                   <div className="overview-blueBox-list">
-                    <img src={item.img} />
+                    <img src={item.img} alt="DominoPizza_bluebox" />
                     <div>
                       <p>{item.subTitle}</p>
                       <p>
@@ -257,29 +256,36 @@ export default function Company({ depth2 }) {
               ))}
             </div>
           </div>
-          <select onChange={(value) => handleSelect(value)}>
-            <option value="2024">2024~2025</option>
-            <option value="2022">2022~2023</option>
-            <option value="2020">2020~2021</option>
-          </select>
-          <div>
-            {yearSelectList[yearSelect] &&
-              yearSelectList[yearSelect].map((obj) => (
-                <ul>
-                  <li>
-                    <span>{obj.date}</span>
-                    <span>{obj.content}</span>
-                  </li>
-                </ul>
-              ))}
+          <div className="overview-yearList">
+            <div>
+              {/* <img
+                src="https://cdn.dominos.co.kr/renewal2018/w/img/bg/bg_dot_repeat.png"
+                alt="dot-img"
+              /> */}
+              {yearSelectList[yearSelect] &&
+                yearSelectList[yearSelect].map((obj) => (
+                  <ul>
+                    <li>
+                      <span>{obj.date}</span>
+                      <span>{obj.content}</span>
+                    </li>
+                  </ul>
+                ))}
+            </div>
+            <select onChange={(value) => handleSelect(value)}>
+              <option value="2024">2024 ~ 2025</option>
+              <option value="2022">2022 ~ 2023</option>
+              <option value="2020">2020 ~ 2021</option>
+            </select>
           </div>
         </div>
       )}
       {activeTab === "tab2" && (
-        <div>
+        <div className="company ceo">
           <h1>고객 여러분 안녕하십니까?</h1>
           <h1>한국도미노피자 회장 오광현입니다.</h1>
-          <div>
+          <div className="ceo-redLine"></div>
+          <div className="ceo-desc">
             <p>
               세계 배달 피자 리더 한국도미노피자는 배달 피자 개념이 전무했던
               1990년 1호점 오금점을 시작으로 한국 시장에 진출한 이후 지난 34년간
@@ -335,13 +341,16 @@ export default function Company({ depth2 }) {
             </p>
             <p>고객 여러분의 많은 사랑과 관심 부탁 드립니다.</p>
             <p>한국도미노피자 회장 오광현</p>
-            <img src="https://cdn.dominos.co.kr/renewal2018/w/img/img_ceo_sign.jpg" />
           </div>
+          <img
+            src="https://cdn.dominos.co.kr/renewal2018/w/img/img_ceo_sign.jpg"
+            alt="DominoPizza_signiture"
+          />
         </div>
       )}
       {activeTab === "tab3" && (
-        <div>
-          <div>
+        <div className="company interna">
+          <div className="interna-title-box">
             <h1>DOMINO’S PIZZA INTERNATIONAL</h1>
             <p>
               도미노피자는 1960년 1호점 창업 이래 오늘날 피자배달 사업의
@@ -354,19 +363,82 @@ export default function Company({ depth2 }) {
             <p>
               세계 각 국의 고객들이 맛있고 따뜻한 도미노피자를 즐기고 있습니다.
             </p>
+            <a href="https://www.dominos.com/index.intl.html">
+              INTERNATIONAL WEBSITE 바로가기
+            </a>
+            <div className="interna-redLine"></div>
           </div>
-          <button type="button">INTERNATIONAL WEBSITE 바로가기</button>
-          <div>
-            {internationalList.map((obj) => (
-              <ul style={{ backgroundImage: `url(${obj.img})` }}>
-                <li>
-                  <h1>{obj.title}</h1>
-                  <p>{obj.content}</p>
-                </li>
-              </ul>
-            ))}
+          <div className="interna-list-box">
+            <ul>
+              <li className="interna-list-1">
+                <h1>도미노피자 탄생과 성장</h1>
+                <p>
+                  도미노피자는 1960년 미국 미시건주에서 ‘도미닉스
+                  피자(Domi-Nick’s Pizza) 라는
+                  <br /> 이름으로 톰 모나한 (Tomas S. Monoghan)과 그의 남동생에
+                  의해서 탄생! 이후
+                  <br /> 도미닉스 피자는 1965년 현재의 도미노피자 (Domino’s
+                  Pizza)로 이름을
+                  <br /> 바꾸었습니다.
+                </p>
+              </li>
+              <li className="interna-list-2">
+                <h1>비틀 한 대로 시작하여 세계 18,000개 매장 오픈까지</h1>
+                <p>
+                  1960년 당시 도미노피자의 유일한 배달 수단은 작은 폭스바겐
+                  비틀(Volkswagen Beetle)
+                  <br /> 한 대! 비틀 한대로 시작한 도미노피자는 1983년 캐나다
+                  위니팩에 해외 1호점을 오픈하면서
+                  <br /> 해외진출을 시작했고, 2021년 미국 콜로라도에 18,000번째
+                  매장을 오픈하며
+                  <br />
+                  전세계인들의 사랑을 받고 있습니다.
+                </p>
+              </li>
+              <li className="interna-list-3">
+                <h1>LOGO 이야기</h1>
+                <p>
+                  1965년 상호를 ‘Domi-Nick’’s’ 에서 ‘Domino’s’로 변경하면서,
+                  당시 소유하고
+                  <br /> 있던 3개의 매장을 상징하는 세 개의 점을 사각 로고에
+                  넣게 되었습니다.
+                  <br /> 도미노피자만의 서체와 레드와 블루로 구성된 밝고 선명한
+                  컬러, 정확한 45도의
+                  <br /> 앵글로 이루어진 로고는 도미노피자만의 목표를 상징하며,
+                  따뜻하고 현대적이며,
+                  <br /> 강한 이미지와 잘 조화를 이루고 있습니다.
+                </p>
+              </li>
+              <li className="interna-list-4">
+                <h1>Heatwave System</h1>
+                <p>
+                  1998년 갓 구워낸 피자의 맛을 유지하기 위해 피자배달 가방
+                  내부에 전기 충전식
+                  <br /> 열선시스템을 부착한 ‘Heatwave System’을 개발하게
+                  됨으로써, 피자의 맛을
+                  <br /> 결정하는 가장 이상적인 온도인 65~70°C를 45분 이상
+                  유지시켜줄 수 있게 되었습니다.
+                </p>
+              </li>
+              <li className="interna-list-5">
+                <h1>‘World’s FPM(Fastest Pizza Maker)’ Competition</h1>
+                <p>
+                  1982년 ‘Two Tray Time’ 이라는 명칭으로 처음 시작된 이 대회는
+                  3가지 피자(페퍼로니,
+                  <br /> 머쉬룸, 치즈)를 맛있고 Perfect 하면서도 가장 빨리
+                  만드는 최고의 피자 메이커를 가리는
+                  <br /> 경기로, 도미노피자가 피자를 맛있고 빨리 만들면서도
+                  안전하고 신속하게 배달해 줄 수<br /> 있다는 것을 알리기 위해서
+                  시작되었습니다. 이후 ‘World’s Fastest Pizza Maker’로
+                  <br /> 확장 개최, 2년마다 전 세계에서 선발된 도미노피자의 피자
+                  메이커들이 최고의 피자 메이커에
+                  <br />
+                  도전하고 있습니다.
+                </p>
+              </li>
+            </ul>
           </div>
-          <div>
+          <div className="interna-history-box">
             <p>International history of Domino’s Pizza</p>
             <ul>
               {internationalHistory.map((obj) => (
@@ -380,21 +452,29 @@ export default function Company({ depth2 }) {
         </div>
       )}
       {activeTab === "tab4" && (
-        <div>
-          <p>DOMINO'S PIZZA COMPANY LOCATION</p>
-          <img src="https://cdn.dominos.co.kr/renewal2018/w/img/img_location_p.jpg" />
-          <ul>
-            <label>주소</label>
-            <li>서울특별시 강남구 역삼로25길 35(역삼동, 청오큐브타워)</li>
-            <label>전화번호</label>
-            <li>Tel: 02-6954-3082</li>
-            <li>Fax: 02-6954-3077</li>
-            <li>고객상담: 080-860-3082</li>
-            <label>오시는 길</label>
-            <li>
-              지하철 2호선 역삼역 1번 출구로 나와서 도보 약 350M(5분 소요)
-            </li>
-          </ul>
+        <div className="company location">
+          <h1>DOMINO'S PIZZA COMPANY LOCATION</h1>
+          <div className="location-content">
+            <img src="https://cdn.dominos.co.kr/renewal2018/w/img/img_location_p.jpg" />
+            <ul>
+              <li>
+                <label>주소</label>
+                <p>서울특별시 강남구 역삼로25길 35(역삼동, 청오큐브타워)</p>
+              </li>
+              <li>
+                <label>전화번호</label>
+                <p>Tel: 02-6954-3082</p>
+                <p>Fax: 02-6954-3077</p>
+                <p>고객상담: 080-860-3082</p>
+              </li>
+              <li>
+                <label>오시는 길</label>
+                <p>
+                  지하철 2호선 역삼역 1번 출구로 나와서 도보 약 350M(5분 소요)
+                </p>
+              </li>
+            </ul>
+          </div>
         </div>
       )}
     </div>

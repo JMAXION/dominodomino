@@ -88,7 +88,7 @@ export default function HomeCoupon() {
         ) : (
           <>
             <li className="homecoupon-coupon">
-              <Link to="/login">
+              <Link to="/signup">
                 <img
                   src="https://cdn.dominos.co.kr/domino/pc/images/main/main_card1.png"
                   alt=""

@@ -20,6 +20,28 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+.slick-slider.recruit-slider {
+  background-color: white;
+  position: relative;
+  /* border: 1px solid red; */
+  padding: 2rem 0;
+
+  display: block;
+  box-sizing: border-box;
+  left: -8.5%;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+
 .slick-list {
   position: relative;
   /* border: 1px solid red; */

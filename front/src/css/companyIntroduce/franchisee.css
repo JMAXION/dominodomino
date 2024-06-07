@@ -1,0 +1,288 @@
+.info,
+.process {
+  text-align: left;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.info h3,
+.process h3 {
+  margin: 2rem 0 1rem 0;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+/*************************
+** tab1 - 가맹점 개설안내
+**************************/
+
+.info > img {
+  width: 1000px;
+}
+
+.info ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5rem;
+}
+
+.info ul li {
+  text-align: center;
+}
+
+.info ul li p {
+  font-size: 14px;
+  color: var(--black-color);
+}
+
+.info-point {
+  width: 132px;
+  height: 132px;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  background: url("https://cdn.dominos.co.kr/renewal2018/w/img/spr_franchisee.png");
+}
+
+.point1 {
+  background-position: 0px 0px;
+}
+.point2 {
+  background-position: -135px 0;
+}
+.point3 {
+  background-position: -270px 0;
+}
+
+.info-condition-box {
+  margin-bottom: 7rem;
+}
+
+.info-condition-box ul {
+  padding: 3rem;
+  background-color: var(--box-color);
+}
+
+.info-condition-box ul li {
+  position: relative;
+}
+
+.info-condition-box ul li:not(:last-child):after {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 120px;
+  right: -4rem;
+  top: 0;
+  background-color: #ddd;
+}
+
+.info-condition {
+  height: 42px;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  background: url("https://cdn.dominos.co.kr/renewal2018/w/img/spr_franchisee.png");
+}
+
+.condition1 {
+  width: 96px;
+  background-position: 0 -140px;
+}
+.condition2 {
+  width: 90px;
+  background-position: -135px -140px;
+}
+.condition3 {
+  width: 63px;
+  background-position: 0 -185px;
+}
+.condition4 {
+  width: 83px;
+  background-position: -135px -185px;
+}
+
+/********************
+** tab2 - 개설 절차
+*********************/
+.process {
+  margin-bottom: 4rem;
+}
+
+.process ul li {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.process ul li:not(:last-child) {
+  border-bottom: 1px dashed #ddd;
+}
+
+.process-list {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 47px;
+  height: 47px;
+  margin-top: -24px;
+  background: url("https://cdn.dominos.co.kr/renewal2018/w/img/spr_franchisee.png");
+}
+
+.list-1 {
+  background-position: 0 -230px;
+}
+.list-2 {
+  background-position: -60px -230px;
+}
+.list-3 {
+  background-position: -120px -230px;
+}
+.list-4 {
+  background-position: -180px -230px;
+}
+.list-5 {
+  background-position: 0px -280px;
+}
+.list-6 {
+  background-position: -60px -280px;
+}
+.list-7 {
+  background-position: -120px -280px;
+}
+.list-8 {
+  background-position: -180px -280px;
+}
+
+.process-li {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.process-li span {
+  display: block;
+  width: 180px;
+  font-size: 18px;
+}
+
+.process-li p {
+  font-size: 14px;
+  color: var(--black-color);
+}
+
+/*************************
+** tab3 - 투자 비용
+**************************/
+
+.price table {
+  text-align: left;
+  border: 1px solid var(--divide-color);
+  margin-bottom: 6rem;
+}
+
+.price-th,
+.region-th {
+  text-align: center;
+}
+
+.price table tr td,
+.region table tr td {
+  padding: 1rem 0;
+}
+
+.price table tr:first-child,
+.region table tr:first-child {
+  background-color: #f8f8f8;
+}
+.price table tr:not(:first-child) td,
+.region table tr:not(:first-child) td {
+  padding: 1.5rem 2rem;
+  font-size: 15px;
+}
+
+.th1 {
+  width: 180px;
+}
+
+.th2 {
+  width: 600px;
+}
+
+/*************************
+** tab4 - 모집 지역
+**************************/
+.region table {
+  text-align: left;
+  border: 1px solid var(--divide-color);
+}
+
+.rth1 {
+  width: 170px;
+}
+
+.rth2 {
+  width: 414px;
+}
+
+.region p {
+  text-align: left;
+  margin: 0.5rem 0 7rem 0;
+  color: var(--red-color);
+}
+
+/*************************
+** tab5 - 개설 문의
+**************************/
+
+.inquiry {
+  text-align: left;
+}
+
+.inquiry-boxs {
+  display: flex;
+  gap: 1rem;
+}
+
+.inquiry-box {
+  padding: 2rem 1rem;
+  width: 420px;
+  background-color: var(--box-color);
+}
+
+.inquiry-box span {
+  font-size: 14px;
+}
+
+.inquiry-box p:first-child {
+  padding-bottom: 3rem;
+  font-size: 18px;
+  color: var(--black-color);
+  border-bottom: 1px dashed var(--divide-color);
+}
+
+.inquiry-box-email {
+  padding-top: 3rem;
+  color: var(--black-color);
+}
+
+.inquiry-box-email button {
+  margin-left: 1rem;
+  border: none;
+  padding: 0.4rem 1rem;
+  font-size: 12px;
+  background-color: var(--black-color);
+  color: whitesmoke;
+}
+
+.inquiry-box-list {
+  color: var(--gray-color);
+}
+
+.inquiry-box-list::before {
+  content: "· ";
+}
+
+.inquiry > p:last-child {
+  font-size: 14px;
+  margin: 2rem 0 7rem 0;
+  color: var(--red-color);
+}

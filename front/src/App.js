@@ -72,6 +72,10 @@ import ServiceGroup from "./pages/service/ServiceGroup.jsx";
 import ServiceMania from "./pages/service/ServiceMania.jsx";
 import ServiceMoment from "./pages/service/ServiceMoment.jsx";
 import ServiceQuick from "./pages/service/ServiceQuick.jsx";
+/* news */
+import News from "./pages/news/News.jsx";
+import Announce from "./pages/news/Announce.jsx";
+import NewsContent from "./pages/news/NewsContent.jsx";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -217,6 +221,18 @@ export default function App() {
         {
           path: "/company/recruit/:id",
           element: <Recruit depth2={"인재채용"} />,
+        },
+        {
+          path: "/news",
+          element: <News depth2={"도미노뉴스"} />,
+        },
+        {
+          path: "/news/:bid/:rno",
+          element: <NewsContent depth2={"도미노뉴스"} />,
+        },
+        {
+          path: "/announce",
+          element: <Announce depth2={"보도자료"} />,
         },
       ],
     },

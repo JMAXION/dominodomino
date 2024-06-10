@@ -75,6 +75,7 @@
 .login-pass input {
   width: 525px;
   height: 40px;
+  padding: 0 10px;
 }
 .login-save-find {
   /* border: 1px solid skyblue; */

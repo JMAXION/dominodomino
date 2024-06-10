@@ -15,6 +15,8 @@ import "./css/popularSetMenu.css";
 import "./css/popularSetMenuModal.css";
 import "./css/orderWay.css";
 import "./css/orderWayModal.css";
+import "./css/cartMenu.css";
+import "./css/beverageMenu.css";
 /* root and home */
 import Root from "./pages/Root";
 import Home from "./pages/Home";
@@ -56,6 +58,7 @@ import SideDishMenu from "./pages/SideDishMenu.jsx";
 import Hnh from "./pages/Hnh.jsx";
 import HomeOrder from "./pages/HomeOrder.jsx";
 import PopularSetMenu from "./pages/PopularSetMenu.jsx";
+import BeverageMenu from "./pages/BeverageMenu.jsx";
 import OrderWay from "./components/OrderWay.jsx";
 import Cart from "./pages/Cart.jsx";
 
@@ -76,7 +79,6 @@ import ServiceQuick from "./pages/service/ServiceQuick.jsx";
 import News from "./pages/news/News.jsx";
 import Announce from "./pages/news/Announce.jsx";
 import NewsContent from "./pages/news/NewsContent.jsx";
-import NewsWrite from "./pages/news/NewsWrite.jsx";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -177,9 +179,14 @@ export default function App() {
           path: "/menu/halfnhalf",
           element: <Hnh depth2="하프앤하프" />,
         },
-        { path: "/popular", element: <PopularSetMenu depth2="인기세트메뉴" /> },
-        { path: "/orderway", element: <OrderWay /> },
-        { path: "/cart", element: <Cart depth2="장바구니" /> },
+        {
+          path: "/popular",
+          element: <PopularSetMenu depth2={"인기세트메뉴"} />,
+        },
+        { path: "/beverage", element: <BeverageMenu depth2={"음료&기타"} /> },
+
+        { path: "/orderway", element: <OrderWay depth2={"주문방법 선택"} /> },
+        { path: "/cart", element: <Cart depth2={"장바구니"} /> },
 
         { path: "/mypage", element: <MyPage /> },
         { path: "/mypage/mania", element: <MyPage /> },
@@ -226,10 +233,6 @@ export default function App() {
         {
           path: "/news",
           element: <News depth2={"도미노뉴스"} />,
-        },
-        {
-          path: "/news/write",
-          element: <NewsWrite depth2={"도미노뉴스"} />,
         },
         {
           path: "/news/:bid/:rno",

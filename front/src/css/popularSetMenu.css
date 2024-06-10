@@ -4,7 +4,7 @@
 }
 
 .popular-set-menu {
-  padding-top: 60px;
+  padding-top: 35px;
   position: relative;
 }
 
@@ -22,14 +22,15 @@
 }
 
 .popular-set-menu-title-date {
-  margin-top: 15px;
+  margin-top: 10px;
   font-size: 15px;
   color: #888888;
+  margin-bottom: 90px;
 }
 
 .popular-modal-button {
   position: absolute;
-  top: 260px;
+  top: 235px;
   left: 550px;
   font-size: 20px;
   width: 35px;

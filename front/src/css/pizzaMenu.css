@@ -22,12 +22,13 @@ PizzaMenuProduct.jsx
 }
 
 .pizza-box-in {
-  width: 276px;
+  width: 285px;
   height: 467px;
   text-align: left;
   padding: 3px;
   margin-left: 13.5px;
   position: relative;
+  /* border: 1px solid red; */
 }
 
 .pizza-box-in-image {
@@ -101,6 +102,7 @@ PizzaMenuProduct.jsx
 }
 .note-list-title {
   font-size: 14px;
+  margin-bottom: 20px;
 }
 .note-list-text {
   font-size: 13px;
@@ -112,7 +114,7 @@ PizzaMenuProduct.jsx
 }
 .note-allergy-text {
   font-size: 13px;
-  margin-bottom: 15px;
+  margin-bottom: 30px;
   color: #888888;
 }
 .note-allergy-button {
@@ -121,7 +123,7 @@ PizzaMenuProduct.jsx
   margin-left: 5.5px;
   color: #dddddd;
   font-weight: bold;
-  width: 300px;
+  width: 340px;
   padding: 15px 10px 15px 10px;
   cursor: pointer;
 }

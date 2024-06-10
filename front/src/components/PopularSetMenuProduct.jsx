@@ -9,15 +9,16 @@ export default function PopularSetMenuProduct({ depth2 }) {
   const [animationClass, setAnimationClass] = useState("");
 
   useEffect(() => {
+    let timer;
     if (isModalOpen) {
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         setAnimationClass("show-modal-animation");
       }, 10);
-
       return () => clearTimeout(timer);
     } else {
       setAnimationClass("");
     }
+    return () => clearTimeout(timer);
   }, [isModalOpen]);
 
   // 모달을 여는 함수
@@ -38,10 +39,12 @@ export default function PopularSetMenuProduct({ depth2 }) {
     nav2: "하프앤하프",
     nav3: "사이드디시",
     nav4: "인기세트메뉴",
+    nav5: "음료&기타",
     link1: "/pizzas",
     link2: "/menu/halfnhalf",
     link3: "/sides",
     link4: "/popular",
+    link5: "/beverage",
   });
 
   return (
@@ -63,13 +66,8 @@ export default function PopularSetMenuProduct({ depth2 }) {
         <button className="popular-modal-button" onClick={openModal}>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
-        {isModalOpen && (
-          <PopularSetMenuModal
-            onClose={closeModal}
-            className={`modal ${animationClass}`}
-          />
-        )}
       </div>
+      {isModalOpen && <PopularSetMenuModal onClose={closeModal} />}
     </div>
   );
 }

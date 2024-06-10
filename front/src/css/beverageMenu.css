@@ -1,0 +1,72 @@
+.beverage-row {
+  display: flex;
+  justify-content: flex-start; /* 가로로 정렬 */
+  flex-wrap: nowrap; /* 한 줄에 고정 */
+  margin-bottom: 20px; /* 행 사이 간격 */
+}
+
+.beverage-box-in {
+  width: 285px;
+  height: 467px;
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 13.5px;
+  position: relative;
+}
+
+.beverage-box-in-image {
+  width: 276px;
+}
+
+.beverage-product {
+  margin-top: 10px;
+  align-items: center;
+}
+
+.beverage-title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+  font-size: 18px;
+}
+
+.beverage-price {
+  font-weight: bold;
+  font-size: 16px;
+  margin: 12px 0 18px;
+}
+
+.beverage-quantity-order {
+  display: flex;
+}
+
+.beverage-quantity-box {
+  /* border: 1px solid blue; */
+  align-items: center;
+  text-align: center;
+}
+
+.beverage-crease {
+  width: 46px;
+  height: 45px;
+  background-color: white;
+  border: 1px solid #ddd;
+}
+
+.beverage-crease-count {
+  display: inline-block;
+  border: 1px solid #ddd;
+  padding: 9px 35px;
+}
+
+.beverage-order-button {
+  display: inline-block;
+  background-color: white;
+  border: 1px solid #ff143c;
+  color: #ff143c;
+  margin: 0 0 0 6px;
+  width: 98px;
+  height: 46px;
+  font-size: 16px;
+  cursor: pointer;
+}

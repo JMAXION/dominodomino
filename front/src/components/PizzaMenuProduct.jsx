@@ -109,10 +109,12 @@ export default function PizzaMenuProduct({ depth2 }) {
     nav2: "하프앤하프",
     nav3: "사이드디시",
     nav4: "인기세트메뉴",
+    nav5: "음료&기타",
     link1: "/pizzas",
     link2: "/menu/halfnhalf",
     link3: "/sides",
     link4: "/popular",
+    link5: "/beverage",
   });
 
   return (
@@ -120,7 +122,7 @@ export default function PizzaMenuProduct({ depth2 }) {
       <PageTitle props={props} depth2={depth2} />
       <div>
         <ul>
-          <div className="category">NEW</div>
+          <div className="category">New</div>
           <li>{renderRows(createRows(pizzaList.pizza.new))}</li>
         </ul>
         <ul>

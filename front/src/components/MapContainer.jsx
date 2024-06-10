@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import MapContainerModal from "./MapContainerModal";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const { kakao } = window;
 
@@ -272,10 +272,15 @@ const MapContainer = () => {
                     <p
                       onClick={() => {
                         setPindex(index);
-                        navigate("/orderway");
                       }}
                     >
-                      방문포장
+                      <Link
+                        to="/orderway"
+                        state={{ orderType: "pickup" }}
+                        style={{ color: "white" }}
+                      >
+                        방문포장
+                      </Link>
                     </p>
                   </li>
                 </p>

@@ -1083,3 +1083,64 @@
 .mapmodalinfo-map {
   margin: 2rem auto;
 }
+
+/* !!금액상품권 */
+.moneygift {
+  display: flex;
+  justify-content: center;
+  gap: 8rem;
+  align-items: center;
+  margin: 2rem auto;
+  padding: 2rem 0;
+  border-bottom: 1px solid black;
+}
+.moneygift-image {
+  width: 123px;
+}
+.moneygift-examples {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+.moneygift-example-image {
+  width: 273px;
+}
+.moneygift-order {
+  display: flex;
+  justify-content: space-between;
+}
+.moneygift-order-button {
+  color: white;
+  background-color: red;
+  border: none;
+  padding: 0 8px;
+}
+.moneygift-quantity-button {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.moneygift-quantity-button button {
+  width: 50px;
+  text-align: center;
+  border: 1px solid black;
+  background-color: white;
+}
+.moneygift-quantity-button li {
+  width: 50px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 0 50px;
+}
+
+/* !!페이퍼기프트 */
+.papergift-warning {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin: 2rem 0;
+}
+.papergift-warning img {
+  width: 123px;
+}

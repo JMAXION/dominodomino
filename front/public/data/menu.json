@@ -18,7 +18,7 @@
     [
       { "name": "고객센터", "link": "/cs/order" },
       { "name": "자주하는 질문", "link": "/cs/order" },
-      { "name": "1:1문의", "link": "/qna" }
+      { "name": "1:1문의", "link": "/mypage/qna" }
     ],
     [
       { "name": "회사소개", "link": "/company/overView" },
@@ -28,8 +28,7 @@
     ],
     [
       { "name": "공지사항", "link": "/news" },
-      { "name": "-도미노뉴스", "link": "/news" },
-      { "name": "-보도자료 ", "link": "/announce" }
+      { "name": "-도미노뉴스", "link": "/news" }
     ]
   ],
   "eventmenu": [

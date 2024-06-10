@@ -42,7 +42,11 @@ export default function MapModalInfo({ places }) {
           </ul>
           <ul>
             <button type="button" className="mapmodalinfo-sale-button">
-              <Link to="/orderway" style={{ color: "white" }}>
+              <Link
+                to="/orderway"
+                state={{ orderType: "pickup" }}
+                style={{ color: "white" }}
+              >
                 포장주문
               </Link>
             </button>

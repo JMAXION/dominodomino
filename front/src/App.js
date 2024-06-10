@@ -79,6 +79,10 @@ import ServiceQuick from "./pages/service/ServiceQuick.jsx";
 import News from "./pages/news/News.jsx";
 import Announce from "./pages/news/Announce.jsx";
 import NewsContent from "./pages/news/NewsContent.jsx";
+/* gift */
+import Gift from "./pages/Gift.jsx";
+import MoneyGift from "./components/MoneyGift.jsx";
+import GiftUsage from "./components/GiftUsage.jsx";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -241,6 +245,16 @@ export default function App() {
         {
           path: "/announce",
           element: <Announce depth2={"보도자료"} />,
+        },
+        {
+          path: "/gift",
+          element: <Gift depth2={"금액상품권"} />,
+        },
+        { path: "/moneygift", element: <MoneyGift depth2={"금액상품권"} /> },
+
+        {
+          path: "/giftusage",
+          element: <GiftUsage depth2={"상품권 사용 안내"} />,
         },
       ],
     },

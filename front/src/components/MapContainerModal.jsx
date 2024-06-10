@@ -32,8 +32,6 @@ export default function MapContainerModal({ type, onClose, places }) {
     switch (type) {
       case "address":
         return <MapModalInfo places={places} />;
-      case "store":
-        return <p>hello hi</p>;
       default:
         return null;
     }

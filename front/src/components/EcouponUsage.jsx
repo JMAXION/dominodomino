@@ -9,7 +9,7 @@ export default function EcouponUsage({ depth2 }) {
 
   const handleClick = (index) => {
     setActiveIndex(index); // 클릭된 <p> 태그의 인덱스를 상태에 저장
-    // filterCouponData(index); // 클릭된 인덱스에 따라 데이터를 필터링
+    filterCouponData(index); // 클릭된 인덱스에 따라 데이터를 필터링 (주석 해제)
   };
 
   const [props, setProps] = useState({
@@ -36,8 +36,9 @@ export default function EcouponUsage({ depth2 }) {
     if (index === null) {
       filtered = couponData;
     } else {
+      // index와 일치하는 데이터만 필터링
       filtered = couponData.filter(
-        (item) => item.index === (index + 1).toString()
+        (item) => parseInt(item.index) === index + 1 // `index + 1`이 아닌 `parseInt(item.index)`를 사용해야 합니다.
       );
     }
     setFilteredCoupon(filtered);

@@ -929,15 +929,16 @@
 
 .map-modal-container {
   overflow: hidden;
+  margin-top: 6rem;
   width: 1000px;
-  height: 800px;
+  height: 700px;
 }
 
 .map-modal-content {
   background-color: white;
   position: relative;
   z-index: 1001;
-  height: 780px;
+  height: 700px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -979,7 +980,7 @@
 
 .map-modal-body {
   width: 1000px;
-  height: 800px;
+  height: 2000px;
   flex: 1;
   overflow: scroll;
   overflow-x: hidden;

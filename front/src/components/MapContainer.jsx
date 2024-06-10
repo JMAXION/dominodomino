@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import MapContainerModal from "./MapContainerModal";
+import { useNavigate } from "react-router-dom";
 
 const { kakao } = window;
 
 const MapContainer = () => {
+  const navigate = useNavigate();
   const [city, setCity] = useState("");
   const [district, setDistrict] = useState("");
   const [searchPlace, setSearchPlace] = useState("");
@@ -118,6 +120,8 @@ const MapContainer = () => {
             name: data[i].place_name,
             phone: data[i].phone,
             address: data[i].address_name,
+            longitude: data[i].x,
+            latitude: data[i].y,
           });
         }
 
@@ -268,7 +272,7 @@ const MapContainer = () => {
                     <p
                       onClick={() => {
                         setPindex(index);
-                        openModal("store");
+                        navigate("/orderway");
                       }}
                     >
                       방문포장

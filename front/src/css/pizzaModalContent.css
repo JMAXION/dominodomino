@@ -124,7 +124,8 @@
   padding: 30px 0 30px 0;
   font-size: 18px;
   color: #888888;
-  max-height: 500px;
+  max-height: 620px;
+  /*  border: 1px solid red; */
 }
 
 .modal-content-order {

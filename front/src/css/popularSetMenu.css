@@ -10,6 +10,7 @@
 
 .popular-set-menu-image {
   position: relative;
+  cursor: pointer;
 }
 
 .popular-set-menu-box {

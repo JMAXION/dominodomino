@@ -75,6 +75,7 @@
 .login-pass input {
   width: 525px;
   height: 40px;
+  padding: 0 10px;
 }
 .login-save-find {
   /* border: 1px solid skyblue; */
@@ -261,8 +262,29 @@
 .signup-next-button {
   background-color: red;
 }
+.postmodal {
+  background-color: rgba(0, 0, 0, 0.25);
+  position: fixed;
+  left: 55%;
+  top: 30%;
+  height: 100%;
+  width: 100%;
+  border: 1px solid #777;
+}
 /* !!지도!!! */
 
+.infowindow {
+  width: 150px;
+  height: 100px;
+  text-align: center;
+  align-items: center;
+}
+/* .infowindow-title {
+  font-size: 15px;
+}
+.infowindow-content {
+  font-size: 8px;
+} */
 .branch-h2 {
   border-bottom: 1px solid black;
   font-weight: lighter;
@@ -390,7 +412,6 @@
 .mania-info {
   display: flex;
   justify-content: center;
-  border: 1px solid blue;
   background-color: black;
   color: white;
   padding: 20px 0;
@@ -917,15 +938,16 @@
 
 .map-modal-container {
   overflow: hidden;
+  margin-top: 6rem;
   width: 1000px;
-  height: 600px;
+  height: 700px;
 }
 
 .map-modal-content {
   background-color: white;
   position: relative;
   z-index: 1001;
-  height: 780px;
+  height: 700px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -966,8 +988,25 @@
 }
 
 .map-modal-body {
+  width: 1000px;
+  height: 2000px;
   flex: 1;
-  overflow: auto;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.map-modal-body::-webkit-scrollbar {
+  width: 10px;
+}
+.map-modal-body::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 10px;
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+.map-modal-body::-webkit-scrollbar-track {
+  background-color: #999;
+  border-radius: 10px;
+  box-shadow: inset 0px 0px 5px white;
 }
 
 .map-modal-info {
@@ -1009,8 +1048,9 @@
 .mapmodalinfo {
   display: flex;
   justify-content: center;
-  gap: 6rem;
+  gap: 8rem;
   margin: 3rem 0;
+  padding: 2rem 0;
 }
 .mapmodalinfo-name {
   font-size: 2.5rem;
@@ -1043,4 +1083,97 @@
   font-size: 18px;
   line-height: 62px;
   font-weight: 500;
+}
+.mapmodalinfo-image img {
+  width: 100%;
+  object-fit: contain;
+}
+.mapmodalinfo-map {
+  margin: 2rem auto;
+}
+
+/* !!금액상품권 */
+.moneygift {
+  display: flex;
+  justify-content: center;
+  gap: 8rem;
+  align-items: center;
+  margin: 2rem auto;
+  padding: 2rem 0;
+  border-bottom: 1px solid black;
+}
+.moneygift-image {
+  width: 123px;
+}
+.moneygift-examples {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+.moneygift-example-image {
+  width: 273px;
+}
+.moneygift-order {
+  display: flex;
+  justify-content: space-between;
+}
+.moneygift-order-button {
+  color: white;
+  background-color: red;
+  border: none;
+  padding: 0 8px;
+}
+.moneygift-quantity-button {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.moneygift-quantity-button button {
+  width: 50px;
+  text-align: center;
+  border: 1px solid black;
+  background-color: white;
+}
+.moneygift-quantity-button li {
+  width: 50px;
+  text-align: center;
+  border: 1px solid black;
+  padding: 0 50px;
+}
+
+/* !!페이퍼기프트 */
+.papergift-warning {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin: 2rem 0;
+}
+.papergift-warning img {
+  width: 123px;
+}
+/* !!giftusage */
+.giftusage-button {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin: 2rem 0;
+}
+.giftusage-button button {
+  border: none;
+  width: 50%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  font-size: 15px;
+  font-weight: 500;
+  background-color: rgb(0, 0, 0, 0.05);
+  color: #999;
+  line-height: 1;
+}
+.active {
+  /* 원하는 스타일을 추가하세요 */
+  background-color: black;
 }

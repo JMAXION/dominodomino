@@ -14,7 +14,7 @@ export default function CsCenter({ depth2 }) {
     nav1: "자주하는 질문",
     nav2: "1:1문의/칭찬",
     link1: "/csCenter",
-    link2: "/",
+    link2: "/mypage/qna",
   });
 
   const { id } = useParams();

@@ -48,7 +48,11 @@ export default function Qna() {
         <tbody></tbody>
       </table>
       <ul className="qna-button">
-        <button>문의/칭찬하기</button>
+        <button>
+          <Link to="/cs/order" style={{ color: "white" }}>
+            자주 묻는 질문 확인하기
+          </Link>
+        </button>
       </ul>
     </div>
   );

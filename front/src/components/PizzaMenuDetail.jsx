@@ -1,24 +1,25 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 export default function PizzaMenuDetail() {
   const { id } = useParams();
+  const [pizzaList, setPizzaList] = useState([]);
   const [pizza, setPizza] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    fetch("/data/pizzaAll.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const allPizzas = [
-          ...data.pizza.new,
-          ...data.pizza.premium,
-          ...data.pizza.halfSignature,
-          ...data.pizza.classic,
-          ...data.pizza.happyDaily,
-        ];
-        const selectedPizza = allPizzas.find((pizza) => pizza.id === id);
-        setPizza(selectedPizza);
+    const url = `http://127.0.0.1:8080/menu/pizzas/${id}`;
+    axios({
+      method: "GET",
+      url: url,
+      data: { id: id },
+    })
+      .then((res) => {
+        setPizzaList(res.data);
+        console.log("res ==>", res.data);
+        /* const selectedPizza = pizzaList.find((pizza) => pizza.id === id);
+        setPizza(selectedPizza); */
       })
       .catch((error) => console.log(error));
   }, [id]);
@@ -33,9 +34,9 @@ export default function PizzaMenuDetail() {
     setQuantity(quantity - 1 < 1 ? 1 : quantity - 1); // 수량이 1보다 작아지지 않도록 함
   };
 
-  if (!pizza) {
+  /*  if (!pizza) {
     return <div>Loading...</div>;
-  }
+  } */
 
   return (
     <div className="content">
@@ -43,20 +44,20 @@ export default function PizzaMenuDetail() {
         <div className="pizza-detail-image-box">
           <img
             className="pizza-detail-image"
-            src={pizza.image}
-            alt={pizza.title}
+            src={pizzaList.menuimg}
+            alt={pizzaList.pname}
           />
         </div>
         <div className="pizza-detail-info">
-          <h1 className="pizza-detail-info-title">{pizza.title}</h1>
-          <div>{pizza.tag1}</div>
-          <div>{pizza.tag2}</div>
+          <h1 className="pizza-detail-info-title">{pizzaList.pname}</h1>
+          <div>{pizzaList.desc1}</div>
+          <div>{pizzaList.desc2}</div>
           <div>
             <div>사이즈 선택</div>
-            <div>L {pizza.lPrice.toLocaleString()}원</div>
-            {pizza.mPrice !== undefined && (
+            <div>L {pizzaList.lprice}</div>
+            {pizzaList.mprice !== undefined && (
               <>
-                <div>M {pizza.mPrice.toLocaleString()}원</div>
+                <div>M {pizzaList.mprice}</div>
               </>
             )}
             <div>
@@ -80,10 +81,7 @@ export default function PizzaMenuDetail() {
                 <button onClick={increaseQuantity}>+</button>
               </div>
             </div>
-            <p>{pizza.description}</p>
-            <div>
-              <strong>태그:</strong> {pizza.tag1}, {pizza.tag2}
-            </div>
+            <p>{pizzaList.description}</p>
           </div>
         </div>
       </div>

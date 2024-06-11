@@ -85,7 +85,6 @@ a {
 
 .header-menu-list {
   width: 1200px;
-
   margin-left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -135,7 +134,7 @@ a {
   background-color: white;
   width: 100%;
   top: 9.1rem;
-  padding: 0 0 2.5rem 12rem;
+  padding: 0 0 2.5rem 21rem;
 }
 .header-show-more {
   display: flex;

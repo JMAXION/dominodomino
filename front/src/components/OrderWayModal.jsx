@@ -2,10 +2,56 @@ import React, { useEffect, useRef, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExpand, faX } from "@fortawesome/free-solid-svg-icons";
 import MapContainer from "./MapContainer";
+import DaumPostcode from "react-daum-postcode";
 
-export default function OrderWayModal({ type, onClose }) {
+export default function OrderWayModal({
+  type,
+  onClose,
+  handleAddress,
+  handleChange,
+}) {
   const modalRef = useRef();
   const [fadeOut, setFadeOut] = useState(false); //애니메이션
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const refs = {
+    zipcodeRef: useRef(null),
+    addressRef: useRef(null),
+    detailAddressRef: useRef(null),
+  };
+
+  /** 주소 검색 버튼 */
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const themeObj = {
+    bgColor: "#FFFFFF",
+    pageBgColor: "#FFFFFF",
+    postcodeTextColor: "#C05850",
+    emphTextColor: "#222222",
+  };
+
+  const postCodeStyle = {
+    width: "360px",
+    height: "480px",
+  };
+
+  const completeHandler = (data) => {
+    const { address, zonecode } = data;
+    handleAddress({ zipcode: zonecode, address: address });
+  };
+
+  const closeHandler = (state) => {
+    if (state === "FORCE_CLOSE") {
+      setIsOpen(false);
+    } else if (state === "COMPLETE_CLOSE") {
+      setIsOpen(false);
+      refs.detailAddressRef.current.value = "";
+      refs.detailAddressRef.current.focus();
+    }
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -30,7 +76,17 @@ export default function OrderWayModal({ type, onClose }) {
   const renderModalContent = () => {
     switch (type) {
       case "address":
-        return <p></p>;
+        return (
+          <div>
+            <DaumPostcode
+              className="postmodal"
+              theme={themeObj}
+              style={postCodeStyle}
+              onComplete={completeHandler}
+              onClose={closeHandler}
+            />
+          </div>
+        );
       case "store":
         return <MapContainer />;
       case "pickupService":

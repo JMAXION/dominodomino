@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import MapContainerModal from "./MapContainerModal";
+import { Link, useNavigate } from "react-router-dom";
 
 const { kakao } = window;
 
 const MapContainer = () => {
+  const navigate = useNavigate();
   const [city, setCity] = useState("");
   const [district, setDistrict] = useState("");
   const [searchPlace, setSearchPlace] = useState("");
@@ -118,6 +120,8 @@ const MapContainer = () => {
             name: data[i].place_name,
             phone: data[i].phone,
             address: data[i].address_name,
+            longitude: data[i].x,
+            latitude: data[i].y,
           });
         }
 
@@ -141,9 +145,21 @@ const MapContainer = () => {
       });
 
       kakao.maps.event.addListener(marker, "click", function () {
+        let placename = place.place_name;
+        let replacename = placename.replace("도미노피자", "");
         infowindow.setContent(
-          '<div style="margin:0 auto 0 auto;font-size:12px;text-align:center;">' +
-            place.place_name +
+          '<div class="infowindow">' +
+            '<div class="infowindow-title">' +
+            replacename +
+            "</div>" +
+            '<div class="infowindow-content">' +
+            "<li>" +
+            "온라인 방문포장 30%" +
+            "</li>" +
+            "<li>" +
+            "오프라인 방문포장 30%" +
+            "</li>" +
+            "</div>" +
             "</div>"
         );
         infowindow.open(map, marker);
@@ -187,6 +203,7 @@ const MapContainer = () => {
   };
 
   const [orderType, setOrderType] = useState(null);
+  const [pindex, setPindex] = useState(-1);
 
   const renderContent = () => {
     if (orderType === "delivery") {
@@ -246,6 +263,7 @@ const MapContainer = () => {
                   <li className="branch-info-detail">
                     <p
                       onClick={() => {
+                        setPindex(index);
                         openModal("address");
                       }}
                     >
@@ -253,10 +271,16 @@ const MapContainer = () => {
                     </p>
                     <p
                       onClick={() => {
-                        openModal("store");
+                        setPindex(index);
                       }}
                     >
-                      방문포장
+                      <Link
+                        to="/orderway"
+                        state={{ orderType: "pickup" }}
+                        style={{ color: "white" }}
+                      >
+                        방문포장
+                      </Link>
                     </p>
                   </li>
                 </p>
@@ -296,7 +320,11 @@ const MapContainer = () => {
       </div>
       <div>{renderContent()}</div>
       {isModalOpen && (
-        <MapContainerModal type={modalType} onClose={closeModal} />
+        <MapContainerModal
+          type={modalType}
+          onClose={closeModal}
+          places={places[pindex]}
+        />
       )}
     </div>
   );

@@ -5,25 +5,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faExpand } from "@fortawesome/free-solid-svg-icons";
 import PizzaModal from "./PizzaModal.jsx";
 import PageTitle from "./PageTitle.jsx";
+import axios from "axios";
 
 export default function PizzaMenuProduct({ depth2 }) {
-  const [pizzaList, setPizzaList] = useState({
-    pizza: {
-      new: [],
-      premium: [],
-      halfSignature: [],
-      classic: [],
-      happyDaily: [],
-    },
-  });
+  const [pizzaList, setPizzaList] = useState([]);
   const [selectedPizza, setSelectedPizza] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [animationClass, setAnimationClass] = useState("");
 
   useEffect(() => {
-    fetch("data/pizzaAll.json")
-      .then((res) => res.json())
-      .then((data) => setPizzaList(data))
+    const url = "http://127.0.0.1:8080/menu/pizzas";
+    axios({
+      method: "get",
+      url: url,
+    })
+      .then((res) => {
+        console.log(res.data);
+        setPizzaList(res.data);
+      })
+
       .catch((error) => console.log(error));
   }, []);
 
@@ -49,10 +49,11 @@ export default function PizzaMenuProduct({ depth2 }) {
     setSelectedPizza(null);
   };
 
-  const createRows = (category) => {
+  const createRows = (pizzaList) => {
+    //파라미터가 비어있으면 useState의 pizzaList(전체)가 출력됨
     const rows = [];
-    for (let i = 0; i < category.length; i += 4) {
-      rows.push(category.slice(i, i + 4));
+    for (let i = 0; i < pizzaList.length; i += 4) {
+      rows.push(pizzaList.slice(i, i + 4));
     }
     return rows;
   };
@@ -62,11 +63,11 @@ export default function PizzaMenuProduct({ depth2 }) {
       <div key={index} className="pizzabox">
         {row.map((pizza, idx) => (
           <div key={idx} className="pizza-box-in">
-            <Link to={`/pizzas/${pizza.id}`}>
+            <Link to={`/pizzas/${pizza.pid}`}>
               <img
                 className="pizza-box-in-image"
-                src={pizza.image}
-                alt={pizza.title}
+                src={pizza.menuimg}
+                alt={pizza.pname}
               />
             </Link>
             <button className="modalopenbtn" onClick={() => openModal(pizza)}>
@@ -74,26 +75,22 @@ export default function PizzaMenuProduct({ depth2 }) {
             </button>
             <div className="pizza-product">
               <div className="pizza-title-box">
-                <span className="pizza-title">{pizza.title}</span>
+                <span className="pizza-title">{pizza.pname}</span>
                 <span className="pizza-title-icon">{pizza.lable}</span>
               </div>
               <div className="pizza-price-box">
                 <span className="pizza-price-size-L">L</span>
-                <span className="pizza-price-L">
-                  {pizza.lPrice.toLocaleString()}원
-                </span>
-                {pizza.mPrice !== undefined && ( // mPrice가 있는 경우에만 출력
+                <span className="pizza-price-L">{pizza.lprice}</span>
+                {pizza.mprice ? ( // mPrice가 있는 경우에만 출력
                   <>
                     <span className="pizza-price-size-M">M</span>
-                    <span className="pizza-price-M">
-                      {pizza.mPrice.toLocaleString()}원
-                    </span>
+                    <span className="pizza-price-M">{pizza.mprice}</span>
                   </>
-                )}
+                ) : null}
               </div>
               <div className="pizza-tag">
-                <div>{pizza.tag1}</div>
-                <div className="pizza-tag-2">{pizza.tag2}</div>
+                <div>{pizza.desc1}</div>
+                <div className="pizza-tag-2">{pizza.desc2}</div>
               </div>
             </div>
           </div>
@@ -117,29 +114,39 @@ export default function PizzaMenuProduct({ depth2 }) {
     link5: "/beverage",
   });
 
+  const check = (mcategory) => {
+    let mcategoryArray = [];
+    mcategoryArray = pizzaList.filter((pizza) => pizza.mcategory === mcategory);
+    console.log("mcategoryArray ==>", mcategoryArray);
+    return mcategoryArray;
+  };
+
   return (
     <div className="content">
       <PageTitle props={props} depth2={depth2} />
       <div>
         <ul>
           <div className="category">New</div>
-          <li>{renderRows(createRows(pizzaList.pizza.new))}</li>
+          <li>{renderRows(createRows(check("new")))}</li>
         </ul>
         <ul>
           <div className="category">프리미엄</div>
-          <li>{renderRows(createRows(pizzaList.pizza.premium))}</li>
+          <li>{renderRows(createRows(check("프리미엄")))}</li>
         </ul>
         <ul>
           <div className="category">하프앤하프 시그니처</div>
-          <li>{renderRows(createRows(pizzaList.pizza.halfSignature))}</li>
+          <li>{renderRows(createRows(check("하프앤하프 시그니처")))}</li>
         </ul>
         <ul>
           <div className="category">클래식</div>
-          <li>{renderRows(createRows(pizzaList.pizza.classic))}</li>
+          <li>{renderRows(createRows(check("클래식")))}</li>
         </ul>
         <ul>
-          <div className="category">Happy Daily Pizza</div>
-          <li>{renderRows(createRows(pizzaList.pizza.happyDaily))}</li>
+          <div className="category-happy">Happy Daily Pizza</div>
+          <span className="category-text">
+            매일 매일 도미노를 끝없이 만나보세요!
+          </span>
+          <li>{renderRows(createRows(check("Happy Daily Pizza")))}</li>
         </ul>
       </div>
       <div className="grid"></div>

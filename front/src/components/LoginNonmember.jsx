@@ -113,8 +113,8 @@ export default function LoginNonmember() {
               <select>
                 <option value="010">010</option>
               </select>
-              <input type="number" />
-              <input type="number" />
+              <input type="text" />
+              <input type="text" />
               <button>인증번호</button>
             </p>
             <p className="login-nonmember-accesscode">
@@ -122,7 +122,7 @@ export default function LoginNonmember() {
             </p>
           </li>
           <p className="login-nonmember-orderbutton">
-            <Link to="/menu">
+            <Link to="/pizzas">
               <button>주문하기</button>
             </Link>
           </p>

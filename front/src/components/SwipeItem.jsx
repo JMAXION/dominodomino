@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export default function SwipeItem({
   keyword,
@@ -23,33 +23,29 @@ export default function SwipeItem({
   return (
     <li
       className={`swipe-item-wrapper ${
-        isActive === index ? 'swipe-item-active' : ''
+        isActive === index ? "swipe-item-active" : ""
       }`}
-      key={keyword}>
+      key={keyword}
+    >
       <a className="swipe-item" style={backgroundStyle}>
         <div className="wrapper__swipe-item-contents">
-         
-            <div className="align-swipe-item-content">
-              {tag && (
-                <div className="wrapper__swipe-item-tag">
-                  {tag.map(tag => (
-                    <span
-                      className="swipe-item-tag"
-                      style={tagStyle}
-                      key={Math.random()}>
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
-            
-            </div>
-            <img src={img} alt={keyword} />
+          <div className="align-swipe-item-content">
+            {tag && (
+              <div className="wrapper__swipe-item-tag">
+                {tag.map((tag) => (
+                  <span
+                    className="swipe-item-tag"
+                    style={tagStyle}
+                    key={Math.random()}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
-        
-         
-          
-        
+          <img src={img} alt={keyword} />
+        </div>
       </a>
     </li>
   );

@@ -47,7 +47,10 @@ const list5 = ["공지사항","-도미노뉴스","-보도자료"] */
         <div className="hedaer-container-top">
           <div>
             <Link to="http://localhost:3000/">
-              <img className="header-logo-img" src="../images/logo2.png"></img>
+              <img
+                className="header-logo-img"
+                src="http://localhost:3000/images/logo2.png"
+              ></img>
             </Link>
           </div>
           <div className="header-promotion">
@@ -69,6 +72,7 @@ const list5 = ["공지사항","-도미노뉴스","-보도자료"] */
                       type="button"
                       onClick={handleLogout}
                       className="header-member-list-button"
+                      style={{ cursor: "pointer" }}
                     >
                       로그아웃
                     </button>
@@ -79,7 +83,11 @@ const list5 = ["공지사항","-도미노뉴스","-보도자료"] */
                     </p>
                   </li>
                   <li className="header-icon">
-                    <FontAwesomeIcon icon={faCartShopping} />
+                    <FontAwesomeIcon
+                      icon={faCartShopping}
+                      onClick={() => navigate("/cart")}
+                      style={{ cursor: "pointer" }}
+                    />
                   </li>
                 </>
               ) : (

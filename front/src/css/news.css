@@ -66,11 +66,128 @@
 
 .news-board-data {
   text-align: center;
+  border-bottom: 1px solid var(--divide-color);
 }
 
 .news-board-data td {
   font-size: 15px;
   font-weight: 400;
-  padding: 1rem;
+  padding: 1rem 0 1.2rem 0;
+}
+
+.news-board-data-title {
+  display: block;
+  cursor: pointer;
+  color: var(--black-color);
+}
+
+.news-write {
+  display: none;
+}
+
+/**************** 
+** NewsContent
+*****************/
+
+.newsContent-titleBox {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 2rem 1.2rem 2rem;
   border-bottom: 1px solid var(--divide-color);
+}
+
+.newsContent-titleBox div {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.newsContent-titleBox h3 {
+  font-weight: 500;
+}
+
+.newsContent-titleBox-date,
+.newsContent-titleBox-hits {
+  font-size: 14px;
+  color: gray;
+}
+
+.newsContent-titleBox-date::after {
+  content: "｜";
+  margin-left: 0.8rem;
+}
+
+.newsContent-contents {
+  padding: 2rem;
+  border-bottom: 1px solid var(--divide-color);
+}
+
+.newsContent-subBox {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 1rem 1rem 2rem;
+  border-bottom: 1px solid var(--divide-color);
+}
+
+.newsContent-subBox button {
+  font-size: 14px;
+  color: gray;
+  border: none;
+  background: none;
+}
+
+.newsContent-subBox span {
+  font-size: 14px;
+  color: gray;
+}
+
+.newsContent-listBox {
+  text-align: center;
+}
+
+.newsContent-list {
+  padding: 1rem 6rem 1.2rem 6rem;
+  margin: 2rem;
+  font-size: 18px;
+  background-color: var(--black-color);
+  cursor: pointer;
+  color: whitesmoke;
+}
+
+.news-pagingBox {
+  position: relative;
+  padding: 3rem 0;
+  margin-bottom: 7rem;
+  /* border: 1px solid blue; */
+}
+
+.news-paging {
+  position: absolute;
+  left: 45%;
+  /* border: 1px solid red; */
+}
+
+.rc-pagination-item-active {
+  border: none !important;
+  font-weight: 900 !important;
+}
+
+.rc-pagination-item {
+  border: none !important;
+  font-size: 15px !important;
+}
+
+.rc-pagination-prev .rc-pagination-item-link,
+.rc-pagination-next .rc-pagination-item-link {
+  border: none !important;
+  font-size: 15px !important;
+}
+
+.rc-pagination-item-active a {
+  color: var(--black-color) !important;
+}
+
+/* pagination.module.css */
+.rc-pagination-prev button::after,
+.rc-pagination-next button::after {
+  content: none !important;
 }

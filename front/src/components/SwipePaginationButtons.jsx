@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React from "react";
 
 export default function SwipePaginationButtons({
   keyword,
@@ -8,7 +7,7 @@ export default function SwipePaginationButtons({
   currentSlide,
 }) {
   return (
-    <li key={keyword} className={index === currentSlide ? 'active' : ''}>
+    <li key={keyword} className={index === currentSlide ? "active" : ""}>
       <button type="button" onClick={paginationButtonClickHandler}>
         {keyword}
       </button>

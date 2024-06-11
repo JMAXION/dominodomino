@@ -611,3 +611,6 @@ use hrdb2019;
         where category  = 1
         AND NOT pid = 6 AND NOT pname= '블록버스터4' AND NOT pname= '베스트 콰트로'
         AND NOT ptype = 300;
+        
+        
+select * from pizza where did = "3"

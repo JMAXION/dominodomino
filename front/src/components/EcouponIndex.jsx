@@ -93,7 +93,10 @@ export default function EcouponIndex({ depth2 }) {
             매장에서 환불 불가)
           </p>
           <p>
-            e-쿠폰 사용방법 : <Link to="/ecouponusage">e-쿠폰 사용안내</Link>
+            e-쿠폰 사용방법 :{" "}
+            <Link to="/ecouponusage" style={{ color: "blue" }}>
+              e-쿠폰 사용안내
+            </Link>
           </p>
         </li>
       </ul>

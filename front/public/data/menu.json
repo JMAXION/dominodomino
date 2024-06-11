@@ -28,8 +28,7 @@
     ],
     [
       { "name": "공지사항", "link": "/news" },
-      { "name": "-도미노뉴스", "link": "/news" },
-      { "name": "-보도자료 ", "link": "/announce" }
+      { "name": "-도미노뉴스", "link": "/news" }
     ]
   ],
   "eventmenu": [

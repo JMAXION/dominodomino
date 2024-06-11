@@ -124,20 +124,30 @@
 .newsContent-subBox {
   display: flex;
   gap: 2rem;
+  cursor: pointer;
   padding: 1rem 1rem 1rem 2rem;
   border-bottom: 1px solid var(--divide-color);
 }
 
-.newsContent-subBox button {
+.newsContent-subBox button,
+.newsContent-noContent button {
   font-size: 14px;
   color: gray;
   border: none;
   background: none;
 }
 
-.newsContent-subBox span {
+.newsContent-subBox span,
+.newsContent-noContent span {
   font-size: 14px;
   color: gray;
+}
+
+.newsContent-noContent {
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 1rem 1rem 2rem;
+  border-bottom: 1px solid var(--divide-color);
 }
 
 .newsContent-listBox {

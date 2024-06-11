@@ -24,12 +24,6 @@ export default function ServiceMoment({ depth2 }) {
     form3: true,
   });
   const [selectedMonth, setSelectedMonth] = useState(1);
-  const [dateList, setDateList] = useState(dayList[0].month1);
-
-  const monthList = [];
-  for (let i = 1; i < 13; i++) {
-    monthList.push({ month: i });
-  }
 
   const dayList = [
     {
@@ -51,6 +45,13 @@ export default function ServiceMoment({ depth2 }) {
       },
     },
   ];
+
+  const [dateList, setDateList] = useState(dayList[0].month1);
+
+  const monthList = [];
+  for (let i = 1; i < 13; i++) {
+    monthList.push({ month: i });
+  }
 
   /* 월 선택 */
   const monthChange = (e) => {

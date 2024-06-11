@@ -74,7 +74,6 @@ import ServiceMoment from "./pages/service/ServiceMoment.jsx";
 import ServiceQuick from "./pages/service/ServiceQuick.jsx";
 /* news */
 import News from "./pages/news/News.jsx";
-import Announce from "./pages/news/Announce.jsx";
 import NewsContent from "./pages/news/NewsContent.jsx";
 import NewsWrite from "./pages/news/NewsWrite.jsx";
 
@@ -206,7 +205,6 @@ export default function App() {
           path: "/service/:id",
           element: <ServiceMania depth2={"매니아 혜택"} />,
         },
-
         {
           path: "/cs/:id",
           element: <CsCenter depth2={"자주하는 질문"} />,
@@ -234,10 +232,6 @@ export default function App() {
         {
           path: "/news/:bid/:rno",
           element: <NewsContent depth2={"도미노뉴스"} />,
-        },
-        {
-          path: "/announce",
-          element: <Announce depth2={"보도자료"} />,
         },
       ],
     },

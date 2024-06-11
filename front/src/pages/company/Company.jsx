@@ -62,7 +62,6 @@ export default function Company({ depth2 }) {
       desc: "365일 늘 변함없이 고객에게 최상의 제품과 서비스를\n제공하기 위하여 노력하고 있습니다.\n엄격한 OER평가를 통해 피자 메이킹에서부터 위생적인\n매장, 시설 이미지까지 완벽한 Operation관리\n실시하고 있습니다.",
     },
   ];
-
   const yearSelectList = {
     2024: [
       { date: "2024.05", content: "손흥민 모델 발탁" },
@@ -94,7 +93,6 @@ export default function Company({ depth2 }) {
       },
     ],
   };
-
   const internationalList = [
     {
       title: "도미노피자 탄생과 성장",
@@ -127,7 +125,6 @@ export default function Company({ depth2 }) {
       img: "https://cdn.dominos.co.kr/renewal2018/w/img/lst_international5.png",
     },
   ];
-
   const internationalHistory = [
     {
       year: "1960",
@@ -168,6 +165,13 @@ export default function Company({ depth2 }) {
     { year: "2021", content: "미국 콜로라도 / 18,000호점 오픈" },
   ];
 
+  const onPageBtnClick = () => {
+    console.log(activeTab);
+  };
+  const handleCid = () => {
+    console.log(activeTab);
+  };
+
   return (
     <div className="content">
       {/* ----- 페이지 타이틀 ----- */}
@@ -177,6 +181,8 @@ export default function Company({ depth2 }) {
         rootList={rootList}
         className="Company"
         handleTabClick={handleTabClick}
+        onPageBtnClick={onPageBtnClick}
+        handleCid={handleCid}
       />
 
       {activeTab === "tab1" && (

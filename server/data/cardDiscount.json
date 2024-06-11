@@ -1,0 +1,87 @@
+[
+    {   
+        "id":"1",
+        "img":"https://cdn.dominos.co.kr/renewal2018/w/img/img_creditcard01.png",
+        "company":"KB국민카드 >",
+        "discount1":"20% 현장 할인(오프라인))",
+        "discount2":"25% 세트 할인(온라인)",
+        "discount3":"20% 세트 할인(오프라인)"
+    },
+    {   
+        "id":"2",
+        "img":"https://cdn.dominos.co.kr/renewal2018/w/img/img_creditcard02.png",
+        "company":"비씨카드 TOP포인트 >",
+        "discount":"선결제 시 결제금액의 100%", 
+        "discount2":"포인트차감 청구 결제",
+        "discount3":""
+    },
+    {   
+        "id":"3",
+        "img":"https://cdn.dominos.co.kr/renewal2018/w/img/img_creditcard03.png",
+        "company":"현대카드 > ",
+        "discount":"온/오프라인 50% 포인트 차감 결제",
+        "discount2":"",
+        "discount3":""
+    },
+
+    {   
+        "id":"4",
+        "img":"https://cdn.dominos.co.kr/renewal2018/w/img/img_creditcard04.png",
+        "company":"삼성카드 포인트 사용 서비스 >",
+        "discount":"온/오프라인 100% 포인트 차감 결제"
+    },
+    {   
+        "id":"5",
+        "img":"https://cdn.dominos.co.kr/renewal2018/w/img/img_creditcard05.png",
+        "company":"하나카드 Touch1/하나 sk패밀리카드 >",
+        "discount":"T멤버십 할인 +",
+        "discount2":"Touch1/하나SK패밀리카드 할인",
+        "discount3":"(최대 50%까지 할인)"
+
+    },
+    {   
+        "id":"6",
+        "img":"https://cdn.dominos.co.kr/renewal2018/w/img/img_creditcard12.png",
+        "company":"NH농협카드 > ",
+        "discount":"피자 주문 시 일반 등급 30%",
+        "discount2": "플러스 등급 40% 할인",
+        "discount3":""
+    },
+
+    {   
+        "id":"7",
+        "img":"https://cdn.dominos.co.kr/renewal2018/w/img/img_creditcard08.png",
+        "company":"신한카드 >",
+        "discount":"하이포인트 계열카드 소지 시",
+        "discount2":"30% 포인트 차감 적용",
+        "discount3":"(온라인 선결제 불가)"
+    },
+    {   
+        "id":"8",
+        "img":"https://cdn.dominos.co.kr/renewal2018/w/img/img_membership04.png",
+        "company":"OK Cashbag >",
+        "discount":"OK 캐쉬백 40% 할인",
+        "discount2":"(25% OK캐쉬백 포인트 차감)",
+        "discount3":""
+    },
+    {   
+        "id":"9",
+        "img":"https://cdn.dominos.co.kr/renewal2018/w/img/img_membership06.png",
+        "company":"기아멤버스> ",
+        "discount":"15% 적립 / 20% 할인 (10%포인트 차감)",
+        "discount2":"",
+        "discount3":""
+    },
+    {   
+        "id":"10",
+        "img":"https://cdn.dominos.co.kr/renewal2018/w/img/img_membership07.png",
+        "company":"오포인트> ",
+        "discount":"30% 포인트 차감 / +1% 결제금액",
+        "discount2":"적립 / 1% 결제금액 적립",
+        "discount3":""
+    }
+
+
+
+    
+]

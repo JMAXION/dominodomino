@@ -34,8 +34,12 @@ export default function OrderWayModal({
   };
 
   const postCodeStyle = {
-    width: "360px",
-    height: "480px",
+    display: "block",
+    position: "relative",
+    width: "800px",
+    height: "600px",
+    "text-align": "center",
+    "align-item": "center",
   };
 
   const completeHandler = (data) => {
@@ -79,7 +83,7 @@ export default function OrderWayModal({
         return (
           <div>
             <DaumPostcode
-              className="postmodal"
+              className="postmodal2"
               theme={themeObj}
               style={postCodeStyle}
               onComplete={completeHandler}
@@ -117,7 +121,17 @@ export default function OrderWayModal({
           </div>
         );
       case "spot":
-        return <div>내용</div>;
+        return (
+          <div>
+            <DaumPostcode
+              className="postmodal2"
+              theme={themeObj}
+              style={postCodeStyle}
+              onComplete={completeHandler}
+              onClose={closeHandler}
+            />
+          </div>
+        );
       default:
         return null;
     }

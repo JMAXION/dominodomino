@@ -46,16 +46,16 @@ export default function Footer() {
               <a href="http://localhost:3000/law/video">
                 <li className="footer-nav-li">영상정보처리기기 운영관리방침</li>
               </a>
-              <Link to="/">
+              <Link to="/cs/order">
                 <li className="footer-nav-li">고객센터</li>
               </Link>
-              <Link to="/">
+              <Link to="/company/recruit/fullTime">
                 <li className="footer-nav-li">인재채용</li>
               </Link>
-              <Link to="/">
+              <Link to="/company/franchisee/info">
                 <li className="footer-nav-li">가맹점모집</li>
               </Link>
-              <Link to="/">
+              <Link to="/service/groupOrder">
                 <li className="footer-nav-li">단체주문</li>
               </Link>
             </ul>

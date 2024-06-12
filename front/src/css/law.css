@@ -1,7 +1,239 @@
-p {
+.law {
+  --accent-blue-color: #1382ff;
+}
+
+.law p {
+  color: var(--gray-color);
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+.law {
+  margin: 3rem 0 8rem 0;
+}
+
+.law > p {
+  margin-bottom: 2rem;
+}
+
+.law-use-content h3,
+.law-use-content p,
+.law-personal-num1 {
+  margin-bottom: 2rem;
+}
+
+.law-use-content h3,
+.law-personal h3,
+.lawNavi h3,
+.lawTeen h3,
+.lawVideo h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* 
+* lawPersonal
+ */
+.law-personal h3 {
+  margin-bottom: 1rem;
+}
+
+.law-personal-ul {
+  display: flex;
+  padding: 2rem 0;
+  gap: 8rem;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  margin: 2rem 0;
+}
+
+.law-personal-ul li {
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.law-personal-ul li::before {
+  content: "· ";
+  font-weight: 900;
+}
+
+.law-personal-scroll-1:hover {
+  cursor: pointer;
+  border-bottom: 1px solid black;
+}
+
+.law-personal-num1 span {
+  color: var(--accent-blue-color);
+  font-weight: bold;
+}
+
+.law-personal-table table {
+  width: 908px;
+  border: 1px solid var(--divide-color);
+  letter-spacing: -1px;
+}
+
+.law-personal-table table td {
+  padding: 1rem;
+  font-size: 13px;
+  margin-bottom: 0.3rem;
   color: var(--gray-color);
 }
 
-.law-use-content {
-  list-style: none;
+.law-personal-table table thead tr {
+  text-align: center;
+  background-color: #f9f9f9;
+}
+
+.law-personal-table table tbody td:not(.law-personal-table-td2) {
+  padding: 1rem 0 1rem 2rem;
+}
+
+.law-personal-table-td1 {
+  width: 180px;
+}
+
+.law-personal-table-td2 {
+  width: 70px;
+  text-align: center;
+}
+
+.law-personal-table-accent,
+.law-personal-table tbody ul li,
+.law-personal-table tbody td:last-child {
+  color: var(--accent-blue-color) !important;
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+.law-personal-table-td3 {
+  width: 200px;
+}
+
+/* 
+* lawNavi
+ */
+
+.lawNavi h3,
+.lawNavi-num1-Box p,
+.lawNavi-num3-Box ul {
+  margin-bottom: 1.5rem;
+}
+
+.lawNavi ul li {
+  color: var(--gray-color);
+  font-size: 14px;
+  letter-spacing: -0.5px;
+}
+
+.lawNavi-num3-Box h3 {
+  margin-top: 2rem;
+}
+
+.lawNavi-num3-Box ul p {
+  margin: 1rem 0;
+}
+
+.lawNavi-num3-Box ul p li::before {
+  content: "- ";
+}
+
+.lawNavi-num3-Box table {
+  width: 799px;
+  letter-spacing: -1px;
+  line-height: 1.6;
+  border: 1px solid var(--divide-color);
+  margin-bottom: 2rem;
+}
+
+.lawNavi-num3-Box table thead td {
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 13px;
+  color: gray;
+  background-color: #f9f9f9;
+}
+
+.lawNavi-num3-Box table tbody td {
+  padding: 1rem 2rem;
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--accent-blue-color);
+}
+
+.lawNavi-num4-Box ul li {
+  line-height: 1.6;
+}
+
+/* 
+* lawTeen
+ */
+
+.lawTeen h3 {
+  margin: 3rem 0 1rem 0;
+}
+
+.lawTeen-num4 ul li {
+  color: gray;
+  font-size: 14px;
+}
+
+.lawTeen-num4 > ul {
+  margin-bottom: 1rem;
+}
+
+/* 
+* lawVideo
+ */
+.lawVideo h3 {
+  margin: 3rem 0 1rem 0;
+}
+
+.lawVideo p {
+  letter-spacing: -0.5px;
+}
+
+.lawVideo table {
+  font-size: 13px;
+
+  border: 1px solid var(--divide-color);
+  color: gray;
+}
+
+.lawVideo table thead tr td {
+  padding: 1.3rem 0;
+  text-align: center;
+  font-size: 13px;
+  color: gray;
+  background-color: #f9f9f9;
+}
+
+.lawVideo table tbody tr td {
+  padding: 1.5rem 1.5rem;
+  font-size: 13px;
+  letter-spacing: -1px;
+}
+
+.lawVideo-table-1 {
+  width: 590px;
+}
+.lawVideo-table-1 td:not(:nth-child(3)) {
+  width: 140px;
+}
+.lawVideo-table-1 td:nth-child(3) {
+  width: 170px;
+}
+
+.lawVideo-table-2 {
+  width: 700px;
+}
+.lawVideo-table-2 td {
+  width: 140px;
+}
+
+.lawVideo-table-3 {
+  width: 1064px;
+}
+.lawVideo-table-3 td {
+  width: 152px;
 }

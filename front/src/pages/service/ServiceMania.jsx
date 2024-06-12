@@ -3,6 +3,7 @@ import PageTitle from "../../components/PageTitle";
 // import PageButtons from "../../components/PageButtons";
 import TabDetail from "../TabDetail.jsx";
 import { useParams } from "react-router-dom";
+import { getUser } from "../../util/localStorage.js";
 
 export default function ServiceMania({ depth2 }) {
   const [props, setprops] = useState({

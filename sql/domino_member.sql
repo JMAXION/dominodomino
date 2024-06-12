@@ -10,7 +10,7 @@ domino 프로젝트 관련 테이블
 -- domino_member
 create table domino_member(
 user_id varchar(30) primary key,
-user_pass varchar(50) not null,
+user_pass varchar(80) not null,
 user_name varchar(10) not null,
 email_id varchar(20) not null,
 email_domain varchar(20) not null,

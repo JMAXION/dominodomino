@@ -27,9 +27,9 @@
   margin: 10px 0;
 }
 
-.tab-detail p {
+/* .tab-detail p {
   font-weight: 600;
-}
+} */
 
 .tab-detail-desc {
   margin-bottom: 20px;
@@ -70,9 +70,9 @@
   padding: 30px 0;
 }
 
-.tab-detail-3 p {
+/* .tab-detail-3 p {
   font-weight: 600;
-}
+} */
 
 /* 
 *  tab - grade 
@@ -366,6 +366,7 @@
 }
 
 .quickOrder-lastBtn {
+  position: relative;
   margin: 80px 0;
   width: 220px;
   height: 62px;
@@ -375,6 +376,12 @@
   border: none;
   color: white;
   background-color: var(--red-color);
+}
+
+.quickOrder-lastBtn span {
+  position: absolute;
+  top: 30%;
+  left: 25%;
 }
 
 /*

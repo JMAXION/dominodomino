@@ -20,8 +20,9 @@ export default function LawNavi({ depth2 }) {
       {/* ----- 페이지 타이틀 ----- */}
       <PageTitle props={props} depth2={depth2} />
       {/* ----- 본문 ----- */}
-      <ul>
-        <li>
+
+      <div className="law lawNavi">
+        <div className="lawNavi-num1-Box">
           <h3>제1조 목적</h3>
           <p>
             이 약관은 청오디피케이㈜(이하 “회사”)가 제공하는 위치기반서비스(이하
@@ -29,8 +30,8 @@ export default function LawNavi({ depth2 }) {
             기타 필요한 사항에 따른 이용 조건 및 절차 등 기본적인 사항을
             규정함을 목적으로 합니다.
           </p>
-        </li>
-        <li>
+        </div>
+        <div className="lawNavi-num2-Box">
           <h3>제2조 이용약관의 효력 및 변경</h3>
           <ul>
             <li>
@@ -65,8 +66,8 @@ export default function LawNavi({ depth2 }) {
               명시되지 아니한 사항에 대하여는 관계법령 또는 상관례에 따릅니다.
             </li>
           </ul>
-        </li>
-        <li>
+        </div>
+        <div className="lawNavi-num3-Box">
           <h3>제3조 서비스 내용 및 위치정보 수집방법</h3>
           <ul>
             <li>
@@ -74,46 +75,63 @@ export default function LawNavi({ depth2 }) {
               기본적으로 무료이며 이용자가 이동통신사업자에 지불하는 통신요금
               외의 요금은 추가적으로 없습니다.
             </li>
-            <li>
-              <p>(2) 회사는 다음과 같이 위치정보를 수집합니다.</p>
-              <p>- GPS가 포함된 모바일기기의 GPS정보를 통한 위치정보 수집</p>
-              <p>
-                - 인터넷망을 통해 접속 시 인터넷서비스사업자로부터 제공받는
+            <li>(2) 회사는 다음과 같이 위치정보를 수집합니다.</li>
+            <p>
+              <li>GPS가 포함된 모바일기기의 GPS정보를 통한 위치정보 수집</li>
+              <li>
+                인터넷망을 통해 접속 시 인터넷서비스사업자로부터 제공받는
                 위치정보 수집
-              </p>
-            </li>
+              </li>
+            </p>
             <li>
               (3) 회사는 제공받은 위치정보, 상태정보를 이용하여 다음의 내용을
               서비스 합니다.
             </li>
           </ul>
           <table border="1px">
-            <tr>
-              <td>서비스 내용</td>
-              <td>서비스 대상</td>
-              <td>비고</td>
-            </tr>
-            <tr>
-              <td>* 주변 매장 찾기/현 위치로 매장 검색 (인근 매장정보 제공)</td>
-              <td>온라인 주문 (웹사이트 및 모바일App)</td>
-              <td>회원 및 비회원</td>
-            </tr>
-            <tr>
-              <td>* 현위치로 배달주소 설정</td>
-              <td>온라인 주문 (웹사이트 및 모바일App)</td>
-              <td>회원 및 비회원</td>
-            </tr>
-            <tr>
-              <td>
-                * 드라이빙 픽업 서비스 (픽업서비스를 원하는 이용자 위치를 매장에
-                전송하여 픽업위치로 주문한 제품 배송)
-              </td>
-              <td>온라인 주문 (웹사이트 및 모바일App) 방문포장만 적용</td>
-              <td>회원만 제공</td>
-            </tr>
+            <thead>
+              <tr>
+                <td>서비스 내용</td>
+                <td>서비스 대상</td>
+                <td>비고</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  * 주변 매장 찾기/현 위치로 매장 검색 (인근 매장정보 제공)
+                </td>
+                <td>
+                  온라인 주문
+                  <br /> (웹사이트 및 모바일App)
+                </td>
+                <td>회원 및 비회원</td>
+              </tr>
+              <tr>
+                <td>* 현위치로 배달주소 설정</td>
+                <td>
+                  온라인 주문
+                  <br /> (웹사이트 및 모바일App)
+                </td>
+                <td>회원 및 비회원</td>
+              </tr>
+              <tr>
+                <td>
+                  * 드라이빙 픽업 서비스
+                  <br /> (픽업서비스를 원하는 이용자 위치를 매장에 전송하여
+                  픽업위치로 주문한 제품 배송)
+                </td>
+                <td>
+                  온라인 주문
+                  <br /> (웹사이트 및 모바일App)
+                  <br /> 방문포장만 적용
+                </td>
+                <td>회원만 제공</td>
+              </tr>
+            </tbody>
           </table>
-        </li>
-        <li>
+        </div>
+        <div className="lawNavi-num4-Box">
           <h3>제4조 이용자의 이용제한</h3>
           <ul>
             <li>
@@ -132,8 +150,8 @@ export default function LawNavi({ depth2 }) {
               수 있습니다.
             </li>
           </ul>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   );
 }

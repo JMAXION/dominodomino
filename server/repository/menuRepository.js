@@ -3,17 +3,51 @@ import { db } from "../database/database_mysql80.js";
 import { log } from "console";
 
 export const getPizzas = async () => {
-  const sql = `select pid, menuimg, pname, concat(format(lprice,0),'원') as lprice, concat(format(mprice,0),'원') as mprice, desc1, desc2, mcategory from pizza
+  const sql = `select pid, menuimg, pname, concat(format(lprice,0),'원') as lprice, concat(format(mprice,0),'원') as mprice, desc1, desc2, country, topping, mcategory from pizza
   `;
 
   return db.execute(sql).then((result) => result[0]);
 };
 
 export const getPizzasDetail = async (id) => {
-  const sql = `select pid, menuimg, pname, lprice, mprice, desc1, desc2, category, pcode, ptype, did, ecategory, ecode, etype from pizza
+  const sql = `select pid, menuimg, pname, concat(format(lprice,0),'원') as lprice, concat(format(mprice,0),'원') as mprice, desc1, desc2, category, pcode, ptype, did, ecategory, ecode, etype, country, topping, mcategory from pizza
 where pid = ?`;
 
   return db.execute(sql, [id]).then((result) => result[0][0]);
+};
+
+export const getPizzasDough = async (id) => {
+  const sql = `select pid, dprice, dname from pizza p, dough_option d
+    WHERE p.category = d.category
+    AND p.pcode = d.pcode
+    AND p.ptype = d.ptype
+    AND p.pid = ?`;
+
+  return db.execute(sql, [id]).then((result) => result[0]);
+};
+
+export const getPizzasEdge = async (id) => {
+  let sql = "";
+  if (id > 100) {
+    sql = `select DISTINCT eid,ename,eprice from pizza p, edge_option e
+        WHERe p.etype = e.etype
+        AND e.etype > 100 
+        AND NOT e.etype=100
+        order by eid`;
+    return await db.execute(sql, [id]).then((result) => result[0]);
+  } else {
+    sql = `select DISTINCT ename from pizza p, edge_option e
+        WHERe p.etype = e.etype
+        AND e.etype = 100; `;
+    return await db.execute(sql, [id]).then((result) => result[0]);
+  }
+};
+
+export const getPizzasTopping = async (topping) => {
+  const sql = `SELECT tid,tname,timage,tkind,tprice,quantity from topping
+  where tkind = ?`;
+
+  return await db.execute(sql, [topping]).then((result) => result[0]);
 };
 
 export const getPizza = async (halfChoice) => {
@@ -58,7 +92,7 @@ export const getRightPizza = async (id, type) => {
 };
 
 export const getDoughPizza = async (id) => {
-  const sql = `select pid as id, dprice,dname from pizza p, dough_option d
+  const sql = `select pid as id, dprice, dname from pizza p, dough_option d
     WHERE p.category = d.category
     AND p.pcode = d.pcode
     AND p.ptype = d.ptype

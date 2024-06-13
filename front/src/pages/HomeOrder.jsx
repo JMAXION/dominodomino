@@ -41,7 +41,9 @@ export default function HomeOrder() {
         <div className="icon-box">
           <div className="icon-box-content">
             <FontAwesomeIcon icon={faBoltLightning} className="icon quick" />
-            <span className="icon-box-content-title quick">퀵오더</span>
+            <Link to="/service/quickOrder">
+              <span className="icon-box-content-title quick">퀵오더</span>
+            </Link>
             <FontAwesomeIcon
               icon={faCircleArrowRight}
               className="arrow quick"

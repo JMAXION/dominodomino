@@ -9,15 +9,43 @@ export default function MoneyGift({ depth2 }) {
     link1: "/moneygift",
     link2: "/giftusage",
   });
-  const [quantity, setQuantity] = useState(1);
-  const increaseQuantity = () => {
-    setQuantity(quantity + 1);
+  const [quantities, setQuantities] = useState({
+    10000: 1,
+    20000: 1,
+    30000: 1,
+    50000: 1,
+  });
+
+  const increaseQuantity = (amount) => {
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [amount]: prevQuantities[amount] + 1,
+    }));
   };
 
-  // 수량 감소 함수
-  const decreaseQuantity = () => {
-    setQuantity(quantity - 1 < 1 ? 1 : quantity - 1); // 수량이 1보다 작아지지 않도록 함
+  const decreaseQuantity = (amount) => {
+    setQuantities((prevQuantities) => ({
+      ...prevQuantities,
+      [amount]: prevQuantities[amount] - 1 < 1 ? 1 : prevQuantities[amount] - 1,
+    }));
   };
+
+  const renderGiftItem = (amount, imgSrc) => (
+    <ul>
+      <img src={imgSrc} alt="" className="moneygift-example-image" />
+      <li>[모바일]금액상품권 {amount.toLocaleString()}원권</li>
+      <li>{amount.toLocaleString()}원</li>
+      <p className="moneygift-order">
+        <li className="moneygift-quantity-button">
+          <button onClick={() => decreaseQuantity(amount)}>-</button>
+          <li>{quantities[amount]}</li>
+          <button onClick={() => increaseQuantity(amount)}>+</button>
+        </li>
+        <button className="moneygift-order-button">주문하기</button>
+      </p>
+    </ul>
+  );
+
   return (
     <div>
       <PageTitle depth2={depth2} props={props} />
@@ -42,14 +70,14 @@ export default function MoneyGift({ depth2 }) {
             금액상품권의 유효기간은 366일이며, 유효기간이 만료된 상품권은 사용
             불가
           </li>
-          <li>구매내역은 나의정보 > 주문내역 > 상품권주문 에서 확인 가능</li>
+          <li>구매내역은 나의정보 중 주문내역의 상품권주문 에서 확인 가능</li>
           <li>
-            금액상품권은 나의 정보 > 금액상품권 메뉴에서 상품권 등록 후 결제 시
+            금액상품권은 나의 정보 중 금액상품권 메뉴에서 상품권 등록 후 결제 시
             사용 가능
           </li>
           <li>금액상품권 사용 시 타 할인과 중복 적용 가능</li>
           <li>
-            금액상품권 사용 후 상품권 잔액 및 사용 내역은 나의정보 >
+            금액상품권 사용 후 상품권 잔액 및 사용 내역은 나의정보 중
             금액상품권에서 확인 가능
           </li>
           <li>
@@ -68,75 +96,22 @@ export default function MoneyGift({ depth2 }) {
         </ul>
       </div>
       <div className="moneygift-examples">
-        <ul>
-          <img
-            src="https://cdn.dominos.co.kr/admin/upload/voucher/C/20230424_WbZrRyzp.png"
-            alt=""
-            className="moneygift-example-image"
-          />
-          <li>[모바일]금액상품권 1만원권</li>
-          <li>10000원</li>
-          <p className="moneygift-order">
-            <li className="moneygift-quantity-button">
-              <button onClick={decreaseQuantity}>-</button>
-              <li>{quantity}</li>
-              <button onClick={increaseQuantity}>+</button>
-            </li>
-            <button className="moneygift-order-button">주문하기</button>
-          </p>
-        </ul>
-
-        <ul>
-          <img
-            src="https://cdn.dominos.co.kr/admin/upload/voucher/C/20230424_ykvjVmIV.png"
-            alt=""
-            className="moneygift-example-image"
-          />
-          <li>[모바일]금액상품권 2만원권</li>
-          <li>20000원</li>
-          <p className="moneygift-order">
-            <li className="moneygift-quantity-button">
-              <button onClick={decreaseQuantity}>-</button>
-              <li>{quantity}</li>
-              <button onClick={increaseQuantity}>+</button>
-            </li>
-            <button className="moneygift-order-button">주문하기</button>
-          </p>
-        </ul>
-        <ul>
-          <img
-            src="https://cdn.dominos.co.kr/admin/upload/voucher/C/20230424_84K9dBjI.png"
-            alt=""
-            className="moneygift-example-image"
-          />
-          <li>[모바일]금액상품권 3만원권</li>
-          <li>30000원</li>
-          <p className="moneygift-order">
-            <li className="moneygift-quantity-button">
-              <button onClick={decreaseQuantity}>-</button>
-              <li>{quantity}</li>
-              <button onClick={increaseQuantity}>+</button>
-            </li>
-            <button className="moneygift-order-button">주문하기</button>
-          </p>
-        </ul>
-        <ul>
-          <img
-            src="https://cdn.dominos.co.kr/admin/upload/voucher/C/20230424_zRpod38v.png"
-            alt=""
-            className="moneygift-example-image"
-          />
-          <li>[모바일]금액상품권 5만원권</li>
-          <li>50000원</li>
-          <p className="moneygift-order">
-            <li className="moneygift-quantity-button">
-              <button onClick={decreaseQuantity}>-</button>
-              <li>{quantity}</li>
-              <button onClick={increaseQuantity}>+</button>
-            </li>
-            <button className="moneygift-order-button">주문하기</button>
-          </p>
-        </ul>
+        {renderGiftItem(
+          10000,
+          "https://cdn.dominos.co.kr/admin/upload/voucher/C/20230424_WbZrRyzp.png"
+        )}
+        {renderGiftItem(
+          20000,
+          "https://cdn.dominos.co.kr/admin/upload/voucher/C/20230424_ykvjVmIV.png"
+        )}
+        {renderGiftItem(
+          30000,
+          "https://cdn.dominos.co.kr/admin/upload/voucher/C/20230424_84K9dBjI.png"
+        )}
+        {renderGiftItem(
+          50000,
+          "https://cdn.dominos.co.kr/admin/upload/voucher/C/20230424_zRpod38v.png"
+        )}
       </div>
     </div>
   );

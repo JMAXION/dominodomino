@@ -34,13 +34,19 @@ export default function OrderWayModal({
   };
 
   const postCodeStyle = {
-    width: "360px",
-    height: "480px",
+    display: "block",
+    position: "relative",
+    width: "600px",
+    height: "600px",
+    "text-align": "center",
+    "align-item": "center",
   };
 
   const completeHandler = (data) => {
     const { address, zonecode } = data;
-    handleAddress({ zipcode: zonecode, address: address });
+    handleAddress(`${address} (${zonecode})`); // 주소 설정
+    setIsOpen(false);
+    handleClose(); // 모달 닫기
   };
 
   const closeHandler = (state) => {
@@ -48,8 +54,10 @@ export default function OrderWayModal({
       setIsOpen(false);
     } else if (state === "COMPLETE_CLOSE") {
       setIsOpen(false);
-      refs.detailAddressRef.current.value = "";
-      refs.detailAddressRef.current.focus();
+      if (refs.detailAddressRef.current) {
+        refs.detailAddressRef.current.value = "";
+        refs.detailAddressRef.current.focus();
+      }
     }
   };
 
@@ -77,9 +85,9 @@ export default function OrderWayModal({
     switch (type) {
       case "address":
         return (
-          <div>
+          <div style={{ height: "600px" }}>
             <DaumPostcode
-              className="postmodal"
+              className="postmodal2"
               theme={themeObj}
               style={postCodeStyle}
               onComplete={completeHandler}
@@ -117,7 +125,17 @@ export default function OrderWayModal({
           </div>
         );
       case "spot":
-        return <div>내용</div>;
+        return (
+          <div>
+            <DaumPostcode
+              className="postmodal2"
+              theme={themeObj}
+              style={postCodeStyle}
+              onComplete={completeHandler}
+              onClose={closeHandler}
+            />
+          </div>
+        );
       default:
         return null;
     }

@@ -60,7 +60,9 @@ export default function Coupon() {
         </tbody>
       </table>
       <ul className="coupon-button">
-        <button>도미노 모멘트 수정하기</button>
+        <button onClick={() => navigate("/service/moment")}>
+          도미노 모멘트 수정하기
+        </button>
         <button onClick={() => navigate("/pizzas")}>피자 주문하기</button>
       </ul>
     </div>

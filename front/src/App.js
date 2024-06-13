@@ -1,4 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 /* css */
 import "./css/style.css";
 import "./css/style2.css";
@@ -56,6 +58,7 @@ import AllPizzaMenu from "./pages/AllPizzaMenu.jsx";
 import DetailPizzaMenu from "./pages/DetailPizzaMenu.jsx";
 import SideDishMenu from "./pages/SideDishMenu.jsx";
 import Hnh from "./pages/Hnh.jsx";
+import HnhOrder from "./pages/HnhOrder.jsx";
 import HomeOrder from "./pages/HomeOrder.jsx";
 import PopularSetMenu from "./pages/PopularSetMenu.jsx";
 import BeverageMenu from "./pages/BeverageMenu.jsx";
@@ -77,7 +80,6 @@ import ServiceMoment from "./pages/service/ServiceMoment.jsx";
 import ServiceQuick from "./pages/service/ServiceQuick.jsx";
 /* news */
 import News from "./pages/news/News.jsx";
-import Announce from "./pages/news/Announce.jsx";
 import NewsContent from "./pages/news/NewsContent.jsx";
 /* gift */
 import Gift from "./pages/Gift.jsx";
@@ -152,6 +154,10 @@ export default function App() {
           ),
         },
         { path: "/ecoupon", element: <Ecoupon /> },
+        {
+          path: "/menu/halfnhalf/orderok",
+          element: <HnhOrder />,
+        },
         {
           path: "/ecoupon/index",
           element: <EcouponIndex depth2={"e-쿠폰 주문"} />,
@@ -253,10 +259,6 @@ export default function App() {
           element: <NewsContent depth2={"도미노뉴스"} />,
         },
         {
-          path: "/announce",
-          element: <Announce depth2={"보도자료"} />,
-        },
-        {
           path: "/gift",
           element: <Gift depth2={"금액상품권"} />,
         },
@@ -269,6 +271,12 @@ export default function App() {
       ],
     },
   ]);
+  <Router>
+    <Routes>
+      <Route path="/" element={<Hnh />} />
+      <Route path="/menu/halfnhalf/orderok" element={<HnhOrder />} />
+    </Routes>
+  </Router>;
 
   return <RouterProvider router={router} />;
 }

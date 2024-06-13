@@ -34,7 +34,7 @@ export default function LoginMember() {
             console.log("token -->", res.data.token);
             cookie.setCookie("x-auth-jwt", res.data.token);
             const userInfo = jwtDecode(res.data.token);
-            alert(JSON.stringify(userInfo));
+            // alert(JSON.stringify(userInfo));
             localStorage.setItem("userInfo", JSON.stringify(userInfo));
             alert("로그인 성공!");
             navigate("/");
@@ -98,7 +98,7 @@ export default function LoginMember() {
           </li>
           <li className="login-pass">
             <input
-              type="text"
+              type="password"
               placeholder="비밀번호"
               name="userPass"
               ref={userPassRef}

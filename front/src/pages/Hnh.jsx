@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import HalfNhalfSwiper from "../components/HalfNhalfSwiper";
 import HnfInfoModal from "../components/HnfInfoModal";
 import Menuheader from "../components/Menuheader";
@@ -28,6 +27,19 @@ export default function Hnh({ depth2 }) {
   const [pizzaRight, setPizzaRight] = useState("");
   const [showMore, setShowMore] = useState(false);
   const userInfo = getUser();
+  let today = new Date();
+  let year = today.getFullYear();
+  let month = today.getMonth();
+  month = month + 1;
+  if (month < 10) month = "0" + month;
+
+  let day = today.getDate();
+  if (day < 10) day = "0" + day;
+  let hour = today.getHours();
+  let minute = today.getMinutes();
+
+  const orderNumber =
+    year + "" + month + "" + day + userInfo.userId + hour + "" + minute;
 
   let tp = 0;
   const initialToppingQty = [
@@ -45,10 +57,10 @@ export default function Hnh({ depth2 }) {
   const [sideMenu, setSideMenu] = useState([
     {
       quantity: 1,
-      sname: "없음",
+      sname: "",
       simage: "0",
       skind: "0",
-      sprice: 2000,
+      sprice: "",
       sid: 0,
     },
   ]);
@@ -56,9 +68,9 @@ export default function Hnh({ depth2 }) {
   const [drinkMenu, setDrinkMenu] = useState([
     {
       quantity: 1,
-      bname: "없음",
+      bname: "",
       bimage: "0",
-      bprice: 2000,
+      bprice: "",
       bid: 0,
     },
   ]);
@@ -102,6 +114,7 @@ export default function Hnh({ depth2 }) {
     user: "",
     orderTime: "",
     uid: 1,
+    orderNumber: "",
   });
 
   useEffect(
@@ -242,7 +255,6 @@ export default function Hnh({ depth2 }) {
     setDrinkMenu(event);
   }
 
-  /*  */
   function settingOrder() {
     let tpName = "";
     let dringName = "";
@@ -287,23 +299,50 @@ export default function Hnh({ depth2 }) {
         user: userInfo.userId,
         totalPrice: tp,
         uid: 1,
+        orderNumber: orderNumber,
       });
     }
-    alert("주문이 완료되었습니다");
   } // FUNCTION settingOrder 변경이 되면
 
-  console.log(order);
-
   useEffect(() => {
-    const url = `http://127.0.0.1:8080/menu/halfnhalf/orderinsert`;
-    axios({
-      method: "POST",
-      url: url,
-      data: order,
-    }).then((result) => {
-      if (result.data.cnt === 1) {
-      }
-    });
+    // 초기값과 비교하여 변경된 값이 있는지 확인
+    const isInitialOrder =
+      JSON.stringify(order) ===
+      JSON.stringify({
+        pizzaLeftName: "",
+        pizzaRightName: "",
+        pizzaQty: 1,
+        doughName: "없음",
+        edgeName: "없음",
+        toppingName: "",
+        sideName: "",
+        drinkName: "",
+        totalPrice: 0,
+        user: "",
+        orderTime: "",
+        uid: 1,
+        orderNumber: "",
+      });
+
+    if (!isInitialOrder) {
+      const url = `http://127.0.0.1:8080/menu/halfnhalf/orderinsert`;
+      axios({
+        method: "POST",
+        url: url,
+        data: order,
+      })
+        .then((result) => {
+          if (result.data.cnt === 1) {
+            alert("주문이 완료되었습니다");
+          }
+        })
+        .catch((error) => {
+          console.error(
+            "There was an error with the order insert request!",
+            error
+          );
+        });
+    }
   }, [order]);
 
   const secondChoice = (t) => {
@@ -436,10 +475,6 @@ export default function Hnh({ depth2 }) {
     return title;
   }
 
-  const checkState = () => {
-    setSendState(!sendState);
-  };
-
   return (
     <>
       {/* <Menuheader
@@ -482,6 +517,7 @@ export default function Hnh({ depth2 }) {
             </div>
           </div>
         </div>
+
         <div className="detail-wrap">
           <p className="hnh-title">피자 한 판으로 두 가지 맛을 동시에!</p>
           <HalfNhalfSwiper />
@@ -596,6 +632,7 @@ export default function Hnh({ depth2 }) {
             <br />
           </div>
         </div>
+
         <div className="step-order">
           <div
             className={`order-wrap inner-box ${
@@ -787,20 +824,8 @@ export default function Hnh({ depth2 }) {
               {userInfo ? (
                 <div className="btn-wrap">
                   <button onClick={settingOrder}>주문확정</button>
-                  <Link
-                    to={{
-                      pathname: "/menu/halfnhalf/orderok",
-                      state: { order },
-                    }}
-                  >
-                    <div hidden>
-                      <HnhOrder order={order} />
-                    </div>
-                    <button
-                      type="button"
-                      className="btn-type"
-                      onClick={settingOrder}
-                    >
+                  <Link to="/menu/halfnhalf/orderok" state={{ orderNumber }}>
+                    <button type="button" className="btn-type">
                       주문확인{" "}
                     </button>
                   </Link>
@@ -816,8 +841,7 @@ export default function Hnh({ depth2 }) {
               )}
             </div>
           </div>
-        </div>{" "}
-        // step-order
+        </div>
       </div>
     </>
   );

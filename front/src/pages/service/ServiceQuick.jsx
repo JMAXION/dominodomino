@@ -6,6 +6,8 @@ import {
   faFileInvoice,
   faReceipt,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { getUser } from "../../util/localStorage";
 
 export default function ServiceQuick({ depth2 }) {
   const [props, setprops] = useState({
@@ -21,6 +23,9 @@ export default function ServiceQuick({ depth2 }) {
     link3: "/service/quickOrder",
     link4: "/service/groupOrder",
   });
+
+  const userInfo = getUser();
+
   return (
     <div className="content">
       {/* ----- 페이지 타이틀 ----- */}
@@ -90,9 +95,19 @@ export default function ServiceQuick({ depth2 }) {
           </ul>
         </div>
         <div className="quickOrder-div-line"></div>
-        <button type="button" className="quickOrder-lastBtn">
-          퀵오더 등록하기
-        </button>
+        {userInfo ? (
+          <a href="/pizzas">
+            <button className="quickOrder-lastBtn">
+              <span>퀵오더 등록하기</span>
+            </button>
+          </a>
+        ) : (
+          <a href="/login">
+            <button className="quickOrder-lastBtn">
+              <span>퀵오더 등록하기</span>
+            </button>
+          </a>
+        )}
       </div>
     </div>
   );

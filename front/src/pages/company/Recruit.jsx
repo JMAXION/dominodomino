@@ -177,6 +177,14 @@ export default function Recruit({ depth2 }) {
     },
   ];
 
+  const onPageBtnClick = () => {
+    console.log(activeTab);
+  };
+
+  const handleCid = () => {
+    console.log(activeTab);
+  };
+
   /* 모달 */
   const regionList = {
     서울: [{ store: "가락점" }, { store: "가산점" }, { store: "가좌점" }],
@@ -197,6 +205,8 @@ export default function Recruit({ depth2 }) {
         rootList={rootList}
         className="Recruit"
         handleTabClick={handleTabClick}
+        onPageBtnClick={onPageBtnClick}
+        handleCid={handleCid}
       />
 
       {activeTab === "tab1" && (

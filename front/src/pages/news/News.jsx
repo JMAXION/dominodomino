@@ -16,17 +16,18 @@ export default function News({ depth2 }) {
     breadcrumb: "도미노뉴스",
     breadcrumbLink: "/news", //브레드크럼 경로가 3개 이상일때 사용
     nav1: "도미노뉴스",
-    nav2: "보도자료",
     link1: "/news",
-    link2: "/announce",
   });
 
   const navigate = useNavigate();
   const [newsList, setNewsList] = useState([]);
   const [countNews, setCountNews] = useState(0);
+  /* 검색 기능 구현 */
+  const [searchInput, setSearchInput] = useState("");
+  const [filteredResults, setFilteredResults] = useState([]);
   /* paging - 현재 페이지, 총 데이터 수, 페이지사이즈(한 페이지당 rows수) */
   const [currentPage, setCurrentPage] = useState(1); //현재 페이지
-  const [totalCount, setTotalCount] = useState(15); //총 데이터 수
+  const [totalCount, setTotalCount] = useState(1); //총 데이터 수
   const [pageSize, setPageSize] = useState(10); //페이지 사이즈
 
   /*
@@ -95,6 +96,26 @@ export default function News({ depth2 }) {
     next_page: "", // 다음 페이지 툴팁
   };
 
+  /*
+   * 게시글 검색 */
+  const handleSearch = () => {
+    if (searchInput) {
+      const filteredData = newsList.filter((item) => {
+        return Object.values(item)
+          .join("")
+          .toLowerCase()
+          .includes(searchInput.toLowerCase());
+      });
+      setFilteredResults(filteredData);
+      setTotalCount(filteredData.length);
+    } else {
+      setFilteredResults(newsList);
+      setTotalCount(newsList.length);
+      console.log("newsList==>", newsList);
+      console.log("newsList.length==>", newsList.length);
+    }
+  };
+
   return (
     <div>
       {/* ----- 페이지 타이틀 ----- */}
@@ -102,14 +123,14 @@ export default function News({ depth2 }) {
       {/* ----- 본문 ----- */}
       <div className="content news">
         <div className="news-search">
-          <select>
+          {/* <select>
             <option value="title">제목</option>
             <option value="content">내용</option>
             <option value="tandc">제목+내용</option>
-          </select>
-          <input type="text" />
+          </select> */}
+          <input type="text" onChange={(e) => setSearchInput(e.target.value)} />
           <div className="news-search-btn">
-            <button type="button">
+            <button type="submit" onClick={handleSearch}>
               <FontAwesomeIcon icon={faMagnifyingGlass} />
             </button>
           </div>
@@ -118,25 +139,31 @@ export default function News({ depth2 }) {
         <div className="news-board">
           <p>총 {countNews.count}건</p>
           <table>
-            <tr>
-              <th className="news-board-th1">번호</th>
-              <th className="news-board-th2">제목</th>
-              <th className="news-board-th3">등록일</th>
-              <th className="news-board-th4">조회</th>
-            </tr>
-            {newsList.map((news) => (
-              <tr className="news-board-data">
-                <td>{news.rno}</td>
-                <td
-                  className="news-board-data-title"
-                  onClick={() => handleUpdateHits(news.bid, news.rno)}
-                >
-                  {news.btitle}
-                </td>
-                <td>{news.bdate}</td>
-                <td>{news.bhits}</td>
+            <thead>
+              <tr>
+                <th className="news-board-th1">번호</th>
+                <th className="news-board-th2">제목</th>
+                <th className="news-board-th3">등록일</th>
+                <th className="news-board-th4">조회</th>
               </tr>
-            ))}
+            </thead>
+            <tbody>
+              {(filteredResults.length > 0 ? filteredResults : newsList).map(
+                (news) => (
+                  <tr className="news-board-data">
+                    <td>{news.rno}</td>
+                    <td
+                      className="news-board-data-title"
+                      onClick={() => handleUpdateHits(news.bid, news.rno)}
+                    >
+                      {news.btitle}
+                    </td>
+                    <td>{news.bdate}</td>
+                    <td>{news.bhits}</td>
+                  </tr>
+                )
+              )}
+            </tbody>
           </table>
           <div className="news-pagingBox">
             <Pagination

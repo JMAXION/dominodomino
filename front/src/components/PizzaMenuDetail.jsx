@@ -27,6 +27,14 @@ export default function PizzaMenuDetail({ depth2 }) {
   const [showMore, setShowMore] = useState(false);
   const userInfo = getUser();
 
+  function selectChange(e) {
+    if (e === "라지") {
+      setSelected({ large: true, mideum: false, size: "L", qty: 1 });
+    } else if (e === "미디움") {
+      setSelected({ large: false, mideum: true, size: "M", qty: 1 });
+    }
+  }
+
   let tp = 0;
   const initialToppingQty = [
     {
@@ -152,7 +160,7 @@ export default function PizzaMenuDetail({ depth2 }) {
 
     let priceREsult = 0;
     if (selected.size === "L") {
-      price = parseInt(pizza.lprice);
+      price = pizza.lprice;
 
       if (topping[1]) {
         price +=
@@ -196,7 +204,7 @@ export default function PizzaMenuDetail({ depth2 }) {
 
       priceREsult = price.toLocaleString();
     } else if (selected.size === "M") {
-      price = parseInt(pizza.lprice);
+      price = pizza.mprice;
       if (topping[1]) {
         price +=
           topping[1].quantity * topping[1].tprice +
@@ -421,15 +429,41 @@ export default function PizzaMenuDetail({ depth2 }) {
             <div className={`step-wrap`}>
               <div className="pizza-detail-wrap">
                 <div className="pizza-detail-wrap-size">사이즈 선택</div>
-              </div>
-              <div className="pizza-detail-size-price-box">
-                <div className="pizza-detail-size-price">
-                  <div className="pizza-detail-size-price-text">
-                    L {pizza.lprice}
+                <div className="size-box">
+                  <div
+                    className={`chk-box2 ${
+                      selected.large ? "selected" : "chk-box2"
+                    }`}
+                    onClick={(e) => selectChange("라지")}
+                  >
+                    <input type="radio" id="size1" value="L"></input>
+                    <label className="checkbox" for="size1"></label>
+                    <label for="size1">L {pizza.lprice}원</label>
                   </div>
-                  {pizza.mprice ? <div>M {pizza.mprice}</div> : null}
+                  {pizza.mprice !== null && (
+                    <div
+                      className={`chk-box2 ${
+                        selected.large ? "chk-box2" : "selected"
+                      }`}
+                      onClick={(e) => selectChange("미디움")}
+                    >
+                      <input type="radio" id="size1" value="M"></input>
+                      <label className="checkbox" for="size2"></label>
+                      <label for="size2">M</label>
+                    </div>
+                  )}
                 </div>
               </div>
+              {/* <div className="pizza-detail-size-price-box">
+                <div className="pizza-detail-size-price">
+                  <div className="pizza-detail-size-price-text">
+                    L {parseInt(pizza.lprice).toLocaleString()}원
+                  </div>
+                  {pizza.mprice ? (
+                    <div>M {parseInt(pizza.mprice).toLocaleString()}원</div>
+                  ) : null}
+                </div>
+              </div> */}
               <div>
                 <PizzaDetailDough id={id} onClick={handleChange} />
                 <PizzaDetailEdge id={pizza.etype} onClick={handleChange2} />
@@ -441,7 +475,6 @@ export default function PizzaMenuDetail({ depth2 }) {
                 <ChoiceSide onClick={handleChange5} />
                 <ChoiceDrink onClick={handleChange6} />
               </div>
-              <ChoiceSide />
             </div>
           </div>
         </div>
@@ -666,7 +699,6 @@ export default function PizzaMenuDetail({ depth2 }) {
             </div>
           </div>
         </div>{" "}
-        // step-order
       </div>
     </>
   );

@@ -330,7 +330,7 @@ table th {
 
 .pizza {
   display: inline-block;
-  width: 300px;
+  width: 350px;
   font-size: 14px;
   vertical-align: top;
   padding: 25px 0;
@@ -629,6 +629,7 @@ img-wrap2 {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  width: 500px;
 }
 
 .chk-box.checkbox {
@@ -1232,4 +1233,101 @@ img-wrap2 {
 .tab-content-side ul li img {
   width: 90px;
   height: 90px;
+}
+
+.side {
+  display: inline-block;
+  width: 350px;
+  font-size: 14px;
+  vertical-align: top;
+  padding: 25px 0;
+}
+
+.side ul li {
+  color: #999;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.drink-etc {
+  display: inline-block;
+  width: 350px;
+  font-size: 14px;
+  vertical-align: top;
+  padding: 25px 0;
+}
+
+.drink-etc ul li {
+  color: #999;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.total-price {
+  position: absolute;
+  top: 23px;
+  right: 0;
+  font-size: 16px;
+  color: #111;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.total-money {
+  font-size: 16px;
+  color: #111;
+  font-weight: 600;
+}
+
+.money {
+  display: inline-block;
+  margin-left: 15px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.total-price .btn-wrap {
+  margin-top: 8px;
+}
+
+.btn-type {
+  width: 158px;
+  height: 46px;
+  background: #ff143c;
+  border: 1px solid #ff143c;
+  color: #fff;
+  font-size: 18px;
+  line-height: 46px;
+  font-weight: 500;
+}
+
+.qty-confirm {
+  width: 100px;
+  height: 32px;
+  background: #ff143c;
+  border: 1px solid #ff143c;
+  color: #fff;
+  font-size: 18px;
+  line-height: 32px;
+  font-weight: 500;
+}
+
+.order-container {
+  width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.order-list {
+  margin-top: 3rem;
+}
+
+.order-name {
+  color: #ff143c;
+  font-size: 2rem;
+}
+
+.result-money {
+  font-size: 2rem;
+  font-weight: 700;
 }

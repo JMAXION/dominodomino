@@ -36,7 +36,7 @@ export default function PizzaModal({ pizza, onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modalcontent" onClick={(e) => e.stopPropagation()}>
-          <div className="modal-title">{pizza.title}</div>
+          <div className="modal-title">{pizza.pname}</div>
           <button
             className="modalclosebtn"
             onClick={(e) => {

@@ -40,5 +40,8 @@ CREATE TABLE side (	   sid INT AUTO_INCREMENT PRIMARY KEY,
  insert into side(sname, simage, skind, sprice, lable, desc1, country, topping, quantity, category)
 	values ('도미노 코울슬로', 'https://cdn.dominos.co.kr/admin/upload/goods/20200309_Z7RyBpr3.jpg', '일반', 2400, NULL, '아삭아삭 양배추와 각종 야채를 소스에 버무려 새콤달콤한 맛이 가득! ※ 해당 제품은 신선도를 위해 플라스틱 용기에 제공됩니다.', NULL, NUll, 1, '단품');
  
- select sid, sname, simage, skind, sprice, lable, desc1, country, topping, quantity, category from side;
- select * from side;
+ select sid, sname, simage, skind, concat(format(sprice,0),원) as sprice, lable, desc1, country, topping, quantity, category from side;
+ 
+ select sid, sname, simage, skind, sprice, lable, desc1, country, topping, quantity, category from side
+	where sid = 1;
+ select sid, sname, simage, skind, concat(format(sprice,0),'원') as sprice, lable, desc1, country, topping, quantity, category from side;

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import SideMenuInfoToggle from "./SideMenuInfoToggle";
 
 export default function SideMenuInfo({ side }) {
@@ -6,7 +7,7 @@ export default function SideMenuInfo({ side }) {
     <div className="modal-info">
       <div className="modal-content-container-1">
         <div>
-          <img className="modal-image" src={side.image} alt={side.title} />
+          <img className="modal-image" src={side.simage} alt={side.sname} />
           <div className="modal-image-text">
             * 모든 사진은 이미지컷으로 실제 제품과 다를 수 있습니다.
           </div>
@@ -14,11 +15,11 @@ export default function SideMenuInfo({ side }) {
         <div className="modal-content-list">
           <ul className="modal-content-list-main">
             <li className="modal-content-list-title">메인 토핑</li>
-            <li className="modal-content-list-text">{side.main}</li>
+            <li className="modal-content-list-text">{side.topping}</li>
           </ul>
           <ul className="modal-content-list-home">
             <li className="modal-content-list-title">원산지</li>
-            <li className="modal-content-list-text">{side.home}</li>
+            <li className="modal-content-list-text">{side.country}</li>
           </ul>
           <ul className="modal-content-list-button">
             <li className="modal-content-list-button-box">
@@ -30,12 +31,14 @@ export default function SideMenuInfo({ side }) {
         </div>
       </div>
       <div className="modal-content-container-2">
-        <SideMenuInfoToggle title="제품 상세보기" content={side.detail} />
-        <SideMenuInfoToggle title="메인 토핑" content={side.main} />
-        <SideMenuInfoToggle title="원산지" content={side.home} />
+        <SideMenuInfoToggle title="제품 상세보기" content={side.desc1} />
+        <SideMenuInfoToggle title="메인 토핑" content={side.topping} />
+        <SideMenuInfoToggle title="원산지" content={side.country} />
       </div>
       <div className="modal-content-order">
-        <button className="modal-content-order-button">주문하러 가기</button>
+        <Link to={`/sides/${side.sid}`}>
+          <button className="modal-content-order-button">주문하러 가기</button>
+        </Link>
       </div>
     </div>
   );

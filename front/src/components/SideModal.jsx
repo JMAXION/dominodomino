@@ -42,7 +42,7 @@ export default function SideModal({ side, onClose }) {
           className="side-modal-content"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="modal-title">{side.title}</div>
+          <div className="modal-title">{side.sname}</div>
           <button
             className="side-modal-close-btn"
             onClick={(e) => {

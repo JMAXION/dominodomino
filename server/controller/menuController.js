@@ -1,4 +1,67 @@
 import * as repository from "../repository/menuRepository.js";
+
+export const getPizzas = async (req, res) => {
+  const event = await repository.getPizzas();
+
+  res.json(event);
+  res.end();
+};
+
+export const getPizzasDetail = async (req, res) => {
+  const { id } = req.params;
+  const event = await repository.getPizzasDetail(id);
+
+  res.json(event);
+  res.end();
+};
+
+export const getPizzasDough = async (req, res) => {
+  const id = req.params.id;
+
+  const event = await repository.getPizzasDough(id);
+  res.json(event);
+  res.end();
+};
+
+export const getPizzasEdge = async (req, res) => {
+  const id = req.params.id;
+
+  const event = await repository.getPizzasEdge(id);
+  res.json(event);
+  res.end();
+};
+
+export const getPizzasTopping = async (req, res) => {
+  const { topping } = req.body;
+
+  const event = await repository.getPizzasTopping(topping);
+
+  res.json(event);
+  res.end();
+};
+
+export const getSides = async (req, res) => {
+  const event = await repository.getSides();
+
+  res.json(event);
+  res.end();
+};
+
+export const getSidesDetail = async (req, res) => {
+  const { id } = req.params;
+  const event = await repository.getSidesDetail(id);
+
+  res.json(event);
+  res.end();
+};
+
+export const getPopular = async (req, res) => {
+  const event = await repository.getPopular();
+
+  res.json(event);
+  res.end();
+};
+
 export const getPizza = async (req, res) => {
   const halfChoice = req.body;
 

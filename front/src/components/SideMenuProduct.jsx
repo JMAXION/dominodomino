@@ -5,21 +5,24 @@ import SideModal from "./SideModal";
 import { Link } from "react-router-dom";
 import "../css/sideMenu.css";
 import PageTitle from "./PageTitle";
+import axios from "axios";
 
 export default function SideMenuProduct({ depth2 }) {
-  const [sideList, setSideList] = useState({
-    combo: [],
-    single: [],
-  });
-
+  const [sideList, setSideList] = useState([]);
   const [selectedSide, setSelectedSide] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [animationClass, setAnimationClass] = useState("");
 
   useEffect(() => {
-    fetch("/data/sideAll.json")
-      .then((res) => res.json())
-      .then((data) => setSideList(data.side))
+    const url = "http://127.0.0.1:8080/menu/sides";
+    axios({
+      method: "get",
+      url: url,
+    })
+      .then((res) => {
+        console.log("res-->", res.data);
+        setSideList(res.data);
+      })
       .catch((error) => console.log(error));
   }, []);
 
@@ -45,10 +48,10 @@ export default function SideMenuProduct({ depth2 }) {
     setSelectedSide(null);
   };
 
-  const createRows = (category) => {
+  const createRows = (sideList) => {
     const rows = [];
-    for (let i = 0; i < category.length; i += 4) {
-      rows.push(category.slice(i, i + 4));
+    for (let i = 0; i < sideList.length; i += 4) {
+      rows.push(sideList.slice(i, i + 4));
     }
     return rows;
   };
@@ -56,11 +59,15 @@ export default function SideMenuProduct({ depth2 }) {
   const renderSideDish = (side, showButton, isSingle, showOrderButton) => {
     const clickableContent = (
       <>
-        <img className="side-box-in-image" src={side.image} alt={side.title} />
+        <img className="side-box-in-image" src={side.simage} alt={side.sname} />
         {showButton && (
           <button
             className="side-modal-open-btn"
-            onClick={() => openModal(side)}
+            onClick={(e) => {
+              e.preventDefault(); // 기본 동작을 막습니다.
+              e.stopPropagation(); // 이벤트 전파를 막습니다.
+              openModal(side);
+            }}
           >
             <FontAwesomeIcon icon={faExpand} />
           </button>
@@ -71,17 +78,10 @@ export default function SideMenuProduct({ depth2 }) {
     const textContent = (
       <div className="side-product">
         <div className="side-title-box">
-          <div className="side-title">{side.title}</div>
+          <div className="side-title">{side.sname}</div>
           <span className="side-title-icon">{side.lable}</span>
         </div>
-        {side.price_org !== undefined && (
-          <>
-            <span className="side-price-org">
-              {side.price_org.toLocaleString()}
-            </span>
-          </>
-        )}
-        <span className="side-price">{side.price.toLocaleString()}원</span>
+        <span className="side-price">{side.sprice}</span>
         {showOrderButton && (
           <div className="side-order-box">
             <button className="side-order-button">주문</button>
@@ -93,9 +93,9 @@ export default function SideMenuProduct({ depth2 }) {
     const linkStyle = selectedSide ? { pointerEvents: "none" } : {};
 
     return (
-      <div key={side.id} className="side-box-in">
+      <div key={side.sid} className="side-box-in">
         {isSingle ? (
-          <Link to={side.link} style={linkStyle}>
+          <Link to={`/sides/${side.sid}`} style={linkStyle}>
             {clickableContent}
           </Link>
         ) : (
@@ -126,6 +126,7 @@ export default function SideMenuProduct({ depth2 }) {
       </div>
     );
   };
+
   const [props, setprops] = useState({
     title: "메뉴",
     breadcrumb: "사이드디시",
@@ -142,19 +143,25 @@ export default function SideMenuProduct({ depth2 }) {
     link5: "/beverage",
   });
 
+  const check = (category) => {
+    let categoryArray = [];
+    categoryArray = sideList.filter((side) => side.category === category);
+    return categoryArray;
+  };
+
   return (
     <div className="content">
       <PageTitle props={props} depth2={depth2} />
       <div>
         <ul>
           <div className="category">콤보</div>
-          <li>{renderRows(createRows(sideList.combo), false, false, true)}</li>
+          <li>{renderRows(createRows(check("콤보")), false, false, true)}</li>
         </ul>
       </div>
       <div>
         <ul>
           <div className="category">단품</div>
-          <li>{renderRows(createRows(sideList.single), true, true, false)}</li>
+          <li>{renderRows(createRows(check("단품")), true, true, false)}</li>
         </ul>
       </div>
       <div className="grid"></div>

@@ -1,28 +1,24 @@
 import { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router-dom";
 import axios from "axios";
 import Doughdesc from "./Doughdesc";
-export default function Choicedough({ id, onClick }) {
-  console.log("id-->", id);
+
+export default function PizzaDetailDough({ id, onClick }) {
+  /* console.log("id==>", id); */
   const [selectDough, setSelectDough] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const doughNameRef = useRef(null);
-  const url = "http://127.0.0.1:8080/menu/halfnhalf/dough/";
 
   useEffect(() => {
-    {
-      id &&
-        axios({
-          method: "POST",
-          url: url,
-          data: { id: id },
-        })
-          .then((result) => {
-            return setSelectDough(result.data);
-          })
-          .catch((error) => console.log(error));
+    const url = `http://127.0.0.1:8080/menu/pizzas/${id}/dough`;
+    if (id) {
+      axios
+        .get(url)
+        .then((result) => setSelectDough(result.data))
+        .catch((error) => console.log(error));
     }
-  }, [selectDough]);
-
+  }, [id]); // id 값이 변경될 때만 useEffect가 실행되도록 수정
+  /* console.log(selectDough); */
   const select = (e, index, d) => {
     d = parseInt(d.price);
     setSelectedIndex(index);
@@ -39,7 +35,7 @@ export default function Choicedough({ id, onClick }) {
         <div className="notice-text side"></div>
         <div className="option-box dough">
           {selectDough.map((obj, index) => (
-            <div className={`chk-box dough0`} id={`doughh${index}`}>
+            <div className={`chk-box dough0`} id={`doughh${index}`} key={index}>
               <input
                 type="radio"
                 id={`dough${index}`}
@@ -53,14 +49,14 @@ export default function Choicedough({ id, onClick }) {
               />
               <label
                 style={{ color: selectedIndex === index ? "red" : "black" }}
-                for={`dough${index}`}
+                htmlFor={`dough${index}`}
               >
                 {obj.dname}{" "}
               </label>{" "}
               <label
                 className="eprice"
                 style={{ color: selectedIndex === index ? "red" : "black" }}
-                for={`dough${index}`}
+                htmlFor={`dough${index}`}
               >
                 {obj.dprice > 0 && "+" + obj.dprice.toLocaleString() + "원"}{" "}
               </label>

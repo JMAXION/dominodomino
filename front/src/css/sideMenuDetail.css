@@ -1,0 +1,62 @@
+.side-detail-content {
+  display: flex;
+  margin: 50px 20px 20px 20px;
+  border: 1px solid red;
+}
+
+.side-detail-image-box {
+  position: relative;
+}
+
+.side-detail-image-text {
+  margin: 8px 0px 8px 0px;
+  font-size: 14px;
+  color: #888888;
+}
+
+.modalopenbtn-sideDetail {
+  position: absolute;
+  top: 510px;
+  right: 0px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 20px;
+  width: 140px;
+  height: 65px;
+  border: none;
+  cursor: pointer;
+}
+
+.modalopenbtn-sideDetail > span {
+  margin-left: 5px;
+}
+
+.side-detail-wrap {
+  margin-top: 5px;
+}
+
+.side-detail-wrap-size {
+  font-weight: bold;
+  font-size: 18px;
+  color: #111111;
+}
+
+.side-detail-info {
+  margin-left: 80px;
+  width: 500px;
+}
+
+.side-detail-image {
+  width: 578px;
+}
+
+.side-detail-info-title {
+  display: block;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.side-detail-info-text {
+  margin-top: 10px;
+  font-size: 15px;
+}

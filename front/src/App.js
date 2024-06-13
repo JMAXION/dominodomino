@@ -83,6 +83,8 @@ import NewsContent from "./pages/news/NewsContent.jsx";
 import Gift from "./pages/Gift.jsx";
 import MoneyGift from "./components/MoneyGift.jsx";
 import GiftUsage from "./components/GiftUsage.jsx";
+import SideMenuDetail from "./components/SideMenuDetail.jsx";
+import PopularMenuDetail from "./components/PopularMenuDetail.jsx";
 
 export default function App() {
   const router = createBrowserRouter([
@@ -180,12 +182,20 @@ export default function App() {
         { path: "/pizzas/:id", element: <DetailPizzaMenu depth2={"피자"} /> },
         { path: "/sides", element: <SideDishMenu depth2={"사이드디시"} /> },
         {
+          path: "/sides/:id",
+          element: <SideMenuDetail depth2={"사이드디시"} />,
+        },
+        {
           path: "/menu/halfnhalf",
           element: <Hnh depth2="하프앤하프" />,
         },
         {
           path: "/popular",
           element: <PopularSetMenu depth2={"인기세트메뉴"} />,
+        },
+        {
+          path: "/popular/:id",
+          element: <PopularMenuDetail depth2={"인기세트메뉴"} />,
         },
         { path: "/beverage", element: <BeverageMenu depth2={"음료&기타"} /> },
 

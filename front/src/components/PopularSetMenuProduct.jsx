@@ -1,12 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 import PopularSetMenuModal from "./PopularSetMenuModal";
 import PageTitle from "./PageTitle";
+import axios from "axios";
 
 export default function PopularSetMenuProduct({ depth2 }) {
+  const [comboList, setComboList] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [animationClass, setAnimationClass] = useState("");
+
+  useEffect(() => {
+    const url = "http://127.0.0.1:8080/menu/popular";
+    axios({
+      method: "get",
+      url: url,
+    })
+      .then((res) => {
+        setComboList(res.data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   useEffect(() => {
     let timer;
@@ -52,13 +67,12 @@ export default function PopularSetMenuProduct({ depth2 }) {
       <PageTitle props={props} depth2={depth2} />
       <div className="popular-set-menu">
         <div className="popular-set-menu-image">
-          <img
-            src="https://cdn.dominos.co.kr/admin/upload/event/20230519_217DoRW3.jpg"
-            alt="combo"
-          />
+          <Link to={`/popular/${comboList.id}`}>
+            <img src={comboList.image1} alt={comboList.name} />
+          </Link>
         </div>
         <div className="popular-set-menu-box">
-          <div className="popular-set-menu-title">콤보 밀</div>
+          <div className="popular-set-menu-title">{comboList.name}</div>
           <div className="popular-set-menu-title-date">
             2023-05-19 ~ 2024-06-30
           </div>
@@ -67,7 +81,9 @@ export default function PopularSetMenuProduct({ depth2 }) {
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </button>
       </div>
-      {isModalOpen && <PopularSetMenuModal onClose={closeModal} />}
+      {isModalOpen && (
+        <PopularSetMenuModal combo={comboList} onClose={closeModal} />
+      )}
     </div>
   );
 }

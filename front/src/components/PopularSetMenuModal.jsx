@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX } from "@fortawesome/free-solid-svg-icons";
 import PopularSetMenuModalInfo from "./PopularSetMenuModalInfo";
 
-export default function PopularSetMenuModal({ onClose }) {
+export default function PopularSetMenuModal({ combo, onClose }) {
   const modalRef = useRef(null);
   const [fadeOut, setFadeOut] = useState(false);
 
@@ -39,11 +39,11 @@ export default function PopularSetMenuModal({ onClose }) {
         onClick={(e) => e.stopPropagation()}
       >
         <div className="modal-popular-content">
-          <div className="modal-popular-title">콤보 밀</div>
+          <div className="modal-popular-title">{combo.name}</div>
           <button onClick={onClose} className="modalclosebtn">
             <FontAwesomeIcon icon={faX} />
           </button>
-          <PopularSetMenuModalInfo />
+          <PopularSetMenuModalInfo combo={combo} />
         </div>
       </div>
     </div>

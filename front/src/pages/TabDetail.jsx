@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import PageButtons from "../components/PageButtons";
 import "../css/service.css";
 import "../css/csCenter.css";
+import { getUser } from "../util/localStorage";
 
 export default function TabDetail({
   buttonList,
@@ -15,6 +16,7 @@ export default function TabDetail({
   const [activeIndex, setActiveIndex] = useState(-1); // 배열의 인덱스에서 -1 === 존재하지않음을 의미
 
   const answerRefs = useRef([]);
+  const userInfo = getUser();
 
   const QnA = [
     { question: tabList.q1, answer: tabList.a1 },
@@ -101,11 +103,19 @@ export default function TabDetail({
                 </div>
               )}
             </div>
-            {tabList.grade_btn && (
-              <a href="http://localhost:3000/login" className="grade-btn">
-                {tabList.grade_btn}
-              </a>
-            )}
+            {tabList.grade_btn &&
+              (userInfo ? (
+                <a
+                  href="http://localhost:3000/mypage/coupon"
+                  className="grade-btn"
+                >
+                  {tabList.grade_btn}
+                </a>
+              ) : (
+                <a href="http://localhost:3000/login" className="grade-btn">
+                  {tabList.grade_btn}
+                </a>
+              ))}
             {tabList.desc3 && (
               <div className="tab-detail-3">
                 <p>{tabList.desc3}</p>

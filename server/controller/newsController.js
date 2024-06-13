@@ -41,3 +41,20 @@ export const countNews = async (req, res) => {
   const result = await repository.countNews();
   res.json(result);
 };
+
+/*
+ * 이전prev, 다음next 게시글 가져오기 */
+export const getPrevNextNews = async (req, res) => {
+  const currentBid = parseInt(req.params.bid);
+  const prevBid = await repository.getPrevBid(currentBid);
+  const nextBid = await repository.getNextBid(currentBid);
+  const prevBtitle = await repository.getPrevBtitle(currentBid);
+  const nextBtitle = await repository.getNextBtitle(currentBid);
+
+  res.json({
+    prevBid: prevBid,
+    nextBid: nextBid,
+    prevBtitle: prevBtitle,
+    nextBtitle: nextBtitle,
+  });
+};

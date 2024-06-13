@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PageTitle from "../../components/PageTitle";
 import { getUser } from "../../util/localStorage";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function ServiceMoment({ depth2 }) {
@@ -33,7 +33,6 @@ export default function ServiceMoment({ depth2 }) {
   });
   const [selectedMonth, setSelectedMonth] = useState(1);
   const [dbData, setDbData] = useState([]);
-  const [isEditing, setIsEditing] = useState(false);
   const userInfo = getUser();
   const navigate = useNavigate();
 
@@ -159,56 +158,22 @@ export default function ServiceMoment({ depth2 }) {
         url: url,
         data: { userId: userInfo.userId },
       })
-        .then((res) => setDbData(res.data))
+        .then((res) => {
+          setDbData(res.data);
+          // console.log("dbData => ", dbData);
+        })
         .catch((error) => console.log(error));
     }
   }, [userInfo]);
 
   /*
-   * 수정 모드 */
-  useEffect(() => {
-    if (dbData) {
-      setMomentDesc(dbData.momentDesc || "");
-      setSavedMonth(dbData.savedMonth || "");
-      setSavedDay(dbData.savedDay || "");
-    }
-  }, [dbData]);
+   * 모멘트 수정 */
+  // const handleModify = (descNum) => {
+  //   setMomentDesc({ ...momentDesc, [descNum]: "" });
+  // };
 
-  const handleEditClick = () => {
-    setIsEditing(true);
-  };
-
-  const handleSaveClick = () => {
-    // 저장 로직을 여기에 추가
-    setIsEditing(false);
-  };
-
-  /*
-   * 수정 버튼 */
-  const handleModify = (descNum) => {
-    if (descNum === "desc1") {
-      setMomentDesc((prevMomentDesc) => ({
-        ...prevMomentDesc,
-        desc1: "",
-      }));
-      setSavedMonth(0);
-      setSavedDay(0);
-    } else if (descNum === "desc2") {
-      setMomentDesc((prevMomentDesc) => ({
-        ...prevMomentDesc,
-        desc2: "",
-      }));
-      setSavedMonth(0);
-      setSavedDay(0);
-    } else if (descNum === "desc3") {
-      setMomentDesc((prevMomentDesc) => ({
-        ...prevMomentDesc,
-        desc3: "",
-      }));
-      setSavedMonth(0);
-      setSavedDay(0);
-    }
-  };
+  // console.log("data 1 =>", dbData[1]);
+  // console.log("data 2 =>", dbData[2]);
 
   return (
     <div className="content">
@@ -224,216 +189,37 @@ export default function ServiceMoment({ depth2 }) {
             할인 쿠폰을 전달해 드립니다.
           </p>
         </div>
-        {isEditing ? (
+
+        {userInfo && dbData.length > 0 ? (
           <div className="moment-forms">
             <form onSubmit={saveButton("form1")}>
               <label>완벽한 피자가 필요한 첫 번째 순간</label>
-              <input
-                type="text"
-                name="desc1"
-                value={momentDesc.desc1}
-                onChange={handleDesc}
-                disabled
-              />
-              <select name="monthList" onChange={monthChange}>
-                <option value="month">월</option>
-                {monthList.map((item) => (
-                  <option value={item.month}>{item.month}</option>
-                ))}
-              </select>
-              <select name="dayList" onChange={dayChange}>
-                <option value="day">일</option>
-                {dateList.map((obj) => (
-                  <option value={obj.day}>{obj.day}</option>
-                ))}
-              </select>
-              <div className="btn-group">
-                {!isSaved.form1 ? (
-                  <button type="submit">저장</button>
-                ) : (
-                  <>
-                    <button type="button">수정</button>
-                    <button type="button" className="btn-group-red">
-                      발급
-                    </button>
-                  </>
-                )}
-              </div>
-            </form>
-            {/* isEditing true 버튼 폼 2 */}
-            <form onSubmit={saveButton("form2")}>
-              <label>완벽한 피자가 필요한 두 번째 순간</label>
-              <input
-                type="text"
-                name="desc1"
-                value={momentDesc.desc2}
-                onChange={handleDesc}
-              />
-              <select name="monthList" onChange={monthChange}>
-                <option value="month">월</option>
-                {monthList.map((item) => (
-                  <option value={item.month}>{item.month}</option>
-                ))}
-              </select>
-              <select name="dayList" onChange={dayChange}>
-                <option value="day">일</option>
-                {dateList.map((obj) => (
-                  <option value={obj.day}>{obj.day}</option>
-                ))}
-              </select>
-              <div className="btn-group">
-                {!isSaved.form1 ? (
-                  <button type="submit">저장</button>
-                ) : (
-                  <>
-                    <button type="button">수정</button>
-                    <button type="button" className="btn-group-red">
-                      발급
-                    </button>
-                  </>
-                )}
-              </div>
-            </form>
-            {/* isEditing true 버튼 폼 3 */}
-            <form onSubmit={saveButton("form3")}>
-              <label>완벽한 피자가 필요한 세 번째 순간</label>
-              <input
-                type="text"
-                name="desc1"
-                value={momentDesc.desc3}
-                onChange={handleDesc}
-              />
-              <select name="monthList" onChange={monthChange}>
-                <option value="month">월</option>
-                {monthList.map((item) => (
-                  <option value={item.month}>{item.month}</option>
-                ))}
-              </select>
-              <select name="dayList" onChange={dayChange}>
-                <option value="day">일</option>
-                {dateList.map((obj) => (
-                  <option value={obj.day}>{obj.day}</option>
-                ))}
-              </select>
-              <div className="btn-group">
-                {!isSaved.form1 ? (
-                  <button type="submit">저장</button>
-                ) : (
-                  <>
-                    <button type="button">수정</button>
-                    <button type="button" className="btn-group-red">
-                      발급
-                    </button>
-                  </>
-                )}
-              </div>
-            </form>
-          </div>
-        ) : (
-          <>
-            {userInfo && userInfo.userId && dbData.length > 0 ? (
-              <div className="moment-forms">
-                <form onSubmit={saveButton("form1")}>
-                  <label>완벽한 피자가 필요한 첫 번째 순간</label>
+              {dbData[0] ? (
+                <>
                   <input
+                    className="moment-form-db-input"
                     type="text"
                     name="desc1"
-                    value={dbData[0].momentDesc1}
-                    onChange={handleDesc}
-                    // disabled
-                  />
-                  <select name="monthList" onChange={monthChange} disabled>
-                    <option value={dbData[0].savedMonth1}>
-                      {dbData[0].savedMonth1}
-                    </option>
-                  </select>
-                  <select name="dayList" onChange={dayChange} disabled>
-                    <option value={dbData[0].savedDay1}>
-                      {dbData[0].savedDay1}
-                    </option>
-                  </select>
-                  <div className="btn-group">
-                    <button type="button" id="form1" onClick={handleEditClick}>
-                      수정
-                    </button>
-                    <button type="button" className="btn-group-red">
-                      발급
-                    </button>
-                  </div>
-                </form>
-                {/* userInfo true 버튼 폼 2 */}
-                <form onSubmit={saveButton("form2")}>
-                  <label>완벽한 피자가 필요한 두 번째 순간</label>
-                  <input
-                    type="text"
-                    name="desc1"
-                    value={dbData[1].momentDesc2}
+                    value={dbData[0] && dbData[0].momentDesc1}
                     disabled
                   />
                   <select name="monthList" onChange={monthChange} disabled>
-                    <option value={dbData[1].savedMonth2} disabled>
-                      {dbData[1].savedMonth2}
+                    <option value={dbData[0] && dbData[0].savedMonth1}>
+                      {dbData[0] && dbData[0].savedMonth1}
                     </option>
                   </select>
                   <select name="dayList" onChange={dayChange} disabled>
-                    <option value={dbData[1].savedDay2}>
-                      {dbData[1].savedDay2}
+                    <option value={dbData[0] && dbData[0].savedDay1}>
+                      {dbData[0] && dbData[0].savedDay1}
                     </option>
                   </select>
-                  <div className="btn-group">
-                    <button
-                      type="button"
-                      id="moment-modify"
-                      onClick={() => handleModify("desc2")}
-                    >
-                      수정
-                    </button>
-                    <button type="button" className="btn-group-red">
-                      발급
-                    </button>
-                  </div>
-                </form>
-                {/* userInfo true 버튼 폼 3 */}
-                <form onSubmit={saveButton("form3")}>
-                  <label>완벽한 피자가 필요한 세 번째 순간</label>
+                </>
+              ) : (
+                <>
                   <input
                     type="text"
-                    name="desc1"
-                    value={dbData[2].momentDesc3}
-                    disabled
-                  />
-                  <select name="monthList" onChange={monthChange} disabled>
-                    <option value={dbData[2].savedMonth3} disabled>
-                      {dbData[2].savedMonth3}
-                    </option>
-                  </select>
-                  <select name="dayList" onChange={dayChange} disabled>
-                    <option value={dbData[2].savedDay3}>
-                      {dbData[2].savedDay3}
-                    </option>
-                  </select>
-                  <div className="btn-group">
-                    <button
-                      type="button"
-                      id="moment-modify"
-                      onClick={() => handleModify("desc3")}
-                    >
-                      수정
-                    </button>
-                    <button type="button" className="btn-group-red">
-                      발급
-                    </button>
-                  </div>
-                </form>
-              </div>
-            ) : (
-              <div className="moment-forms">
-                <form onSubmit={saveButton("form1")}>
-                  <label>완벽한 피자가 필요한 첫 번째 순간</label>
-                  <input
-                    type="text"
-                    placeholder="예) 결혼기념일이에요"
-                    name="desc1"
+                    placeholder="예) 아이 태어난지 200일"
+                    name="desc2"
                     value={momentDesc.desc1}
                     onChange={handleDesc}
                   />
@@ -449,22 +235,41 @@ export default function ServiceMoment({ depth2 }) {
                       <option value={obj.day}>{obj.day}</option>
                     ))}
                   </select>
-                  <div className="btn-group">
-                    {!isSaved.form1 ? (
-                      <button type="submit">저장</button>
-                    ) : (
-                      <>
-                        <button type="button">수정</button>
-                        <button type="button" className="btn-group-red">
-                          발급
-                        </button>
-                      </>
-                    )}
-                  </div>
-                </form>
-                {/* 버튼 폼 2 */}
-                <form onSubmit={saveButton("form2")}>
-                  <label>완벽한 피자가 필요한 두 번째 순간</label>
+                </>
+              )}
+              <div className="btn-group">
+                <Link to="http://localhost:3000/mypage/coupon">
+                  <button type="button" className="btn-group-red">
+                    발급
+                  </button>
+                </Link>
+              </div>
+            </form>
+            {/* 버튼 폼 2 */}
+            <form onSubmit={saveButton("form2")}>
+              <label>완벽한 피자가 필요한 두 번째 순간</label>
+              {dbData[1] ? (
+                <>
+                  <input
+                    className="moment-form-db-input"
+                    type="text"
+                    name="desc2"
+                    value={dbData[1] && dbData[1].momentDesc2}
+                    disabled
+                  />
+                  <select name="monthList" onChange={monthChange} disabled>
+                    <option value={dbData[1] && dbData[1].savedMonth2}>
+                      {dbData[1] && dbData[1].savedMonth2}
+                    </option>
+                  </select>
+                  <select name="dayList" onChange={dayChange} disabled>
+                    <option value={dbData[1] && dbData[1].savedDay2}>
+                      {dbData[1] && dbData[1].savedDay2}
+                    </option>
+                  </select>
+                </>
+              ) : (
+                <>
                   <input
                     type="text"
                     placeholder="예) 아이 태어난지 200일"
@@ -484,22 +289,47 @@ export default function ServiceMoment({ depth2 }) {
                       <option value={obj.day}>{obj.day}</option>
                     ))}
                   </select>
-                  <div className="btn-group">
-                    {!isSaved.form2 ? (
-                      <button type="submit">저장</button>
-                    ) : (
-                      <>
-                        <button type="button">수정</button>
-                        <button type="button" className="btn-group-red">
-                          발급
-                        </button>
-                      </>
-                    )}
-                  </div>
-                </form>
-                {/* 버튼 폼 3 */}
-                <form onSubmit={saveButton("form3")}>
-                  <label>완벽한 피자가 필요한 세 번째 순간</label>
+                </>
+              )}
+              <div className="btn-group">
+                {!dbData[1] ? (
+                  <button type="submit">저장</button>
+                ) : (
+                  <>
+                    <Link to="http://localhost:3000/mypage/coupon">
+                      <button type="button" className="btn-group-red">
+                        발급
+                      </button>
+                    </Link>
+                  </>
+                )}
+              </div>
+            </form>
+            {/* 버튼 폼 3 */}
+            <form onSubmit={saveButton("form3")}>
+              <label>완벽한 피자가 필요한 세 번째 순간</label>
+              {dbData[2] && dbData[2].momentDesc3 ? (
+                <>
+                  <input
+                    className="moment-form-db-input"
+                    type="text"
+                    name="desc3"
+                    value={dbData[2] && dbData[2].momentDesc3}
+                    disabled
+                  />
+                  <select name="monthList" onChange={monthChange} disabled>
+                    <option value={dbData[2] && dbData[2].savedMonth3}>
+                      {dbData[2] && dbData[2].savedMonth3}
+                    </option>
+                  </select>
+                  <select name="dayList" onChange={dayChange} disabled>
+                    <option value={dbData[2] && dbData[2].savedDay3}>
+                      {dbData[2] && dbData[2].savedDay3}
+                    </option>
+                  </select>
+                </>
+              ) : (
+                <>
                   <input
                     type="text"
                     placeholder="예) 수능 끝나는 날!"
@@ -519,22 +349,130 @@ export default function ServiceMoment({ depth2 }) {
                       <option value={obj.day}>{obj.day}</option>
                     ))}
                   </select>
-                  <div className="btn-group">
-                    {!isSaved.form3 ? (
-                      <button type="submit">저장</button>
-                    ) : (
-                      <>
-                        <button type="button">수정</button>
-                        <button type="button" className="btn-group-red">
-                          발급
-                        </button>
-                      </>
-                    )}
-                  </div>
-                </form>
+                </>
+              )}
+              <div className="btn-group">
+                {!dbData[2] ? (
+                  <button type="submit">저장</button>
+                ) : (
+                  <>
+                    <Link to="http://localhost:3000/mypage/coupon">
+                      <button type="button" className="btn-group-red">
+                        발급
+                      </button>
+                    </Link>
+                  </>
+                )}
               </div>
-            )}
-          </>
+            </form>
+          </div>
+        ) : (
+          <div className="moment-forms">
+            <form onSubmit={saveButton("form1")}>
+              <label>완벽한 피자가 필요한 첫 번째 순간</label>
+              <input
+                type="text"
+                placeholder="예) 결혼기념일이에요"
+                name="desc1"
+                value={momentDesc.desc1}
+                onChange={handleDesc}
+              />
+              <select name="monthList" onChange={monthChange}>
+                <option value="month">월</option>
+                {monthList.map((item) => (
+                  <option value={item.month}>{item.month}</option>
+                ))}
+              </select>
+              <select name="dayList" onChange={dayChange}>
+                <option value="day">일</option>
+                {dateList.map((obj) => (
+                  <option value={obj.day}>{obj.day}</option>
+                ))}
+              </select>
+              <div className="btn-group">
+                {!isSaved.form1 ? (
+                  <button type="submit">저장</button>
+                ) : (
+                  <>
+                    <button type="button">수정</button>
+                    <button type="button" className="btn-group-red">
+                      발급
+                    </button>
+                  </>
+                )}
+              </div>
+            </form>
+            {/* 버튼 폼 2 */}
+            <form onSubmit={saveButton("form2")}>
+              <label>완벽한 피자가 필요한 두 번째 순간</label>
+              <input
+                type="text"
+                placeholder="예) 아이 태어난지 200일"
+                name="desc2"
+                value={momentDesc.desc2}
+                onChange={handleDesc}
+              />
+              <select name="monthList" onChange={monthChange}>
+                <option value="month">월</option>
+                {monthList.map((item) => (
+                  <option value={item.month}>{item.month}</option>
+                ))}
+              </select>
+              <select name="dayList" onChange={dayChange}>
+                <option value="day">일</option>
+                {dateList.map((obj) => (
+                  <option value={obj.day}>{obj.day}</option>
+                ))}
+              </select>
+              <div className="btn-group">
+                {!isSaved.form2 ? (
+                  <button type="submit">저장</button>
+                ) : (
+                  <>
+                    <button type="button">수정</button>
+                    <button type="button" className="btn-group-red">
+                      발급
+                    </button>
+                  </>
+                )}
+              </div>
+            </form>
+            {/* 버튼 폼 3 */}
+            <form onSubmit={saveButton("form3")}>
+              <label>완벽한 피자가 필요한 세 번째 순간</label>
+              <input
+                type="text"
+                placeholder="예) 수능 끝나는 날!"
+                name="desc3"
+                value={momentDesc.desc3}
+                onChange={handleDesc}
+              />
+              <select name="monthList" onChange={monthChange}>
+                <option value="month">월</option>
+                {monthList.map((item) => (
+                  <option value={item.month}>{item.month}</option>
+                ))}
+              </select>
+              <select name="dayList" onChange={dayChange}>
+                <option value="day">일</option>
+                {dateList.map((obj) => (
+                  <option value={obj.day}>{obj.day}</option>
+                ))}
+              </select>
+              <div className="btn-group">
+                {!isSaved.form3 ? (
+                  <button type="submit">저장</button>
+                ) : (
+                  <>
+                    <button type="button">수정</button>
+                    <button type="button" className="btn-group-red">
+                      발급
+                    </button>
+                  </>
+                )}
+              </div>
+            </form>
+          </div>
         )}
 
         <div className="div-line"></div>

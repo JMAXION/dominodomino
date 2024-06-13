@@ -77,7 +77,6 @@ import ServiceMoment from "./pages/service/ServiceMoment.jsx";
 import ServiceQuick from "./pages/service/ServiceQuick.jsx";
 /* news */
 import News from "./pages/news/News.jsx";
-import Announce from "./pages/news/Announce.jsx";
 import NewsContent from "./pages/news/NewsContent.jsx";
 /* gift */
 import Gift from "./pages/Gift.jsx";
@@ -241,10 +240,6 @@ export default function App() {
         {
           path: "/news/:bid/:rno",
           element: <NewsContent depth2={"도미노뉴스"} />,
-        },
-        {
-          path: "/announce",
-          element: <Announce depth2={"보도자료"} />,
         },
         {
           path: "/gift",

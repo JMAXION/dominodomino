@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import MapContainerModal from "./MapContainerModal";
 import { Link, useNavigate } from "react-router-dom";
+import OrderWay from "./OrderWay";
 
 const { kakao } = window;
 
@@ -276,7 +277,7 @@ const MapContainer = () => {
                     >
                       <Link
                         to="/orderway"
-                        state={{ orderType: "pickup" }}
+                        state={{ orderType: "pickup", place: place }}
                         style={{ color: "white" }}
                       >
                         방문포장

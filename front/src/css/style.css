@@ -278,6 +278,22 @@
   width: 100%;
   border: 1px solid #777;
 }
+.signup-congrat {
+  margin: 1rem 0;
+}
+.signup-congrats {
+  font-size: 2rem;
+  color: black;
+  margin: 1rem 0;
+}
+.signup-login-button {
+  width: 200px;
+  height: 50px;
+  color: white;
+  border: none;
+  background-color: red;
+  font-size: 2rem;
+}
 /* !!지도!!! */
 
 .infowindow {
@@ -509,6 +525,11 @@
 .orderlist-info li:first-child {
   font-size: 2rem;
 } */
+.personal-information {
+  display: flex;
+  justify-content: left;
+  gap: 8px;
+}
 .order-info {
   background-color: black;
   color: white;
@@ -689,6 +710,18 @@
   display: table-row;
   text-align: center;
   border-bottom: 1px solid black;
+}
+.personal {
+  margin-bottom: 2rem;
+}
+.personal-info {
+  margin: 2rem 0;
+}
+.personal-information {
+  margin: 2rem 0;
+}
+.personal-information ul li {
+  font-size: 1rem;
 }
 
 /* !!홈화면 쿠폰!! */

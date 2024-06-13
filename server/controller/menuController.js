@@ -1,4 +1,20 @@
 import * as repository from "../repository/menuRepository.js";
+
+export const getPizzas = async (req, res) => {
+  const event = await repository.getPizzas();
+
+  res.json(event);
+  res.end();
+};
+
+export const getPizzasDetail = async (req, res) => {
+  const { id } = req.params;
+  const event = await repository.getPizzasDetail(id);
+
+  res.json(event);
+  res.end();
+};
+
 export const getPizza = async (req, res) => {
   const halfChoice = req.body;
 

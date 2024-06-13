@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronRight,
@@ -12,9 +12,8 @@ import OrderWayModal from "./OrderWayModal";
 import PageTitle from "./PageTitle";
 
 export default function OrderWay({ depth2 }) {
-  const location = useLocation();
+  const location = useLocation({});
   const [orderType, setOrderType] = useState(location.state?.orderType || null);
-
   const [props, setprops] = useState({
     title: "주문방법 선택",
     // breadcrumbLink: "/law"
@@ -22,7 +21,9 @@ export default function OrderWay({ depth2 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalType, setModalType] = useState("");
   const [animationClass, setAnimationClass] = useState("");
+  const [addresses, setAddresses] = useState([]);
 
+  console.log(location.state.place);
   useEffect(() => {
     let timer;
     if (isModalOpen) {
@@ -45,7 +46,9 @@ export default function OrderWay({ depth2 }) {
     setModalType("");
   };
 
-  /*   const [orderType, setOrderType] = useState(null); */
+  const handleAddress = (address) => {
+    setAddresses((prevAddresses) => [...prevAddresses, address]);
+  };
 
   const renderContent = () => {
     if (orderType === "delivery") {
@@ -66,27 +69,81 @@ export default function OrderWay({ depth2 }) {
             </div>
           </div>
           <div className="tip-box">야외에서도 피자배달</div>
-          <div className="order-box">
-            <div className="order-content">
-              <div className="order-content-text">
-                <FontAwesomeIcon icon={faTriangleExclamation} /> 배달주소를
-                등록해주세요.
-              </div>
-              <button
-                className="order-content-button"
-                onClick={() => {
-                  openModal("address");
-                }}
-              >
-                <FontAwesomeIcon icon={faPlus} /> 배달주소 등록
-              </button>
+
+          {addresses.length > 0 ? (
+            <div className="order-box-content">
+              {addresses.map((address, index) => (
+                <div key={index} className="address-box">
+                  <div>
+                    <input type="radio" />
+                    {address}
+                  </div>
+                </div>
+              ))}
             </div>
-          </div>
+          ) : (
+            <div className="order-box">
+              <div className="order-content">
+                <div className="order-content-text">
+                  <FontAwesomeIcon icon={faTriangleExclamation} /> 배달주소를
+                  등록해주세요.
+                </div>
+                <button
+                  className="order-content-button"
+                  onClick={() => {
+                    openModal("address");
+                  }}
+                >
+                  <FontAwesomeIcon icon={faPlus} /> 배달주소 등록
+                </button>
+              </div>
+            </div>
+          )}
           <div className="order-content-tip">
-            <span className="order-content-tip-text">
-              *배달주소는 최대 10개까지만 등록 가능합니다.
-            </span>
+            {addresses.length > 0 ? (
+              <div className="delivery-box2">
+                <button
+                  className="order-content-button"
+                  onClick={() => {
+                    openModal("address");
+                  }}
+                >
+                  <FontAwesomeIcon icon={faPlus} /> 배달주소 등록
+                </button>
+                <span className="order-content-tip-text">
+                  *배달주소는 최대 10개까지만 등록 가능합니다.
+                </span>
+              </div>
+            ) : (
+              <span className="order-content-tip-text">
+                *배달주소는 최대 10개까지만 등록 가능합니다.
+              </span>
+            )}
           </div>
+          {addresses.length > 0 ? (
+            <div className="order-select" style={{ padding: "55px 0" }}>
+              <ul>
+                <li>개인정보 수집 이용 동의(필수)</li>
+                <li>수집정보 : 배달지 주소</li>
+                <li>수집목적 : 제품 배달서비스 제공</li>
+                <li>보유기간 : 관련 법령에 따라 보관 후 파기</li>
+              </ul>
+              <ul className="order-select-button">
+                <li>
+                  개인정보 수집 및 이용에 동의하며 선택한 배달주소로
+                  <br /> 주문을 진행하시겠습니까?
+                </li>
+                <button className="order-select-button-button">
+                  <Link to="/pizzas" style={{ color: "white" }}>
+                    메뉴 선택
+                  </Link>
+                </button>
+              </ul>
+            </div>
+          ) : (
+            <p style={{ "padding-bottom": "110px" }}></p>
+          )}
+          <div></div>
         </>
       );
     } else if (orderType === "pickup") {
@@ -109,25 +166,78 @@ export default function OrderWay({ depth2 }) {
           </div>
 
           <div className="order-box">
-            <div className="order-content">
-              <div className="order-content-text">
-                <FontAwesomeIcon icon={faTriangleExclamation} /> 포장매장을
-                등록해주세요.
+            {location ? (
+              <div className="order-box-content2">
+                <input type="radio" />
+                {location.state.place.name}
+                <p>
+                  <li>{location.state.place.address}</li>
+                  <li>{location.state.place.phone}</li>
+                </p>
               </div>
-              <button
-                className="order-content-button"
-                onClick={() => {
-                  openModal("store");
-                }}
-              >
-                <FontAwesomeIcon icon={faPlus} /> 포장매장 등록
-              </button>
-            </div>
+            ) : (
+              <div className="order-content">
+                <div className="order-content-text">
+                  <FontAwesomeIcon icon={faTriangleExclamation} />
+                  포장매장을 등록해주세요.
+                </div>
+                <button
+                  className="order-content-button"
+                  onClick={() => {
+                    openModal("store");
+                  }}
+                >
+                  <FontAwesomeIcon icon={faPlus} /> 포장매장 등록
+                </button>
+              </div>
+            )}
           </div>
           <div className="order-content-tip">
-            <span className="order-content-tip-text">
-              *포장매장은 최대 5개까지만 등록 가능합니다.
-            </span>
+            {location ? (
+              <div className="delivery-box2">
+                <button
+                  className="order-content-button"
+                  onClick={() => {
+                    openModal("store");
+                  }}
+                >
+                  <FontAwesomeIcon icon={faPlus} /> 배달주소 등록
+                </button>
+                <span className="order-content-tip-text">
+                  *포장매장은 최대 5개까지만 등록 가능합니다.
+                </span>
+              </div>
+            ) : (
+              <span className="order-content-tip-text">
+                *포장매장은 최대 5개까지만 등록 가능합니다.
+              </span>
+            )}
+            {location ? (
+              <div
+                className="order-select"
+                style={{ color: "black", padding: "55px 0" }}
+              >
+                <ul>
+                  <li>개인정보 수집 이용 동의(필수)</li>
+                  <li>수집정보 : 배달지 주소</li>
+                  <li>수집목적 : 제품 배달서비스 제공</li>
+                  <li>보유기간 : 관련 법령에 따라 보관 후 파기</li>
+                </ul>
+                <ul className="order-select-button">
+                  <li>
+                    개인정보 수집 및 이용에 동의하며 선택한 배달주소로
+                    <br /> 주문을 진행하시겠습니까?
+                  </li>
+                  <button className="order-select-button-button">
+                    <Link to="/pizzas" style={{ color: "white" }}>
+                      메뉴 선택
+                    </Link>
+                  </button>
+                </ul>
+              </div>
+            ) : (
+              <p style={{ "padding-bottom": "110px" }}></p>
+            )}
           </div>
         </>
       );
@@ -157,7 +267,13 @@ export default function OrderWay({ depth2 }) {
           </li>
         </ul>
         <div>{renderContent()}</div>
-        {isModalOpen && <OrderWayModal type={modalType} onClose={closeModal} />}
+        {isModalOpen && (
+          <OrderWayModal
+            type={modalType}
+            onClose={closeModal}
+            handleAddress={handleAddress}
+          />
+        )}
       </div>
     </>
   );

@@ -20,3 +20,11 @@ export const getLogin = async (req, res) => {
   res.json(result);
   res.end();
 };
+
+export const getUserInfo = async (req, res) => {
+  const { userId } = req.params;
+  console.log(userId);
+  const result = await repository.getUserInfo(userId);
+  res.json(result);
+  res.end();
+};

@@ -106,6 +106,18 @@ export default function PageTitle({ props, depth2 }) {
               </Link>
             </li>
           )}
+          {props.nav6 && (
+            <li>
+              <Link
+                to={props.link6}
+                className={`pageTitle-link ${
+                  props.nav6 === depth2 ? "bold" : ""
+                }`}
+              >
+                {props.nav6}
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
     </div>

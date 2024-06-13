@@ -1,4 +1,4 @@
-/* category 1 :하프앤하프, 하프앤하프 시그니처
+/* category 1 : 하프앤하프, 하프앤하프 시그니처
 			2 : 공용 (프리미엄, 클래식)
             3 : 치즈크래이프
             
@@ -13,9 +13,35 @@
             클래식 : 			 400,
 */
 
-insert into pizza (menuimg, halfimg,  pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+    
+    desc pizza;
+    
+    alter table pizza add mcategory char(17)
+    
+select * from pizza where pid in (1, 2, 3, 4);
+update pizza set mcategory = 'new' where pid in (1, 2, 3, 4);
+
+select * from pizza where pid in (5, 6, 7, 8, 9, 10, 11);
+update pizza set mcategory = '프리미엄' where pid in (5, 6, 7, 8, 9, 10, 11);
+
+select * from pizza where pid in (12, 13, 14, 15);
+update pizza set mcategory = '하프앤하프 시그니처' where pid in (12, 13, 14, 15);
+
+select * from pizza where pid in (16, 17, 18, 19, 20, 21, 22, 23, 24);
+update pizza set mcategory = '클래식' where pid in (16, 17, 18, 19, 20, 21, 22, 23, 24);
+
+select * from pizza where pid in (25, 26, 27, 28, 29);
+update pizza set mcategory = 'Happy Daily Pizza' where pid in (25, 26, 27, 28, 29);
+
+    select * from pizza;
+    
+select pid, menuimg, pname, lprice, mprice, desc1, desc2, category, pcode, ptype, did, ecategory, ecode, etype from pizza
+where pid = 2;
+    
+insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20240326_Td6eyIV8.jpg',
 		NULL,
+        'new',
 		'맥콘 베이컨+클래식 리코타',
         16900,
         NULL,
@@ -33,9 +59,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20240326_Td6eyIV8.jpg',
         ); -- 
         
         
-        insert into pizza (menuimg, halfimg,  pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did, ecategory, ecode, etype)
+        insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did, ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20240326_Sby1plV9.jpg',
 		NULL,
+		'new',
 		'클래식 리코타+소시지 맥스',
         17400,
         NULL,
@@ -52,9 +79,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20240326_Sby1plV9.jpg',
         100
         ); -- 
         
-insert into pizza (menuimg, halfimg,  pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20240326_0j7mUmht.jpg',
 		NULL,
+		'new',
 		'맥콘 베이컨+마라 불고기',
         17400,
         NULL,
@@ -71,9 +99,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20240326_0j7mUmht.jpg',
         100
         ); --
         
-insert into pizza (menuimg, halfimg,  pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20240326_8lirinP7.jpg',
 		NULL,
+        'new',
 		'소시지 맥스+맵퍼로니',
         17900,
         NULL,
@@ -90,10 +119,11 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20240326_8lirinP7.jpg',
         100
         ); -- 
         
-        insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+        insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20231215_965Hu68d.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ303.png',
-		'브리스킷 바비Q',
+		NULL,
+        '브리스킷 바비Q',
         34900,
         29000,
         '#4가지 페퍼(블랙, 핑크, 화이트, 그린)로 시즈닝한 육즙 가득 브리스킷 스테이크!',
@@ -108,8 +138,9 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20231215_965Hu68d.jpg',
         20,
         200
         ); -- 
-             insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+             insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20231215_965Hu68d.jpg',
+		NULL,
 		NULL,
 		'치즈 크레이프 샌드',
         34900,
@@ -126,10 +157,11 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20231215_965Hu68d.jpg',
         NULL,
         NULL
         ); -- 
-insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20230619_hybtjkBv.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ290.png',
-		'아보카도 새우',
+        NULL,
+        '아보카도 새우',
         27900,
         20500,
         '#슈퍼시드 화이버 함유 도우로 더 맛있게!',
@@ -144,10 +176,11 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20230619_hybtjkBv.jpg',
         20,
         200
         ); --    
-insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20220830_c3Lh4i3H.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ271.png',
-		'와일드 와일드 웨스트 스테이크',
+		NULL,
+        '와일드 와일드 웨스트 스테이크',
         33900,
         28000,
         '#‘카우보이’들이 즐겨 먹던 정통  [그릴드 비프 스테이크]의 재현!',
@@ -162,10 +195,11 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20220830_c3Lh4i3H.jpg',
         20,
         200
         ); -- 
-insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20200508_780B32i8.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ147.png',
-		'블랙타이거 슈림프',
+		'시그니처',
+        '블랙타이거 슈림프',
         36900,
         30000,
         '#바다와 육지의 대왕이 하나로',
@@ -180,9 +214,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20200508_780B32i8.jpg',
         20,
         200
         ); -- 
-insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20240202_sbiAs79R.jpg',
 		NULL,
+        NULL,
 		'블록버스터4',
         36900,
         29500,
@@ -198,9 +233,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20240202_sbiAs79R.jpg',
         20,
         200
         );
- insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+ insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20240202_0Ygu00x1.jpg',
 		NULL,
+        NULL,
 		'베스트 콰트로',
         36900,
         29500,
@@ -216,9 +252,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20240202_0Ygu00x1.jpg',
         20,
         200
         );       
- insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+ insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20231227_0BKB2s9e.jpg',
 		NULL,
+        NULL,
 		'포테이토+블랙타이거 슈림프',
         32400,
         NULL,
@@ -234,9 +271,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20231227_0BKB2s9e.jpg',
         20,
         200
         );
- insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+ insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20231228_CjNhF3p6.jpg',
 		NULL,
+        NULL,
 		'포테이토+브리스킷 바비Q',
         31400,
         NULL,
@@ -252,9 +290,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20231228_CjNhF3p6.jpg',
         20,
         200
         );
- insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+ insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20231228_0c8FwrVd.jpg',
 		NULL,
+        NULL,
 		'포테이토+와일드 와일드 웨스트 스테이크',
         30900,
         NULL,
@@ -270,9 +309,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20231228_0c8FwrVd.jpg',
         20,
         200
         );  
- insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+ insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20231228_06rzLr6l.jpg',
 		NULL,
+        NULL,
 		'포테이토+아보카도 새우',
         27900,
         NULL,
@@ -289,9 +329,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20231228_06rzLr6l.jpg',
         200
         );  
         
-         insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+         insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20200311_M9Q50gtd.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ011.png',
+        '시그니처',
 		'포테이토',
         27900,
         20500,
@@ -307,9 +348,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20200311_M9Q50gtd.jpg',
         20,
         200
         );
-                 insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+                 insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20210226_GYHC7RpD.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ223.png',
+        NULL,
 		'뉴욕 오리진',
         29900,
         22500,
@@ -325,9 +367,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20210226_GYHC7RpD.jpg',
         20,
         200
         );
-                         insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+                         insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20200508_gH22my39.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ169.png',
+        NULL,
 		'리얼불고기',
         29900,
         22500,
@@ -343,9 +386,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20200508_gH22my39.jpg',
         20,
         200
         );
-insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20230619_F33836Pn.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ159.png',
+        NULL,
 		'우리 고구마',
         30900,
         23500,
@@ -361,9 +405,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20230619_F33836Pn.jpg',
         20,
         200
         );
-			insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+			insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20200311_5MGKbxlW.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ005.png',
+        NULL,
 		'슈퍼디럭스',
         28900,
         21500,
@@ -379,9 +424,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20200311_5MGKbxlW.jpg',
         20,
         200
         );
- 			insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+ 			insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20230619_x2PSzFyC.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ001.png',
+        NULL,
 		'슈퍼슈프림',
         27900,
         20500,
@@ -397,9 +443,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20230619_x2PSzFyC.jpg',
         20,
         200
         );       
-insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20200311_Qtn75KSM.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ003.png',
+        NULL,
 		'베이컨체더치즈',
         27900,
         20500,
@@ -416,9 +463,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20200311_Qtn75KSM.jpg',
         200
         );       
 
-insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20200311_x8StB1t3.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ007.png',
+        NULL,
 		'페퍼로니',
         25900,
         18500,
@@ -434,9 +482,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20200311_x8StB1t3.jpg',
         20,
         200
         );     
-insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20200311_TI57KvOH.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ010.png',
+        NULL,
 		'치즈',
         23900,
         16500,
@@ -452,9 +501,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20200311_TI57KvOH.jpg',
         20,
         200
         );     
- insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+ insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20240214_33E9Qk13.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ319.png',
+        NULL,
 		'맥콘 베이컨',
         16900,
         NULL,
@@ -470,9 +520,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20240214_33E9Qk13.jpg',
         40,
         100
         ); 
- insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+ insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20240214_AS3t09AV.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ318.png',
+        NULL,
 		'클래식 리코타',
         16900,
         NULL,
@@ -488,9 +539,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20240214_AS3t09AV.jpg',
         40,
         100
         );            
- insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+ insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20240214_Q4M8TZ4u.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ315.png',
+        NULL,
 		'맵퍼로니',
         17900,
         NULL,
@@ -506,9 +558,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20240214_Q4M8TZ4u.jpg',
         40,
         100
         );
- insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+ insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20240214_sLfmidPm.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ316.png',
+        NULL,
 		'마라 불고기',
         17900,
         NULL,
@@ -524,9 +577,10 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20240214_sLfmidPm.jpg',
         40,
         100
         );                
- insert into pizza (menuimg, halfimg, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
+ insert into pizza (menuimg, halfimg, lable, pname, lprice, mprice, desc1, desc2, country, topping, category,pcode,ptype, did,ecategory, ecode, etype)
 values('https://cdn.dominos.co.kr/admin/upload/goods/20240214_8rBc1T61.jpg',
 		'https://cdn.dominos.co.kr/admin/upload/hnh/RPZ317.png',
+        NULL,
 		'소시지 맥스',
         17900,
         NULL,
@@ -582,11 +636,11 @@ values('https://cdn.dominos.co.kr/admin/upload/goods/20240214_8rBc1T61.jpg',
         select * from pizza;
         
         
-   select pid as id, halfimg as img, pname, lprice, mprice, category,pcode ptype, did, ecategory, ecode, etype from pizza
+   select pid as id, halfimg as img, lable, pname, lprice, mprice, category,pcode ptype, did, ecategory, ecode, etype from pizza
     where pid = 2;
 
 use hrdb2019;
-	select pid as id, menuimg, halfimg, pname, lprice, mprice, category, ptype,pcode, did, ecategory, ecode, etype from pizza
+	select pid as id, menuimg, halfimg,lable, pname, lprice, mprice, category, ptype,pcode, did, ecategory, ecode, etype from pizza
     where ptype between 200 AND 400
     AND pcode between 20 AND 40
     AND NOT pname = '치즈 크레이프 샌드' AND NOT pname= '블록버스터4' AND NOT pname= '베스트 콰트로'      
@@ -607,7 +661,7 @@ use hrdb2019;
     
     
     
-    select pid as id, halfimg as img, pname, lprice, mprice, category, ptype,pcode, did, ecategory, ecode, etype from pizza
+    select pid as id, halfimg as img, lable, pname, lprice, mprice, category, ptype,pcode, did, ecategory, ecode, etype from pizza
         where category  = 1
         AND NOT pid = 6 AND NOT pname= '블록버스터4' AND NOT pname= '베스트 콰트로'
         AND NOT ptype = 300;

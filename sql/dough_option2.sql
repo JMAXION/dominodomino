@@ -8,6 +8,8 @@ CREATE TABLE dough_option(
                           ptype INT
                           );
                           
+                          select * from dough_option;
+                          
                           
 insert into dough_option(dname, dprice,category,pcode,ptype) values ('나폴리도우', 0, 1, 50, 500);
 insert into dough_option(dname, dprice,category,pcode,ptype) values ('오리지널 슈퍼시드 화이버 함유 도우', 3000,2,20,200);

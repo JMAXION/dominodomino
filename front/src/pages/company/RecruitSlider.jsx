@@ -43,7 +43,7 @@ export default class RecruitSlider extends Component {
       slidesToScroll: 1,
       centerMode: true,
       centerPadding: 0,
-      initialSlide: 2,
+      initialSlide: 0,
     };
 
     return (

@@ -25,6 +25,7 @@ export default function CsCenter({ depth2 }) {
   // 검색 기능 구현
   const [searchInput, setSearchInput] = useState("");
   const [filteredResults, setFilteredResults] = useState([]);
+  const [dbFilteredResults, setDbFilteredResults] = useState([]);
   const [isFiltered, setIsFiltered] = useState(false);
   // 토글 답변 크기용
   const answerRefs = useRef([]);
@@ -44,6 +45,66 @@ export default function CsCenter({ depth2 }) {
   const handleTabClick = (tabNum) => {
     setActiveTab(tabNum);
     setIsFiltered(false);
+    setDbFilteredResults([]);
+  };
+
+  /* 검색 value 저장 */
+  // useEffect(() => {
+  //   if (searchInput) {
+  //     setFilteredResults(searchInput);
+  //   } else {
+  //     setFilteredResults([]);
+  //   }
+  // }, [searchInput]);
+
+  /* 검색 결과 가져오기 */
+  const searchDatabase = async (searchInput) => {
+    try {
+      const url = "http://localhost:8080/cs/search";
+      const response = await axios.post(url, { searchInput: searchInput });
+      console.log("response.data => ", response.data);
+
+      const data = response.data;
+      const transformedData = [];
+      let question = null;
+
+      data.forEach((item) => {
+        if (item.type === "Q") {
+          question = item.content;
+        } else if (item.type === "A" && question) {
+          transformedData.push({ question, answer: item.content });
+          question = null;
+        }
+      });
+
+      setDbFilteredResults(transformedData);
+      // console.log("response.data => ", response.data);
+      // setDbFilteredResults(response.data);
+    } catch (error) {
+      console.error("Error in searchDatabase:", error);
+    }
+  };
+
+  // 순환 참조 감지 및 제거 함수
+  const removeCircularReferences = (obj) => {
+    const seen = new WeakSet();
+    return JSON.parse(
+      JSON.stringify(obj, (key, value) => {
+        if (typeof value === "object" && value !== null) {
+          if (seen.has(value)) {
+            return;
+          }
+          seen.add(value);
+        }
+        return value;
+      })
+    );
+  };
+
+  const handleSubmit = async () => {
+    const input = searchInput; // 예시 입력값
+    const sanitizedInput = removeCircularReferences(input);
+    await searchDatabase(sanitizedInput);
   };
 
   /*
@@ -139,7 +200,7 @@ export default function CsCenter({ depth2 }) {
               onChange={(e) => setSearchInput(e.target.value)}
             />
             <div className="cs-search-btn">
-              <button type="submit" onClick={handleSearch}>
+              <button type="submit" onClick={handleSubmit}>
                 <FontAwesomeIcon icon={faMagnifyingGlass} />
               </button>
             </div>
@@ -153,10 +214,9 @@ export default function CsCenter({ depth2 }) {
           onPageBtnClick={onPageBtnClick}
           handleCid={handleCid}
         />
-
-        {activeTab === "tab1" && (
+        {dbFilteredResults.length > 0 ? (
           <div className="cs-qnaBox">
-            {(isFiltered ? filteredResults : qnaList)
+            {dbFilteredResults
               .filter((item) => item.question)
               .map((item, index) => (
                 <div key={index} className="cs-qna">
@@ -197,314 +257,367 @@ export default function CsCenter({ depth2 }) {
                 </div>
               ))}
           </div>
-        )}
-        {activeTab === "tab2" && (
-          <div className="cs-qnaBox">
-            {(isFiltered ? filteredResults : qnaList)
-              .filter((item) => item.question)
-              .map((item, index) => (
-                <div key={index} className="cs-qna">
-                  <div
-                    className="cs-qna-toggle"
-                    onClick={() => toggleIsActive(index)}
-                  >
-                    <button>
-                      <div className="cs-qna-text">
-                        <span>Q</span>
-                        <span>{item.question}</span>
-                        <span className="cs-qna-text-v">
-                          {activeIndex === index ? "ᐱ" : "ᐯ"}
-                        </span>
-                      </div>
-                    </button>
-                  </div>
-                  {item.answer && (
-                    <div
-                      className={`cs-qna-answerBox ${
-                        activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
-                      }`}
-                      ref={(el) => (answerRefs.current[index] = el)}
-                    >
-                      <div>
-                        <span>A</span>
-                        <div className="cs-answer-line">
-                          {item.answer.split("\n").map((text) => (
-                            <div>
-                              {text}
-                              <br />
+        ) : (
+          <>
+            {activeTab === "tab1" && (
+              <div className="cs-qnaBox">
+                {
+                  // (isFiltered ? filteredResults : qnaList)
+                  qnaList
+                    .filter((item) => item.question)
+                    .map((item, index) => (
+                      <div key={index} className="cs-qna">
+                        <div
+                          className="cs-qna-toggle"
+                          onClick={() => toggleIsActive(index)}
+                        >
+                          <button>
+                            <div className="cs-qna-text">
+                              <span>Q</span>
+                              <span>{item.question}</span>
+                              <span className="cs-qna-text-v">
+                                {activeIndex === index ? "ᐱ" : "ᐯ"}
+                              </span>
                             </div>
-                          ))}
+                          </button>
                         </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-          </div>
-        )}
-        {activeTab === "tab3" && (
-          <div className="cs-qnaBox">
-            {(isFiltered ? filteredResults : qnaList)
-              .filter((item) => item.question)
-              .map((item, index) => (
-                <div key={index} className="cs-qna">
-                  <div
-                    className="cs-qna-toggle"
-                    onClick={() => toggleIsActive(index)}
-                  >
-                    <button>
-                      <div className="cs-qna-text">
-                        <span>Q</span>
-                        <span>{item.question}</span>
-                        <span className="cs-qna-text-v">
-                          {activeIndex === index ? "ᐱ" : "ᐯ"}
-                        </span>
-                      </div>
-                    </button>
-                  </div>
-                  {item.answer && (
-                    <div
-                      className={`cs-qna-answerBox ${
-                        activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
-                      }`}
-                      ref={(el) => (answerRefs.current[index] = el)}
-                    >
-                      <div>
-                        <span>A</span>
-                        <div className="cs-answer-line">
-                          {item.answer.split("\n").map((text) => (
+                        {item.answer && (
+                          <div
+                            className={`cs-qna-answerBox ${
+                              activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
+                            }`}
+                            ref={(el) => (answerRefs.current[index] = el)}
+                          >
                             <div>
-                              {text}
-                              <br />
+                              <span>A</span>
+                              <div className="cs-answer-line">
+                                {item.answer.split("\n").map((text) => (
+                                  <div>
+                                    {text}
+                                    <br />
+                                  </div>
+                                ))}
+                              </div>
                             </div>
-                          ))}
+                          </div>
+                        )}
+                      </div>
+                    ))
+                }
+              </div>
+            )}
+            {activeTab === "tab2" && (
+              <div className="cs-qnaBox">
+                {
+                  // (isFiltered ? filteredResults : qnaList)
+                  qnaList
+                    .filter((item) => item.question)
+                    .map((item, index) => (
+                      <div key={index} className="cs-qna">
+                        <div
+                          className="cs-qna-toggle"
+                          onClick={() => toggleIsActive(index)}
+                        >
+                          <button>
+                            <div className="cs-qna-text">
+                              <span>Q</span>
+                              <span>{item.question}</span>
+                              <span className="cs-qna-text-v">
+                                {activeIndex === index ? "ᐱ" : "ᐯ"}
+                              </span>
+                            </div>
+                          </button>
                         </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-          </div>
-        )}
-        {activeTab === "tab4" && (
-          <div className="cs-qnaBox">
-            {(isFiltered ? filteredResults : qnaList)
-              .filter((item) => item.question)
-              .map((item, index) => (
-                <div key={index} className="cs-qna">
-                  <div
-                    className="cs-qna-toggle"
-                    onClick={() => toggleIsActive(index)}
-                  >
-                    <button>
-                      <div className="cs-qna-text">
-                        <span>Q</span>
-                        <span>{item.question}</span>
-                        <span className="cs-qna-text-v">
-                          {activeIndex === index ? "ᐱ" : "ᐯ"}
-                        </span>
-                      </div>
-                    </button>
-                  </div>
-                  {item.answer && (
-                    <div
-                      className={`cs-qna-answerBox ${
-                        activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
-                      }`}
-                      ref={(el) => (answerRefs.current[index] = el)}
-                    >
-                      <div>
-                        <span>A</span>
-                        <div className="cs-answer-line">
-                          {item.answer.split("\n").map((text) => (
+                        {item.answer && (
+                          <div
+                            className={`cs-qna-answerBox ${
+                              activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
+                            }`}
+                            ref={(el) => (answerRefs.current[index] = el)}
+                          >
                             <div>
-                              {text}
-                              <br />
+                              <span>A</span>
+                              <div className="cs-answer-line">
+                                {item.answer.split("\n").map((text) => (
+                                  <div>
+                                    {text}
+                                    <br />
+                                  </div>
+                                ))}
+                              </div>
                             </div>
-                          ))}
-                        </div>
+                          </div>
+                        )}
                       </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-          </div>
-        )}
-        {activeTab === "tab5" && (
-          <div className="cs-qnaBox">
-            {(isFiltered ? filteredResults : qnaList)
-              .filter((item) => item.question)
-              .map((item, index) => (
-                <div key={index} className="cs-qna">
-                  <div
-                    className="cs-qna-toggle"
-                    onClick={() => toggleIsActive(index)}
-                  >
-                    <button>
-                      <div className="cs-qna-text">
-                        <span>Q</span>
-                        <span>{item.question}</span>
-                        <span className="cs-qna-text-v">
-                          {activeIndex === index ? "ᐱ" : "ᐯ"}
-                        </span>
+                    ))
+                }
+              </div>
+            )}
+            {activeTab === "tab3" && (
+              <div className="cs-qnaBox">
+                {(isFiltered ? filteredResults : qnaList)
+                  .filter((item) => item.question)
+                  .map((item, index) => (
+                    <div key={index} className="cs-qna">
+                      <div
+                        className="cs-qna-toggle"
+                        onClick={() => toggleIsActive(index)}
+                      >
+                        <button>
+                          <div className="cs-qna-text">
+                            <span>Q</span>
+                            <span>{item.question}</span>
+                            <span className="cs-qna-text-v">
+                              {activeIndex === index ? "ᐱ" : "ᐯ"}
+                            </span>
+                          </div>
+                        </button>
                       </div>
-                    </button>
-                  </div>
-                  {item.answer && (
-                    <div
-                      className={`cs-qna-answerBox ${
-                        activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
-                      }`}
-                      ref={(el) => (answerRefs.current[index] = el)}
-                    >
-                      <div>
-                        <span>A</span>
-                        <div className="cs-answer-line">
-                          {item.answer.split("\n").map((text) => (
-                            <div>
-                              {text}
-                              <br />
+                      {item.answer && (
+                        <div
+                          className={`cs-qna-answerBox ${
+                            activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
+                          }`}
+                          ref={(el) => (answerRefs.current[index] = el)}
+                        >
+                          <div>
+                            <span>A</span>
+                            <div className="cs-answer-line">
+                              {item.answer.split("\n").map((text) => (
+                                <div>
+                                  {text}
+                                  <br />
+                                </div>
+                              ))}
                             </div>
-                          ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
-                  )}
-                </div>
-              ))}
-          </div>
-        )}
-        {activeTab === "tab6" && (
-          <div className="cs-qnaBox">
-            {(isFiltered ? filteredResults : qnaList)
-              .filter((item) => item.question)
-              .map((item, index) => (
-                <div key={index} className="cs-qna">
-                  <div
-                    className="cs-qna-toggle"
-                    onClick={() => toggleIsActive(index)}
-                  >
-                    <button>
-                      <div className="cs-qna-text">
-                        <span>Q</span>
-                        <span>{item.question}</span>
-                        <span className="cs-qna-text-v">
-                          {activeIndex === index ? "ᐱ" : "ᐯ"}
-                        </span>
+                  ))}
+              </div>
+            )}
+            {activeTab === "tab4" && (
+              <div className="cs-qnaBox">
+                {(isFiltered ? filteredResults : qnaList)
+                  .filter((item) => item.question)
+                  .map((item, index) => (
+                    <div key={index} className="cs-qna">
+                      <div
+                        className="cs-qna-toggle"
+                        onClick={() => toggleIsActive(index)}
+                      >
+                        <button>
+                          <div className="cs-qna-text">
+                            <span>Q</span>
+                            <span>{item.question}</span>
+                            <span className="cs-qna-text-v">
+                              {activeIndex === index ? "ᐱ" : "ᐯ"}
+                            </span>
+                          </div>
+                        </button>
                       </div>
-                    </button>
-                  </div>
-                  {item.answer && (
-                    <div
-                      className={`cs-qna-answerBox ${
-                        activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
-                      }`}
-                      ref={(el) => (answerRefs.current[index] = el)}
-                    >
-                      <div>
-                        <span>A</span>
-                        <div className="cs-answer-line">
-                          {item.answer.split("\n").map((text) => (
-                            <div>
-                              {text}
-                              <br />
+                      {item.answer && (
+                        <div
+                          className={`cs-qna-answerBox ${
+                            activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
+                          }`}
+                          ref={(el) => (answerRefs.current[index] = el)}
+                        >
+                          <div>
+                            <span>A</span>
+                            <div className="cs-answer-line">
+                              {item.answer.split("\n").map((text) => (
+                                <div>
+                                  {text}
+                                  <br />
+                                </div>
+                              ))}
                             </div>
-                          ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
-                  )}
-                </div>
-              ))}
-          </div>
-        )}
-        {activeTab === "tab7" && (
-          <div className="cs-qnaBox">
-            {(isFiltered ? filteredResults : qnaList)
-              .filter((item) => item.question)
-              .map((item, index) => (
-                <div key={index} className="cs-qna">
-                  <div
-                    className="cs-qna-toggle"
-                    onClick={() => toggleIsActive(index)}
-                  >
-                    <button>
-                      <div className="cs-qna-text">
-                        <span>Q</span>
-                        <span>{item.question}</span>
-                        <span className="cs-qna-text-v">
-                          {activeIndex === index ? "ᐱ" : "ᐯ"}
-                        </span>
+                  ))}
+              </div>
+            )}
+            {activeTab === "tab5" && (
+              <div className="cs-qnaBox">
+                {(isFiltered ? filteredResults : qnaList)
+                  .filter((item) => item.question)
+                  .map((item, index) => (
+                    <div key={index} className="cs-qna">
+                      <div
+                        className="cs-qna-toggle"
+                        onClick={() => toggleIsActive(index)}
+                      >
+                        <button>
+                          <div className="cs-qna-text">
+                            <span>Q</span>
+                            <span>{item.question}</span>
+                            <span className="cs-qna-text-v">
+                              {activeIndex === index ? "ᐱ" : "ᐯ"}
+                            </span>
+                          </div>
+                        </button>
                       </div>
-                    </button>
-                  </div>
-                  {item.answer && (
-                    <div
-                      className={`cs-qna-answerBox ${
-                        activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
-                      }`}
-                      ref={(el) => (answerRefs.current[index] = el)}
-                    >
-                      <div>
-                        <span>A</span>
-                        <div className="cs-answer-line">
-                          {item.answer.split("\n").map((text) => (
-                            <div>
-                              {text}
-                              <br />
+                      {item.answer && (
+                        <div
+                          className={`cs-qna-answerBox ${
+                            activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
+                          }`}
+                          ref={(el) => (answerRefs.current[index] = el)}
+                        >
+                          <div>
+                            <span>A</span>
+                            <div className="cs-answer-line">
+                              {item.answer.split("\n").map((text) => (
+                                <div>
+                                  {text}
+                                  <br />
+                                </div>
+                              ))}
                             </div>
-                          ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
-                  )}
-                </div>
-              ))}
-          </div>
-        )}
-        {activeTab === "tab8" && (
-          <div className="cs-qnaBox">
-            {(isFiltered ? filteredResults : qnaList)
-              .filter((item) => item.question)
-              .map((item, index) => (
-                <div key={index} className="cs-qna">
-                  <div
-                    className="cs-qna-toggle"
-                    onClick={() => toggleIsActive(index)}
-                  >
-                    <button>
-                      <div className="cs-qna-text">
-                        <span>Q</span>
-                        <span>{item.question}</span>
-                        <span className="cs-qna-text-v">
-                          {activeIndex === index ? "ᐱ" : "ᐯ"}
-                        </span>
+                  ))}
+              </div>
+            )}
+            {activeTab === "tab6" && (
+              <div className="cs-qnaBox">
+                {(isFiltered ? filteredResults : qnaList)
+                  .filter((item) => item.question)
+                  .map((item, index) => (
+                    <div key={index} className="cs-qna">
+                      <div
+                        className="cs-qna-toggle"
+                        onClick={() => toggleIsActive(index)}
+                      >
+                        <button>
+                          <div className="cs-qna-text">
+                            <span>Q</span>
+                            <span>{item.question}</span>
+                            <span className="cs-qna-text-v">
+                              {activeIndex === index ? "ᐱ" : "ᐯ"}
+                            </span>
+                          </div>
+                        </button>
                       </div>
-                    </button>
-                  </div>
-                  {item.answer && (
-                    <div
-                      className={`cs-qna-answerBox ${
-                        activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
-                      }`}
-                      ref={(el) => (answerRefs.current[index] = el)}
-                    >
-                      <div>
-                        <span>A</span>
-                        <div className="cs-answer-line">
-                          {item.answer.split("\n").map((text) => (
-                            <div>
-                              {text}
-                              <br />
+                      {item.answer && (
+                        <div
+                          className={`cs-qna-answerBox ${
+                            activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
+                          }`}
+                          ref={(el) => (answerRefs.current[index] = el)}
+                        >
+                          <div>
+                            <span>A</span>
+                            <div className="cs-answer-line">
+                              {item.answer.split("\n").map((text) => (
+                                <div>
+                                  {text}
+                                  <br />
+                                </div>
+                              ))}
                             </div>
-                          ))}
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
-                  )}
-                </div>
-              ))}
-          </div>
+                  ))}
+              </div>
+            )}
+            {activeTab === "tab7" && (
+              <div className="cs-qnaBox">
+                {(isFiltered ? filteredResults : qnaList)
+                  .filter((item) => item.question)
+                  .map((item, index) => (
+                    <div key={index} className="cs-qna">
+                      <div
+                        className="cs-qna-toggle"
+                        onClick={() => toggleIsActive(index)}
+                      >
+                        <button>
+                          <div className="cs-qna-text">
+                            <span>Q</span>
+                            <span>{item.question}</span>
+                            <span className="cs-qna-text-v">
+                              {activeIndex === index ? "ᐱ" : "ᐯ"}
+                            </span>
+                          </div>
+                        </button>
+                      </div>
+                      {item.answer && (
+                        <div
+                          className={`cs-qna-answerBox ${
+                            activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
+                          }`}
+                          ref={(el) => (answerRefs.current[index] = el)}
+                        >
+                          <div>
+                            <span>A</span>
+                            <div className="cs-answer-line">
+                              {item.answer.split("\n").map((text) => (
+                                <div>
+                                  {text}
+                                  <br />
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+              </div>
+            )}
+            {activeTab === "tab8" && (
+              <div className="cs-qnaBox">
+                {(isFiltered ? filteredResults : qnaList)
+                  .filter((item) => item.question)
+                  .map((item, index) => (
+                    <div key={index} className="cs-qna">
+                      <div
+                        className="cs-qna-toggle"
+                        onClick={() => toggleIsActive(index)}
+                      >
+                        <button>
+                          <div className="cs-qna-text">
+                            <span>Q</span>
+                            <span>{item.question}</span>
+                            <span className="cs-qna-text-v">
+                              {activeIndex === index ? "ᐱ" : "ᐯ"}
+                            </span>
+                          </div>
+                        </button>
+                      </div>
+                      {item.answer && (
+                        <div
+                          className={`cs-qna-answerBox ${
+                            activeIndex === index ? "active" : "" //activeIndex에 넣은 index값과 누른 div의 index값 비교
+                          }`}
+                          ref={(el) => (answerRefs.current[index] = el)}
+                        >
+                          <div>
+                            <span>A</span>
+                            <div className="cs-answer-line">
+                              {item.answer.split("\n").map((text) => (
+                                <div>
+                                  {text}
+                                  <br />
+                                </div>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+              </div>
+            )}
+          </>
         )}
       </div>
     </div>

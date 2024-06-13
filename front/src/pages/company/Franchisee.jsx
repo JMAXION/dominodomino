@@ -27,6 +27,13 @@ export default function Franchisee({ depth2 }) {
     setActiveTab(tabNum);
   };
 
+  const onPageBtnClick = () => {
+    console.log(activeTab);
+  };
+  const handleCid = () => {
+    console.log(activeTab);
+  };
+
   return (
     <div className="content franchisee">
       {/* ----- 페이지 타이틀 ----- */}
@@ -36,6 +43,8 @@ export default function Franchisee({ depth2 }) {
         rootList={rootList}
         className="Franchisee"
         handleTabClick={handleTabClick}
+        onPageBtnClick={onPageBtnClick}
+        handleCid={handleCid}
       />
       {activeTab === "tab1" && (
         <div className="company info">

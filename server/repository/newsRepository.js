@@ -27,10 +27,11 @@ export const write = async (newsFormData) => {
  * 게시글 리스트 가져오기 */
 export const getList = async (params) => {
   const sql = `
-  select rno, bid, btitle, bhits, bdate, total from
+  select rno, bid, btitle, bcontent, bhits, bdate, total from
     (select row_number() over(order by bdate asc) as rno,
 		        bid, 
 		        btitle, 
+            bcontent,
             bhits, 
             left(bdate, 10) as bdate,
             (select count(*) from domino_newsBoard) total

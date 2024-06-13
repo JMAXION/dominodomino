@@ -5,5 +5,6 @@ const router = express.Router();
 
 router.post("/moment/dbData", controller.getList);
 router.post("/moment/save", controller.saveMoment);
+router.post("/moment/modify", controller.modify);
 
 export default router;

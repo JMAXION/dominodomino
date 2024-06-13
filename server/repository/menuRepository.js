@@ -3,17 +3,17 @@ import { db } from "../database/database_mysql80.js";
 import { log } from "console";
 
 export const getPizzas = async () => {
-  const sql = `select pid, menuimg, pname, concat(format(lprice,0),'원') as lprice, concat(format(mprice,0),'원') as mprice, desc1, desc2, country, topping, mcategory from pizza
+  const sql = `select pid, menuimg, lable, pname, concat(format(lprice,0),'원') as lprice, concat(format(mprice,0),'원') as mprice, desc1, desc2, mcategory, country, topping from pizza
   `;
 
-  return db.execute(sql).then((result) => result[0]);
+  return await db.execute(sql).then((result) => result[0]);
 };
 
 export const getPizzasDetail = async (id) => {
   const sql = `select pid, menuimg, pname, concat(format(lprice,0),'원') as lprice, concat(format(mprice,0),'원') as mprice, desc1, desc2, category, pcode, ptype, did, ecategory, ecode, etype, country, topping, mcategory from pizza
 where pid = ?`;
 
-  return db.execute(sql, [id]).then((result) => result[0][0]);
+  return await db.execute(sql, [id]).then((result) => result[0][0]);
 };
 
 export const getPizzasDough = async (id) => {
@@ -48,6 +48,25 @@ export const getPizzasTopping = async (topping) => {
   where tkind = ?`;
 
   return await db.execute(sql, [topping]).then((result) => result[0]);
+};
+
+export const getSides = async () => {
+  const sql = `select sid, sname, simage, skind, concat(format(sprice,0),'원') as sprice, lable, desc1, country, topping, quantity, category from side`;
+
+  return await db.execute(sql).then((result) => result[0]);
+};
+
+export const getSidesDetail = async (id) => {
+  const sql = `select sid, sname, simage, skind, format(sprice,0) as sprice, lable, desc1, country, topping, quantity, category from side
+                where sid = ?`;
+
+  return db.execute(sql, [id]).then((result) => result[0][0]);
+};
+
+export const getPopular = async () => {
+  const sql = `select id, name, text, image1, image2 from combomeal`;
+
+  return db.execute(sql).then((result) => result[0][0]);
 };
 
 export const getPizza = async (halfChoice) => {

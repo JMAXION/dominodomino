@@ -28,7 +28,7 @@ export default function HomeOrder() {
         <div className="icon-box">
           <div className="icon-box-content">
             <FontAwesomeIcon icon={faShop} className="icon pack" />
-            <Link to="/orderway" state={{ orderType: "pickup" }}>
+            <Link to="/orderway" state={{ orderType: "pickup", place: "" }}>
               <span className="icon-box-content-title pack">포장 주문</span>
               <FontAwesomeIcon
                 icon={faCircleArrowRight}

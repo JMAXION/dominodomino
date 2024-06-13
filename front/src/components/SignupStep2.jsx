@@ -139,144 +139,142 @@ export default function SignupStep2({
         <p>회원가입에 필요한 정보를 입력합니다.</p>
       </div>
       <ul className="signup-info">
-        <li className="signup-info-id">
+        <li className="signup-info-detail">
           <p>
-            아이디<span>*</span>
+            <span>
+              아이디<span>*</span>
+            </span>
+            <input
+              type="text"
+              name="userId"
+              value={formData.userId}
+              onChange={handleChange}
+              ref={refs.userIdRef}
+            />
+            <button type="button" onClick={handleIdCheck}>
+              중복확인
+            </button>
           </p>
-          <input
-            type="text"
-            name="userId"
-            value={formData.userId}
-            onChange={handleChange}
-            ref={refs.userIdRef}
-          />
-          <button type="button" onClick={handleIdCheck}>
-            중복확인
-          </button>
-        </li>
-        <li className="signup-info-pass">
           <p>
-            비밀번호<span>*</span>
+            <span>
+              비밀번호<span>*</span>
+            </span>
+            <input
+              type="password"
+              name="userPass"
+              value={formData.userPass}
+              onChange={handleChange}
+              ref={refs.userPassRef}
+              placeholder="8~12자 의 영문(대소문자,숫자,특수문자)를 조합해서 만들어주세요"
+            />
           </p>
-          <input
-            type="password"
-            name="userPass"
-            value={formData.userPass}
-            onChange={handleChange}
-            ref={refs.userPassRef}
-            placeholder="8~12자 의 영문(대소문자,숫자,특수문자)를 조합해서 만들어주세요"
-          />
-        </li>
-        <li className="signup-info-passcheck">
           <p>
-            비밀번호 확인<span>*</span>
+            <span>
+              비밀번호 확인<span>*</span>
+            </span>
+            <input
+              type="password"
+              name="userPassCheck"
+              value={formData.userPassCheck}
+              onChange={handleChange}
+              ref={refs.userPassCheckRef}
+              placeholder="확인을 위하여 위와 동일하게 입력해주세요"
+            />
           </p>
-          <input
-            type="password"
-            name="userPassCheck"
-            value={formData.userPassCheck}
-            onChange={handleChange}
-            ref={refs.userPassCheckRef}
-            placeholder="확인을 위하여 위와 동일하게 입력해주세요"
-          />
-        </li>
-        <li className="signup-info-name">
           <p>
-            이름<span>*</span>
+            <span>
+              이름<span>*</span>
+            </span>
+            <input
+              type="text"
+              name="userName"
+              value={formData.userName}
+              onChange={handleChange}
+              ref={refs.userNameRef}
+              placeholder="한글/영문으로 입력해주세요"
+            />
           </p>
-          <input
-            type="text"
-            name="userName"
-            value={formData.userName}
-            onChange={handleChange}
-            ref={refs.userNameRef}
-            placeholder="한글/영문으로 입력해주세요"
-          />
-        </li>
-        <li className="signup-info-email">
           <p>
-            이메일<span>*</span>
+            <span>
+              이메일<span>*</span>
+            </span>
+            <input
+              type="text"
+              name="emailId"
+              value={formData.emailId}
+              ref={refs.emailIdRef}
+              onChange={handleChange}
+            />{" "}
+            @
+            <input
+              type="text"
+              name="emailDomain"
+              value={formData.emailDomain}
+              ref={refs.emailDomainRef}
+              onChange={handleChange}
+            />
+            <select
+              name="emailDomain"
+              onChange={(e) => changeEmailDomain(e, refs, handleChange)}
+            >
+              <option value="self">직접입력</option>
+              <option value="naver.com">네이버</option>
+              <option value="gmail.com">구글</option>
+              <option value="hotmail.com">MS</option>
+            </select>
           </p>
-          <input
-            type="text"
-            name="emailId"
-            value={formData.emailId}
-            ref={refs.emailIdRef}
-            onChange={handleChange}
-          />{" "}
-          @
-          <input
-            type="text"
-            name="emailDomain"
-            value={formData.emailDomain}
-            ref={refs.emailDomainRef}
-            onChange={handleChange}
-          />
-          <select
-            name="emailDomain"
-            onChange={(e) => changeEmailDomain(e, refs, handleChange)}
-          >
-            <option value="self">직접입력</option>
-            <option value="naver.com">네이버</option>
-            <option value="gmail.com">구글</option>
-            <option value="hotmail.com">MS</option>
-          </select>
-        </li>
-        <li className="signup-info-phone">
           <p>
             휴대폰 번호<span>*</span>
+            <select name="phoneNumber1" onChange={handleChange}>
+              <option value="010">010</option>
+              <option value="011">011</option>
+              <option value="016">016</option>
+              <option value="017">017</option>
+            </select>
+            <input
+              type="text"
+              name="phoneNumber2"
+              value={formData.phoneNumber2}
+              ref={refs.phoneNumber2Ref}
+              onChange={handleChange}
+              placeholder="-없이 입력해주세요"
+            />
           </p>
-          <select name="phoneNumber1" onChange={handleChange}>
-            <option value="010">010</option>
-            <option value="011">011</option>
-            <option value="016">016</option>
-            <option value="017">017</option>
-          </select>
-          <input
-            type="text"
-            name="phoneNumber2"
-            value={formData.phoneNumber2}
-            ref={refs.phoneNumber2Ref}
-            onChange={handleChange}
-            placeholder="-없이 입력해주세요"
-          />
+          <p>
+            주소{" "}
+            <input
+              type="text"
+              name="address"
+              value={formData.address}
+              className="signup-info-address-detail"
+            />
+            <input
+              type="text"
+              name="detailAddress"
+              value={formData.detailAddress}
+              onChange={handleChange}
+              ref={refs.detailAddressRef}
+              placeholder="상세주소를 입력해주세요"
+              className="signup-info-address-detail"
+            />
+          </p>
+          <input type="text" name="zipcode" value={formData.zipcode} />
+          <button type="button" onClick={handleToggle}>
+            주소검색
+          </button>
         </li>
-        <li className="signup-info-address">
-          <p>주소</p>
-          <div>
-            <input type="text" name="zipcode" value={formData.zipcode} />
-            <button type="button" onClick={handleToggle}>
-              주소검색
-            </button>
-          </div>
-          <input
-            type="text"
-            name="address"
-            value={formData.address}
-            className="signup-info-address-detail"
-          />
-          <input
-            type="text"
-            name="detailAddress"
-            value={formData.detailAddress}
-            onChange={handleChange}
-            ref={refs.detailAddressRef}
-            placeholder="상세주소를 입력해주세요"
-            className="signup-info-address-detail"
-          />
 
-          {isOpen && (
-            <div>
-              <DaumPostcode
-                className="postmodal"
-                theme={themeObj}
-                style={postCodeStyle}
-                onComplete={completeHandler}
-                onClose={closeHandler}
-              />
-            </div>
-          )}
-        </li>
+        {isOpen && (
+          <div>
+            <DaumPostcode
+              className="postmodal"
+              theme={themeObj}
+              style={postCodeStyle}
+              onComplete={completeHandler}
+              onClose={closeHandler}
+            />
+          </div>
+        )}
       </ul>
       <button type="button" onClick={pre} className="signup-pre-button">
         뒤로

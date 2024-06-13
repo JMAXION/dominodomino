@@ -176,7 +176,10 @@ export default function App() {
           element: <LawNavi depth2={"위치기반 서비스 이용약관"} />,
         },
         { path: "/law/teen", element: <LawTeen depth2={"청소년 보호방침"} /> },
-        { path: "/law/video", element: <LawVideo /> },
+        {
+          path: "/law/video",
+          element: <LawVideo depth2={"영상정보처리기기 운영관리방침"} />,
+        },
 
         { path: "/login", element: <Login /> },
         { path: "/nonmember", element: <LoginNonmember /> },

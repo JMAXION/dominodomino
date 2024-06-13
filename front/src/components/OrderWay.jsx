@@ -12,7 +12,7 @@ import OrderWayModal from "./OrderWayModal";
 import PageTitle from "./PageTitle";
 
 export default function OrderWay({ depth2 }) {
-  const location = useLocation({});
+  const location = useLocation();
   const [orderType, setOrderType] = useState(location.state?.orderType || null);
   const [props, setprops] = useState({
     title: "주문방법 선택",
@@ -166,7 +166,7 @@ export default function OrderWay({ depth2 }) {
           </div>
 
           <div className="order-box">
-            {location ? (
+            {location && location.state.place.name ? (
               <div className="order-box-content2">
                 <input type="radio" />
                 {location.state.place.name}
@@ -193,7 +193,7 @@ export default function OrderWay({ depth2 }) {
             )}
           </div>
           <div className="order-content-tip">
-            {location ? (
+            {location && location.state.place.name ? (
               <div className="delivery-box2">
                 <button
                   className="order-content-button"
@@ -212,7 +212,7 @@ export default function OrderWay({ depth2 }) {
                 *포장매장은 최대 5개까지만 등록 가능합니다.
               </span>
             )}
-            {location ? (
+            {location && location.state.place.name ? (
               <div
                 className="order-select"
                 style={{ color: "black", padding: "55px 0" }}

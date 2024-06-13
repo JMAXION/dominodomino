@@ -73,8 +73,9 @@ export const getPizza = async (halfChoice) => {
   const sql = `select pid as id, halfimg as img, pname, lprice, mprice, category, ptype,pcode, did, ecategory, ecode, etype from pizza
  where ptype between 200 AND 500
  AND pcode between 20 AND 50
- AND NOT pid = 6 AND NOT pname= '블록버스터4' AND NOT pname= '베스트 콰트로'
- AND NOT ptype = 300  `;
+ AND NOT pid = 6 AND NOT pid between 1 AND 4
+ AND NOT pname= '블록버스터4' AND NOT pname= '베스트 콰트로'
+ AND NOT ptype = 300`;
 
   return db.execute(sql, [halfChoice]).then((result) => result[0]);
 

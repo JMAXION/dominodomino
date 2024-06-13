@@ -77,12 +77,14 @@ export default function HomeCoupon() {
               </Link>
             </li>
             <li>
-              <li>
-                <img
-                  src="https://cdn.dominos.co.kr/domino/pc/images/main/main_card5.png"
-                  alt=""
-                />
-              </li>
+              <Link to="/service/moment">
+                <li>
+                  <img
+                    src="https://cdn.dominos.co.kr/domino/pc/images/main/main_card5.png"
+                    alt=""
+                  />
+                </li>
+              </Link>
             </li>
           </>
         ) : (
@@ -105,12 +107,14 @@ export default function HomeCoupon() {
               </Link>
             </li>
             <li>
-              <li>
-                <img
-                  src="https://cdn.dominos.co.kr/domino/pc/images/main/main_card5.png"
-                  alt=""
-                />
-              </li>
+              <Link to="/service/moment">
+                <li>
+                  <img
+                    src="https://cdn.dominos.co.kr/domino/pc/images/main/main_card5.png"
+                    alt=""
+                  />
+                </li>
+              </Link>
             </li>
           </>
         )}

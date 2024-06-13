@@ -5,13 +5,12 @@ export default function SignupStep1({ next, formData, handleCheck }) {
   // const [] = useState();
   return (
     <div className="signup">
-      {/* <PageTitle2 props={props} /> */}
-      <div>
-        <h3>약관동의</h3>
+      <div className="signupstep1-yakgwan-agree">
+        <p className="signupstep1-yakgwan">약관동의</p>
         <p>회원가입에 필요한 약관에 동의해주세요</p>
       </div>
-      <div>
-        <div>
+      <div className="all-agree-warning">
+        <div className="all-agree-ok">
           <input
             type="checkbox"
             onChange={(e) => handleCheck("all", e.target.checked)}
@@ -19,14 +18,15 @@ export default function SignupStep1({ next, formData, handleCheck }) {
           />
           <span>모두 동의합니다.</span>
         </div>
-        <p>
+        <span className="all-agree-warning-letter ">
           전체동의는 필수 및 선택정보에 대한 동의도 포함되어 있으며,
           개별적으로도 동의를 선택하실 수 있습니다. <br />
           선택항목에 대한 동의를 거부하시는 경우에도 서비스는 이용이 가능합니다.
-        </p>
+        </span>
       </div>
-      <div>
-        <h4>서비스 약관 동의</h4>
+
+      <div className="service-agreement">
+        <p>서비스 약관 동의</p>
         <textarea>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus,
           nobis, aspernatur ratione reprehenderit distinctio deserunt eveniet
@@ -211,8 +211,8 @@ export default function SignupStep1({ next, formData, handleCheck }) {
           <span>동의합니다.</span>
         </div>
       </div>
-      <div>
-        <h4>개인정보 수집 및 이용 동의</h4>
+      <div className="personal-agreement ">
+        <p>개인정보 수집 및 이용 동의</p>
         <textarea>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum in
           optio qui modi ipsum cupiditate voluptatem quibusdam magni similique.

@@ -198,55 +198,67 @@
   padding-bottom: 140px;
   /* background-image: url(../../public/ditto.jpg); */
 }
+.signupstep1-yakgwan-agree {
+  margin: 0 auto;
+  width: 700px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+.service-agreement p {
+  background-color: rgb(0, 0, 0, 0.05);
+  width: 700px;
+  margin: 0 auto;
+  text-align: left;
+  font-weight: bold;
+}
+.personal-agreement {
+  margin-top: 2rem;
+}
+.all-agree-ok {
+  margin: 1rem 0;
+  color: red;
+}
+.all-agree-warning {
+  margin-bottom: 1.5rem;
+}
+.all-agree-warning-letter {
+  font-size: 0.8rem;
+}
+.personal-agreement p {
+  background-color: rgb(0, 0, 0, 0.05);
+  width: 700px;
+  margin: 0 auto;
+  text-align: left;
+  font-weight: bold;
+}
+.signupstep1-yakgwan {
+  font-size: 1.8rem;
+}
 .signup textarea {
   width: 700px;
-  height: 400px;
+  height: 200px;
 }
 .signup-info {
   /* border: 1px solid green; */
-  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
 }
-.signup-info-id,
-.signup-info-pass,
-.signup-info-passcheck,
-.signup-info-name,
-.signup-info-email,
-.signup-info-phone,
-.signup-info-address {
-  /* border: 1px solid brown; */
-  margin: 1rem auto;
-  width: 40%;
+.signup-info-detail {
+  text-align: left;
 }
-.signup-info-id input {
-  width: 80%;
+.signup-info-detail p {
+  margin: 0.5rem 0;
 }
-.signup-info-id button {
-  width: 18%;
-  margin-left: 1%;
+.signup-info-detail p input {
+  margin-left: 8px;
 }
-.signup-info-pass input {
-  width: 99%;
+.signup-info-input {
+  text-align: left;
 }
-.signup-info-passcheck input {
-  width: 99%;
-}
-.signup-info-name input {
-  width: 99%;
-}
-.signup-info-email select,
-.signup-info-email input {
-  margin: 0 1px;
-}
-.signup-info-phone input {
-  width: 88%;
-  margin-left: 1%;
-}
-.signup-info-address div input {
-  width: 87%;
-  margin-right: 1%;
-}
-.signup-info-address-detail {
-  width: 49%;
+.signup-info-input p {
+  margin: 1rem 0;
 }
 .signup-pre-button,
 .signup-next-button {

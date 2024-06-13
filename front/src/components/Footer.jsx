@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useLocation } from "react-router-dom";
 import {
   faApple,
   faBloggerB,
@@ -13,6 +14,8 @@ import { faMobile, faServer } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
+  const locationNow = useLocation();
+  if (locationNow.pathname === "/menu/halfnhalf") return null;
   return (
     <div>
       <div className="footer-border"></div>

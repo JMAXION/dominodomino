@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import HalfNhalfSwiper from "../components/HalfNhalfSwiper";
 import HnfInfoModal from "../components/HnfInfoModal";
 import Menuheader from "../components/Menuheader";
@@ -12,8 +11,14 @@ import HnhCautionModal from "../components/hnhCautionModal";
 import PageTitle from "../components/PageTitle";
 import QtyoptionComp from "../components/QtyoptionComp";
 import ChoiceSide from "../components/ChoiceSide";
+import ChoiceDrink from "../components/ChoiceDrink";
+import { Link } from "react-router-dom";
+import { getUser } from "../util/localStorage";
+
+import HnhOrder from "./HnhOrder";
 export default function Hnh({ depth2 }) {
   /* const [navActive, setNavActive] = useState(false); */
+  const [sendState, setSendState] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [scrollActive, setScrollActive] = useState(false);
   const [halfchoice, setHalfChoice] = useState([]);
@@ -21,27 +26,55 @@ export default function Hnh({ depth2 }) {
   const [pizzaLeft, setPizzaLeft] = useState("");
   const [pizzaRight, setPizzaRight] = useState("");
   const [showMore, setShowMore] = useState(false);
-  const [topping, setTopping] = useState([
+  const userInfo = getUser();
+  let today = new Date();
+  let year = today.getFullYear();
+  let month = today.getMonth();
+  month = month + 1;
+  if (month < 10) month = "0" + month;
+
+  let day = today.getDate();
+  if (day < 10) day = "0" + day;
+  let hour = today.getHours();
+  let minute = today.getMinutes();
+
+  const orderNumber =
+    year + "" + month + "" + day + userInfo.userId + hour + "" + minute;
+
+  let tp = 0;
+  const initialToppingQty = [
     {
-      quantity: 1,
+      quantity: 0,
       tname: "",
       timage: "0",
       tkind: "0",
-      tprice: 2000,
+      tprice: "",
       tid: 0,
     },
-  ]);
+  ];
+
+  const [topping, setTopping] = useState(initialToppingQty);
   const [sideMenu, setSideMenu] = useState([
     {
       quantity: 1,
       sname: "",
       simage: "0",
       skind: "0",
-      sprice: 2000,
+      sprice: "",
       sid: 0,
     },
   ]);
-  let toppingName = "";
+
+  const [drinkMenu, setDrinkMenu] = useState([
+    {
+      quantity: 1,
+      bname: "",
+      bimage: "0",
+      bprice: "",
+      bid: 0,
+    },
+  ]);
+
   const [selected, setSelected] = useState({
     large: true,
     mideum: false,
@@ -66,6 +99,22 @@ export default function Hnh({ depth2 }) {
     link2: "/menu/halfnhalf",
     link3: "/sides",
     link4: "/popular",
+  });
+
+  const [order, setOrder] = useState({
+    pizzaLeftName: "",
+    pizzaRightName: "",
+    pizzaQty: 1,
+    doughName: "없음",
+    edgeName: "없음",
+    toppingName: "",
+    sideName: "",
+    drinkName: "",
+    totalPrice: 0,
+    user: "",
+    orderTime: "",
+    uid: 1,
+    orderNumber: "",
   });
 
   useEffect(
@@ -159,7 +208,6 @@ export default function Hnh({ depth2 }) {
   }
 
   function handleChange({ type, data }) {
-    console.log("[data]===>", data);
     let result = "";
     if (data > 0) {
       result = result.concat("+", data + "원");
@@ -190,14 +238,112 @@ export default function Hnh({ depth2 }) {
     setTopping(toppingQty);
   }
 
-  function handleChange4(qty) {
+  function handleChange4({ type, count }) {
+    let qty = count;
+    //  alert(type+count)
+    if (type === "plus") qty = qty + 1;
+    else qty = qty - 1;
+    // alert(qty)
     setSelected({ ...selected, qty: qty });
   }
 
   function handleChange5(event) {
     setSideMenu(event);
   }
-  console.log(sideMenu);
+
+  function handleChange6(event) {
+    setDrinkMenu(event);
+  }
+
+  function settingOrder() {
+    let tpName = "";
+    let dringName = "";
+    for (let i = 0; i < topping.length; i++) {
+      tpName +=
+        topping[i].tname +
+        " " +
+        topping[i].tprice +
+        " " +
+        topping[i].quantity +
+        " ";
+    }
+    for (let i = 0; i < drinkMenu.length; i++) {
+      dringName +=
+        drinkMenu[i].bname +
+        " " +
+        drinkMenu[i].bprice +
+        " " +
+        drinkMenu[i].quantity +
+        " ";
+    }
+
+    let sideName = "";
+    for (let i = 0; i < sideMenu.length; i++) {
+      sideName +=
+        sideMenu[i].sname +
+        " " +
+        sideMenu[i].sprice +
+        " " +
+        sideMenu[i].quantity +
+        " ";
+      setOrder({
+        ...order,
+        pizzaLeftName: pizzaLeft.pname,
+        pizzaRightName: pizzaRight.pname,
+        pizzaQty: selected.qty,
+        doughName: selected.dough,
+        edgeName: selected.edge,
+        toppingName: tpName,
+        sideName: sideName,
+        drinkName: dringName,
+        user: userInfo.userId,
+        totalPrice: tp,
+        uid: 1,
+        orderNumber: orderNumber,
+      });
+    }
+  } // FUNCTION settingOrder 변경이 되면
+
+  useEffect(() => {
+    // 초기값과 비교하여 변경된 값이 있는지 확인
+    const isInitialOrder =
+      JSON.stringify(order) ===
+      JSON.stringify({
+        pizzaLeftName: "",
+        pizzaRightName: "",
+        pizzaQty: 1,
+        doughName: "없음",
+        edgeName: "없음",
+        toppingName: "",
+        sideName: "",
+        drinkName: "",
+        totalPrice: 0,
+        user: "",
+        orderTime: "",
+        uid: 1,
+        orderNumber: "",
+      });
+
+    if (!isInitialOrder) {
+      const url = `http://127.0.0.1:8080/menu/halfnhalf/orderinsert`;
+      axios({
+        method: "POST",
+        url: url,
+        data: order,
+      })
+        .then((result) => {
+          if (result.data.cnt === 1) {
+            alert("주문이 완료되었습니다");
+          }
+        })
+        .catch((error) => {
+          console.error(
+            "There was an error with the order insert request!",
+            error
+          );
+        });
+    }
+  }, [order]);
 
   const secondChoice = (t) => {
     const url = "http://127.0.0.1:8080/menu/halfnhalf/secondchoice";
@@ -223,35 +369,41 @@ export default function Hnh({ depth2 }) {
           topping[1].quantity * topping[1].tprice +
           selected.doughPrice +
           selected.edgePrice;
+        tp += price * selected.qty;
         if (topping[2]) {
           price +=
             topping[2].quantity * topping[2].tprice +
             selected.doughPrice +
             selected.edgePrice;
+          tp += price * selected.qty;
         }
         if (topping[3]) {
           price +=
             topping[3].quantity * topping[3].tprice +
             selected.doughPrice +
             selected.edgePrice;
+          tp += price * selected.qty;
         }
         if (topping[4]) {
           price +=
             topping[4].quantity * topping[4].tprice +
             selected.doughPrice +
             selected.edgePrice;
+          tp += price * selected.qty;
         }
         if (topping[5]) {
           price +=
             topping[5].quantity * topping[5].tprice +
             selected.doughPrice +
             selected.edgePrice;
+          tp += price * selected.qty;
         }
       } else {
         price =
           (parseInt(pizzaLeft.lprice) + parseInt(pizzaRight.lprice)) / 2 +
           selected.doughPrice +
           selected.edgePrice;
+        tp += price * selected.qty;
       }
 
       priceREsult = price.toLocaleString();
@@ -305,6 +457,7 @@ export default function Hnh({ depth2 }) {
             (parseInt(pizzaLeft.mprice) + parseInt(pizzaRight.mprice)) / 2;
         }
       }
+      tp += priceREsult;
       priceREsult = price.toLocaleString();
     }
     let title = "";
@@ -394,19 +547,21 @@ export default function Hnh({ depth2 }) {
                 </div>
                 <div className="form-item">
                   <div className="select-type2">
-                    <select
-                      onClick={() => {
-                        secondChoice(pizzaLeft.category);
-                      }}
-                      className="pizza-select2"
-                      onChange={(e) => check2(e.target.value)}
-                    >
-                      <option value="0">두번째 피자를 선택하세요</option>
-                      {secondSelect &&
-                        secondSelect.map((obj) => (
-                          <option value={obj.id}>{obj.pname}</option>
-                        ))}
-                    </select>
+                    {pizzaLeft && (
+                      <select
+                        onClick={() => {
+                          secondChoice(pizzaLeft.category);
+                        }}
+                        className="pizza-select2"
+                        onChange={(e) => check2(e.target.value)}
+                      >
+                        <option value="0">두번째 피자를 선택하세요</option>
+                        {secondSelect &&
+                          secondSelect.map((obj) => (
+                            <option value={obj.id}>{obj.pname}</option>
+                          ))}
+                      </select>
+                    )}
                   </div>
                 </div>
                 <p className="half-guide">
@@ -464,6 +619,7 @@ export default function Hnh({ depth2 }) {
             }
             <QtyoptionComp onClick={handleChange4} />
             <ChoiceSide onClick={handleChange5} />
+            <ChoiceDrink onClick={handleChange6} />
             <br />
             <br />
             <br />
@@ -476,57 +632,6 @@ export default function Hnh({ depth2 }) {
             <br />
           </div>
         </div>
-
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
 
         <div className="step-order">
           <div
@@ -595,6 +700,146 @@ export default function Hnh({ depth2 }) {
                 </ul>
               </dd>
             </dl>
+            <dl className="side">
+              <dt>사이드디시</dt>
+              <dd>
+                {pizzaRight && pizzaLeft && <p> </p>}
+                <input type="hidden" />
+                <input type="hidden" />
+                <ul className="select-menu">
+                  {sideMenu[1] && (
+                    <li>
+                      {sideMenu[1].sname}(+{sideMenu[1].sprice.toLocaleString()}
+                      원)x{sideMenu[1].quantity}
+                      <em hidden>
+                        {(tp += sideMenu[1].sprice * sideMenu[1].quantity)}
+                      </em>
+                    </li>
+                  )}
+                  {sideMenu[2] && (
+                    <li>
+                      {sideMenu[2].sname}(+{sideMenu[2].sprice.toLocaleString()}
+                      원)x{sideMenu[2].quantity}
+                      <em hidden>
+                        {(tp += sideMenu[2].sprice * sideMenu[2].quantity)}
+                      </em>
+                    </li>
+                  )}
+                  {sideMenu[3] && (
+                    <li>
+                      {sideMenu[3].sname}(+{sideMenu[3].sprice.toLocaleString()}
+                      원)x{sideMenu[3].quantity}
+                      <em hidden>
+                        {(tp += sideMenu[3].sprice * sideMenu[3].quantity)}
+                      </em>
+                    </li>
+                  )}
+                  {sideMenu[4] && (
+                    <li>
+                      {sideMenu[4].sname}(+{sideMenu[4].sprice.toLocaleString()}
+                      원)x{sideMenu[4].quantity}
+                      <em hidden>
+                        {(tp += sideMenu[4].sprice * sideMenu[4].quantity)}
+                      </em>
+                    </li>
+                  )}
+                  {sideMenu[5] && (
+                    <li>
+                      {sideMenu[5].sname}(+{sideMenu[5].sprice.toLocaleString()}
+                      원)x{sideMenu[5].quantity}
+                      <em hidden>
+                        {(tp += sideMenu[5].sprice * sideMenu[5].quantity)}
+                      </em>
+                    </li>
+                  )}
+                </ul>
+              </dd>
+            </dl>
+            <dl className="drink-etc">
+              <dt>음료 & 기타</dt>
+              <dd>
+                {pizzaRight && pizzaLeft && <p> </p>}
+                <input type="hidden" />
+                <input type="hidden" />
+                <ul className="select-menu">
+                  {drinkMenu[1] && (
+                    <li>
+                      {drinkMenu[1].bname}(+
+                      {drinkMenu[1].bprice.toLocaleString()}원)x
+                      {drinkMenu[1].quantity}{" "}
+                      <em hidden>
+                        {(tp += drinkMenu[1].bprice * drinkMenu[1].quantity)}
+                      </em>
+                    </li>
+                  )}
+                  {drinkMenu[2] && (
+                    <li>
+                      {drinkMenu[2].bname}(+
+                      {drinkMenu[2].bprice.toLocaleString()}원)x
+                      {drinkMenu[2].quantity}
+                      <em hidden>
+                        {(tp += drinkMenu[2].bprice * drinkMenu[2].quantity)}
+                      </em>
+                    </li>
+                  )}
+                  {drinkMenu[3] && (
+                    <li>
+                      {drinkMenu[3].bname}(+
+                      {drinkMenu[3].bprice.toLocaleString()}원)x
+                      {drinkMenu[3].quantity}
+                      <em hidden>
+                        {(tp += drinkMenu[3].bprice * drinkMenu[3].quantity)}
+                      </em>
+                    </li>
+                  )}
+                  {drinkMenu[4] && (
+                    <li>
+                      {drinkMenu[4].bname}(+
+                      {drinkMenu[4].bprice.toLocaleString()}원)x
+                      {drinkMenu[4].quantity}
+                      <em hidden>
+                        {(tp += drinkMenu[4].bprice * drinkMenu[4].quantity)}
+                      </em>
+                    </li>
+                  )}
+                  {drinkMenu[5] && (
+                    <li>
+                      {drinkMenu[5].bname}(+
+                      {drinkMenu[5].bprice.toLocaleString()}원)x
+                      {drinkMenu[5].quantity}
+                      <em hidden>
+                        {(tp += drinkMenu[5].bprice * drinkMenu[5].quantity)}
+                      </em>
+                    </li>
+                  )}
+                </ul>
+              </dd>
+            </dl>
+            <div className="total-price">
+              <div id="login-order-btn">
+                <span className="total-money">총 금액 </span>
+                <stong className="money">{tp.toLocaleString()}원</stong>
+              </div>
+
+              {userInfo ? (
+                <div className="btn-wrap">
+                  <button onClick={settingOrder}>주문확정</button>
+                  <Link to="/menu/halfnhalf/orderok" state={{ orderNumber }}>
+                    <button type="button" className="btn-type">
+                      주문확인{" "}
+                    </button>
+                  </Link>
+                </div>
+              ) : (
+                <Link to="/login">
+                  <div className="btn-wrap">
+                    <button type="button" className="btn-type">
+                      주문하기{" "}
+                    </button>
+                  </div>
+                </Link>
+              )}
+            </div>
           </div>
         </div>
       </div>

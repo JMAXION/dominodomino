@@ -8,8 +8,10 @@ domino 프로젝트 관련 테이블
 -- 입력폼의 name = 서버 = 테이블의 column 이름
 
 -- domino_member
+drop table domino_member;
 create table domino_member(
-user_id varchar(30) primary key,
+uid INT auto_increment primary key,
+user_id varchar(30) not null,
 user_pass varchar(80) not null,
 user_name varchar(10) not null,
 email_id varchar(20) not null,
@@ -35,7 +37,8 @@ desc domino_member;
 -- 아이디 중복체크
 select count(user_id) cnt from domino_member where user_id = 'alter';
 
-select * from domino_member;
+select user_id from domino_member
+where user_id = 'test123';
 
 
 -- 로그인 (any_value(user_pass) user_pass 라고 예전에는 사용했음)

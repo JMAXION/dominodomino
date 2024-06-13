@@ -1,3 +1,5 @@
+use hrdb2019;
+select database();
 drop table card_discount;
 create table card_discount(
 id INT auto_increment primary key,
@@ -18,7 +20,6 @@ caution varchar(100),
 desc1 varchar(500),
 desc2 varchar(500)
 );
-
 
 
 insert into card_discount(img, company, discount1,discount2,discount3, name, percent1, percent2, card, discribeTitle, grade1, grade2, discribeTitle2, caution, desc1, desc2)

@@ -2,15 +2,15 @@
  drop table side;
 CREATE TABLE side (	   sid INT AUTO_INCREMENT PRIMARY KEY,
 					   sname VARCHAR(50),   -- 사이드 이름
-                      simage VARCHAR(200), -- 사이드 이미지
-                      skind VARCHAR(50),   -- 사이드 종류 예) 특가, 일반
-                      sprice INT,   -- 사이드 가격
-                      lable VARCHAR(5), -- 아이콘
-                      desc1 VARCHAR(100), 	-- 설명1 예) #바다와 육지의 대왕이 하나로
-                      country VARCHAR(500), -- 원산지 정보
-                      topping VARCHAR(500), -- 토핑정보
-                      quantity INT,
-                      category varchar(5) -- 콤보, 단품
+                       simage VARCHAR(200), -- 사이드 이미지
+                       skind VARCHAR(50),   -- 사이드 종류 예) 특가, 일반
+                       sprice INT,   -- 사이드 가격
+                       lable VARCHAR(5), -- 아이콘
+                       desc1 VARCHAR(100), 	-- 설명1 예) #바다와 육지의 대왕이 하나로
+                       country VARCHAR(500), -- 원산지 정보
+                       topping VARCHAR(500), -- 토핑정보
+                       quantity INT,
+                       category varchar(5) -- 콤보, 단품
 						);
                         
  insert into side(sname, simage, skind, sprice, lable, desc1, country, topping, quantity, category)	

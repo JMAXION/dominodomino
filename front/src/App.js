@@ -177,7 +177,7 @@ export default function App() {
         { path: "/branch", element: <Branch /> },
 
         { path: "/pizzas", element: <AllPizzaMenu depth2={"피자"} /> },
-        { path: "/pizzas/:id", element: <DetailPizzaMenu /> },
+        { path: "/pizzas/:id", element: <DetailPizzaMenu depth2={"피자"} /> },
         { path: "/sides", element: <SideDishMenu depth2={"사이드디시"} /> },
         {
           path: "/menu/halfnhalf",

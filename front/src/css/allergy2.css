@@ -1,0 +1,16 @@
+.allergy-content-list-button-allergy:hover {
+  cursor: pointer;
+}
+
+.allergy-content-list-button-allergy {
+  border: 1px solid #ddd;
+  background-color: white;
+  color: #888888;
+  padding: 11px 13px 11px 13px;
+  margin-top: 30px;
+  font-size: 13px;
+  width: 270px;
+  height: 45px;
+  font-weight: 500;
+  /* border: 1px solid red; */
+}

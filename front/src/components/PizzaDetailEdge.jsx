@@ -1,27 +1,22 @@
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import { colorControl } from "./colorControl";
 import Doughdesc from "./Doughdesc";
-export default function Choicedough({ id, onClick }) {
-  console.log("id-->", id);
-  const [selectDough, setSelectDough] = useState([]);
+import Edgedesc from "./Edgedesc";
+export default function PizzaDetailEdge({ id, onClick }) {
+  const [selectEdge, setSelectEdge] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const doughNameRef = useRef(null);
-  const url = "http://127.0.0.1:8080/menu/halfnhalf/dough/";
 
   useEffect(() => {
-    {
-      id &&
-        axios({
-          method: "POST",
-          url: url,
-          data: { id: id },
-        })
-          .then((result) => {
-            return setSelectDough(result.data);
-          })
-          .catch((error) => console.log(error));
+    const url = `http://127.0.0.1:8080/menu/pizzas/${id}/edge`;
+    if (id) {
+      axios
+        .get(url)
+        .then((result) => setSelectEdge(result.data))
+        .catch((error) => console.log(error));
     }
-  }, [selectDough]);
+  }, [id]);
 
   const select = (e, index, d) => {
     d = parseInt(d.price);
@@ -34,35 +29,35 @@ export default function Choicedough({ id, onClick }) {
     <div className="step-wrap dough">
       <div className="title-wrap">
         <div className="title-type2-dough">
-          도우선택 <Doughdesc />
+          엣지선택 <Edgedesc />
         </div>
         <div className="notice-text side"></div>
         <div className="option-box dough">
-          {selectDough.map((obj, index) => (
-            <div className={`chk-box dough0`} id={`doughh${index}`}>
+          {selectEdge.map((obj, index) => (
+            <div className={`chk-box dough0`}>
               <input
                 type="radio"
-                id={`dough${index}`}
-                name="dough"
+                id={`edge${index}`}
+                name="edge"
                 onClick={(e) => {
                   select(e.target.value, index, e.target.dataset);
                 }}
-                data-price={obj.dprice}
-                value={obj.dname}
+                data-price={obj.eprice}
+                value={obj.ename}
                 ref={doughNameRef}
               />
               <label
                 style={{ color: selectedIndex === index ? "red" : "black" }}
-                for={`dough${index}`}
+                for={`edge${index}`}
               >
-                {obj.dname}{" "}
+                {obj.ename}{" "}
               </label>{" "}
               <label
                 className="eprice"
                 style={{ color: selectedIndex === index ? "red" : "black" }}
-                for={`dough${index}`}
+                for={`edge${index}`}
               >
-                {obj.dprice > 0 && "+" + obj.dprice.toLocaleString() + "원"}{" "}
+                {obj.eprice > 0 && "+" + obj.eprice.toLocaleString() + "원"}{" "}
               </label>
             </div>
           ))}

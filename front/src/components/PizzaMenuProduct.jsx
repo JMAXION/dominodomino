@@ -20,7 +20,7 @@ export default function PizzaMenuProduct({ depth2 }) {
       url: url,
     })
       .then((res) => {
-        console.log(res.data);
+        //console.log(res.data);
         setPizzaList(res.data);
       })
 

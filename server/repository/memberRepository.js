@@ -57,6 +57,7 @@ export const getSignup = async (formData) => {
       ?,
       ?,
       now()
+      ,
     )
   `;
   try {
@@ -89,3 +90,5 @@ export const getLogin = async (userId, userPass) => {
   } catch (error) {}
   return { cnt: login_result, token: login_token };
 };
+
+

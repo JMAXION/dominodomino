@@ -12,4 +12,7 @@ router.post("/halfnhalf/edge", controller.getEdgePizza);
 router.post("/halfnhalf/topping", controller.getTopping);
 router.post("/halfnhalf/secondchoice", controller.getSecondChoice);
 router.post("/halfnhalf/side", controller.getSide);
+router.post("/halfnhalf/drink",controller.getDrink);
+router.post("/halfnhalf/orderinsert",controller.orderInsert);
+router.post("/halfnhalf/orderresult",controller.getOrderResult);
 export default router;

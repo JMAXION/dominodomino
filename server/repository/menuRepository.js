@@ -110,3 +110,60 @@ export const getSide = async (side) => {
   const sql = ` select sid,sname,simage,skind,sprice,quantity from side`;
   return await db.execute(sql, [side]).then((result) => result[0]);
 };
+
+
+export const getDrink = async (drink) => {
+  const sql = ` select bid,bname,bimage,bprice,quantity from drink_beverage`;
+  return await db.execute(sql, [drink]).then((result) => result[0]);
+};
+
+
+export const orderInsert = async(order) =>{
+  let result_rows = 0;
+  console.log(order);
+  const params= [
+    order.pizzaLeftName,
+    order.pizzaRightName,
+    order.pizzaQty,
+    order.doughName,
+    order.edgeName,
+    order.toppingName,
+    order.sideName,
+    order.drinkName,
+    order.user,
+    order.totalPrice,
+    order.uid,
+    order.orderNumber
+  ]
+  const sql =`insert into order_pizza(pizzaLeft,
+                                      pizzaRight,
+                                      pizzaQty,
+                                      doughName,
+                                      edgeName,
+                                      toppingName,
+                                      sideName,
+                                      drinkName,
+                                      userId,
+                                      totalPrice,
+                                      uid,
+                                      orderTime,
+                                      orderNumber) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,now(), ? )`
+  try {
+    const [result] = await db.execute(sql, params);
+    result_rows = result.affectedRows;
+    console.log("rows -->", result.affectedRows);
+  } catch (error) {
+    console.log(error);
+  }
+
+  return { cnt: result_rows };
+};
+
+
+export const getOrderResult = async(orderNumber) => {
+  const sql = `select oid, pizzaLeft,pizzaRight,pizzaQty, doughName, edgeName, toppingName, sideName,drinkName, FORMAT(totalPrice,0) as totalPrice
+from order_pizza
+where orderNumber = ?`
+
+return await db.execute(sql, [orderNumber]).then((result) => result[0][0]);
+}

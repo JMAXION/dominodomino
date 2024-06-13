@@ -73,3 +73,29 @@ export const getSide = async (req, res) => {
   res.json(event);
   res.end();
 };
+
+
+export const getDrink = async (req, res) => {
+  const drink = req.body;
+
+  const event = await repository.getDrink(drink);
+  console.log(event);
+  res.json(event);
+  res.end();
+};
+
+export const orderInsert= async (req,res)=>{
+  const order = req.body;
+  const event = await repository.orderInsert(order)
+  res.json(event);
+  res.end();
+}
+
+export const getOrderResult = async (req,res)=>{
+  const {orderNumber} = req.body;
+  console.log("orderNumber==>", orderNumber);
+  const event = await repository.getOrderResult(orderNumber)
+  res.json(event)
+  res.end();
+
+}

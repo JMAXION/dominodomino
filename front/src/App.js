@@ -1,4 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+
 /* css */
 import "./css/style.css";
 import "./css/style2.css";
@@ -56,6 +59,7 @@ import AllPizzaMenu from "./pages/AllPizzaMenu.jsx";
 import DetailPizzaMenu from "./pages/DetailPizzaMenu.jsx";
 import SideDishMenu from "./pages/SideDishMenu.jsx";
 import Hnh from "./pages/Hnh.jsx";
+import HnhOrder from './pages/HnhOrder.jsx';
 import HomeOrder from "./pages/HomeOrder.jsx";
 import PopularSetMenu from "./pages/PopularSetMenu.jsx";
 import BeverageMenu from "./pages/BeverageMenu.jsx";
@@ -83,6 +87,7 @@ import NewsContent from "./pages/news/NewsContent.jsx";
 import Gift from "./pages/Gift.jsx";
 import MoneyGift from "./components/MoneyGift.jsx";
 import GiftUsage from "./components/GiftUsage.jsx";
+
 
 export default function App() {
   const router = createBrowserRouter([
@@ -150,6 +155,10 @@ export default function App() {
           ),
         },
         { path: "/ecoupon", element: <Ecoupon /> },
+        {
+          path: "/menu/halfnhalf/orderok",
+          element: <HnhOrder/>,
+        },
         {
           path: "/ecoupon/index",
           element: <EcouponIndex depth2={"e-쿠폰 주문"} />,
@@ -259,6 +268,12 @@ export default function App() {
       ],
     },
   ]);
+  <Router>
+      <Routes>
+        <Route path="/" element={<Hnh />} />
+        <Route path="/menu/halfnhalf/orderok" element={<HnhOrder />} />
+      </Routes>
+    </Router>
 
   return <RouterProvider router={router} />;
 }

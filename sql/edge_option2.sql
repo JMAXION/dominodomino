@@ -68,3 +68,4 @@ values('프로마쥬 페퍼로니 엣지',
 );
 
 
+select * from edge_option;

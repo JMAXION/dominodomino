@@ -16,7 +16,7 @@
     
     desc pizza;
     
-    alter table pizza add mcategory char(17)；
+    alter table pizza add mcategory char(17);
     
 select * from pizza where pid in (1, 2, 3, 4);
 update pizza set mcategory = 'new' where pid in (1, 2, 3, 4);

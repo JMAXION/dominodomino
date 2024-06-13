@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
     {   
         "id":"1",
@@ -17,4 +18,25 @@
         "company":"LG > ",
         "discount":"일반15%, VIP 20% 포인트 차감"
     }
+=======
+[
+    {   
+        "id":"1",
+        "img":"https://cdn.dominos.co.kr/renewal2018/w/img/img_membership01.png",
+        "company":"SK Telecom >",
+        "discount":"Silver/Gold 20% · VIP 30%"
+    },
+    {   
+        "id":"2",
+        "img":"https://cdn.dominos.co.kr/renewal2018/w/img/img_membership02_2.png",
+        "company":"KT >",
+        "discount":"일반15%, VIP 20% 포인트 차감"
+    },
+    {   
+        "id":"3",
+        "img":"https://cdn.dominos.co.kr/renewal2018/w/img/img_membership03.png",
+        "company":"LG > ",
+        "discount":"일반15%, VIP 20% 포인트 차감"
+    }
+>>>>>>> origin/kim
 ]

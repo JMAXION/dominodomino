@@ -1,10 +1,10 @@
-import express from 'express'
-import * as controller from '../controller/testController.js'
+import express from "express";
+import * as controller from "../controller/testController.js";
 
-const router = express.Router()
+const router = express.Router();
 
-router.get('/',controller.getTest)
-router.get('/:id',controller.getTest)
+router.get("/", controller.getTest);
+router.get("/:id", controller.getTest);
 
 console.log("테스트123s");
-export default router
+export default router;

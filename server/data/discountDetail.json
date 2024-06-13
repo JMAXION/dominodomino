@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [
     {   
         "id":"1",
@@ -17,4 +18,25 @@
         "img":"https://cdn.dominos.co.kr/admin/upload/event/20240429_7AY39saW.jpg",
         "id":"3"
     }
+=======
+[
+    {   
+        "id":"1",
+        "img":"https://cdn.dominos.co.kr/renewal2018/w/img/specials_event/event_list1117.jpg",
+        "title":"KT 생일쿠폰 프로모션",
+        "start":"2023-01-01",
+        "end":"2024-12-31"
+
+       
+    },
+    {
+        "img":"https://cdn.dominos.co.kr/admin/upload/event/20240507_62h4vr7C.jpg",
+        "id":"2"
+    },
+
+    {
+        "img":"https://cdn.dominos.co.kr/admin/upload/event/20240429_7AY39saW.jpg",
+        "id":"3"
+    }
+>>>>>>> origin/kim
 ]

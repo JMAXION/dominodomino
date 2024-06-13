@@ -3,14 +3,14 @@ import { db } from "../database/database_mysql80.js";
 import { log } from "console";
 
 export const getPizzas = async () => {
-  const sql = `select pid, menuimg, lable, pname, concat(format(lprice,0),'원') as lprice, concat(format(mprice,0),'원') as mprice, desc1, desc2, mcategory, country, topping from pizza
+  const sql = `select pid, menuimg, lable, pname, lprice, mprice, desc1, desc2, mcategory, country, topping from pizza
   `;
 
   return await db.execute(sql).then((result) => result[0]);
 };
 
 export const getPizzasDetail = async (id) => {
-  const sql = `select pid, menuimg, pname, concat(format(lprice,0),'원') as lprice, concat(format(mprice,0),'원') as mprice, desc1, desc2, category, pcode, ptype, did, ecategory, ecode, etype, country, topping, mcategory from pizza
+  const sql = `select pid, menuimg, pname, lprice, mprice, desc1, desc2, category, pcode, ptype, did, ecategory, ecode, etype, country, topping, mcategory from pizza
 where pid = ?`;
 
   return await db.execute(sql, [id]).then((result) => result[0][0]);
@@ -18,10 +18,10 @@ where pid = ?`;
 
 export const getPizzasDough = async (id) => {
   const sql = `select pid, dprice, dname from pizza p, dough_option d
-    WHERE p.category = d.category
-    AND p.pcode = d.pcode
-    AND p.ptype = d.ptype
-    AND p.pid = ?`;
+    where p.category = d.category
+    and p.pcode = d.pcode
+    and p.ptype = d.ptype
+    and p.pid = ?`;
 
   return db.execute(sql, [id]).then((result) => result[0]);
 };
@@ -63,6 +63,13 @@ export const getSidesDetail = async (id) => {
   return db.execute(sql, [id]).then((result) => result[0][0]);
 };
 
+export const getSidesOption = async (id) => {
+  const sql = `select sid, sname, simage, skind,  sprice, lable, desc1, country, topping, quantity, category from side
+                where sid = ?`;
+
+  return await db.execute(sql, [id]).then((result) => result[0]);
+};
+
 export const getPopular = async () => {
   const sql = `select id, name, text, image1, image2 from combomeal`;
 
@@ -70,7 +77,7 @@ export const getPopular = async () => {
 };
 
 export const getPizza = async (halfChoice) => {
-  const sql = `select pid as id, halfimg as img, lable, pname, lprice, mprice, category, ptype,pcode, did, ecategory, ecode, etype from pizza
+  const sql = `select pid as id, halfimg as img, pname, lprice, mprice, category, ptype,pcode, did, ecategory, ecode, etype from pizza
  where ptype between 200 AND 500
  AND pcode between 20 AND 50
  AND NOT pid = 6 AND NOT pname= '블록버스터4' AND NOT pname= '베스트 콰트로'
@@ -87,7 +94,7 @@ export const getPizza = async (halfChoice) => {
 };
 
 export const getLeftPizza = async (id) => {
-  const sql = `select pid as id, halfimg as img, lable, pname, lprice, mprice, category,pcode ptype, did, ecategory, ecode, etype from pizza
+  const sql = `select pid as id, halfimg as img, pname, lprice, mprice, category,pcode ptype, did, ecategory, ecode, etype from pizza
     where pid = ?
 `;
 
@@ -102,7 +109,7 @@ export const getLeftPizza = async (id) => {
 };
 
 export const getRightPizza = async (id, type) => {
-  const sql = `select pid as id, halfimg as img, lable, pname, lprice, mprice, category,pcode ptype, did, ecategory, ecode, etype from pizza
+  const sql = `select pid as id, halfimg as img, pname, lprice, mprice, category,pcode ptype, did, ecategory, ecode, etype from pizza
     where pid = ?
     AND pcode = ?
 `;
@@ -111,7 +118,7 @@ export const getRightPizza = async (id, type) => {
 };
 
 export const getDoughPizza = async (id) => {
-  const sql = `select pid as id, dprice, dname from pizza p, dough_option d
+  const sql = `select pid as id, dprice,dname from pizza p, dough_option d
     WHERE p.category = d.category
     AND p.pcode = d.pcode
     AND p.ptype = d.ptype
@@ -176,4 +183,58 @@ export const getSecondChoice = async (id) => {
 export const getSide = async (side) => {
   const sql = ` select sid,sname,simage,skind,sprice,quantity from side`;
   return await db.execute(sql, [side]).then((result) => result[0]);
+};
+
+export const getDrink = async (drink) => {
+  const sql = ` select bid,bname,bimage,bprice,quantity from drink_beverage`;
+  return await db.execute(sql, [drink]).then((result) => result[0]);
+};
+
+export const orderInsert = async (order) => {
+  let result_rows = 0;
+  console.log(order);
+  const params = [
+    order.pizzaLeftName,
+    order.pizzaRightName,
+    order.pizzaQty,
+    order.doughName,
+    order.edgeName,
+    order.toppingName,
+    order.sideName,
+    order.drinkName,
+    order.user,
+    order.totalPrice,
+    order.uid,
+    order.orderNumber,
+  ];
+  const sql = `insert into order_pizza(pizzaLeft,
+                                      pizzaRight,
+                                      pizzaQty,
+                                      doughName,
+                                      edgeName,
+                                      toppingName,
+                                      sideName,
+                                      drinkName,
+                                      userId,
+                                      totalPrice,
+                                      uid,
+                                      orderTime,
+                                      orderNumber) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,now(), ? )`;
+  try {
+    const [result] = await db.execute(sql, params);
+    result_rows = result.affectedRows;
+    console.log("rows -->", result.affectedRows);
+  } catch (error) {
+    console.log(error);
+  }
+
+  return { cnt: result_rows };
+};
+
+export const getOrderResult = async (orderNumber) => {
+  const sql = `select oid, pizzaLeft,pizzaRight,pizzaQty, doughName, edgeName, toppingName, sideName,drinkName, FORMAT(totalPrice,0) as totalPrice
+from order_pizza
+where orderNumber = ?`;
+
+  return await db.execute(sql, [orderNumber]).then((result) => result[0][0]);
 };

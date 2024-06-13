@@ -55,6 +55,14 @@ export const getSidesDetail = async (req, res) => {
   res.end();
 };
 
+export const getSidesOption = async (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  const event = await repository.getSidesOption(id);
+  res.json(event);
+  res.end();
+};
+
 export const getPopular = async (req, res) => {
   const event = await repository.getPopular();
 
@@ -90,9 +98,9 @@ export const getRightPizza = async (req, res) => {
 };
 
 export const getDoughPizza = async (req, res) => {
-  const { topping } = req.body;
+  const { id } = req.body;
 
-  const event = await repository.getTopping(topping);
+  const event = await repository.getDoughPizza(id);
 
   res.json(event);
   res.end();
@@ -114,7 +122,7 @@ export const getTopping = async (req, res) => {
   const event = await repository.getTopping(topping);
 
   res.json(event);
-  //console.log(event);
+  console.log(event);
   res.end();
 };
 
@@ -133,6 +141,30 @@ export const getSide = async (req, res) => {
 
   const event = await repository.getSide(side);
   console.log(event);
+  res.json(event);
+  res.end();
+};
+
+export const getDrink = async (req, res) => {
+  const drink = req.body;
+
+  const event = await repository.getDrink(drink);
+  console.log(event);
+  res.json(event);
+  res.end();
+};
+
+export const orderInsert = async (req, res) => {
+  const order = req.body;
+  const event = await repository.orderInsert(order);
+  res.json(event);
+  res.end();
+};
+
+export const getOrderResult = async (req, res) => {
+  const { orderNumber } = req.body;
+  console.log("orderNumber==>", orderNumber);
+  const event = await repository.getOrderResult(orderNumber);
   res.json(event);
   res.end();
 };

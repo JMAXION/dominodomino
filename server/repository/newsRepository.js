@@ -27,10 +27,11 @@ export const write = async (newsFormData) => {
  * 게시글 리스트 가져오기 */
 export const getList = async (params) => {
   const sql = `
-  select rno, bid, btitle, bhits, bdate, total from
+  select rno, bid, btitle, bcontent, bhits, bdate, total from
     (select row_number() over(order by bdate asc) as rno,
 		        bid, 
 		        btitle, 
+            bcontent,
             bhits, 
             left(bdate, 10) as bdate,
             (select count(*) from domino_newsBoard) total
@@ -93,4 +94,30 @@ export const countNews = () => {
   `;
 
   return db.execute(sql).then((result) => result[0][0]);
+};
+
+/*
+ * 이전prev, 다음next 게시글 가져오기 */
+export const getPrevBid = async (currentBid) => {
+  const sql = `SELECT bid FROM domino_newsBoard WHERE bid < ? ORDER BY bid DESC LIMIT 1`;
+  const [result] = await db.execute(sql, [currentBid]);
+  return result.length > 0 ? result[0].bid : null;
+};
+
+export const getNextBid = async (currentBid) => {
+  const sql = `SELECT bid FROM domino_newsBoard WHERE bid > ? ORDER BY bid ASC LIMIT 1`;
+  const [result] = await db.execute(sql, [currentBid]);
+  return result.length > 0 ? result[0].bid : null;
+};
+
+export const getPrevBtitle = async (currentBid) => {
+  const sql = `SELECT btitle FROM domino_newsBoard WHERE bid < ? ORDER BY bid DESC LIMIT 1`;
+  const [result] = await db.execute(sql, [currentBid]);
+  return result.length > 0 ? result[0].btitle : "";
+};
+
+export const getNextBtitle = async (currentBid) => {
+  const sql = `SELECT btitle FROM domino_newsBoard WHERE bid > ? ORDER BY bid ASC LIMIT 1`;
+  const [result] = await db.execute(sql, [currentBid]);
+  return result.length > 0 ? result[0].btitle : "";
 };

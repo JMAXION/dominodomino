@@ -8,5 +8,6 @@ router.get("/:bid", controller.getDetail);
 router.post("/write", controller.write);
 router.post("/updateHits", controller.updateHits);
 router.post("/countNews", controller.countNews);
+router.get("/prev-next/:bid", controller.getPrevNextNews);
 
 export default router;

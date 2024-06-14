@@ -99,7 +99,7 @@ export default function App() {
           path: "/event/discount",
           element: (
             <Discount
-              name="이벤트,제휴"
+              name="이벤트·제휴"
               depth1="홈"
               depth2="이벤트·제휴"
               depth3="제휴할인"
@@ -112,7 +112,7 @@ export default function App() {
           path: "/event/discount/detail/:id",
           element: (
             <Discountdetail
-              name="이벤트,제휴"
+              name="이벤트·제휴"
               depth1="홈"
               depth2="이벤트·제휴"
               depth3="제휴할인"
@@ -211,13 +211,19 @@ export default function App() {
         { path: "/orderway", element: <OrderWay depth2={"주문방법 선택"} /> },
         { path: "/cart", element: <Cart depth2={"장바구니"} /> },
 
-        { path: "/mypage", element: <MyPage /> },
-        { path: "/mypage/mania", element: <MyPage /> },
-        { path: "/mypage/order", element: <OrderList /> },
-        { path: "/mypage/coupon", element: <Coupon /> },
-        { path: "/mypage/certificate", element: <Certificate /> },
-        { path: "/mypage/qna", element: <Qna /> },
-        { path: "/mypage/information", element: <Information /> },
+        { path: "/mypage", element: <MyPage depth2={"매니아 등급"} /> },
+        { path: "/mypage/mania", element: <MyPage depth2={"매니아 등급"} /> },
+        { path: "/mypage/order", element: <OrderList depth2={"주문내역"} /> },
+        { path: "/mypage/coupon", element: <Coupon depth2={"쿠폰함"} /> },
+        {
+          path: "/mypage/certificate",
+          element: <Certificate depth2={"금액상품권"} />,
+        },
+        { path: "/mypage/qna", element: <Qna depth2={"1:1문의/칭찬"} /> },
+        {
+          path: "/mypage/information",
+          element: <Information depth2={"정보수정"} />,
+        },
 
         { path: "/service", element: <Service /> },
         {

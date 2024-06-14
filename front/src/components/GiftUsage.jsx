@@ -31,12 +31,14 @@ export default function GiftUsage({ depth2 }) {
         <button
           onClick={() => handleButtonClick(0)}
           className={activeButton === 0 ? "active" : ""}
+          style={{ cursor: "pointer" }}
         >
           도미노콘(세트&단품)/지류상품권 사용 방법
         </button>
         <button
           onClick={() => handleButtonClick(1)}
           className={activeButton === 1 ? "active" : ""}
+          style={{ cursor: "pointer" }}
         >
           도미노콘 금액상품권 사용 방법
         </button>

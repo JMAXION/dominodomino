@@ -76,14 +76,14 @@ export default function LoginMember() {
         <ul>
           <li className="login-lnlbutton">
             <Link to="/login" className="login-lnlbtn1">
-              <button>회원로그인</button>
+              <button style={{ cursor: "pointer" }}>회원로그인</button>
             </Link>
             <Link
               to="/nonmember"
               className="login-lnlbtn2"
               onClick={clickChange}
             >
-              <button>비회원주문</button>
+              <button style={{ cursor: "pointer" }}>비회원주문</button>
             </Link>
           </li>
           <li className="login-id">
@@ -108,11 +108,15 @@ export default function LoginMember() {
           </li>
 
           <li className="login-button">
-            <button type="submit">로그인</button>
+            <button type="submit" style={{ cursor: "pointer" }}>
+              로그인
+            </button>
           </li>
           <li className="signin-button">
             <Link to="/signup" onClick={clickAlert}>
-              <button type="button">회원가입</button>
+              <button type="button" style={{ cursor: "pointer" }}>
+                회원가입
+              </button>
             </Link>
           </li>
         </ul>

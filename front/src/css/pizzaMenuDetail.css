@@ -1,7 +1,7 @@
 .pizza-detail-content {
   display: flex;
   margin: 50px 20px 20px 20px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .pizza-detail-image-box {

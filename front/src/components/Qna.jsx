@@ -4,7 +4,7 @@ import { useState } from "react";
 import PageTitle from "../components/PageTitle";
 import { getUser, removeUser } from "../util/localStorage";
 
-export default function Qna() {
+export default function Qna({ depth2 }) {
   const userInfo = getUser();
   const [props, setprops] = useState({
     title: "나의 정보",
@@ -24,7 +24,7 @@ export default function Qna() {
   });
   return (
     <div className="content">
-      <PageTitle props={props} />
+      <PageTitle props={props} depth2={depth2} />
       <ul className="qna">
         <li>
           <span>{userInfo.userId}</span>님께서 문의하신 내용입니다
@@ -48,7 +48,7 @@ export default function Qna() {
         <tbody></tbody>
       </table>
       <ul className="qna-button">
-        <button>
+        <button style={{ "margin-bottom": "100px" }}>
           <Link to="/cs/order" style={{ color: "white" }}>
             자주 묻는 질문 확인하기
           </Link>

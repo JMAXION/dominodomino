@@ -122,6 +122,7 @@ const list5 = ["공지사항","-도미노뉴스","-보도자료"] */
           <li
             className="fromCenter header-show-more"
             onClick={(e) => setDropdownVisibility(!dropdownVisibility)}
+            style={{ cursor: "pointer" }}
           >
             더보기
             <span>

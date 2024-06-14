@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { getUser, removeUser } from "../util/localStorage";
 
-export default function Certificate() {
+export default function Certificate({ depth2 }) {
   const userInfo = getUser();
   const [props, setprops] = useState({
     title: "나의 정보",
@@ -30,7 +30,7 @@ export default function Certificate() {
   });
   return (
     <div className="content">
-      <PageTitle props={props} />
+      <PageTitle props={props} depth2={depth2} />
       <ul className="certificate">
         <li className="certificate-info">
           <li>

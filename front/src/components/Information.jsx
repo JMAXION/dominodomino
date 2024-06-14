@@ -5,7 +5,7 @@ import PageTitle from "../components/PageTitle";
 import { getUser } from "../util/localStorage";
 import axios from "axios";
 
-export default function Information() {
+export default function Information({ depth2 }) {
   const [props, setprops] = useState({
     title: "나의 정보",
     nav1: "매니아 등급",
@@ -38,7 +38,7 @@ export default function Information() {
   console.log("information-->", info);
   return (
     <div className="content">
-      <PageTitle props={props} />
+      <PageTitle props={props} depth2={depth2} />
       <ul className="mania-info personal">
         <li className="personal-info">
           <p>개인정보 확인</p>
@@ -50,24 +50,42 @@ export default function Information() {
         </li>
       </ul>
       <p className="personal-information">
-        <ul>
-          <li>이름</li>
-          <li>아이디</li>
-          <li>비밀번호</li>
-          <li>전화번호</li>
-          <li>이메일</li>
-          <li>주소</li>
-        </ul>
-        <ul>
-          <li>{info.user_name}</li>
-          <li>{info.user_id}</li>
-          <li>{userInfo.iat}</li>
-          <li>{info.phone}</li>
-          <li>
-            {info.email_id}@{info.email_domain}
-          </li>
-          <li>{info.address}</li>
-        </ul>
+        <table className="order-table">
+          <thead>
+            <tr>
+              <th>구분</th>
+              <th>상세</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>이름</td>
+              <td>{info.user_name}</td>
+            </tr>
+            <tr>
+              <td>아이디</td>
+              <td>{info.user_id}</td>
+            </tr>
+            <tr>
+              <td>비밀번호</td>
+              <td>{userInfo.iat}</td>
+            </tr>
+            <tr>
+              <td>전화번호</td>
+              <td>{info.phone}</td>
+            </tr>
+            <tr>
+              <td>이메일</td>
+              <td>
+                {info.email_id}@{info.email_domain}
+              </td>
+            </tr>
+            <tr>
+              <td>주소</td>
+              <td>{info.address}</td>
+            </tr>
+          </tbody>
+        </table>
       </p>
     </div>
   );

@@ -46,6 +46,7 @@ export default function EcouponUsage({ depth2 }) {
               <button
                 onClick={() => handleClick(index)}
                 className={activeIndex === index ? "active" : ""}
+                style={{ cursor: "pointer" }}
               >
                 {item.text}
               </button>

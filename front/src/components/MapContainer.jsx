@@ -267,6 +267,7 @@ const MapContainer = () => {
                         setPindex(index);
                         openModal("address");
                       }}
+                      style={{ cursor: "pointer" }}
                     >
                       상세보기
                     </p>

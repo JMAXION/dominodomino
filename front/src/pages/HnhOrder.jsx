@@ -40,7 +40,7 @@ export default function HnhOrder() {
           </li>
           <div className="order-list">
             <h1>구매정보</h1>
-            <table className="order-table">
+            <table className="order-tables">
               <thead>
                 <tr>
                   <th>아이템</th>

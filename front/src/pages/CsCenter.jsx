@@ -10,7 +10,7 @@ export default function CsCenter({ depth2 }) {
   const [props, setprops] = useState({
     title: "고객센터",
     breadcrumb: "자주하는 질문",
-    breadcrumbLink: "/csCenter", //브레드크럼 경로가 3개 이상일때 사용
+    breadcrumbLink: "/cs/order", //브레드크럼 경로가 3개 이상일때 사용
     nav1: "자주하는 질문",
     nav2: "1:1문의/칭찬",
     link1: "/csCenter",

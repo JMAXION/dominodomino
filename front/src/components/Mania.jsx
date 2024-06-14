@@ -65,7 +65,7 @@ export default function Mania() {
       <ul className="mania-coupon">
         <li>배달주문 20% 할인쿠폰 1매</li>
       </ul>
-      <ul className="mania-coupon-button">
+      <ul className="mania-coupon-button" style={{ "margin-bottom": "100px" }}>
         <button>쿠폰 받기</button>
       </ul>
     </div>

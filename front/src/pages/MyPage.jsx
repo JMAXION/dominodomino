@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import PageTitle from "../components/PageTitle";
 
-export default function MyPage() {
+export default function MyPage({ depth2 }) {
   const [props, setprops] = useState({
     title: "나의 정보",
     nav1: "매니아 등급",
@@ -23,7 +23,7 @@ export default function MyPage() {
   });
   return (
     <div>
-      <PageTitle props={props} />
+      <PageTitle props={props} depth2={depth2} />
       <Mania />
     </div>
   );

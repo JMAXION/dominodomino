@@ -4,7 +4,7 @@ import { useState } from "react";
 import PageTitle from "../components/PageTitle";
 import { getUser, removeUser } from "../util/localStorage";
 
-export default function Coupon() {
+export default function Coupon({ depth2 }) {
   const navigate = useNavigate();
   const userInfo = getUser();
   const [props, setprops] = useState({
@@ -25,8 +25,8 @@ export default function Coupon() {
   });
   return (
     <div className="content">
-      <PageTitle props={props} />
-      <ul className="coupon-now">
+      <PageTitle props={props} depth2={depth2} />
+      <ul className="coupon-now" style={{ "margin-bottom": "100px" }}>
         <li>
           <span>{userInfo.userId}</span>님께서 보유하고 있는 할인쿠폰 내역입니다
         </li>

@@ -1340,12 +1340,12 @@ img-wrap2 {
 .order-number {
   font-size: 1.5rem;
 }
-.order-table {
+.order-tables {
   margin: 2rem auto;
 }
-.order-table tr,
-th,
-td {
+.order-tables tr,
+.order-tables th,
+.order-tables td {
   border: 1px solid black;
 }
 

@@ -362,106 +362,43 @@ export default function Hnh({ depth2 }) {
   function check3() {
     let price = 0;
 
-    let priceREsult = 0;
+    let priceResult = 0;
+
+    // 기본 가격 계산
     if (selected.size === "L") {
-      price = (parseInt(pizzaLeft.lprice) + parseInt(pizzaRight.lprice)) / 2;
-
-      if (topping[1]) {
-        price +=
-          topping[1].quantity * topping[1].tprice +
-          selected.doughPrice +
-          selected.edgePrice;
-        tp += price * selected.qty;
-        if (topping[2]) {
-          price +=
-            topping[2].quantity * topping[2].tprice +
-            selected.doughPrice +
-            selected.edgePrice;
-          tp += price * selected.qty;
-        }
-        if (topping[3]) {
-          price +=
-            topping[3].quantity * topping[3].tprice +
-            selected.doughPrice +
-            selected.edgePrice;
-          tp += price * selected.qty;
-        }
-        if (topping[4]) {
-          price +=
-            topping[4].quantity * topping[4].tprice +
-            selected.doughPrice +
-            selected.edgePrice;
-          tp += price * selected.qty;
-        }
-        if (topping[5]) {
-          price +=
-            topping[5].quantity * topping[5].tprice +
-            selected.doughPrice +
-            selected.edgePrice;
-          tp += price * selected.qty;
-        }
-      } else {
-        price =
-          (parseInt(pizzaLeft.lprice) + parseInt(pizzaRight.lprice)) / 2 +
-          selected.doughPrice +
-          selected.edgePrice;
-        tp += price * selected.qty;
-      }
-
-      priceREsult = price.toLocaleString();
+      price =
+        (parseInt(pizzaLeft.lprice) + parseInt(pizzaRight.lprice)) / 2 +
+        selected.doughPrice +
+        selected.edgePrice;
     } else if (selected.size === "M") {
-      price = (parseInt(pizzaLeft.lprice) + parseInt(pizzaRight.lprice)) / 2;
-      if (topping[1]) {
-        price +=
-          topping[1].quantity * topping[1].tprice +
-          selected.doughPrice +
-          selected.edgePrice;
-        if (topping[2]) {
-          price +=
-            topping[2].quantity * topping[2].tprice +
-            selected.doughPrice +
-            selected.edgePrice;
-        }
-        if (topping[3]) {
-          price +=
-            topping[3].quantity * topping[3].tprice +
-            selected.doughPrice +
-            selected.edgePrice;
-        }
-        if (topping[4]) {
-          price +=
-            topping[4].quantity * topping[4].tprice +
-            selected.doughPrice +
-            selected.edgePrice;
-        }
-        if (topping[5]) {
-          price +=
-            topping[5].quantity * topping[5].tprice +
-            selected.doughPrice +
-            selected.edgePrice;
-        }
-      } else {
-        if (selected.doughPrice >= 0) {
-          price =
-            (parseInt(pizzaLeft.mprice) + parseInt(pizzaRight.mprice)) / 2 +
-            selected.doughPrice;
-        } else if (selected.edgePrice >= 0) {
-          price =
-            (parseInt(pizzaLeft.mprice) + parseInt(pizzaRight.mprice)) / 2 +
-            selected.edgePrice;
-        } else if (selected.doughPrice >= 0 && selected.edgePrice >= 0)
-          price =
-            (parseInt(pizzaLeft.mprice) + parseInt(pizzaRight.mprice)) / 2 +
-            selected.doughPrice +
-            selected.edgePrice;
-        else {
-          price =
-            (parseInt(pizzaLeft.mprice) + parseInt(pizzaRight.mprice)) / 2;
-        }
-      }
-      tp += priceREsult;
-      priceREsult = price.toLocaleString();
+      price =
+        (parseInt(pizzaLeft.mprice) + parseInt(pizzaRight.mprice)) / 2 +
+        selected.doughPrice +
+        selected.edgePrice;
     }
+
+    // 토핑이 있을 경우 가격 추가
+    if (topping[1]) {
+      price += topping[1].quantity * topping[1].tprice;
+    }
+    if (topping[2]) {
+      price += topping[2].quantity * topping[2].tprice;
+    }
+    if (topping[3]) {
+      price += topping[3].quantity * topping[3].tprice;
+    }
+    if (topping[4]) {
+      price += topping[4].quantity * topping[4].tprice;
+    }
+    if (topping[5]) {
+      price += topping[5].quantity * topping[5].tprice;
+    }
+
+    // 총 가격 계산
+    tp = price * selected.qty;
+    priceResult = price.toLocaleString();
+
+    // 타이틀 생성
     let title = "";
     if (pizzaLeft.pname && pizzaRight.pname) {
       title = pizzaLeft.pname.concat(
@@ -469,11 +406,12 @@ export default function Hnh({ depth2 }) {
         pizzaRight.pname,
         "/",
         selected.size,
-        `(${priceREsult}원)x${selected.qty}`
+        `(${priceResult}원)x${selected.qty}`
       );
     } else {
       title = "없음";
     }
+
     return title;
   }
 

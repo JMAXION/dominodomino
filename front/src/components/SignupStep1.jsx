@@ -283,6 +283,7 @@ export default function SignupStep1({ next, formData, handleCheck }) {
         type="button"
         onClick={() => validateCheckStep1(next, formData)}
         className="signup-next-button"
+        style={{ cursor: "pointer" }}
       >
         다음
       </button>

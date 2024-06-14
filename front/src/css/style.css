@@ -205,6 +205,51 @@
   margin-bottom: 2rem;
   padding-bottom: 1rem;
 }
+.signup-info-1 {
+  display: inline-block;
+  width: 100px;
+  /* border: 1px solid green; */
+}
+.signup-info-phonenumber {
+  margin-left: 8px;
+  width: 600px;
+}
+.signup-info-phone-select {
+  width: 300px;
+}
+.signup-info-phone-number {
+  width: 295px;
+}
+.signup2-info-id-button {
+  margin-left: 8px;
+  border: none;
+  color: white;
+  background-color: black;
+}
+.signupstep2-id,
+.signupstep2-pass,
+.signupstep2-passcheck,
+.signupstep2-name {
+  width: 600px;
+}
+.signup-info-address-detail1 {
+  width: 150px;
+}
+.signup-info-address-detail2 {
+  width: 250px;
+}
+.signup-info-addresssearchbutton {
+  color: white;
+  border: none;
+  background-color: black;
+  margin-left: 8px;
+}
+.signup2-email {
+  width: 300px;
+}
+.signup-email-domaincheck {
+  margin-left: 13px;
+}
 .service-agreement p {
   background-color: rgb(0, 0, 0, 0.05);
   width: 700px;
@@ -332,7 +377,7 @@
   /* padding: 100px 0; */
 }
 .branch-result {
-  border-top: 1px solid #999;
+  /* border-top: 1px solid #999; */
   width: 500px;
   height: 696px;
   text-align: center;
@@ -346,13 +391,19 @@
   border-bottom: 1px solid #777;
   margin-bottom: 50px;
   font-size: 1rem;
-  margin-left: 5px;
+  margin-left: 6px;
+  border: 1px solid rgb(0, 0, 0, 0.2);
+  color: gray;
 }
 .branch-select-warning {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  border-bottom: 1px solid #999;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.2);
+}
+.branch-select-warning li {
+  color: gray;
+  margin-bottom: 1rem;
 }
 .branch-infos {
   max-width: 500px;

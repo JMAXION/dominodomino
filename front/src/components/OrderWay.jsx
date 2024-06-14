@@ -12,7 +12,7 @@ import OrderWayModal from "./OrderWayModal";
 import PageTitle from "./PageTitle";
 
 export default function OrderWay({ depth2 }) {
-  const location = useLocation();
+  const location = useLocation({});
   const [orderType, setOrderType] = useState(location.state?.orderType || null);
   const [props, setprops] = useState({
     title: "주문방법 선택",
@@ -229,7 +229,11 @@ export default function OrderWay({ depth2 }) {
                     <br /> 주문을 진행하시겠습니까?
                   </li>
                   <button className="order-select-button-button">
-                    <Link to="/pizzas" style={{ color: "white" }}>
+                    <Link
+                      to="/pizzas"
+                      style={{ color: "white" }}
+                      state={location}
+                    >
                       메뉴 선택
                     </Link>
                   </button>

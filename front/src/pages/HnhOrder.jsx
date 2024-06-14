@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import "../css/hnh.css";
 import { getUser } from "../util/localStorage";
+import PageTitle from "../components/PageTitle";
 export default function HnhOrder() {
   const location = useLocation();
   const userInfo = getUser();
@@ -18,19 +19,77 @@ export default function HnhOrder() {
     }).then((result) => setOrderList(result.data));
   });
 
+  const [props, setprops] = useState({
+    title: "주문", // 여기를 상품의 이름으로 바꾸고 싶은거야 {pizza.pname}이 출력되게
+  });
+  console.log(orderList);
+
   return (
     <div className="order-container">
       {userInfo ? (
         <>
-          <h1>주문 확인</h1>
-          <h3>
-            {" "}
-            <span className="order-name">{userInfo.userId}</span>님의 주문이
-            완료되었습니다<br></br> 주문번호 {orderNumber}
-          </h3>
+          <PageTitle props={props} />
+          <li>
+            <p className="order-done">
+              <span className="order-name">{userInfo.userId}</span>님의 주문이
+              완료되었습니다<br></br>
+            </p>{" "}
+            <p className="order-number">
+              주문번호 <span>{orderNumber}</span>
+            </p>
+          </li>
           <div className="order-list">
             <h1>구매정보</h1>
-            <ul>
+            <table className="order-table">
+              <thead>
+                <tr>
+                  <th>아이템</th>
+                  <th>상세 정보</th>
+                  <th>수량</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>피자</td>
+                  <td>
+                    {orderList.pizzaLeft} + {orderList.pizzaRight}
+                  </td>
+                  <td>{orderList.pizzaQty}</td>
+                </tr>
+                <tr>
+                  <td>도우</td>
+                  <td colSpan={2}>{orderList.doughName}</td>
+                </tr>
+                <tr>
+                  <td>엣지</td>
+                  <td colSpan={2}>{orderList.edgeName}</td>
+                </tr>
+                <tr>
+                  <td>토핑</td>
+                  <td colSpan={2}>{orderList.toppingName}</td>
+                </tr>
+                <tr>
+                  <td>사이드</td>
+                  <td colSpan={2}>{orderList.sideName}</td>
+                </tr>
+                <tr>
+                  <td>음료</td>
+                  <td colSpan={2}>{orderList.drinkName}</td>
+                </tr>
+                {orderList.totalPrice && (
+                  <tr>
+                    <td colSpan="2">총 금액</td>
+                    <td>
+                      <span className="result-money">
+                        {orderList.totalPrice}
+                      </span>
+                      원
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+            {/* <ul>
               <li>
                 {orderList.pizzaLeft}+{orderList.pizzaRight}x
                 {orderList.pizzaQty}
@@ -46,7 +105,7 @@ export default function HnhOrder() {
                   <span className="result-money">{orderList.totalPrice}</span>원
                 </li>
               )}
-            </ul>
+            </ul> */}
           </div>
         </>
       ) : (

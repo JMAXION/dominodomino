@@ -3,14 +3,14 @@ import { db } from "../database/database_mysql80.js";
 import { log } from "console";
 
 export const getPizzas = async () => {
-  const sql = `select pid, menuimg, lable, pname, concat(format(lprice,0),'원') as lprice, concat(format(mprice,0),'원') as mprice, desc1, desc2, mcategory, country, topping from pizza
+  const sql = `select pid, menuimg, lable, pname, lprice, mprice, desc1, desc2, mcategory, country, topping from pizza
   `;
 
   return await db.execute(sql).then((result) => result[0]);
 };
 
 export const getPizzasDetail = async (id) => {
-  const sql = `select pid, menuimg, pname, concat(format(lprice,0),'원') as lprice, concat(format(mprice,0),'원') as mprice, desc1, desc2, category, pcode, ptype, did, ecategory, ecode, etype, country, topping, mcategory from pizza
+  const sql = `select pid, menuimg, pname, lprice, mprice, desc1, desc2, category, pcode, ptype, did, ecategory, ecode, etype, country, topping, mcategory from pizza
 where pid = ?`;
 
   return await db.execute(sql, [id]).then((result) => result[0][0]);
@@ -61,6 +61,13 @@ export const getSidesDetail = async (id) => {
                 where sid = ?`;
 
   return db.execute(sql, [id]).then((result) => result[0][0]);
+};
+
+export const getSidesOption = async (id) => {
+  const sql = `select sid, sname, simage, skind,  sprice, lable, desc1, country, topping, quantity, category from side
+                where sid = ?`;
+
+  return await db.execute(sql, [id]).then((result) => result[0]);
 };
 
 export const getPopular = async () => {

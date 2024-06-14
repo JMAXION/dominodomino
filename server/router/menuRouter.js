@@ -11,6 +11,7 @@ router.get("/pizzas/:id/edge", controller.getPizzasEdge);
 router.post("/pizzas/topping", controller.getPizzasTopping);
 router.get("/sides", controller.getSides);
 router.get("/sides/:id", controller.getSidesDetail);
+router.get("/sides/:id/option", controller.getSidesOption);
 router.get("/popular", controller.getPopular);
 router.post("/halfnhalf", controller.getPizza);
 router.post("/halfnhalf/pizzaleft", controller.getLeftPizza);

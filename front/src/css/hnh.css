@@ -1266,7 +1266,7 @@ img-wrap2 {
 .total-price {
   position: absolute;
   top: 23px;
-  right: 0;
+  right: -25px;
   font-size: 16px;
   color: #111;
   text-align: center;
@@ -1330,4 +1330,33 @@ img-wrap2 {
 .result-money {
   font-size: 2rem;
   font-weight: 700;
+}
+.order-done {
+  font-weight: bold;
+  font-size: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+}
+.order-number {
+  font-size: 1.5rem;
+}
+.order-table {
+  margin: 2rem auto;
+}
+.order-table tr,
+th,
+td {
+  border: 1px solid black;
+}
+
+.order-check {
+  width: 158px;
+  height: 46px;
+  background: #ff143c;
+  border: 1px solid #ff143c;
+  color: #fff;
+  font-size: 18px;
+  line-height: 46px;
+  font-weight: 500;
+  margin-right: 1rem;
 }

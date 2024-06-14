@@ -89,3 +89,18 @@ export const getLogin = async (userId, userPass) => {
   } catch (error) {}
   return { cnt: login_result, token: login_token };
 };
+
+export const getUserInfo = async (userId) => {
+  const sql = `
+  select user_id, 
+  user_pass, 
+  user_name, 
+  email_id, 
+  email_domain, 
+  phone,
+  zipcode, 
+  address
+  from domino_member where user_id = ?
+  `;
+  return db.execute(sql, [userId]).then((result) => result[0][0]);
+};

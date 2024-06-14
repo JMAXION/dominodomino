@@ -89,16 +89,18 @@ export default function Hnh({ depth2 }) {
   });
   const [props, setprops] = useState({
     title: "메뉴",
-    breadcrumb: "하프앤하프", //브레드크럼 경로가 3개 이상일때 사용
-    breadcrumbLink: "/menu/halfnhalf", //브레드크럼 경로가 3개 이상일때 사용
+    breadcrumb: "하프앤하프", // 여기를 상품의 이름으로 바꾸고 싶은거야 {pizza.pname}이 출력되게
+    breadcrumbLink: "/sides",
     nav1: "피자",
     nav2: "하프앤하프",
     nav3: "사이드디시",
     nav4: "인기세트메뉴",
+    nav5: "음료&기타",
     link1: "/pizzas",
     link2: "/menu/halfnhalf",
     link3: "/sides",
     link4: "/popular",
+    link5: "/beverage",
   });
 
   const [order, setOrder] = useState({
@@ -823,7 +825,9 @@ export default function Hnh({ depth2 }) {
 
               {userInfo ? (
                 <div className="btn-wrap">
-                  <button onClick={settingOrder}>주문확정</button>
+                  <button onClick={settingOrder} className="order-check">
+                    주문확정
+                  </button>
                   <Link to="/menu/halfnhalf/orderok" state={{ orderNumber }}>
                     <button type="button" className="btn-type">
                       주문확인{" "}

@@ -34,7 +34,8 @@ export default function Information() {
       .then((result) => setInfo(result.data))
       .catch((error) => console.log(error));
   }, []);
-  console.log(userInfo);
+  console.log("userinformation-->", userInfo);
+  console.log("information-->", info);
   return (
     <div className="content">
       <PageTitle props={props} />

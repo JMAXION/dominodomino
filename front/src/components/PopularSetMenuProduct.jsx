@@ -67,7 +67,7 @@ export default function PopularSetMenuProduct({ depth2 }) {
       <PageTitle props={props} depth2={depth2} />
       <div className="popular-set-menu">
         <div className="popular-set-menu-image">
-          <Link to={`/popular/${comboList.id}`}>
+          <Link to={`/popular/${comboList.id}`} state={{ combo: comboList }}>
             <img src={comboList.image1} alt={comboList.name} />
           </Link>
         </div>

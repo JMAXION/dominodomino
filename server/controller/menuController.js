@@ -55,6 +55,14 @@ export const getSidesDetail = async (req, res) => {
   res.end();
 };
 
+export const getSidesOption = async (req, res) => {
+  const id = req.params.id;
+  console.log(id);
+  const event = await repository.getSidesOption(id);
+  res.json(event);
+  res.end();
+};
+
 export const getPopular = async (req, res) => {
   const event = await repository.getPopular();
 
